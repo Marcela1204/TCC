@@ -1,0 +1,218 @@
+\documentclass[a4paper,10pt, twocolumn]{article}
+\usepackage[a4paper,top=2cm,bottom=3cm,left=2cm,right=2cm,footskip=0.8cm]{geometry}
+\usepackage{lipsum}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{caption}    % Para personalizar legendas, opcional
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{helvet}
+\usepackage{}
+\usepackage{multicol}
+\usepackage{titlesec}     % Para personalizar \section
+\usepackage[style=ieee, sorting=nty, language=portuguese]{biblatex}
+\definecolor{grayFEI}{HTML}{7F7F7F}
+\usepackage{paracol} % no preâmbulo
+\usepackage{titlesec}
+\usepackage{indentfirst}  % Indenta o primeiro parágrafo
+\setlength{\parindent}{2em}  % Aumenta a indentação para 2em (pode ser ajustado
+\titlespacing*{\section}{0pt}{*0}{0pt}
+\usepackage{ragged2e}
+
+
+%-------------------------- ESTILOS NÃO ALTERAR ------------------------------------------------%
+% Estilo para legendas de figura e tabela
+\captionsetup[figure]{
+  labelfont={color=azulFEI, bf, small, sf}, % "Figura" azul, negrito, Arial-like
+  textfont={small, sf},                    % Texto da legenda em Arial-like
+  font=footnotesize,                       % Tamanho aproximado de 9pt
+  labelsep=period,                         % "Figura 1." e não "Figura 1:"
+  name=Figura,                             % Tradução para "Figura"
+  justification=raggedright,              % Alinhado à esquerda
+  singlelinecheck=false                   % Garante alinhamento mesmo em uma linha
+}
+
+\captionsetup[table]{
+  labelfont={color=azulFEI, bf, small, sf},
+  textfont={small, sf},
+  font=footnotesize,
+  labelsep=period,
+  name=Tabela,
+  justification=raggedright,
+  singlelinecheck=false
+}
+
+% Formatação section e subsection
+\titleformat{\subsection}
+  {\color{grayFEI}\normalfont\fontfamily{phv}\selectfont\itshape\fontsize{10}{12}\selectfont}
+  {\thesubsection.}{0.2em}{}
+\renewcommand{\thesubsection}{\Alph{subsection}}
+
+\titleformat{\section}
+  {\color{azulFEI}\normalfont\fontfamily{phv}\selectfont\bfseries\fontsize{11}{13}\selectfont} % Fonte Helvetica, tamanho 11pt, negrito
+  {\thesection.}{0.2em}{}
+\renewcommand{\thesection}{\Roman{section}} 
+\titlespacing*{\section}
+{0pt}{10pt}{0pt}
+
+%Formatação Título
+\newcommand{\inovatitle}[1]{%
+  \noindent{\fontsize{18}{20}{\helvet{\textbf{\textcolor{azulFEI}{#1}}}}}\vspace{25pt}
+}
+
+%Formatação Autores
+\newcommand{\autores}[1]{
+  \helvet{\fontsize{11}{20}\selectfont\textbf{\textit{#1}}}
+}
+\newcommand{\orientador}[1]{
+  \helvet{\fontsize{11}{20}\selectfont\textbf{\textit{#1}}}
+}
+\newcommand{\filiacao}[1]{
+  \helvet{\fontsize{10}{20}\selectfont{\textit{#1}}}
+}
+\newcommand{\email}[1]{
+  \helvet{\fontsize{10}{20}\selectfont{\textit{#1}}\newline}
+}
+\newcommand{\resumo}[1]{%
+\vspace{15pt}
+  \noindent
+  {\helvet{\fontsize{12}{20}\selectfont\textbf{\textcolor{azulFEI}{Resumo:}}}} %
+  \justifying #1 %
+  \newline
+}
+
+\newcommand{\keyword}[1]{
+  \noindent\helvet{\fontsize{12}{20}\selectfont\textbf{\textcolor{azulFEI}{Palavras-chaves:}}} #1  \vspace{25pt}
+}
+
+\renewcommand{\thetable}{\Roman{table}}
+
+
+% Define a cor azul específica (exemplo: azul FEI)
+\definecolor{azulFEI}{HTML}{0070C0} % substitua pelo código que quiser
+
+%Formatação Cabeçalho e rodapé
+\setlength{\headsep}{1cm}
+\newcommand{\helvet}[1]{{\fontfamily{phv}\selectfont #1}}
+\pagestyle{fancy}
+\fancyhead{} % limpa cabeçalho
+\renewcommand{\headrulewidth}{0.3pt} % ← ATIVA a linha (espessura ajustável)
+\setlength\headheight{1.2cm}
+\lhead{\includegraphics[width=4.97cm, height=1cm]{logoinova.png}}
+\rhead{\helvet{1º semestre/2025}}
+
+\fancyfoot{} % limpa rodapé
+\lfoot{
+  \fontfamily{phv}\fontsize{8}{10}\selectfont
+  Anais dos Trabalhos de Conclusão de Curso do Centro Universitário FEI, São Bernardo do Campo – SP\\
+  \vspace{-4pt}\rule{\textwidth}{1pt} % ← linha abaixo do texto do rodapé
+}
+\rfoot{\fontfamily{phv}\fontsize{8}{10}\selectfont \thepage}
+
+%-------------------------------- FIM ESTILOS ---------------------------------------------------%
+
+
+
+%Adicionar a bibliografia
+\addbibresource{referencias.bib}
+
+
+\begin{document}
+
+\setlength{\columnsep}{20pt}
+\twocolumn[%
+\begin{@twocolumnfalse}
+
+\raggedright{
+
+
+
+\inovatitle{Modelo para Artigos do INOVA FEI – Exposição de Trabalhos de Conclusão de Curso da FEI}
+
+
+\autores{Aluno A$^1$, Aluno B$^1$, Aluno C$^2$}
+
+\filiacao{$^1$ Administração – campus São Paulo/ Administração – campus São Bernardo do Campo  / Ciência da Computação - campus São Bernardo do Campo/ Engenharia de Produção - campus São Paulo /  ....}
+
+\filiacao{$^2$ Engenharia de Produção - campus São Paulo /  ....}
+
+\email{e-mail1@xxx.xxx, e-mail2@xxx.xxx, e-mail3@xxx.xxx}
+
+\orientador{Orientador: Nome do Orientador}
+
+\filiacao{Departamento de XXX, Centro Universitário FEI}
+
+\email{e-mailorientador@fei.edu.br}
+
+\resumo{Este documento é um modelo para a elaboração dos artigos com resultados dos trabalhos de conclusão de curso do Centro Universitário FEI. Estes artigos serão publicados nos Anais dos Trabalhos de Conclusão de Curso, e constituem uma entrega obrigatória para a defesa do TCC. O resumo do trabalho deve ser escrito de forma clara e objetiva. Este item deve apresentar as principais ideias de desenvolvimento do projeto e seus principais resultados (quando houver) não ultrapassando 10 linhas. O título deve ser escrito apenas com iniciais maiúsculas. Os autores devem ser numerados apenas no caso em que sejam de cursos diferentes.}
+
+\keyword{listar até 6 palavras-chave, separadas por vírgulas.}
+}
+
+\end{@twocolumnfalse}
+]
+
+
+
+\section{Introdução}
+
+O trabalho deve ser escrito em português em até 2 páginas de tamanho A4, em duas colunas, usando espaçamento simples e fonte “Times New Roman" de tamanho 10. Palavras e termos em língua estrangeira devem ser grafados em itálico. Trabalhos com mais páginas terão publicadas apenas as duas primeiras.
+O título do trabalho deve ser escrito em negrito, com iniciais em letra maiúscula, fonte Arial, de tamanho 18, alinhado à esquerda. Títulos de seções devem ser numerados em algarismos romanos, separados por ponto, escritas em negrito, de tamanho 11, fonte Arial, alinhados à esquerda. Títulos das subseções serão indicados por letras, com fonte Arial, negrito, itálico, tamanho 10. Esta página já está no formato padrão podendo ser utilizada como modelo.
+
+ Os nomes dos autores, do curso e o endereço eletrônico para contato devem ser escritos em itálico, alinhado à esquerda, com tamanho 11 e negrito (nomes) e 10 (departamento e e-mail). Caso existam alunos de mais de um curso, deve-se incluir sequência numérica para identificação, colocada sobrescrito, do lado direito para o autor e do lado esquerdo para os cursos. Alunos de um mesmo curso utilizarão o mesmo número de identificação. Caso todos os alunos sejam do mesmo curso, não é necessário incluir o número de identificação do autor e do curso. Deve-se incluir o departamento do orientador.
+
+\section{Formatação da página}
+As margens da folha estão definidas na Tabela I. O trabalho deve conter resumo; introdução; objetivos, metodologia; resultados e conclusões além de eventuais referências bibliográficas. Seções adicionais podem ser incluídas, caso necessário. 
+
+O corpo do trabalho deve ser escrito com caracteres de tamanho 10, sem linhas em branco separando os parágrafos. Em cada novo parágrafo, o início da primeira linha deve ser deslocado em 0,5 cm, conforme modelo. Cabeçalho e rodapé não devem ser alterados.
+
+As referências devem ser indicadas entre chaves [1] ao longo do texto e descrito no final do artigo citando: nomes dos autores (pode ser abreviado, no máximo três nomes e caso tenha mais nomes usar o et. al.), nome da revista, volume, ano da publicação e página ou nome do livro, editor e ano de publicação. 
+Por exemplo: em \cite{10.1145/3716895.3716981} foram realizados muitos testes, alcançando uma acurácia de 100\%. Já em \cite{10.1145/3593239} não obtiveram resultados satisfatórios.
+
+\section{Figuras, tabelas e equações}
+
+\subsection{Figuras}
+As figuras devem ser centralizadas, e as legendas devem ser numeradas sequencialmente, alinhadas à esquerda na parte inferior, conforme exemplo apresentado, usando fonte Arial tamanho 9. O tamanho da figura e das letras dentro das figuras deve estar legível. Cores podem ser utilizadas, desde que apresentem boa resolução. As figuras devem ser citadas no texto, por exemplo, a Figura \ref{fig:minhafigura-coluna} apresenta um gráfico.
+ 
+\begin{figure}[h!] % ← precisa do pacote float
+\centering
+\includegraphics[width=0.8\columnwidth]{exemplofig.png}
+\caption{Legenda da figura dentro da coluna}
+\label{fig:minhafigura-coluna}
+\end{figure}
+
+\subsection{Tabelas} 
+As tabelas devem ser referenciadas sequencialmente, com a legenda posicionada na parte superior da mesma e alinhada à esquerda, usando fonte Arial tamanho 9.\textbf{ O texto nas células da tabela deve ser centralizado. Usar o comando $|c|$} Elas devem ser citadas no texto, por exemplo a Tabela \ref{tab:exemplo} apresenta as informações das margens.
+
+\begin{table}[H]
+\caption{Legenda da tabela, precisa ser intuitivo.}
+\label{tab:exemplo}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Margem} & \textbf{Tamanho (cm)} \\ \hline
+Superior & 2,0 \\ \hline
+Inferior & 2,0 \\ \hline
+Esquerda & 2,0 \\ \hline
+Direita & 2,0 \\ \hline
+Coluna & 1,0 \\ \hline
+\end{tabular}
+\end{table}
+
+
+\subsection{Equações}
+Caso seja necessário incluir equações, estas devem ser apresentadas em itálico, alinhadas à esquerda, e numeradas no lado direito entre parênteses.
+\begin{equation}
+    W= \theta_1 - \theta_2
+\end{equation}
+
+\section{Conclusões}
+Destaque os principais resultados alcançados e contribuições do trabalho desenvolvido.
+
+\section{Referências}
+\printbibliography[heading=none]
+
+\section*{Agradecimentos}
+A seção de agradecimentos é opcional.\textbf{ Autores (incluindo o professor orientador) não devem ser incluídos nos agradecimentos. }
+
+
+\end{document}

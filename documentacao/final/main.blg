@@ -1,0 +1,15 @@
+[0] Config.pm:307> INFO - This is Biber 2.19
+[0] Config.pm:310> INFO - Logfile is 'main.blg'
+[79] biber:340> INFO - === Sun Feb  8, 2026, 01:40:02
+[104] Biber.pm:419> INFO - Reading 'main.bcf'
+[159] Biber.pm:979> INFO - Found 2 citekeys in bib section 0
+[170] Biber.pm:4419> INFO - Processing section 0
+[179] Biber.pm:4610> INFO - Looking for bibtex file 'referencias.bib' for section 0
+[181] bibtex.pm:1713> INFO - LaTeX decoding ...
+[202] bibtex.pm:1519> INFO - Found BibTeX data source 'referencias.bib'
+[268] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[268] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[268] Biber.pm:4239> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[268] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
+[276] bbl.pm:660> INFO - Writing 'main.bbl' with encoding 'UTF-8'
+[278] bbl.pm:763> INFO - Output to main.bbl

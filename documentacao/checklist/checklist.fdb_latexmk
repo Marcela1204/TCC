@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber checklist"] 0 "checklist.bcf" "checklist.bbl" "checklist" 1770514654.60497 0
+["biber checklist"] 0 "checklist.bcf" "checklist.bbl" "checklist" 0 0
   "checklist.bcf" 0 -1 0 "pdflatex"
   "references.bib" 0 -1 0 ""
   (generated)
   "checklist.bbl"
   "checklist.blg"
   (rewritten before read)
-["pdflatex"] 1770514653.5858 "/workspaces/TCC/documentacao/checklist/checklist.tex" "checklist.pdf" "checklist" 1770514654.60558 0
+["pdflatex"] 1770610531.81263 "/workspaces/TCC/documentacao/checklist/checklist.tex" "checklist.pdf" "checklist" 1770610532.84903 0
   "/etc/texmf/web2c/texmf.cnf" 1770514057.43682 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcrm1095.tfm" 1136768653 1536 02c06700a42be0f5a28664c7273f82e7 ""
@@ -95,11 +95,11 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1770514098.25982 5472669 54eaf61a88b6b7896ebd0dac973cb29c ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1770514143 8214641 4fdedf4fb2bac13e21335fe9baf3a5d7 ""
-  "/workspaces/TCC/documentacao/checklist/checklist.tex" 1770514652.7548 4053 2c4274ede05022a7a238c126247a5db0 ""
-  "checklist.aux" 1770514654.4468 221 3048c310797af7ac82d8033b49b3b622 "pdflatex"
+  "/workspaces/TCC/documentacao/checklist/checklist.tex" 1770610529.022 3494 48f6854fe4f5928b7a678540c7d1658e ""
+  "checklist.aux" 1770610532.697 221 3048c310797af7ac82d8033b49b3b622 "pdflatex"
   "checklist.bbl" 0 -1 0 "biber checklist"
-  "checklist.run.xml" 1770514654.4498 2343 21308dbf22b0b2431e55ec5eae9a4502 "pdflatex"
-  "checklist.tex" 1770514652.7548 4053 2c4274ede05022a7a238c126247a5db0 ""
+  "checklist.run.xml" 1770610532.7 2343 21308dbf22b0b2431e55ec5eae9a4502 "pdflatex"
+  "checklist.tex" 1770610529.022 3494 48f6854fe4f5928b7a678540c7d1658e ""
   (generated)
   "checklist.aux"
   "checklist.bcf"

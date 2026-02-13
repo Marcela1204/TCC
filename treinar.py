@@ -32,11 +32,11 @@ df["Cluster"] = labels
 
 print("Vizualização")
 
-plt.scatter(x[:, 0], x[:, 1], c=labels, s=10)
-plt.xlabel(valA)
-plt.ylabel(valB)
-plt.title("Separação de padrões de tráfego")
-plt.show()
+# plt.scatter(x[:, 0], x[:, 1], c=labels, s=10)
+# plt.xlabel(valA)
+# plt.ylabel(valC)
+# plt.title("Separação de padrões de tráfego")
+# plt.show()
 input("enter para continuar")
 print("ok")
 

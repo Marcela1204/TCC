@@ -1,0 +1,330 @@
+%% FEI-template.tex
+%% Este trabalho utiliza uma adaptação da classe USPSC.cls que é mantida pela seguinte equipe:
+%% 
+%% Coordenação e Programação:
+%%   - Marilza Aparecida Rodrigues Tognetti - marilza@sc.usp.br (PUSP-SC)
+%%   - Ana Paula Aparecida Calabrez - aninha@sc.usp.br (PUSP-SC)
+%% Normalização:
+%%   - Brianda de Oliveira Ordonho Sigolo - brianda@usp.br (IAU)
+%%   - Eduardo Graziosi Silva - edu.gs@sc.usp.br (EESC)
+%%   - Eliana de Cássia Aquareli Cordeiro - eliana@iqsc.usp.br (IQSC)
+%%   - Flávia Helena Cassin - cassinp@sc.usp.br (EESC)
+%%   - Maria Cristina Cavarette Dziabas - mcdziaba@ifsc.usp.br (IFSC)
+%%   - Regina Célia Vidal Medeiros - rcvmat@icmc.usp.br (ICMC)
+%%
+
+
+
+%----------------------------------------------------------------
+%% Sobre a classe abntex2.cls:
+%% abntex2.cls, v-1.9.5 laurocesar
+%% Copyright 2012-2015 by abnTeX2 group at https://www.abntex.net.br/ 
+%%
+%----------------------------------------------------------------
+
+\documentclass[
+% -- opções da classe memoir --
+12pt,		% tamanho da fonte
+%openright,	% capítulos começam em pág ímpar (insere página vazia caso preciso)
+oneside,  % para impressão em anverso (frente) e verso. Oposto a oneside - Nota: utilizar \imprimirfolhaderosto*
+%oneside, % para impressão em páginas separadas (somente anverso) -  Nota: utilizar \imprimirfolhaderosto
+% inclua uma % antes do comando twoside e exclua a % antes do oneside 
+a4paper,			% tamanho do papel. 
+% -- opções da classe abntex2 --
+chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
+% -- opções do pacote babel --
+english,			% idioma adicional para hifenização
+french,				% idioma adicional para hifenização
+spanish,			% idioma adicional para hifenização
+brazil				% o último idioma é o principal do documento
+]{classe/USPSC}
+
+% ---
+% Pacotes básicos - Fundamentais 
+% ---
+\usepackage[T1]{fontenc}		% Seleção de códigos de fonte.
+\usepackage[utf8]{inputenc}		% Codificação do documento (conversão automática dos acentos)
+\usepackage{times}		    	% Usa a fonte Times New Roman							
+\usepackage{lastpage}			% Usado pela Ficha catalográfica
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}				% Controle das cores
+\usepackage{graphicx}			% Inclusão de gráficos
+\usepackage{float} 				% Fixa tabelas e figuras no local exato
+\usepackage{chemfig}            % Para escrever reações químicas
+\usepackage{chemmacros}         % Para escrever reações químicas
+\usepackage{tikz}				% Para escrever reações químicas e outros
+\usetikzlibrary{positioning}
+\usepackage{microtype} 			% para melhorias de justificação
+\usepackage{pdfpages}
+\usepackage{makeidx}            % para gerar índice remissivo
+\usepackage{hyphenat}          % Pacote para retirar a hifenizacao do texto
+\usepackage[absolute]{textpos} % Pacote permite o posicionamento do texto
+\usepackage{eso-pic}           % Pacote para incluir imagem de fundo
+\usepackage{makebox}           % Pacote para criar caixa de texto
+\usepackage{setspace}
+\usepackage{caption}
+\captionsetup[table]{justification=raggedright, singlelinecheck=false, width=\textwidth} % Alinha a legenda da tabela à esquerda
+\captionsetup[quadro]{justification=raggedright, singlelinecheck=false, width=\textwidth} % Alinha a legenda da tabela à esquerda	
+\captionsetup[figure]{justification=raggedright, singlelinecheck=false, width=\textwidth} % Alinha a legenda da tabela à esquerda	
+% ---
+% Pacotes de citações
+% Citações padrão ABNT
+% ---
+% Sistemas de chamada: autor-data ou numérico.
+% Sistema autor-data
+\usepackage[alf, abnt-emphasize=bf, abnt-thesis-year=both, abnt-repeated-author-omit=no, abnt-last-names=abnt, abnt-etal-cite=3, abnt-etal-list=3, abnt-etal-text=it, abnt-and-type=e, abnt-doi=doi, abnt-url-package=none, abnt-verbatim-entry=no]{abntex2cite}
+\bibliographystyle{classe/abntex2-alf-USPSC}
+
+
+% Se o idioma for o inglês, inclua % no comando acima e exclua o % do comando abaixo
+%\bibliographystyle{USPSC-classe/abntex2-alfeng-USPSC}
+
+
+% Complementarmente, verifique as instruções abaixo sobre os Pacotes de Nota de rodapé
+% ---
+% Pacotes de Nota de rodapé
+% Configurações de nota de rodapé
+
+
+\renewcommand{\footnotesize}{\small} %Comando para diminuir a fonte das notas de rodapé
+\renewcommand{\ABNTEXchapterfont}{\rmfamily}
+\newcommand{\citefonte}[1]{\fontsize{10}{12}\selectfont\citeauthor{#1}, \citeyear{#1}} %Exibe como Autor,Ano em fonte 10 para Fontes de Tabelas, Quadros e Figuras
+
+
+% ---
+% Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
+% ---
+\usepackage{lipsum}				% para geração de dummy text
+% ---
+
+% pacotes de tabelas
+\usepackage{multicol}	% Suporte a mesclagens em colunas
+\usepackage{multirow}	% Suporte a mesclagens em linhas
+\usepackage{longtable}	% Tabelas com várias páginas
+\usepackage{threeparttablex}    % notas no longtable
+\usepackage{array}
+
+
+% Pacotes para Overleaf
+%\usepackage{showframe} % Para resolver "Underfull \hbox" e "Underfull \vbox"
+
+% ----
+% Compatibilização com a ABNT NBR 6023:2018 e 10520:2023
+\usepackage{classe/ABNT6023-10520}
+
+
+
+% Os demais dados deverão ser fornecidos no arquivo FEI-pre-textual
+% Configurações de aparência do PDF final
+% alterando o aspecto da cor azul
+\definecolor{blue}{RGB}{41,5,195}
+
+% informações do PDF
+\makeatletter
+\hypersetup{
+	pdftitle={xxxx}, 
+	pdfauthor={lwila},
+	pdfsubject={\imprimirpreambulo},
+	pdfcreator={LaTeX with abnTeX2},
+	colorlinks=true,       		% false: boxed links; true: colored links
+	linkcolor=black,          	% color of internal links
+	citecolor=black,        		% color of links to bibliography
+	filecolor=black,      		% color of file links
+	urlcolor=black,
+	%Para habilitar as cores dos links, retire a % antes dos comandos abaixo e inclua a % antes das 4 linhas de comando acima 
+	%linkcolor=blue,            	% color of internal links
+	%citecolor=blue,        		% color of links to bibliography
+	%filecolor=magenta,      		% color of file links
+	%urlcolor=blue,
+	bookmarksdepth=4	
+}
+\makeatother
+% --- 
+
+% O tamanho do parágrafo é dado por:
+\setlength{\parindent}{1.3cm}
+
+% ---
+% compila o sumário e índice
+\makeindex
+% ---
+
+% ----
+% Início do documento
+% ----
+\begin{document}
+
+% Seleciona o idioma do documento (conforme pacotes do babel)
+\selectlanguage{brazil}
+% Se o idioma do texto for inglês, inclua uma % antes do 
+%      comando \selectlanguage{brazil} e 
+%      retire a % antes do comando abaixo
+%\selectlanguage{english}
+
+% Retira espaço extra obsoleto entre as frases.
+\frenchspacing 
+
+% --- Formatação dos Títulos
+\renewcommand{\ABNTEXchapterfontsize}{\fontsize{12}{12}\bfseries}
+\renewcommand{\ABNTEXsectionfontsize}{\fontsize{12}{12}\normalfont}
+\renewcommand{\ABNTEXsubsectionfontsize}{\fontsize{12}{12}\bfseries}
+\renewcommand{\ABNTEXsubsubsectionfontsize}{\fontsize{12}{12}\bfseries\itshape}
+\renewcommand{\ABNTEXsubsubsubsectionfontsize}{\fontsize{12}{12}\normalfont}
+
+% ----------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS
+% ----------------------------------------------------------
+% ---
+% Capa
+% ---
+\imprimircapa
+% ---
+% Folha de rosto
+% (o * indica impressão em anverso (frente) e verso )
+% ---
+\imprimirfolhaderosto*
+%\imprimirfolhaderosto
+% ---
+% ---
+% Inserir a ficha catalográfica em pdf
+% ---
+% A biblioteca da sua Unidade lhe fornecerá um PDF com a ficha catalográfica definitiva. 
+% Quando estiver com o documento, salve-o como PDF no diretório 
+% do seu projeto como fichacatalografica.pdf e inclua o arquivo 
+% utilizando o comando abaixo:
+ 
+%\includepdf{PreTextual/fichacatalografica.pdf}
+
+% Se você optar por elaborar a ficha catalográfica, deverá 
+%  retirar o % do comando abaixo
+\include{PreTextual/fichacatalografica}
+% As informações que compõem a ficha catalográfica estão 
+
+% ---
+% Inserir folha de aprovação
+% ---
+
+% A Folha de aprovação é um elemento obrigatório da NBR 4724/2011 (seção 4.2.1.3). 
+% Após a defesa/aprovação do trabalho, gere o arquivo folhadeaprovacao.pdf da página assinada pela banca pelo Ábaris
+% e iclua o arquivo utilizando o comando abaixo:
+%\includepdf{PreTextual/folhadeaprovacao.pdf}
+
+% Alternativa para a Folha de Aprovação:
+% Se for a sua opção elaborar uma folha de aprovação, insira uma % antes do comando acima que inclui o arquivo folhadeaprovacao.pdf,
+% tire o % do comando abaixo e altere o arquivo folhadeaprovacao.tex conforme suas necessidades
+\include{PreTextual/folhadeaprovacao}
+
+% ---
+% Dedicatória
+% ---
+\include{PreTextual/dedicatoria}
+% ---
+
+% ---
+% Agradecimentos
+% ---
+\include{PreTextual/agradecimentos}
+% ---
+
+% ---
+% Epígrafe
+% ---
+\include{PreTextual/epigrafe}
+% ---
+
+% A T E N Ç Ã O
+% Se o idioma do texto for em inglês, o abstract deve preceder o resumo
+% resumo em português
+%
+% Resumo
+% ---
+\include{PreTextual/resumo}
+% ---
+
+% Abstract
+% ---
+\include{PreTextual/abstract}
+% ---
+
+% ---
+% inserir lista de figurass
+% ---
+
+%Inserir Lista de Figuras --- COMENTAR TRECHO ABAIXO  EM CASO DE MENOS DE 5 FIGURAS
+\pdfbookmark[0]{\listfigurename}{lof}
+\listoffigures*
+\cleardoublepage
+
+
+% ---
+% inserir lista de tabelas ----- COMENTAR TRECHO ABAIXO  EM CASO DE MENOS DE 5 TABELAS
+% ---
+\pdfbookmark[0]{\listtablename}{lot}
+\listoftables*
+\cleardoublepage
+% ---
+
+% ---
+% inserir lista de quadros ---- COMENTAR TRECHO ABAIXO  EM CASO DE MENOS DE 5 QUADROS
+% ---
+\pdfbookmark[0]{\listofquadroname}{loq}
+\listofquadro*
+\cleardoublepage
+% ---
+
+% ---
+% inserir lista de abreviaturas e siglas ----COMENTAR TRECHO ABAIXO  EM CASO DE MENOS DE 5 ABREVIATURAS
+\include{PreTextual/abreviaturas_siglas}
+% ---
+
+% ---
+% inserir lista de símbolos -----COMENTAR TRECHO ABAIXO  EM CASO DE MENOS DE 5 SIMBOLOS
+\include{PreTextual/simbolos}
+% ---
+% ---
+% inserir o sumario
+% ---
+
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+% ---
+% ----------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% ----------------------------------------------------------
+\textual
+% Os capítulos são inseridos como arquivos externos 
+
+% Capítulo 1 - Introdução
+% ---
+\include{Textual/Cap1-Introducao}
+% ---
+
+% ---
+% Capítulo 2
+% ---
+\include{Textual/Cap2-Desenvolvimento}
+
+% Capítulo 3 - Conclusão
+% ---
+\include{Textual/Cap3-Conclusao}
+% ---
+
+
+% -----------------------------------------------------------
+% Referências bibliográficas
+% ----------------------------------------------------------
+\bibliography{FEI-bib/modelo-references}
+
+
+% ----------------------------------------------------------
+% Apêndices
+% ----------------------------------------------------------
+\include{PosTextual/apendices}
+
+% ----------------------------------------------------------
+% Anexos
+% ----------------------------------------------------------
+\include{PosTextual/anexos}
+
+\end{document}

@@ -1,0 +1,43 @@
+\providecommand{\abntreprintinfo}[1]{%
+ \citeonline{#1}}
+\setlength{\labelsep}{0pt}\begin{thebibliography}{}
+\providecommand{\abntrefinfo}[3]{}
+\providecommand{\abntbstabout}[1]{}
+\abntbstabout{v-1.9.7 }
+
+\bibitem[Associa{\c c}\~ao Brasileira de Normas T\'ecnicas 2011]{nbr14724}
+\abntrefinfo{Associa{\c c}\~ao Brasileira de Normas T\'ecnicas}{Associa{\c
+  c}\~ao Brasileira de Normas T\'ecnicas}{2011}
+{ASSOCIA{\c C}\~AO BRASILEIRA DE NORMAS T\'ECNICAS. \textbf{NBR 14724}:
+  informação e documentação: trabalhos acadêmicos: apresentação. Rio de
+  Janeiro, 2011. 11~p.}
+
+\bibitem[Associa{\c c}\~ao Brasileira de Normas T\'ecnicas 2012]{nbr6024}
+\abntrefinfo{Associa{\c c}\~ao Brasileira de Normas T\'ecnicas}{Associa{\c
+  c}\~ao Brasileira de Normas T\'ecnicas}{2012}
+{ASSOCIA{\c C}\~AO BRASILEIRA DE NORMAS T\'ECNICAS. \textbf{NBR 6024}:
+  informação e documentação:numeração progressiva das seções de um
+  documento: apresentação. Rio de Janeiro, 2012. 15~p.}
+
+\bibitem[Comandos Básicos do {LATEX} 2007]{comandos}
+\abntrefinfo{Comandos\ldots}{Comandos\ldots}{2007}
+{COMANDOS Básicos do {LATEX}. Juiz de Fora: UFJF, 2007. Dispon{\'\i}vel em:
+  \url{http://www.fisica.ufjf.br/vwfme/comandoslatex.html}. Acesso em: 25 abr.
+  2016.}
+
+\bibitem[Equipe abnTEX2 2015]{equipeabntex2}
+\abntrefinfo{Equipe abnTEX2}{Equipe abnTEX2}{2015}
+{EQUIPE ABNTEX2. \textbf{Modelo canônico de trabalho acadêmico com abnTEX2}.
+  [\textit{S.l.: s.n.}], 2015. 75~p.}
+
+\bibitem[Universidade de S\~ao Paulo. {Agência USP de Gestão da Informação
+  Acadêmica} 2020]{aguia2020}
+\abntrefinfo{Universidade de S\~ao Paulo}{Universidade de S\~ao Paulo}{2020}
+{UNIVERSIDADE DE S\~AO PAULO. {Agência USP de Gestão da Informação
+  Acadêmica}. \textbf{Diretrizes para apresentação de dissertações e teses
+  da USP}: {parte I (ABNT)}. 4. ed. São Paulo: AGUIA, 2020. 75~p.  (Cadernos
+  de Estudos, 9). Dispon{\'\i}vel em:
+  \url{http://www.livrosabertos.sibi.usp.br/portaldelivrosUSP/catalog/view/459/413/2006-1.pdf}.
+  Acesso em: 13 ago. 2021.}
+
+\end{thebibliography}

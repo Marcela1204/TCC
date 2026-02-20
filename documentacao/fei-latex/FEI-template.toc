@@ -1,0 +1,51 @@
+\changetocdepth {4}
+\babel@toc {brazil}{}\relax 
+\babel@toc {brazil}{}\relax 
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {1}\MakeTextUppercase []{Introdução}}{15}{chapter.1}%
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {2}\MakeTextUppercase []{Desenvolvimento}}{16}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Resultados de comandos}{16}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Tabelas e quadros}{16}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Figuras}{17}{subsection.2.1.2}%
+\contentsline {section}{\numberline {2.2}Divisões do documento}{17}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Divisões do documento: subseção}{17}{subsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.1.1}Divisões do documento: subsubseção}{17}{subsubsection.2.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.2.1.2}Divisões do documento: subsubseção}{18}{subsubsection.2.2.1.2}%
+\contentsline {subsection}{\numberline {2.2.2}Divisões do documento: subseção}{18}{subsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.2.1}Divisões do documento: subsubseção}{18}{subsubsection.2.2.2.1}%
+\contentsline {paragraph}{\numberline {2.2.2.1.1}Esta é uma subseção de quinto nível}{18}{paragraph.2.2.2.1.1}%
+\contentsline {paragraph}{\numberline {2.2.2.1.2}Esta é outra subseção de quinto nível}{18}{paragraph.2.2.2.1.2}%
+\contentsline {paragraph}{\numberline {2.2.2.1.3}Este é um parágrafo numerado}{18}{paragraph.2.2.2.1.3}%
+\contentsline {paragraph}{\numberline {2.2.2.1.4}Esta é outro parágrafo numerado}{18}{paragraph.2.2.2.1.4}%
+\contentsline {subsection}{\numberline {2.2.3}Este é um exemplo de nome de subseção longa que se aplica a seções e demais divisões do documento. Ele deve estar alinhado à esquerda e a segunda e demais linhas devem iniciar logo abaixo da primeira palavra da primeira linha}{18}{subsection.2.2.3}%
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase []{Conclusão}}{19}{chapter.3}%
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\contentsline {chapter}{\uppercase {Refer\^encias}}{20}{section*.21}%
+\renewcommand *{\cftappendixname }{AP\^ENDICE \space }
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\cftinsert {A}
+\contentsline {appendix}{\chapternumberline {A}\MakeTextUppercase []{O que é Apêndice}}{21}{appendix.A}%
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\cftinsert {A}
+\contentsline {appendix}{\chapternumberline {B}\MakeTextUppercase []{Exemplo de tabela centralizada verticalmente e horizontalmente}}{23}{appendix.B}%
+\cftinsert {AAA}
+\renewcommand *{\cftappendixname }{ANEXO \space }
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\cftinsert {A}
+\contentsline {appendix}{\chapternumberline {A}\MakeTextUppercase []{Exemplo de anexo}}{25}{appendix.anexochapback.1}%
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\cftinsert {A}
+\contentsline {appendix}{\chapternumberline {B}\MakeTextUppercase []{Acentuação (modo texto - \LaTeX )}}{27}{appendix.anexochapback.2}%

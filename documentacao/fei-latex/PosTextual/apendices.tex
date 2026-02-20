@@ -1,0 +1,42 @@
+%% USPSC-Apendice.tex
+% ---
+% Inicia os apêndices
+% ---
+
+\begin{apendicesenv}
+% Imprime uma página indicando o início dos apêndices
+%\partapendices
+
+ 
+\chapter{O que é Apêndice}
+\vfill
+\clearpage
+
+Elemento opcional, que consiste em texto ou documento elaborado pelo autor, a fim de complementar sua argumentação, conforme a ABNT NBR 14724 \cite{nbr14724}.
+
+Os apêndices devem ser identificados por letras maiúsculas consecutivas, seguidas de hífen e pelos respectivos títulos. Excepcionalmente, utilizam-se letras maiúsculas dobradas na identificação dos apêndices, quando esgotadas as 26 letras do alfabeto. A paginação deve ser contínua, dando seguimento ao texto principal. \cite{aguia2020}
+% ----------------------------------------------------------
+\chapter{Exemplo de tabela centralizada verticalmente e horizontalmente}
+\vfill
+\clearpage
+\index{tabelas}A \autoref{tab-centralizada} exemplifica como proceder para obter uma tabela centralizada verticalmente e horizontalmente.
+% utilize \usepackage{array} no PREAMBULO (ver em USPSC-modelo.tex) obter uma tabela centralizada verticalmente e horizontalmente
+\begin{table}[h]
+\ABNTEXfontereduzida
+\caption[Exemplo de tabela centralizada verticalmente e horizontalmente]{Exemplo de tabela centralizada verticalmente e horizontalmente}
+\label{tab-centralizada}
+
+\begin{tabular}{ >{\centering\arraybackslash}m{6cm}  >{\centering\arraybackslash}m{6cm} }
+
+\hline
+ \centering \textbf{Coluna A} & \textbf{Coluna B}\\
+\hline
+  Coluna A, Linha 1 & Este é um texto bem maior para exemplificar como é centralizado verticalmente e horizontalmente na tabela. Segundo parágrafo para verificar como fica na tabela\\
+  Quando o texto da coluna A, linha 2 é bem maior do que o das demais colunas  & Coluna B, linha 2\\
+\hline
+\end{tabular}
+\fonte{ Autores}
+\end{table}
+
+\end{apendicesenv}
+% ---

@@ -1,0 +1,181 @@
+%% USPSC-Cap2-Desenvolvimento.tex 
+
+% ---
+% Este capítulo, utilizado por diferentes exemplos do abnTeX2, ilustra o uso de
+% comandos do abnTeX2 e de LaTeX.
+% ---
+
+\chapter{Desenvolvimento}\label{cap_exemplos}
+\vspace{-\baselineskip} %Manter para garantir o espaçamento da biblioteca.
+
+Este capítulo é parte principal do trabalho acadêmico e deve conter a exposição ordenada e detalhada do assunto. Divide-se em seções e subseções, em conformidade com a abordagem do tema e do método, abrangendo: revisão bibliográfica, materiais e métodos, técnicas utilizadas, resultados obtidos e discussão.
+
+Abaixo são apresentados minimamente exemplos tabelas, quadros, divisões de documentos e outros itens. Consulte o \textbf{Tutorial do Pacote USPSC para modelos de trabalhos de acad\^emicos em LaTeX - vers\~ao 3.2} para demais informações. 
+
+\section{Resultados de comandos}\label{sec-divisoes}
+
+% ---
+\subsection{Tabelas e quadros}
+
+O \textbf{Tutorial do Pacote USPSC para modelos de trabalhos de acad\^emicos em LaTeX - vers\~ao 3.2} apresenta orientações completas e diversas formatações de tabelas, dentre elas a \autoref{tab-ibge}, que é um exemplo de tabela alinhada que pode ser longa ou curta, conforme padrão do Instituto Brasileiro de Geografia e Estatística (IBGE).
+
+
+
+
+\begin{table}[h] 
+		\caption{Frequência anual por categoria de usuários}%
+		\label{tab-ibge}
+		\begin{tabular}{ccc}
+			\toprule
+			Categoria de Usuários & Frequência de Usuários \\
+			\midrule \midrule
+			Graduação & 72\% \\
+			\midrule 
+			Pós-Graduação & 15\% \\
+			\midrule 
+			Docente & 10\% \\
+			\midrule 
+			Outras & 3\% \\
+			\bottomrule
+		\end{tabular}%
+		\fonte{Autores.}%
+		\nota{Opcional - Exemplo de uma nota.}%
+\end{table}
+
+A formatação do quadro é similar à tabela, mas deve ter suas laterais fechadas e conter as linhas horizontais.
+
+% o comando \newpage foi utilizado para forçar a quebra de página
+
+\begin{quadro}[h]
+	\caption{\label{quadro_modelo}Níveis de investigação}
+	\begin{tabular}{|p{2.6cm}|p{6.0cm}|p{2.25cm}|p{3.40cm}|}
+		\hline
+		\textbf{Nível de Investigação} & \textbf{Insumos}  & \textbf{Sistemas de Investigação}  & \textbf{Produtos}  \\
+		\hline
+		Meta-nível & Filosofia\index{filosofia} da Ciência  & Epistemologia &
+		Paradigma  \\
+		\hline
+		Nível do objeto & Paradigmas do metanível e evidências do nível inferior &
+		Ciência  & Teorias e modelos \\
+		\hline
+		Nível inferior & Modelos e métodos do nível do objeto e problemas do nível inferior & Prática & Solução de problemas \\ 
+		\hline
+	\end{tabular}
+	\legend{Fonte: \citefonte{equipeabntex2}}
+\end{quadro} 
+
+
+No \textbf{Tutorial do Pacote USPSC para modelos de trabalhos de acad\^emicos em LaTeX - vers\~ao 3.2} são apresentados mais exemplos de quadros.
+
+% ---
+\subsection{Figuras}\label{sec_figuras}
+% ---
+\index{figuras}Figuras podem ser criadas diretamente em \LaTeX,
+como o exemplo da \autoref{fig_circulo}.
+
+\begin{figure}[htb]
+
+	\caption{\label{fig_circulo}A delimitação do espaço}
+
+		\setlength{\unitlength}{9cm}
+		\begin{picture}(1,1)
+		\put(0,0){\line(0,1){1}}
+		\put(0,0){\line(1,0){1}}
+		\put(0,0){\line(1,1){1}}
+		\put(0,0){\line(1,2){.5}}
+		\put(0,0){\line(1,3){.3333}}
+		\put(0,0){\line(1,4){.25}}
+		\put(0,0){\line(1,5){.2}}
+		\put(0,0){\line(1,6){.1667}}
+		\put(0,0){\line(2,1){1}}
+		\put(0,0){\line(2,3){.6667}}
+		\put(0,0){\line(2,5){.4}}
+		\put(0,0){\line(3,1){1}}
+		\put(0,0){\line(3,2){1}}
+		\put(0,0){\line(3,4){.75}}
+		\put(0,0){\line(3,5){.6}}
+		\put(0,0){\line(4,1){1}}
+		\put(0,0){\line(4,3){1}}
+		\put(0,0){\line(4,5){.8}}
+		\put(0,0){\line(5,1){1}}
+		\put(0,0){\line(5,2){1}}
+		\put(0,0){\line(5,3){1}}
+		\put(0,0){\line(5,4){1}}
+		\put(0,0){\line(5,6){.8333}}
+		\put(0,0){\line(6,1){1}}
+		\put(0,0){\line(6,5){1}}
+		\end{picture}
+	\legend{Fonte: \citefonte{equipeabntex2}}
+
+\end{figure}
+
+Consulte o \textbf{Tutorial do Pacote USPSC para modelos de trabalhos de acad\^emicos em LaTeX - vers\~ao 3.2} para conhecer mais recursos referentes à figuras. 
+
+% ---
+\section{Divisões do documento}\label{sec-divisoes-b}
+Esta seção exemplifica o uso de divisões de documentos em conformidade com a ABNT NBR 6024  \cite{nbr6024}.
+% ---
+% ---
+\subsection{Divisões do documento: subseção}\label{sec-divisoes-subsection}
+% ---
+
+Um exemplo de seção é a \autoref{sec-divisoes-b}. Esta é a \autoref{sec-divisoes-subsection}.
+
+\subsubsection{Divisões do documento: subsubseção}\label{sec-divisoes-subsubsection}
+
+Isto é uma \texttt{subsubsection} do \LaTeX, mas é denominada de ``subseção'' porque no português não temos a palavra ``subsubseção''.
+
+\subsubsection{Divisões do documento: subsubseção}
+
+Isto é outra subsubseção.
+
+\subsection{Divisões do documento: subseção}\label{sec-exemplo-subsec}
+
+Isto é uma subseção.
+
+\subsubsection{Divisões do documento: subsubseção}
+
+Isto é mais uma subsubseção da \autoref{sec-exemplo-subsec}.
+
+
+\subsubsubsection{Esta é uma subseção de quinto
+nível}\label{sec-exemplo-subsubsubsection}
+
+Esta é uma seção de quinto nível. Ela é produzida com o seguinte comando:
+
+\begin{verbatim}
+\subsubsubsection{Esta é uma subseção de quinto
+nível}\label{sec-exemplo-subsubsubsection}
+\end{verbatim}
+
+\subsubsubsection{Esta é outra subseção de quinto nível}\label{sec-exemplo-subsubsubsection-outro}
+
+Esta é outra seção de quinto nível.
+
+
+\paragraph{Este é um parágrafo numerado}\label{sec-exemplo-paragrafo}
+
+Este é um exemplo de parágrafo numerado. Ele é produzido com o comando de
+parágrafo:
+
+\begin{verbatim}
+\paragraph{Este é um parágrafo numerado}\label{sec-exemplo-paragrafo}
+\end{verbatim}
+
+A numeração entre parágrafos numerados e subsubsubseções são contínuas.
+
+\paragraph{Esta é outro parágrafo numerado}\label{sec-exemplo-paragrafo-outro}
+
+Este é outro parágrafo numerado.
+
+% ---
+\subsection{Este é um exemplo de nome de subseção longa que se aplica a seções e demais divisões do documento. Ele deve estar alinhado à esquerda e a segunda e demais linhas devem iniciar logo abaixo da primeira palavra da primeira linha} 
+
+Observe que o alinhamento do título obedece esta regra também no sumário.
+	
+
+
+
+
+
+

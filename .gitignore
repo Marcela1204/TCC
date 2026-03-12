@@ -5,3 +5,11 @@ datasets
 *.blg
 *.aux
 *.bcf
+*.bbl
+*.idx
+*.ukg
+*.ind
+*.lof
+*.loq
+*.loq
+*.lot

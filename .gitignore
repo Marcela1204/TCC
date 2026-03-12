@@ -1,1 +1,7 @@
 datasets
+*.fls
+*.fdb_latexmk
+*.log
+*.blg
+*.aux
+*.bcf

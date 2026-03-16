@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1771000713.67018 "main.bcf" "main.bbl" "main" 1773280676.05297 0
-  "main.bcf" 1773280675.98487 108755 8c2585c88c428339417c56ae44017b9e "pdflatex"
+["biber main"] 1771000713.67018 "main.bcf" "main.bbl" "main" 1773413374.59011 0
+  "main.bcf" 1773413374.53527 108755 8c2585c88c428339417c56ae44017b9e "pdflatex"
   "referencias.bib" 1770851283.10784 17516 0c930843b563b120f9055def7b7a522e ""
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1773280675.32988 "main.tex" "main.pdf" "main" 1773280676.05322 0
+["pdflatex"] 1773413373.89401 "main.tex" "main.pdf" "main" 1773413374.59036 0
   "/opt/texlive/2025/texmf-dist/fonts/enc/dvips/base/8r.enc" 1772099878.60082 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/opt/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1772099878.65155 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/opt/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1772099879.1666 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -117,10 +117,10 @@
   "/opt/texlive/2025/texmf.cnf" 1772099946.51076 585 81f10441804f05cc9107aafbbb0bcd23 ""
   "exemplofig.png" 1770851283.10084 36877 9ce6d5d83beb04137783b025daa61e8c ""
   "logoinova.png" 1770851283.10184 8563 2bdf1bdf926197f2974618836c072c1d ""
-  "main.aux" 1773280675.9841 1762 0e10d162388e6113d9d22630c9458c13 "pdflatex"
+  "main.aux" 1773413374.53427 1762 0e10d162388e6113d9d22630c9458c13 "pdflatex"
   "main.bbl" 1773280147.91866 7440 33d93041c8ebdd7b3480a8c9ad323695 "biber main"
-  "main.run.xml" 1773280675.98622 2406 1b56bcb4755fab85cc41222f32da4e69 "pdflatex"
-  "main.tex" 1773280673.87188 9931 e8654f73deda8b94cf3a005b11e13034 ""
+  "main.run.xml" 1773413374.53643 2406 1b56bcb4755fab85cc41222f32da4e69 "pdflatex"
+  "main.tex" 1773413368.69856 9940 9d5b1db5dcfc155ebeb8cf058a84afed ""
   (generated)
   "main.aux"
   "main.bcf"

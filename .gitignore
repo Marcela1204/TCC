@@ -1,1 +1,15 @@
 datasets
+*.fls
+*.fdb_latexmk
+*.log
+*.blg
+*.aux
+*.bcf
+*.bbl
+*.idx
+*.ukg
+*.ind
+*.lof
+*.loq
+*.loq
+*.lot

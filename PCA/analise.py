@@ -2,9 +2,11 @@
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
+import sys
 
 # carregar dados
-df = pd.read_csv("../datasets/CIC-IDS-2017/CSV/fryday.csv")
+# df = pd.read_csv("../datasets/CIC-IDS-2017/CSV/fryday.csv")
+df = pd.read_csv(sys.argv[1])
 
 
 df["Source_Hash"] = df["Source"].apply(hash)
@@ -24,17 +26,17 @@ X_scaled = scaler.fit_transform(X)
 pca = PCA(n_components=2)
 X_pca = pca.fit_transform(X_scaled)
 
-
+print(sys.argv[1])
 print(pca.explained_variance_ratio_)
 
 
 import matplotlib.pyplot as plt
 
-plt.scatter(X_pca[:,0], X_pca[:,1])
-plt.xlabel("PC1")
-plt.ylabel("PC2")
-plt.title("PCA Projection")
-plt.show()
+# plt.scatter(X_pca[:,0], X_pca[:,1])
+# plt.xlabel("PC1")
+# plt.ylabel("PC2")
+# plt.title("PCA Projection")
+# plt.show()
 #
 pca = PCA()
 pca.fit(X_scaled)
@@ -42,10 +44,10 @@ pca.fit(X_scaled)
 import numpy as np
 var_cum = np.cumsum(pca.explained_variance_ratio_)
 
-plt.plot(var_cum)
-plt.xlabel("Número de componentes")
-plt.ylabel("Variância acumulada")
-plt.show()
+# plt.plot(var_cum)
+# plt.xlabel("Número de componentes")
+# plt.ylabel("Variância acumulada")
+# plt.show()
 #
 loadings = pd.DataFrame(
     pca.components_.T,

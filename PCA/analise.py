@@ -2,6 +2,7 @@
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
+import hashlib
 import sys
 
 # carregar dados
@@ -9,9 +10,9 @@ import sys
 df = pd.read_csv(sys.argv[1])
 
 
-df["Source_Hash"] = df["Source"].apply(hash)
-df["Destination_Hash"] = df["Destination"].apply(hash)
-df["Protocol_Hash"] = df["Protocol"].apply(hash)
+df["Source_Hash"] = df["Source"].apply(lambda x: int(hashlib.md5(str(x).encode()).hexdigest(),16))
+df["Destination_Hash"] = df["Destination"].apply(lambda x: int(hashlib.md5(str(x).encode()).hexdigest(),16))
+df["Protocol_Hash"] = df["Protocol"].apply(lambda x: int(hashlib.md5(str(x).encode()).hexdigest(),16))
 
 
 df = df.drop(columns=["Source", "Destination", "Protocol"])
@@ -55,3 +56,16 @@ loadings = pd.DataFrame(
     index=X.columns
 )
 print(loadings)
+
+x = np.arange(len(loadings.index))
+width = 0.12
+
+for i, col in enumerate(loadings.columns):
+    plt.bar(x + i * width, loadings[col], width, label=col)
+
+plt.xticks(x + width * (len(loadings.columns) / 2), loadings.index, rotation=30)
+plt.legend()
+plt.title("Loadings PCA")
+plt.tight_layout()
+
+plt.show()

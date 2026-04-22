@@ -18,6 +18,8 @@
 \setlength{\parindent}{2em}  % Aumenta a indentação para 2em (pode ser ajustado
 \titlespacing*{\section}{0pt}{*0}{0pt}
 \usepackage{ragged2e}
+\usepackage{multirow}
+\usepackage{array}
 
 
 %-------------------------- ESTILOS NÃO ALTERAR ------------------------------------------------%
@@ -282,7 +284,40 @@ eficazes na área.
 
 \section{Metodologia}
 
+% AINDA FALTA AJUSTAR PARA AS COISAS QUE DE FATO ACONTECERAM NO CRONOGRAMA
 \section{Cronograma}
+\begin{center}
+\footnotesize % diminui a fonte
+\renewcommand{\arraystretch}{1.3}
+
+\begin{tabular}{|p{3.5cm}|*{5}{c|}}
+\hline
+\multirow{2}{*}{\textbf{Etapas}} & \multicolumn{5}{c|}{\textbf{2026}} \\ \cline{2-6}
+ & Fev & Mar & Abr & Mai & Jun \\
+\hline
+
+Pesquisa para conhecimento do público-alvo
+& X & X &  &  &  \\
+\hline
+
+Pesquisa de opinião sobre o público-alvo
+&  & X & X &  &  \\
+\hline
+
+Desenvolvimento do projeto
+&  &  & X & X &  \\
+\hline
+
+Testes e validação
+&  &  &  & X & X \\
+\hline
+
+Finalização do TCC
+&  &  &  &  & X \\
+\hline
+
+\end{tabular}
+\end{center}
 
 \section{Resultados Parciais}
 
@@ -293,7 +328,13 @@ Nesta primeira etapa foi definido o algoritimo de machine learning ultilizado e 
 \printbibliography[heading=none]
 
 \section*{Agradecimentos}
-A seção de agradecimentos é opcional.\textbf{ Autores (incluindo o professor orientador) não devem ser incluídos nos agradecimentos. }
+Agradecemos, primeiramente, às nossas famílias, pelo apoio incondicional, 
+incentivo constante e compreensão ao longo de toda a nossa trajetória 
+acadêmica. Sem esse suporte, a realização deste trabalho não seria 
+possível.
 
+Como inspiração para seguir em frente diante dos desafios, destacamos 
+a frase de Walt Disney: “Todos os seus sonhos podem se tornar realidade 
+se você tiver a coragem para persegui-los”.
 
 \end{document}

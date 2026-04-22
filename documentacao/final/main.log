@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.5)  22 APR 2026 01:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.5)  22 APR 2026 01:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -598,26 +598,45 @@ Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
 \backup@length=\skip110
 \ar@cellbox=\box109
 )
-\@quotelevel=\count442
-\@quotereset=\count443
-
-(main.aux)
+(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen189
+\lightrulewidth=\dimen190
+\cmidrulewidth=\dimen191
+\belowrulesep=\dimen192
+\belowbottomsep=\dimen193
+\aboverulesep=\dimen194
+\abovetopsep=\dimen195
+\cmidrulesep=\dimen196
+\cmidrulekern=\dimen197
+\defaultaddspace=\dimen198
+\@cmidla=\count442
+\@cmidlb=\count443
+\@aboverulesep=\dimen199
+\@belowrulesep=\dimen256
+\@thisruleclass=\count444
+\@lastruleclass=\count445
+\@thisrulewidth=\dimen257
+)
+\@quotelevel=\count446
+\@quotereset=\count447
+ (main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -657,16 +676,16 @@ LaTeX Font Info:    ... okay on input line 122.
 (C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.
 mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count444
-\scratchdimen=\dimen189
+\scratchcounter=\count448
+\scratchdimen=\dimen258
 \scratchbox=\box110
-\nofMPsegments=\count445
-\nofMParguments=\count446
+\nofMPsegments=\count449
+\nofMParguments=\count450
 \everyMPshowfont=\toks25
-\MPscratchCnt=\count447
-\MPscratchDim=\dimen190
-\MPnumerator=\count448
-\makeMPintoPDFobject=\count449
+\MPscratchCnt=\count451
+\MPscratchDim=\dimen259
+\MPnumerator=\count452
+\makeMPintoPDFobject=\count453
 \everyMPtoPDFconversion=\toks26
 )
 (C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf
@@ -696,54 +715,54 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' found.
  (main.bbl)
-Package biblatex Info: Reference section=0 on input line 122.
-Package biblatex Info: Reference segment=0 on input line 122.
+Package biblatex Info: Reference section=0 on input line 123.
+Package biblatex Info: Reference segment=0 on input line 123.
 LaTeX Font Info:    Trying to load font information for OT1+phv on input line 1
-55.
+56.
 
 (C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1phv.fd
 File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
 )
 LaTeX Font Info:    Font shape `OT1/phv/b/it' in size <11> not available
-(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 155.
-LaTeX Font Info:    Calculating math sizes for size <11> on input line 155.
+(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 156.
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 156.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 155.
+(Font)              size <5> substituted on input line 156.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <5.5> not available
-(Font)              size <5> substituted on input line 155.
+(Font)              size <5> substituted on input line 156.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 155.
+(Font)              size <5> substituted on input line 156.
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <11> on input line 155.
+(Font)              <11> on input line 156.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7.69997> on input line 155.
+(Font)              <7.69997> on input line 156.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5.5> on input line 155.
+(Font)              <5.5> on input line 156.
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <10> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 155.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 156.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 155.
+(Font)              <7> on input line 156.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 155.
+(Font)              <5> on input line 156.
 
-Underfull \hbox (badness 10000) in paragraph at lines 155--155
+Underfull \hbox (badness 10000) in paragraph at lines 156--156
 
  []
 
 <logoinova.png, id=1, 142.28156pt x 28.60687pt>
 File: logoinova.png Graphic file (type png)
 <use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 221.
+Package pdftex.def Info: logoinova.png  used on input line 222.
 (pdftex.def)             Requested size: 141.42363pt x 28.45401pt.
 LaTeX Font Info:    Trying to load font information for TS1+phv on input line 2
-21.
+22.
 (C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1phv.fd
 File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
 )
@@ -753,42 +772,57 @@ Marcela/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}
 
  <./logoinova.png>]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 293.
+(Font)              <8> on input line 292.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 293.
+(Font)              <6> on input line 292.
 
-Underfull \hbox (badness 10000) in paragraph at lines 299--300
+Underfull \hbox (badness 10000) in paragraph at lines 294--294
+[]|\OT1/cmr/bx/n/8 ML
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 294--294
+\OT1/cmr/bx/n/8 Meth-
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 328--329
 []|\OT1/cmr/m/n/8 Pesquisa para con-hec-i-
  []
 
 
-Underfull \hbox (badness 1728) in paragraph at lines 307--308
+Underfull \hbox (badness 1728) in paragraph at lines 336--337
 []|\OT1/cmr/m/n/8 Desenvolvimento do pro-
  []
 
 
-Overfull \hbox (13.58727pt too wide) in paragraph at lines 293--320
+Overfull \hbox (13.58727pt too wide) in paragraph at lines 322--349
  [] 
  []
 
-
-Underfull \hbox (badness 3364) in paragraph at lines 331--335
+File: logoinova.png Graphic file (type png)
+<use logoinova.png>
+Package pdftex.def Info: logoinova.png  used on input line 359.
+(pdftex.def)             Requested size: 141.42363pt x 28.45401pt.
+[2]
+Underfull \hbox (badness 3364) in paragraph at lines 360--364
 \OT1/cmr/m/n/10 preens~ao ao longo de toda a nossa tra-jet^^Soria
  []
 
 
-Package caption Warning: Unused \captionsetup[figure] on input line 35.
-See the caption package documentation for explanation.
-
-
-Package caption Warning: Unused \captionsetup[table] on input line 45.
+Package caption Warning: Unused \captionsetup[figure] on input line 36.
 See the caption package documentation for explanation.
 
 File: logoinova.png Graphic file (type png)
 <use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 340.
+Package pdftex.def Info: logoinova.png  used on input line 369.
 (pdftex.def)             Requested size: 141.42363pt x 28.45401pt.
-[2] (main.aux)
+[3
+
+] (main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
@@ -811,13 +845,13 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 14200 strings out of 467871
- 268834 string characters out of 5417409
- 1212431 words of memory out of 5000000
- 42927 multiletter control sequences out of 15000+600000
- 646650 words of font info for 73 fonts, out of 8000000 for 9000
+ 14285 strings out of 467871
+ 270247 string characters out of 5417409
+ 1216282 words of memory out of 5000000
+ 43004 multiletter control sequences out of 15000+600000
+ 650650 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 73i,15n,77p,1762b,1281s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 73i,16n,77p,1762b,1277s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Marcela\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tc
 rm1000.pk><C:/Users/Marcela/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
 sfonts/cm/cmbx8.pfb><C:/Users/Marcela/AppData/Local/Programs/MiKTeX/fonts/type1
@@ -832,9 +866,9 @@ b8a.pfb><C:/Users/Marcela/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helveti
 c/uhvbo8a.pfb><C:/Users/Marcela/AppData/Local/Programs/MiKTeX/fonts/type1/urw/h
 elvetic/uhvr8a.pfb><C:/Users/Marcela/AppData/Local/Programs/MiKTeX/fonts/type1/
 urw/helvetic/uhvro8a.pfb>
-Output written on main.pdf (2 pages, 157170 bytes).
+Output written on main.pdf (3 pages, 161792 bytes).
 PDF statistics:
- 74 PDF objects out of 1000 (max. 8388607)
+ 77 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

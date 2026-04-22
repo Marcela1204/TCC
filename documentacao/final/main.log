@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.5)  21 APR 2026 23:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.5)  21 APR 2026 23:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -723,10 +723,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 153--153
 <logoinova.png, id=1, 142.28156pt x 28.60687pt>
 File: logoinova.png Graphic file (type png)
 <use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 212.
+Package pdftex.def Info: logoinova.png  used on input line 219.
 (pdftex.def)             Requested size: 141.42363pt x 28.45401pt.
 LaTeX Font Info:    Trying to load font information for TS1+phv on input line 2
-12.
+19.
 (C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1phv.fd
 File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
 )
@@ -735,26 +735,19 @@ Marcela/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}
 
 
  <./logoinova.png>]
-<exemplofig.png, id=16, 216.05719pt x 174.6525pt>
-File: exemplofig.png Graphic file (type png)
-<use exemplofig.png>
-Package pdftex.def Info: exemplofig.png  used on input line 247.
-(pdftex.def)             Requested size: 185.47945pt x 149.93971pt.
 
-Underfull \vbox (badness 5954) has occurred while \output is active []
+Package caption Warning: Unused \captionsetup[figure] on input line 33.
+See the caption package documentation for explanation.
+
+
+Package caption Warning: Unused \captionsetup[table] on input line 43.
+See the caption package documentation for explanation.
 
 File: logoinova.png Graphic file (type png)
 <use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 268.
+Package pdftex.def Info: logoinova.png  used on input line 293.
 (pdftex.def)             Requested size: 141.42363pt x 28.45401pt.
- [2 <./exemplofig.png>]
-File: logoinova.png Graphic file (type png)
-<use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 286.
-(pdftex.def)             Requested size: 141.42363pt x 28.45401pt.
- [3
-
-] (main.aux)
+[2] (main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
@@ -764,37 +757,43 @@ L3 programming layer <2025-12-24>
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
 
+
+LaTeX Warning: There were undefined references.
+
+
+Package biblatex Warning: Please (re)run Biber on the file:
+(biblatex)                main
+(biblatex)                and rerun LaTeX afterwards.
+
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 14089 strings out of 467871
- 267064 string characters out of 5417409
- 1204102 words of memory out of 5000000
- 42820 multiletter control sequences out of 15000+600000
- 650047 words of font info for 77 fonts, out of 8000000 for 9000
+ 14054 strings out of 467871
+ 266425 string characters out of 5417409
+ 1203102 words of memory out of 5000000
+ 42790 multiletter control sequences out of 15000+600000
+ 645738 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  73i,15n,77p,1762b,1281s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Marcela\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tc
 rm1000.pk><C:/Users/Marcela/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
 sfonts/cm/cmbx10.pfb><C:/Users/Marcela/AppData/Local/Programs/MiKTeX/fonts/type
 1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Marcela/AppData/Local/Programs/MiKTe
-X/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Marcela/AppData/Local/Pro
-grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Marcela/AppData
-/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Marcel
-a/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Use
-rs/Marcela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.
-pfb><C:/Users/Marcela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
-/cm/cmti10.pfb><C:/Users/Marcela/AppData/Local/Programs/MiKTeX/fonts/type1/publ
-ic/amsfonts/cm/cmtt10.pfb><C:/Users/Marcela/AppData/Local/Programs/MiKTeX/fonts
-/type1/urw/helvetic/uhvb8a.pfb><C:/Users/Marcela/AppData/Local/Programs/MiKTeX/
-fonts/type1/urw/helvetic/uhvbo8a.pfb><C:/Users/Marcela/AppData/Local/Programs/M
-iKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/Marcela/AppData/Local/Progr
-ams/MiKTeX/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on main.pdf (3 pages, 205196 bytes).
+X/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Marcela/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Marcela/AppData/L
+ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Marcela/
+AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Use
+rs/Marcela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.
+pfb><C:/Users/Marcela/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uh
+vb8a.pfb><C:/Users/Marcela/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvet
+ic/uhvbo8a.pfb><C:/Users/Marcela/AppData/Local/Programs/MiKTeX/fonts/type1/urw/
+helvetic/uhvr8a.pfb><C:/Users/Marcela/AppData/Local/Programs/MiKTeX/fonts/type1
+/urw/helvetic/uhvro8a.pfb>
+Output written on main.pdf (2 pages, 154102 bytes).
 PDF statistics:
- 89 PDF objects out of 1000 (max. 8388607)
+ 74 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

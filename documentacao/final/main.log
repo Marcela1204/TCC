@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.5)  16 APR 2026 20:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.5)  21 APR 2026 23:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -581,28 +581,26 @@ Package: ragged2e 2023/06/22 v3.6 ragged2e Package
 \RaggedLeftParindent=\skip104
 \RaggedRightParindent=\skip105
 \JustifyingParindent=\skip106
-) (C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/comment\comment.sty
-\CommentStream=\write4
-Excluding comment 'comment')
+)
 \@quotelevel=\count441
 \@quotereset=\count442
  (main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -681,62 +679,54 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' found.
  (main.bbl)
-Package biblatex Info: Reference section=0 on input line 121.
-Package biblatex Info: Reference segment=0 on input line 121.
+Package biblatex Info: Reference section=0 on input line 120.
+Package biblatex Info: Reference segment=0 on input line 120.
 LaTeX Font Info:    Trying to load font information for OT1+phv on input line 1
-94.
+53.
 
 (C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1phv.fd
 File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
 )
 LaTeX Font Info:    Font shape `OT1/phv/b/it' in size <11> not available
-(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 194.
-LaTeX Font Info:    Calculating math sizes for size <11> on input line 194.
+(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 153.
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 153.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 194.
+(Font)              size <5> substituted on input line 153.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <5.5> not available
-(Font)              size <5> substituted on input line 194.
+(Font)              size <5> substituted on input line 153.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 194.
+(Font)              size <5> substituted on input line 153.
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <11> on input line 194.
+(Font)              <11> on input line 153.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7.69997> on input line 194.
+(Font)              <7.69997> on input line 153.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5.5> on input line 194.
+(Font)              <5.5> on input line 153.
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <10> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 194.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 153.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 194.
+(Font)              <7> on input line 153.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 194.
+(Font)              <5> on input line 153.
 
-Underfull \hbox (badness 10000) in paragraph at lines 194--194
+Underfull \hbox (badness 10000) in paragraph at lines 153--153
 
  []
 
-<exemplofig.png, id=1, 216.05719pt x 174.6525pt>
-File: exemplofig.png Graphic file (type png)
-<use exemplofig.png>
-Package pdftex.def Info: exemplofig.png  used on input line 204.
-(pdftex.def)             Requested size: 185.47945pt x 149.93971pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<logoinova.png, id=3, 142.28156pt x 28.60687pt>
+<logoinova.png, id=1, 142.28156pt x 28.60687pt>
 File: logoinova.png Graphic file (type png)
 <use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 211.
+Package pdftex.def Info: logoinova.png  used on input line 212.
 (pdftex.def)             Requested size: 141.42363pt x 28.45401pt.
 LaTeX Font Info:    Trying to load font information for TS1+phv on input line 2
-11.
+12.
 (C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1phv.fd
 File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
 )
@@ -744,12 +734,25 @@ File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
 Marcela/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}
 
 
- <./logoinova.png> <./exemplofig.png>]
+ <./logoinova.png>]
+<exemplofig.png, id=16, 216.05719pt x 174.6525pt>
+File: exemplofig.png Graphic file (type png)
+<use exemplofig.png>
+Package pdftex.def Info: exemplofig.png  used on input line 247.
+(pdftex.def)             Requested size: 185.47945pt x 149.93971pt.
+
+Underfull \vbox (badness 5954) has occurred while \output is active []
+
 File: logoinova.png Graphic file (type png)
 <use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 243.
+Package pdftex.def Info: logoinova.png  used on input line 268.
 (pdftex.def)             Requested size: 141.42363pt x 28.45401pt.
- [2
+ [2 <./exemplofig.png>]
+File: logoinova.png Graphic file (type png)
+<use logoinova.png>
+Package pdftex.def Info: logoinova.png  used on input line 286.
+(pdftex.def)             Requested size: 141.42363pt x 28.45401pt.
+ [3
 
 ] (main.aux)
  ***********
@@ -766,10 +769,10 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 14132 strings out of 467871
- 267972 string characters out of 5417409
- 1200025 words of memory out of 5000000
- 42860 multiletter control sequences out of 15000+600000
+ 14089 strings out of 467871
+ 267064 string characters out of 5417409
+ 1204102 words of memory out of 5000000
+ 42820 multiletter control sequences out of 15000+600000
  650047 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  73i,15n,77p,1762b,1281s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -789,9 +792,9 @@ ic/amsfonts/cm/cmtt10.pfb><C:/Users/Marcela/AppData/Local/Programs/MiKTeX/fonts
 fonts/type1/urw/helvetic/uhvbo8a.pfb><C:/Users/Marcela/AppData/Local/Programs/M
 iKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/Marcela/AppData/Local/Progr
 ams/MiKTeX/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on main.pdf (2 pages, 199695 bytes).
+Output written on main.pdf (3 pages, 205196 bytes).
 PDF statistics:
- 85 PDF objects out of 1000 (max. 8388607)
+ 89 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -18,7 +18,6 @@
 \setlength{\parindent}{2em}  % Aumenta a indentação para 2em (pode ser ajustado
 \titlespacing*{\section}{0pt}{*0}{0pt}
 \usepackage{ragged2e}
-\usepackage{comment}
 
 
 %-------------------------- ESTILOS NÃO ALTERAR ------------------------------------------------%
@@ -124,67 +123,111 @@
 \twocolumn[%
 \begin{@twocolumnfalse}
 
-\raggedright{
+\raggedright
 
-
-
-\inovatitle{Tecnologias de Machine Learning para Detecção de Intrusões em Redes de Computadores: Uma Pesquisa Exploratória e Experimental}
-
+\inovatitle{Tecnologias de Machine Learning para Detecção de Intrusões em Redes de Computadores}
 
 \autores{$^1$Lucas Kerr do Amaral, $^2$Marcela Nalesso}
 
-\filiacao{$^1$ Ciência da computação – campus São Bernardo do Campo}
-\filiacao{$^2$ Ciência da computação – campus São Bernardo do Campo}
-
+\filiacao{$^1$ Ciência da Computação – FEI}
+\filiacao{$^2$ Ciência da Computação – FEI}
 
 \email{$^1$lamaral2002@gmail.com, $^2$marcelanalesso@gmail.com}
 
-\orientador{Orientador: Prof. Dr. Leonardo Anjoletto Ferreira}
-
-\filiacao{Departamento de Computação, Centro Universitário FEI}
-
+\filiacao{Orientador: Prof. Dr. Leonardo Anjoletto Ferreira}
 \email{laferreira@fei.edu.br}
 
 \resumo{Diante da insuficiência performática em métodos tradicionais, este artigo apresenta o 
 desenvolvimento parcial de um sistema de detecção de intrusões em redes. As etapas incluem: 
 i) coleta e preparação de dados com bases de ataques; 
-ii) redução de dimensionalidade via Principal Component Analysis (PCA) e Matriz de Correlação; 
+ii) redução de dimensionalidade via \textit{Principal Component Analysis} (PCA) e Matriz de Correlação; 
 iii) análise exploratória para distinguir tráfego normal, ataques e falsos positivos; 
 iv) implementação e avaliação preliminar de modelos de machine learning para classificação de intrusões. 
 Resultados preliminares serão apresentados. Como contribuições futuras, prevê-se aprimoramento 
 dos algoritmos, ajuste de hiperparâmetros à novos modelo, e evolução da sistema para tempo real
  e em cenários reais.}
 
- %Listar até 6 palavras, separadas por vírgulas
-\keyword{Sistemas de Detecção de Intrusões, Aprendizado de Máquina, Segurança Cibernética, Análise de Tráfego de Rede, }
-}
+\keyword{IDS, Machine Learning, Segurança}
 
 \end{@twocolumnfalse}
-
-
+]
 
 \section{Introdução}
-% O trabalho deve ser escrito em português em até 2 páginas de tamanho A4, 
-% em duas colunas, usando espaçamento simples e fonte “Times New Roman" de tamanho 10. 
-% Palavras e termos em língua estrangeira devem ser grafados em itálico. 
-% Trabalhos com mais páginas terão publicadas apenas as duas primeiras.
+O avanço das redes de computadores e a crescente digitalização de serviços têm 
+ampliado significativamente a exposição de sistemas a ameaças cibernéticas. 
+Com o aumento do volume de dados trafegados e da complexidade das infraestruturas, 
+observa-se também um crescimento expressivo na quantidade e sofisticação dos 
+ataques, como negações de serviço, varreduras de rede e acessos não autorizados. 
+Esse cenário evidencia a necessidade de mecanismos eficazes de monitoramento e 
+proteção, capazes de identificar comportamentos maliciosos em tempo hábil. Nesse 
+contexto, a área de Segurança da Informação destaca-se como fundamental para 
+garantir a integridade, confidencialidade e disponibilidade das informações.
 
-% O título do trabalho deve ser escrito em negrito, com iniciais em letra maiúscula, 
-% fonte Arial, de tamanho 18, alinhado à esquerda. Títulos de seções devem ser numerados 
-% em algarismos romanos, separados por ponto, escritas em negrito, de tamanho 11, 
-% fonte Arial, alinhados à esquerda. Títulos das subseções serão indicados por 
-% letras, com fonte Arial, negrito, itálico, tamanho 10. Esta página já está no 
-% formato padrão podendo ser utilizada como modelo.
+Entre os mecanismos utilizados para proteção de redes, destacam-se os \textit{Intrusion 
+Detection System}, responsáveis por monitorar atividades e identificar possíveis 
+intrusões. Tradicionalmente, esses sistemas baseiam-se em assinaturas ou regras 
+previamente definidas, o que limita sua capacidade de detectar ataques 
+desconhecidos ou variações de ameaças existentes. Como consequência, tais 
+abordagens apresentam limitações relevantes, como elevada taxa de falsos positivos 
+e baixa adaptabilidade a novos cenários. Dessa forma, torna-se necessário 
+investigar abordagens mais flexíveis e inteligentes para aprimorar a detecção 
+de intrusões.
 
-% Os nomes dos autores, do curso e o endereço eletrônico para contato devem ser escritos 
-% em itálico, alinhado à esquerda, com tamanho 11 e negrito (nomes) e 10 (departamento e 
-% e-mail). Caso existam alunos de mais de um curso, deve-se incluir sequência numérica para 
-% identificação, colocada sobrescrito, do lado direito para o autor e do lado esquerdo 
-% para os cursos. Alunos de um mesmo curso utilizarão o mesmo número de identificação. 
-% Caso todos os alunos sejam do mesmo curso, não é necessário incluir o número de 
-% identificação do autor e do curso. Deve-se incluir o departamento do orientador.
+Nesse sentido, o uso de técnicas de \textit{Machine Learning} tem se consolidado como uma 
+alternativa promissora. Esses métodos permitem a identificação de padrões complexos 
+nos dados, possibilitando a detecção de comportamentos anômalos sem depender 
+exclusivamente de regras pré-definidas. No entanto, a eficácia desses modelos 
+depende diretamente da qualidade dos dados utilizados, da seleção adequada de 
+atributos e da capacidade de lidar com a alta dimensionalidade das bases. Assim, 
+compreender a influência dessas variáveis torna-se essencial para o 
+desenvolvimento de soluções mais eficientes.
 
+Diante desse cenário, bases de dados como a NSL-KDD e UNSW-NB15 têm sido 
+amplamente utilizadas para avaliação de técnicas de detecção de intrusão. 
+Essas bases reúnem diferentes tipos de ataques e atributos de rede, permitindo 
+a aplicação e comparação de modelos de classificação. Entretanto, a presença 
+de grande quantidade de variáveis pode introduzir redundância e dificultar o 
+aprendizado dos algoritmos, impactando negativamente seu desempenho. Nesse 
+contexto, técnicas como a \textit{Principal Component Analysis} (PCA) e Matriz de 
+Correlação tornam-se relevantes para reduzir a dimensionalidade e destacar 
+características mais significativas.
 
+Considerando essas limitações, surge a necessidade de investigar de forma 
+sistemática a relação entre atributos, técnicas de redução de dimensionalidade 
+e desempenho de algoritmos de classificação. Estudos existentes frequentemente 
+analisam esses elementos de forma isolada, não explorando de maneira integrada 
+seu impacto na detecção de intrusões. Essa lacuna dificulta a identificação de 
+abordagens mais eficientes e a construção de soluções práticas aplicáveis em 
+ambientes reais. Assim, justifica-se a realização de uma análise abrangente 
+que integre esses aspectos.
+
+Considerando essas limitações, surge a necessidade de investigar de forma 
+sistemática a relação entre atributos, técnicas de redução de dimensionalidade 
+e desempenho de algoritmos de classificação. Estudos existentes frequentemente 
+analisam esses elementos de forma isolada, não explorando de maneira integrada 
+seu impacto na detecção de intrusões. Essa lacuna dificulta a identificação de 
+abordagens mais eficientes e a construção de soluções práticas aplicáveis em 
+ambientes reais. Assim, justifica-se a realização de uma análise abrangente 
+que integre esses aspectos.
+
+Dessa forma, este trabalho tem como objetivo geral analisar e avaliar técnicas de 
+Machine Learning aplicadas à detecção de intrusões, identificando atributos 
+relevantes e comparando o desempenho de algoritmos de classificação. 
+Especificamente, propõe-se:
+
+\begin{itemize}
+    \item Realizar a análise exploratória das bases NSL-KDD e UNSW-NB15, para compreender sua estrutura, identificar características gerais dos dados e verificar a presença de inconsistências, valores ausentes ou desbalanceamento entre classes.
+    \item Investigar a distribuição das classes e identificar padrões nos dados, buscando compreender o comportamento do tráfego de rede e possíveis distinções entre atividades normais e diferentes tipos de ataques.
+    \item Aplicar a matriz de correlação para análise das variáveis, a fim de identificar relações entre atributos, detectar possíveis redundâncias e avaliar o impacto dessas correlações na modelagem dos dados.
+    \item Utilizar a técnica de \textit{Principal Component Analysis} (PCA) para reduzir a dimensionalidade do conjunto de dados, facilitando a visualização, interpretação e identificação de padrões relevantes.
+    \item Treinar modelos de classificação baseados em \textit{Machine Learning}, aplicando diferentes algoritmos com o objetivo de identificar padrões de intrusão e classificar o tráfego de rede.
+    \item Avaliar o desempenho dos modelos por meio de métricas quantitativas, como acurácia, precisão, recall e F1-score, visando medir a eficácia dos algoritmos na detecção de intrusões.
+    \item Comparar o desempenho dos diferentes algoritmos de classificação, analisando seus resultados e identificando aqueles mais adequados ao problema de detecção de intrusão em redes de computadores.
+\end{itemize}
+
+Os resultados obtidos servirão como base para o desenvolvimento de um protótipo 
+de sistema de detecção de intrusão, contribuindo para o avanço de soluções mais 
+eficazes na área.
 
 \section{Formatação da página}
 As margens da folha estão definidas na Tabela I. O trabalho deve conter resumo; introdução; objetivos, metodologia; resultados e conclusões além de eventuais referências bibliográficas. Seções adicionais podem ser incluídas, caso necessário. 

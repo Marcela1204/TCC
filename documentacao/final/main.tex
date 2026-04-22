@@ -153,6 +153,13 @@ dos algoritmos, ajuste de hiperparâmetros à novos modelo, e evolução da sist
 ]
 
 \section{Introdução}
+
+% documentos de base:
+% IDS-least-square-SVM - Mr.K.Praveen Kumar1, M.Srija2, P.Rakesh3 , P.Sriram4 , S.Ajay5
+% Network Based Intrusion Detection System Using Machine Learning - Pratik Waghmode, Manideep Kanumuri, Hosam El-Ocla & Tanner Boyle
+
+Nesta sess~ao discutimos trabalhos anteriores que abordam o mesmo tema, sobre sistemas de detec,c~ao de intrus~a e tamb'em estudos sobre algor'itmos de aprendizado de máquina.
+
 O avanço das redes de computadores e a crescente digitalização de serviços têm 
 ampliado significativamente a exposição de sistemas a ameaças cibernéticas. 
 Com o aumento do volume de dados trafegados e da complexidade das infraestruturas, 
@@ -211,7 +218,7 @@ ambientes reais. Assim, justifica-se a realização de uma análise abrangente
 que integre esses aspectos.
 
 Dessa forma, este trabalho tem como objetivo geral analisar e avaliar técnicas de 
-Machine Learning aplicadas à detecção de intrusões, identificando atributos 
+\textit{Machine Learning} aplicadas à detecção de intrusões, identificando atributos 
 relevantes e comparando o desempenho de algoritmos de classificação. 
 Especificamente, propõe-se:
 
@@ -230,51 +237,51 @@ de sistema de detecção de intrusão, contribuindo para o avanço de soluções
 eficazes na área.
 
 \section{Formatação da página}
-As margens da folha estão definidas na Tabela I. O trabalho deve conter resumo; introdução; objetivos, metodologia; resultados e conclusões além de eventuais referências bibliográficas. Seções adicionais podem ser incluídas, caso necessário. 
+% As margens da folha estão definidas na Tabela I. O trabalho deve conter resumo; introdução; objetivos, metodologia; resultados e conclusões além de eventuais referências bibliográficas. Seções adicionais podem ser incluídas, caso necessário. 
+%
+% O corpo do trabalho deve ser escrito com caracteres de tamanho 10, sem linhas em branco separando os parágrafos. Em cada novo parágrafo, o início da primeira linha deve ser deslocado em 0,5 cm, conforme modelo. Cabeçalho e rodapé não devem ser alterados.
+%
+% As referências devem ser indicadas entre chaves [1] ao longo do texto e descrito no final do artigo citando: nomes dos autores (pode ser abreviado, no máximo três nomes e caso tenha mais nomes usar o et. al.), nome da revista, volume, ano da publicação e página ou nome do livro, editor e ano de publicação. 
+% Por exemplo: em \cite{10.1145/3716895.3716981} foram realizados muitos testes, alcançando uma acurácia de 100\%. Já em \cite{10.1145/3593239} não obtiveram resultados satisfatórios.
 
-O corpo do trabalho deve ser escrito com caracteres de tamanho 10, sem linhas em branco separando os parágrafos. Em cada novo parágrafo, o início da primeira linha deve ser deslocado em 0,5 cm, conforme modelo. Cabeçalho e rodapé não devem ser alterados.
+% \section{Figuras, tabelas e equações}
 
-As referências devem ser indicadas entre chaves [1] ao longo do texto e descrito no final do artigo citando: nomes dos autores (pode ser abreviado, no máximo três nomes e caso tenha mais nomes usar o et. al.), nome da revista, volume, ano da publicação e página ou nome do livro, editor e ano de publicação. 
-Por exemplo: em \cite{10.1145/3716895.3716981} foram realizados muitos testes, alcançando uma acurácia de 100\%. Já em \cite{10.1145/3593239} não obtiveram resultados satisfatórios.
-
-\section{Figuras, tabelas e equações}
-
-\subsection{Figuras}
-As figuras devem ser centralizadas, e as legendas devem ser numeradas sequencialmente, alinhadas à esquerda na parte inferior, conforme exemplo apresentado, usando fonte Arial tamanho 9. O tamanho da figura e das letras dentro das figuras deve estar legível. Cores podem ser utilizadas, desde que apresentem boa resolução. As figuras devem ser citadas no texto, por exemplo, a Figura \ref{fig:minhafigura-coluna} apresenta um gráfico.
+% \subsection{Figuras}
+% As figuras devem ser centralizadas, e as legendas devem ser numeradas sequencialmente, alinhadas à esquerda na parte inferior, conforme exemplo apresentado, usando fonte Arial tamanho 9. O tamanho da figura e das letras dentro das figuras deve estar legível. Cores podem ser utilizadas, desde que apresentem boa resolução. As figuras devem ser citadas no texto, por exemplo, a Figura \ref{fig:minhafigura-coluna} apresenta um gráfico.
  
-\begin{figure}[h!] % ← precisa do pacote float
-\centering
-\includegraphics[width=0.8\columnwidth]{exemplofig.png}
-\caption{Legenda da figura dentro da coluna}
-\label{fig:minhafigura-coluna}
-\end{figure}
+% \begin{figure}[h!] % ← precisa do pacote float
+% \centering
+% \includegraphics[width=0.8\columnwidth]{exemplofig.png}
+% \caption{Legenda da figura dentro da coluna}
+% \label{fig:minhafigura-coluna}
+% \end{figure}
 
-\subsection{Tabelas} 
-As tabelas devem ser referenciadas sequencialmente, com a legenda posicionada na parte superior da mesma e alinhada à esquerda, usando fonte Arial tamanho 9.\textbf{ O texto nas células da tabela deve ser centralizado. Usar o comando $|c|$} Elas devem ser citadas no texto, por exemplo a Tabela \ref{tab:exemplo} apresenta as informações das margens.
+% \subsection{Tabelas} 
+% As tabelas devem ser referenciadas sequencialmente, com a legenda posicionada na parte superior da mesma e alinhada à esquerda, usando fonte Arial tamanho 9.\textbf{ O texto nas células da tabela deve ser centralizado. Usar o comando $|c|$} Elas devem ser citadas no texto, por exemplo a Tabela \ref{tab:exemplo} apresenta as informações das margens.
 
-\begin{table}[H]
-\caption{Legenda da tabela, precisa ser intuitivo.}
-\label{tab:exemplo}
-\begin{tabular}{|c|c|}
-\hline
-\textbf{Margem} & \textbf{Tamanho (cm)} \\ \hline
-Superior & 2,0 \\ \hline
-Inferior & 2,0 \\ \hline
-Esquerda & 2,0 \\ \hline
-Direita & 2,0 \\ \hline
-Coluna & 1,0 \\ \hline
-\end{tabular}
-\end{table}
+% \begin{table}[H]
+% \caption{Legenda da tabela, precisa ser intuitivo.}
+% \label{tab:exemplo}
+% \begin{tabular}{|c|c|}
+% \hline
+% \textbf{Margem} & \textbf{Tamanho (cm)} \\ \hline
+% Superior & 2,0 \\ \hline
+% Inferior & 2,0 \\ \hline
+% Esquerda & 2,0 \\ \hline
+% Direita & 2,0 \\ \hline
+% Coluna & 1,0 \\ \hline
+% \end{tabular}
+% \end{table}
 
 
-\subsection{Equações}
-Caso seja necessário incluir equações, estas devem ser apresentadas em itálico, alinhadas à esquerda, e numeradas no lado direito entre parênteses.
-\begin{equation}
-    W= \theta_1 - \theta_2
-\end{equation}
+% \subsection{Equações}
+% Caso seja necessário incluir equações, estas devem ser apresentadas em itálico, alinhadas à esquerda, e numeradas no lado direito entre parênteses.
+% \begin{equation}
+%     W= \theta_1 - \theta_2
+% \end{equation}
 
 \section{Conclusões}
-Destaque os principais resultados alcançados e contribuições do trabalho desenvolvido.
+Nesta primeira etapa foi definido o algoritimo de machine learning ultilizado e feitas as analises dos componentes para definicao dos componentes mais importantes %FIXME: adicionar acentos as palavras
 
 \section{Referências}
 \printbibliography[heading=none]

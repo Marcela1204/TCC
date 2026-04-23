@@ -1,10 +1,9 @@
 This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.17)  23 APR 2026 18:08
 entering extended mode
  restricted \write18 enabled.
- file:line:error style messages enabled.
  %&-line parsing enabled.
-**main.tex
-(./main.tex
+**./main.tex
+(main.tex
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
 (/opt/texlive/2026/texmf-dist/tex/latex/base/article.cls
@@ -114,6 +113,7 @@ Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
 ) (/opt/texlive/2026/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
+
 \f@nch@headwidth=\skip51
 \f@nch@offset@elh=\skip52
 \f@nch@offset@erh=\skip53
@@ -136,7 +136,8 @@ Package: multicol 2025/10/21 v2.0b multicolumn formatting (FMi)
 \c@tracingmulticols=\count293
 
 
-Package multicol Warning: May not work with the twocolumn option on input line 145.
+Package multicol Warning: May not work with the twocolumn option on input line 
+145.
 
 \mult@box=\box55
 \multicol@leftmargin=\dimen167
@@ -463,7 +464,7 @@ File: biblatex.cfg
 Package biblatex Info: Input encoding 'utf8' detected.
 Package biblatex Info: Document encoding is UTF8 ....
 Package biblatex Info: ... and expl3
-(biblatex)             2026-01-19 L3 programming layer (loader) 
+(biblatex)             2025-12-24 L3 programming layer (loader) 
 (biblatex)             is new enough (at least 2020/04/06),
 (biblatex)             setting 'casechanger=expl3'.
  (/opt/texlive/2026/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty (/opt/texlive/2026/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
@@ -552,7 +553,7 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 )
 \@quotelevel=\count446
 \@quotereset=\count447
- (./main.aux)
+ (main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 123.
@@ -637,7 +638,7 @@ Package biblatex Info: Automatic encoding selection.
 
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' found.
- (./main.bbl)
+ (main.bbl)
 Package biblatex Info: Reference section=0 on input line 123.
 Package biblatex Info: Reference segment=0 on input line 123.
 LaTeX Font Info:    Trying to load font information for OT1+phv on input line 156.
@@ -680,7 +681,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 156--156
 <logoinova.png, id=1, 142.28156pt x 28.60687pt>
 File: logoinova.png Graphic file (type png)
 <use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 222.
+Package pdftex.def Info: logoinova.png  used on input line 218.
 (pdftex.def)             Requested size: 141.42363pt x 28.45401pt.
 LaTeX Font Info:    Trying to load font information for TS1+phv on input line 222.
 (/opt/texlive/2026/texmf-dist/tex/latex/psnfss/ts1phv.fd
@@ -698,6 +699,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 275--275
 []|\OT1/cmr/bx/n/8 ML
  []
 
+File: logoinova.png Graphic file (type png)
+<use logoinova.png>
+Package pdftex.def Info: logoinova.png  used on input line 294.
+(pdftex.def)             Requested size: 141.42363pt x 28.45401pt.
+[2]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 370.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 370.
 
 Underfull \hbox (badness 10000) in paragraph at lines 275--275
 \OT1/cmr/bx/n/8 Meth-
@@ -732,6 +742,10 @@ Package pdftex.def Info: logoinova.png  used on input line 346.
 Package caption Warning: Unused \captionsetup[figure] on input line 36.
 See the caption package documentation for explanation.
 
+
+Package caption Warning: Unused \captionsetup[table] on input line 46.
+See the caption package documentation for explanation.
+
 File: logoinova.png Graphic file (type png)
 <use logoinova.png>
 Package pdftex.def Info: logoinova.png  used on input line 351.
@@ -741,7 +755,7 @@ Package pdftex.def Info: logoinova.png  used on input line 351.
 ] (./main.aux)
  ***********
 LaTeX2e <2025-11-01>
-L3 programming layer <2026-01-19>
+L3 programming layer <2025-12-24>
  ***********
 
 

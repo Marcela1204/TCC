@@ -1,5 +1,6 @@
 \documentclass[a4paper,10pt, twocolumn]{article}
 \usepackage[a4paper,top=2cm,bottom=3cm,left=2cm,right=2cm,footskip=0.8cm]{geometry}
+\usepackage[utf8]{inputenc}
 \usepackage{lipsum}
 \usepackage{graphicx}
 \usepackage{float}
@@ -21,7 +22,8 @@
 \usepackage{multirow}
 \usepackage{array}
 \usepackage{booktabs}
-
+\usepackage{tikz}
+\usetikzlibrary{positioning, shapes.multipart}
 
 %-------------------------- ESTILOS NÃO ALTERAR ------------------------------------------------%
 % Estilo para legendas de figura e tabela
@@ -150,7 +152,7 @@ Resultados preliminares serão apresentados. Como contribuições futuras, prev�
 dos algoritmos, ajuste de hiperparâmetros à novos modelo, e evolução da sistema para tempo real
  e em cenários reais.}
 
-\keyword{Sistemas de Detecção de Intrusões, Machine Learning, Segurança da Informação, Análise de Dados, Redução de Dimensionalidade e Cybersegurança.}
+\keyword{Sistemas de Detecção de Intrusões, Machine Learning, Seguranças da sInformação, Análise de Dados, Redução de Dimensionalidade e Cybersegurança.}
 
 \end{@twocolumnfalse}
 ]
@@ -354,6 +356,133 @@ acurácia e redução de falsos positivos. Assim, a combinação dessas técnica
 representa uma abordagem eficaz para a construção de sistemas de detecção mais robustos.
 
 \subsection{Análise de Dados e Pré-processamento}
+%FIXME:
+Para a analise de dados foram considerados a base de dados NSL-KDD que considera os seguintes ataques $neptune$, $satan$, $ipsweep$, $poetsweep$, $smurf$, $nmap$, $back$, $teardrop$, $warezclient$, $pod$, $guess_passwd$, $buffer_overflow$, $warezmaster$, $land$, $imap$, $rootkit$, $loadmodule$, $ftp_write$, $multihop$, $phf$, $perl$, $spy$ alguns dos valores citados nao sao ataques reais, porem devido ao alto numero de trafego considerado por essas aplicacoes estas estao sendo consideradas ataques neste contexto.
+A base de dados conta com os seguintes valores \\
+\begin{center}
+\begin{tabular}{|c c|}
+	\hline
+	normal & 67343 \\
+	neptune & 41214 \\
+	satan & 3633 \\
+	ipsweep & 3599 \\
+	portsweep & 2931 \\
+	smurf & 2646 \\
+	nmap & 1493 \\
+	back & 956 \\
+	teardrop & 892 \\
+	warezclient & 890 \\
+	pod & 201 \\
+	guess\_passwd  & 53 \\
+	buffer\_overflow & 30 \\
+	warezmaster & 20 \\
+	land & 18 \\
+	imap & 11 \\
+	rootkit & 10 \\
+	loadmodule & 9 \\
+	ftp\_write & 8 \\
+	multihop &  7 \\
+	phf & 4 \\
+	perl & 3 \\
+	spy & 2 \\
+	\hline
+\end{tabular}
+\end{center}
+Destes valores os ataques forma separados nas seguintes categorias: $normal$, $dos$, $probe$, $r2l$, $u2r$ Para melhor vizualizacao da matriz de correlacao.
+\linebreak \\
+\begin{tikzpicture}[
+    % Estilo das tabelas
+	scale=0.6, transform shape,
+    tabela/.style={
+        rectangle split, 
+        rectangle split parts=#1, 
+        draw, 
+        thick, 
+        minimum width=2cm, 
+        inner sep=5pt,
+        fill=gray!5
+    },
+    % Estilo das conexões
+    conexao/.style={
+        ->, 
+        >=stealth, 
+        thick, 
+        blue!60!black, 
+        out=0, in=180 % Sai pela direita (0°) e entra pela esquerda (180°)
+    }
+]
+\node[tabela=23] (esq) {
+    \textbf{Tipo de Ataque}
+    \nodepart{two} normal
+    \nodepart{three} neptune
+    \nodepart{four} satan
+    \nodepart{five} ipsweep
+    \nodepart{six} smurf
+    \nodepart{seven} nmap
+    \nodepart{eight} back
+    \nodepart{nine} teardrop
+    \nodepart{ten} warezclient
+    \nodepart{eleven} pod
+    \nodepart{twelve} guess\_passwd
+    \nodepart{thirteen} buffer\_overflow
+    \nodepart{fourteen} warezmaster
+    \nodepart{fifteen} land
+    \nodepart{sixteen} imap
+    \nodepart{seventeen} rootkit
+    \nodepart{eighteen} loadmodule
+    \nodepart{nineteen} ftp\_write
+    \nodepart{twenty} multihop
+    \nodepart{twentyone} phf
+    \nodepart{twentytwo} perl
+    \nodepart{twentythree} spy
+};
+
+% Tabela Direita: 5 categorias + 1 cabeçalho = 6 partes
+\node[tabela=6, right=5cm of esq] (dir) {
+    \textbf{Categoria (Label)}
+    \nodepart{two} normal
+    \nodepart{three} dos
+    \nodepart{four} probe
+    \nodepart{five} r2l
+    \nodepart{six} u2r
+};
+
+% Mapeamento (Conexões)
+% Normal -> Normal
+\draw[conexao] (esq.two east) to (dir.two west);
+
+% DoS -> Neptune, Smurf, Back, Teardrop, Pod, Land
+\draw[conexao] (esq.three east) to (dir.three west); % neptune
+\draw[conexao] (esq.six east) to (dir.three west);   % smurf
+\draw[conexao] (esq.eight east) to (dir.three west); % back
+\draw[conexao] (esq.nine east) to (dir.three west);  % teardrop
+\draw[conexao] (esq.eleven east) to (dir.three west);% pod
+\draw[conexao] (esq.fifteen east) to (dir.three west);% land
+
+% Probe -> Satan, Ipsweep, Nmap
+\draw[conexao] (esq.four east) to (dir.four west);  % satan
+\draw[conexao] (esq.five east) to (dir.four west);  % ipsweep
+\draw[conexao] (esq.seven east) to (dir.four west); % nmap
+
+% R2L -> Warezclient, Guess_passwd, Warezmaster, Imap, Ftp_write, Multihop, Phf, Spy
+\draw[conexao] (esq.ten east) to (dir.five west);      % warezclient
+\draw[conexao] (esq.twelve east) to (dir.five west);   % guess_passwd
+\draw[conexao] (esq.fourteen east) to (dir.five west); % warezmaster
+\draw[conexao] (esq.sixteen east) to (dir.five west);  % imap
+\draw[conexao] (esq.nineteen east) to (dir.five west); % ftp_write
+\draw[conexao] (esq.twenty east) to (dir.five west);   % multihop
+\draw[conexao] (esq.twentyone east) to (dir.five west);% phf
+\draw[conexao] (esq.twentythree east) to (dir.five west); % spy
+
+% U2R -> Buffer_overflow, Rootkit, Loadmodule, Perl
+\draw[conexao] (esq.thirteen east) to (dir.six west);  % buffer_overflow
+\draw[conexao] (esq.seventeen east) to (dir.six west); % rootkit
+\draw[conexao] (esq.eighteen east) to (dir.six west);  % loadmodule
+\draw[conexao] (esq.twentytwo east) to (dir.six west);% perl
+
+\end{tikzpicture}
+
+
 \subsection{Redução de Dimensionalidade e Seleção de Atributos}
 \subsection{Base de Dados NSL-KDD e UNSW-NB15}
 \subsection{Métricas de Avaliação}

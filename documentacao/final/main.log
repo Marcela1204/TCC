@@ -1,9 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.17)  23 APR 2026 18:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.17)  23 APR 2026 20:54
 entering extended mode
  restricted \write18 enabled.
+ file:line:error style messages enabled.
  %&-line parsing enabled.
-**./main.tex
-(main.tex
+**main.tex
+(./main.tex
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
 (/opt/texlive/2026/texmf-dist/tex/latex/base/article.cls
@@ -44,6 +45,10 @@ Package: iftex 2024/12/12 v1.0g TeX engine tests
 \Gm@layouthoffset=\dimen155
 \Gm@layoutvoffset=\dimen156
 \Gm@dimlist=\toks18
+) (/opt/texlive/2026/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2024/02/08 v1.3d Input encoding file
+\inpenc@prehook=\toks19
+\inpenc@posthook=\toks20
 ) (/opt/texlive/2026/texmf-dist/tex/latex/lipsum/lipsum.sty (/opt/texlive/2026/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty (/opt/texlive/2026/texmf-dist/tex/latex/l3kernel/expl3.sty
 Package: expl3 2026-01-19 L3 programming layer (loader) 
  (/opt/texlive/2026/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
@@ -74,9 +79,9 @@ File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
 ) (/opt/texlive/2026/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count290
-\float@exts=\toks19
+\float@exts=\toks21
 \float@box=\box53
-\@float@everytoks=\toks20
+\@float@everytoks=\toks22
 \@floatcapt=\box54
 ) (/opt/texlive/2026/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2023/08/05 v3.6o Customizing captions (AR)
@@ -113,7 +118,6 @@ Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
 ) (/opt/texlive/2026/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
-
 \f@nch@headwidth=\skip51
 \f@nch@offset@elh=\skip52
 \f@nch@offset@erh=\skip53
@@ -128,7 +132,7 @@ Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
 \f@nch@widthL=\skip62
 \f@nch@widthC=\skip63
 \f@nch@widthR=\skip64
-\@temptokenb=\toks21
+\@temptokenb=\toks23
 ) (/opt/texlive/2026/texmf-dist/tex/latex/psnfss/helvet.sty
 Package: helvet 2020/03/25 PSNFSS-v9.3 (WaS) 
 ) (/opt/texlive/2026/texmf-dist/tex/latex/tools/multicol.sty
@@ -136,8 +140,7 @@ Package: multicol 2025/10/21 v2.0b multicolumn formatting (FMi)
 \c@tracingmulticols=\count293
 
 
-Package multicol Warning: May not work with the twocolumn option on input line 
-145.
+Package multicol Warning: May not work with the twocolumn option on input line 145.
 
 \mult@box=\box55
 \multicol@leftmargin=\dimen167
@@ -213,7 +216,7 @@ Package: titlesec 2025/01/04 v2.17 Sectioning titles
 \aftertitleunit=\skip68
 \ttl@plus=\dimen176
 \ttl@minus=\dimen177
-\ttl@toksa=\toks22
+\ttl@toksa=\toks24
 \titlewidth=\dimen178
 \titlewidthlast=\dimen179
 \titlewidthfirst=\dimen180
@@ -464,7 +467,7 @@ File: biblatex.cfg
 Package biblatex Info: Input encoding 'utf8' detected.
 Package biblatex Info: Document encoding is UTF8 ....
 Package biblatex Info: ... and expl3
-(biblatex)             2025-12-24 L3 programming layer (loader) 
+(biblatex)             2026-01-19 L3 programming layer (loader) 
 (biblatex)             is new enough (at least 2020/04/06),
 (biblatex)             setting 'casechanger=expl3'.
  (/opt/texlive/2026/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty (/opt/texlive/2026/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
@@ -497,7 +500,7 @@ Package: paracol 2025/07/14 1.37 typeset columns in parallel
 \pcol@tempboxa=\box106
 \pcol@tempboxb=\box107
 \pcol@colorins=\insert252
-\pcol@everyvbox=\toks23
+\pcol@everyvbox=\toks25
 ) (/opt/texlive/2026/texmf-dist/tex/latex/tools/indentfirst.sty
 Package: indentfirst 2023/07/02 v1.03 Indent first paragraph (DPC)
 ) (/opt/texlive/2026/texmf-dist/tex/latex/ragged2e/ragged2e.sty
@@ -527,7 +530,7 @@ Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
 \col@sep=\dimen187
 \ar@mcellbox=\box108
 \extrarowheight=\dimen188
-\NC@list=\toks24
+\NC@list=\toks26
 \extratabsurround=\skip109
 \backup@length=\skip110
 \ar@cellbox=\box109
@@ -550,26 +553,232 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \@thisruleclass=\count444
 \@lastruleclass=\count445
 \@thisrulewidth=\dimen257
+) (/opt/texlive/2026/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
+(/opt/texlive/2026/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty (/opt/texlive/2026/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty (/opt/texlive/2026/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
+\pgfutil@everybye=\toks27
+\pgfutil@tempdima=\dimen258
+\pgfutil@tempdimb=\dimen259
+) (/opt/texlive/2026/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
+\pgfutil@abb=\box110
+) (/opt/texlive/2026/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex (/opt/texlive/2026/texmf-dist/tex/generic/pgf/pgf.revision.tex)
+Package: pgfrcs 2025-08-29 v3.1.11a (3.1.11a)
+))
+Package: pgf 2025-08-29 v3.1.11a (3.1.11a)
+ (/opt/texlive/2026/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty (/opt/texlive/2026/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty (/opt/texlive/2026/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+Package: pgfsys 2025-08-29 v3.1.11a (3.1.11a)
+ (/opt/texlive/2026/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks28
+\pgfkeys@temptoks=\toks29
+ (/opt/texlive/2026/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered.code.tex
+\pgfkeys@tmptoks=\toks30
+))
+\pgf@x=\dimen260
+\pgf@y=\dimen261
+\pgf@xa=\dimen262
+\pgf@ya=\dimen263
+\pgf@xb=\dimen264
+\pgf@yb=\dimen265
+\pgf@xc=\dimen266
+\pgf@yc=\dimen267
+\pgf@xd=\dimen268
+\pgf@yd=\dimen269
+\w@pgf@writea=\write4
+\r@pgf@reada=\read3
+\c@pgf@counta=\count446
+\c@pgf@countb=\count447
+\c@pgf@countc=\count448
+\c@pgf@countd=\count449
+\t@pgf@toka=\toks31
+\t@pgf@tokb=\toks32
+\t@pgf@tokc=\toks33
+\pgf@sys@id@count=\count450
+ (/opt/texlive/2026/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
+File: pgf.cfg 2025-08-29 v3.1.11a (3.1.11a)
 )
-\@quotelevel=\count446
-\@quotereset=\count447
- (main.aux)
+Driver file for pgf: pgfsys-pdftex.def
+ (/opt/texlive/2026/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
+File: pgfsys-pdftex.def 2025-08-29 v3.1.11a (3.1.11a)
+ (/opt/texlive/2026/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def
+File: pgfsys-common-pdf.def 2025-08-29 v3.1.11a (3.1.11a)
+))) (/opt/texlive/2026/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
+File: pgfsyssoftpath.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfsyssoftpath@smallbuffer@items=\count451
+\pgfsyssoftpath@bigbuffer@items=\count452
+) (/opt/texlive/2026/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
+File: pgfsysprotocol.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)) (/opt/texlive/2026/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+Package: pgfcore 2025-08-29 v3.1.11a (3.1.11a)
+ (/opt/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex (/opt/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex) (/opt/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+\pgfmath@dimen=\dimen270
+\pgfmath@count=\count453
+\pgfmath@box=\box111
+\pgfmath@toks=\toks34
+\pgfmath@stack@operand=\toks35
+\pgfmath@stack@operation=\toks36
+) (/opt/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex) (/opt/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex) (/opt/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex) (/opt/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex) (/opt/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex) (/opt/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex)
+(/opt/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex) (/opt/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex) (/opt/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex) (/opt/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex) (/opt/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count454
+)) (/opt/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfint.code.tex) (/opt/texlive/2026/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
+File: pgfcorepoints.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@picminx=\dimen271
+\pgf@picmaxx=\dimen272
+\pgf@picminy=\dimen273
+\pgf@picmaxy=\dimen274
+\pgf@pathminx=\dimen275
+\pgf@pathmaxx=\dimen276
+\pgf@pathminy=\dimen277
+\pgf@pathmaxy=\dimen278
+\pgf@xx=\dimen279
+\pgf@xy=\dimen280
+\pgf@yx=\dimen281
+\pgf@yy=\dimen282
+\pgf@zx=\dimen283
+\pgf@zy=\dimen284
+) (/opt/texlive/2026/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex
+File: pgfcorepathconstruct.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@path@lastx=\dimen285
+\pgf@path@lasty=\dimen286
+) (/opt/texlive/2026/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex
+File: pgfcorepathusage.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@shorten@end@additional=\dimen287
+\pgf@shorten@start@additional=\dimen288
+) (/opt/texlive/2026/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
+File: pgfcorescopes.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfpic=\box112
+\pgf@hbox=\box113
+\pgf@layerbox@main=\box114
+\pgf@picture@serial@count=\count455
+) (/opt/texlive/2026/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
+File: pgfcoregraphicstate.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgflinewidth=\dimen289
+) (/opt/texlive/2026/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex
+File: pgfcoretransformations.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@pt@x=\dimen290
+\pgf@pt@y=\dimen291
+\pgf@pt@temp=\dimen292
+) (/opt/texlive/2026/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
+File: pgfcorequick.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+) (/opt/texlive/2026/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.tex
+File: pgfcoreobjects.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+) (/opt/texlive/2026/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing.code.tex
+File: pgfcorepathprocessing.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+) (/opt/texlive/2026/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex
+File: pgfcorearrows.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfarrowsep=\dimen293
+) (/opt/texlive/2026/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
+File: pgfcoreshade.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@max=\dimen294
+\pgf@sys@shading@range@num=\count456
+\pgf@shadingcount=\count457
+) (/opt/texlive/2026/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
+File: pgfcoreimage.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+) (/opt/texlive/2026/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
+File: pgfcoreexternal.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfexternal@startupbox=\box115
+) (/opt/texlive/2026/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex
+File: pgfcorelayers.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+) (/opt/texlive/2026/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex
+File: pgfcoretransparency.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+) (/opt/texlive/2026/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.tex
+File: pgfcorepatterns.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+) (/opt/texlive/2026/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex
+File: pgfcorerdf.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+))) (/opt/texlive/2026/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
+File: pgfmoduleshapes.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfnodeparttextbox=\box116
+)
+(/opt/texlive/2026/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
+File: pgfmoduleplot.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+) (/opt/texlive/2026/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
+Package: pgfcomp-version-0-65 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@nodesepstart=\dimen295
+\pgf@nodesepend=\dimen296
+) (/opt/texlive/2026/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
+Package: pgfcomp-version-1-18 2025-08-29 v3.1.11a (3.1.11a)
+)) (/opt/texlive/2026/texmf-dist/tex/latex/pgf/utilities/pgffor.sty (/opt/texlive/2026/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty (/opt/texlive/2026/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex)) (/opt/texlive/2026/texmf-dist/tex/latex/pgf/math/pgfmath.sty (/opt/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)) (/opt/texlive/2026/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+Package: pgffor 2025-08-29 v3.1.11a (3.1.11a)
+\pgffor@iter=\dimen297
+\pgffor@skip=\dimen298
+\pgffor@stack=\toks37
+\pgffor@toks=\toks38
+)) (/opt/texlive/2026/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
+Package: tikz 2025-08-29 v3.1.11a (3.1.11a)
+ (/opt/texlive/2026/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
+File: pgflibraryplothandlers.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@plot@mark@count=\count458
+\pgfplotmarksize=\dimen299
+)
+\tikz@lastx=\dimen300
+\tikz@lasty=\dimen301
+\tikz@lastxsaved=\dimen302
+\tikz@lastysaved=\dimen303
+\tikz@lastmovetox=\dimen304
+\tikz@lastmovetoy=\dimen305
+\tikzleveldistance=\dimen306
+\tikzsiblingdistance=\dimen307
+\tikz@figbox=\box117
+\tikz@figbox@bg=\box118
+\tikz@tempbox=\box119
+\tikz@tempbox@bg=\box120
+\tikztreelevel=\count459
+\tikznumberofchildren=\count460
+\tikznumberofcurrentchild=\count461
+\tikz@fig@count=\count462
+ (/opt/texlive/2026/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
+File: pgfmodulematrix.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfmatrixcurrentrow=\count463
+\pgfmatrixcurrentcolumn=\count464
+\pgf@matrix@numberofcolumns=\count465
+)
+\tikz@expandcount=\count466
+ (/opt/texlive/2026/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+))) (/opt/texlive/2026/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+) (/opt/texlive/2026/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.multipart.code.tex
+File: tikzlibraryshapes.multipart.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+ (/opt/texlive/2026/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.multipart.code.tex
+File: pgflibraryshapes.multipart.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfnodepartlowerbox=\box121
+\pgfnodeparttwobox=\box122
+\pgfnodepartthreebox=\box123
+\pgfnodepartfourbox=\box124
+\pgfnodeparttwentybox=\box125
+\pgfnodepartnineteenbox=\box126
+\pgfnodeparteighteenbox=\box127
+\pgfnodepartseventeenbox=\box128
+\pgfnodepartsixteenbox=\box129
+\pgfnodepartfifteenbox=\box130
+\pgfnodepartfourteenbox=\box131
+\pgfnodepartthirteenbox=\box132
+\pgfnodeparttwelvebox=\box133
+\pgfnodepartelevenbox=\box134
+\pgfnodeparttenbox=\box135
+\pgfnodepartninebox=\box136
+\pgfnodeparteightbox=\box137
+\pgfnodepartsevenbox=\box138
+\pgfnodepartsixbox=\box139
+\pgfnodepartfivebox=\box140
+))
+\@quotelevel=\count467
+\@quotereset=\count468
+ (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 123.
-LaTeX Font Info:    ... okay on input line 123.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 123.
-LaTeX Font Info:    ... okay on input line 123.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 123.
-LaTeX Font Info:    ... okay on input line 123.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 123.
-LaTeX Font Info:    ... okay on input line 123.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 123.
-LaTeX Font Info:    ... okay on input line 123.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 123.
-LaTeX Font Info:    ... okay on input line 123.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 123.
-LaTeX Font Info:    ... okay on input line 123.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 125.
+LaTeX Font Info:    ... okay on input line 125.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 125.
+LaTeX Font Info:    ... okay on input line 125.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 125.
+LaTeX Font Info:    ... okay on input line 125.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 125.
+LaTeX Font Info:    ... okay on input line 125.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 125.
+LaTeX Font Info:    ... okay on input line 125.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 125.
+LaTeX Font Info:    ... okay on input line 125.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 125.
+LaTeX Font Info:    ... okay on input line 125.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -607,17 +816,17 @@ LaTeX Font Info:    ... okay on input line 123.
 
 (/opt/texlive/2026/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count448
-\scratchdimen=\dimen258
-\scratchbox=\box110
-\nofMPsegments=\count449
-\nofMParguments=\count450
-\everyMPshowfont=\toks25
-\MPscratchCnt=\count451
-\MPscratchDim=\dimen259
-\MPnumerator=\count452
-\makeMPintoPDFobject=\count453
-\everyMPtoPDFconversion=\toks26
+\scratchcounter=\count469
+\scratchdimen=\dimen308
+\scratchbox=\box141
+\nofMPsegments=\count470
+\nofMParguments=\count471
+\everyMPshowfont=\toks39
+\MPscratchCnt=\count472
+\MPscratchDim=\dimen309
+\MPnumerator=\count473
+\makeMPintoPDFobject=\count474
+\everyMPtoPDFconversion=\toks40
 ) (/opt/texlive/2026/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -638,124 +847,237 @@ Package biblatex Info: Automatic encoding selection.
 
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' found.
- (main.bbl)
-Package biblatex Info: Reference section=0 on input line 123.
-Package biblatex Info: Reference segment=0 on input line 123.
-LaTeX Font Info:    Trying to load font information for OT1+phv on input line 156.
+ (./main.bbl)
+Package biblatex Info: Reference section=0 on input line 125.
+Package biblatex Info: Reference segment=0 on input line 125.
+LaTeX Font Info:    Trying to load font information for OT1+phv on input line 158.
  (/opt/texlive/2026/texmf-dist/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
 )
 LaTeX Font Info:    Font shape `OT1/phv/b/it' in size <11> not available
-(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 156.
-LaTeX Font Info:    Calculating math sizes for size <11> on input line 156.
+(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 158.
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 158.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 156.
+(Font)              size <5> substituted on input line 158.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <5.5> not available
-(Font)              size <5> substituted on input line 156.
+(Font)              size <5> substituted on input line 158.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 156.
+(Font)              size <5> substituted on input line 158.
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <11> on input line 156.
+(Font)              <11> on input line 158.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7.69997> on input line 156.
+(Font)              <7.69997> on input line 158.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5.5> on input line 156.
+(Font)              <5.5> on input line 158.
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <10> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 156.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 158.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 156.
+(Font)              <7> on input line 158.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 156.
+(Font)              <5> on input line 158.
 
-Underfull \hbox (badness 10000) in paragraph at lines 156--156
+Underfull \hbox (badness 10000) in paragraph at lines 158--158
 
  []
 
-<logoinova.png, id=1, 142.28156pt x 28.60687pt>
+<logoinova.png, id=4, 142.28156pt x 28.60687pt>
 File: logoinova.png Graphic file (type png)
 <use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 218.
+Package pdftex.def Info: logoinova.png  used on input line 220.
 (pdftex.def)             Requested size: 141.42363pt x 28.45401pt.
-LaTeX Font Info:    Trying to load font information for TS1+phv on input line 222.
+LaTeX Font Info:    Trying to load font information for TS1+phv on input line 220.
 (/opt/texlive/2026/texmf-dist/tex/latex/psnfss/ts1phv.fd
 File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
 ) [1{/opt/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/opt/texlive/2026/texmf-dist/fonts/enc/dvips/base/8r.enc}
 
 
  <./logoinova.png>]
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 273.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 273.
-
-Underfull \hbox (badness 10000) in paragraph at lines 275--275
-[]|\OT1/cmr/bx/n/8 ML
+Underfull \hbox (badness 1888) in paragraph at lines 250--260
+[]\OT1/cmr/m/n/10 A evolu^^Xc~ao das amea^^Xcas cibern^^Seticas acom-
  []
 
 File: logoinova.png Graphic file (type png)
 <use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 294.
+Package pdftex.def Info: logoinova.png  used on input line 296.
 (pdftex.def)             Requested size: 141.42363pt x 28.45401pt.
-[2]
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 370.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 370.
-
-Underfull \hbox (badness 10000) in paragraph at lines 275--275
-\OT1/cmr/bx/n/8 Meth-
+[2{/opt/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+Underfull \hbox (badness 8038) in paragraph at lines 360--362
+\OT1/cmr/m/n/10 ataques $\OML/cmm/m/it/10 neptune$\OT1/cmr/m/n/10 , $\OML/cmm/m/it/10 satan$\OT1/cmr/m/n/10 , $\OML/cmm/m/it/10 ipsweep$\OT1/cmr/m/n/10 , $\OML/cmm/m/it/10 poetsweep$\OT1/cmr/m/n/10 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 309--310
+Underfull \hbox (badness 1968) in paragraph at lines 360--362
+\OML/cmm/m/it/10 imap$\OT1/cmr/m/n/10 , $\OML/cmm/m/it/10 rootkit$\OT1/cmr/m/n/10 , $\OML/cmm/m/it/10 loadmodule$\OT1/cmr/m/n/10 , $\OML/cmm/m/it/10 ftp[]rite$\OT1/cmr/m/n/10 , $\OML/cmm/m/it/10 multihop$\OT1/cmr/m/n/10 ,
+ []
+
+
+Underfull \hbox (badness 1137) in paragraph at lines 360--362
+\OT1/cmr/m/n/10 ataques reais, porem de-v-ido ao alto nu-mero de
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 360--362
+
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+File: logoinova.png Graphic file (type png)
+<use logoinova.png>
+Package pdftex.def Info: logoinova.png  used on input line 390.
+(pdftex.def)             Requested size: 141.42363pt x 28.45401pt.
+ [3]
+./main.tex:435: Missing number, treated as zero.
+<to be read again> 
+                   \pgfnodeparttwentyonebox 
+l.435     \nodepart{twentyone} p
+                                hf
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+./main.tex:435: A <box> was supposed to be here.
+<to be read again> 
+                   =
+l.435     \nodepart{twentyone} p
+                                hf
+I was expecting to see \hbox or \vbox or \copy or \box or
+something like that. So you might find something missing in
+your output. But keep trying; you can fix this later.
+
+Missing character: There is no = in font nullfont!
+./main.tex:436: Missing number, treated as zero.
+<to be read again> 
+                   \pgfnodeparttwentytwobox 
+l.436     \nodepart{twentytwo} p
+                                erl
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+./main.tex:436: A <box> was supposed to be here.
+<to be read again> 
+                   =
+l.436     \nodepart{twentytwo} p
+                                erl
+I was expecting to see \hbox or \vbox or \copy or \box or
+something like that. So you might find something missing in
+your output. But keep trying; you can fix this later.
+
+Missing character: There is no = in font nullfont!
+./main.tex:437: Missing number, treated as zero.
+<to be read again> 
+                   \pgfnodeparttwentythreebox 
+l.437     \nodepart{twentythree} s
+                                  py
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+./main.tex:437: A <box> was supposed to be here.
+<to be read again> 
+                   =
+l.437     \nodepart{twentythree} s
+                                  py
+I was expecting to see \hbox or \vbox or \copy or \box or
+something like that. So you might find something missing in
+your output. But keep trying; you can fix this later.
+
+Missing character: There is no = in font nullfont!
+
+./main.tex:474: Package PGF Math Error: Unknown function `twentyone' (in 'twentyone east').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.474 \draw[conexao] (esq.twentyone east)
+                                          to (dir.five west);% phf
+This error message was generated by an \errmessage
+command, so I can't give any explicit help.
+Pretend that you're Hercule Poirot: Examine all clues,
+and deduce the truth by order and method.
+
+
+./main.tex:475: Package PGF Math Error: Unknown function `twentythree' (in 'twentythree east').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.475 \draw[conexao] (esq.twentythree east)
+                                            to (dir.five west); % spy
+(That was another \errmessage.)
+
+
+./main.tex:481: Package PGF Math Error: Unknown function `twentytwo' (in 'twentytwo east').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.481 \draw[conexao] (esq.twentytwo east)
+                                          to (dir.six west);% perl
+(That was another \errmessage.)
+
+
+Underfull \hbox (badness 2564) in paragraph at lines 391--484
+\OT1/cmr/m/n/10 Destes val-ores os ataques forma sep-a-ra-dos nas
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 391--484
+
+ []
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 499.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 499.
+
+Underfull \hbox (badness 10000) in paragraph at lines 505--506
 []|\OT1/cmr/m/n/8 Pesquisa para con-hec-i-
  []
 
 
-Underfull \hbox (badness 1728) in paragraph at lines 317--318
+Underfull \hbox (badness 1728) in paragraph at lines 513--514
 []|\OT1/cmr/m/n/8 Desenvolvimento do pro-
  []
 
 
-Overfull \hbox (13.58727pt too wide) in paragraph at lines 303--330
+Overfull \hbox (13.58727pt too wide) in paragraph at lines 499--526
  [] 
  []
 
 
-Underfull \hbox (badness 3364) in paragraph at lines 342--346
+Underfull \hbox (badness 3364) in paragraph at lines 538--542
 \OT1/cmr/m/n/10 preens~ao ao longo de toda a nossa tra-jet^^Soria
  []
 
-File: logoinova.png Graphic file (type png)
-<use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 346.
-(pdftex.def)             Requested size: 141.42363pt x 28.45401pt.
-[2{/opt/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
 
-Package caption Warning: Unused \captionsetup[figure] on input line 36.
+Package caption Warning: Unused \captionsetup[figure] on input line 38.
 See the caption package documentation for explanation.
 
 
-Package caption Warning: Unused \captionsetup[table] on input line 46.
+Package caption Warning: Unused \captionsetup[table] on input line 48.
 See the caption package documentation for explanation.
 
 File: logoinova.png Graphic file (type png)
 <use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 351.
+Package pdftex.def Info: logoinova.png  used on input line 547.
 (pdftex.def)             Requested size: 141.42363pt x 28.45401pt.
-[3
-
-] (./main.aux)
+[4] (./main.aux)
  ***********
 LaTeX2e <2025-11-01>
-L3 programming layer <2025-12-24>
+L3 programming layer <2026-01-19>
  ***********
 
 
@@ -767,18 +1089,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 14274 strings out of 467525
- 266806 string characters out of 5393165
- 1215848 words of memory out of 5000000
- 43023 multiletter control sequences out of 15000+600000
- 650650 words of font info for 79 fonts, out of 8000000 for 9000
+ 25142 strings out of 467525
+ 514007 string characters out of 5393165
+ 1431902 words of memory out of 5000000
+ 53678 multiletter control sequences out of 15000+600000
+ 646958 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 73i,15n,77p,1398b,1260s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</opt/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></opt/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></opt/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></opt/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></opt/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></opt/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></opt/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></opt/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></opt/texlive/2026/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></opt/texlive/2026/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></opt/texlive/2026/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></opt/texlive/2026/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on main.pdf (3 pages, 150955 bytes).
+ 88i,15n,94p,1398b,1260s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</opt/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></opt/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></opt/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></opt/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></opt/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></opt/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></opt/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></opt/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></opt/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></opt/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></opt/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></opt/texlive/2026/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></opt/texlive/2026/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></opt/texlive/2026/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></opt/texlive/2026/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on main.pdf (4 pages, 195744 bytes).
 PDF statistics:
- 79 PDF objects out of 1000 (max. 8388607)
- 47 compressed objects within 1 object stream
+ 100 PDF objects out of 1000 (max. 8388607)
+ 61 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 18 words of extra memory for PDF output out of 10000 (max. 10000000)
 

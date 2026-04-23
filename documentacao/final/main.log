@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.3.5)  22 APR 2026 19:56
+=======
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.5)  23 APR 2026 18:14
+>>>>>>> Stashed changes
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -680,15 +684,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 156--156
 <logoinova.png, id=1, 142.28156pt x 28.60687pt>
 File: logoinova.png Graphic file (type png)
 <use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 222.
+Package pdftex.def Info: logoinova.png  used on input line 218.
 (pdftex.def)             Requested size: 141.42363pt x 28.45401pt.
+<<<<<<< Updated upstream
 LaTeX Font Info:    Trying to load font information for TS1+phv on input line 222.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1phv.fd
+=======
+LaTeX Font Info:    Trying to load font information for TS1+phv on input line 2
+18.
+(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1phv.fd
+>>>>>>> Stashed changes
 File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
 ) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}
 
 
  <./logoinova.png>]
+<<<<<<< Updated upstream
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 272.
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -696,9 +707,23 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 Underfull \hbox (badness 10000) in paragraph at lines 274--274
 []|\OT1/cmr/bx/n/8 ML
+=======
+Underfull \hbox (badness 1888) in paragraph at lines 248--258
+[]\OT1/cmr/m/n/10 A evolu^^Xc~ao das amea^^Xcas cibern^^Seticas acom-
+>>>>>>> Stashed changes
  []
 
+File: logoinova.png Graphic file (type png)
+<use logoinova.png>
+Package pdftex.def Info: logoinova.png  used on input line 294.
+(pdftex.def)             Requested size: 141.42363pt x 28.45401pt.
+[2]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 369.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 369.
 
+<<<<<<< Updated upstream
 Underfull \hbox (badness 10000) in paragraph at lines 274--274
 \OT1/cmr/bx/n/8 Meth-
  []
@@ -708,21 +733,41 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 308--309
+=======
+Underfull \hbox (badness 10000) in paragraph at lines 375--376
+>>>>>>> Stashed changes
 []|\OT1/cmr/m/n/8 Pesquisa para con-hec-i-
  []
 
 
+<<<<<<< Updated upstream
 Underfull \hbox (badness 1728) in paragraph at lines 316--317
+=======
+Underfull \hbox (badness 1728) in paragraph at lines 383--384
+>>>>>>> Stashed changes
 []|\OT1/cmr/m/n/8 Desenvolvimento do pro-
  []
 
 
+<<<<<<< Updated upstream
 Overfull \hbox (13.58727pt too wide) in paragraph at lines 302--329
  [] 
  []
 
 
 Underfull \hbox (badness 3364) in paragraph at lines 341--345
+=======
+Overfull \hbox (13.58727pt too wide) in paragraph at lines 369--396
+ [] 
+ []
+
+File: logoinova.png Graphic file (type png)
+<use logoinova.png>
+Package pdftex.def Info: logoinova.png  used on input line 402.
+(pdftex.def)             Requested size: 141.42363pt x 28.45401pt.
+[3]
+Underfull \hbox (badness 3364) in paragraph at lines 407--411
+>>>>>>> Stashed changes
 \OT1/cmr/m/n/10 preens~ao ao longo de toda a nossa tra-jet^^Soria
  []
 
@@ -730,11 +775,23 @@ Underfull \hbox (badness 3364) in paragraph at lines 341--345
 Package caption Warning: Unused \captionsetup[figure] on input line 36.
 See the caption package documentation for explanation.
 
+
+Package caption Warning: Unused \captionsetup[table] on input line 46.
+See the caption package documentation for explanation.
+
 File: logoinova.png Graphic file (type png)
 <use logoinova.png>
+<<<<<<< Updated upstream
 Package pdftex.def Info: logoinova.png  used on input line 350.
 (pdftex.def)             Requested size: 141.42363pt x 28.45401pt.
 [2{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] (./main.aux)
+=======
+Package pdftex.def Info: logoinova.png  used on input line 416.
+(pdftex.def)             Requested size: 141.42363pt x 28.45401pt.
+[4
+
+] (main.aux)
+>>>>>>> Stashed changes
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -749,6 +806,7 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
+<<<<<<< Updated upstream
  14270 strings out of 467533
  266841 string characters out of 5422139
  1215816 words of memory out of 5000000
@@ -761,6 +819,32 @@ Output written on main.pdf (2 pages, 149413 bytes).
 PDF statistics:
  76 PDF objects out of 1000 (max. 8388607)
  45 compressed objects within 1 object stream
+=======
+ 14273 strings out of 467871
+ 270081 string characters out of 5417409
+ 1214282 words of memory out of 5000000
+ 42996 multiletter control sequences out of 15000+600000
+ 646650 words of font info for 73 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 73i,15n,77p,1762b,1277s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\Marcela\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tc
+rm1000.pk><C:/Users/Marcela/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
+sfonts/cm/cmbx8.pfb><C:/Users/Marcela/AppData/Local/Programs/MiKTeX/fonts/type1
+/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Marcela/AppData/Local/Programs/MiKTeX
+/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Marcela/AppData/Local/Progr
+ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Marcela/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Marcela/A
+ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/User
+s/Marcela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.p
+fb><C:/Users/Marcela/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhv
+b8a.pfb><C:/Users/Marcela/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helveti
+c/uhvbo8a.pfb><C:/Users/Marcela/AppData/Local/Programs/MiKTeX/fonts/type1/urw/h
+elvetic/uhvr8a.pfb><C:/Users/Marcela/AppData/Local/Programs/MiKTeX/fonts/type1/
+urw/helvetic/uhvro8a.pfb>
+Output written on main.pdf (4 pages, 169738 bytes).
+PDF statistics:
+ 80 PDF objects out of 1000 (max. 8388607)
+>>>>>>> Stashed changes
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -19,106 +19,55 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global/global}
-    \entry{10.1145/3593239}{article}{}{}
-      \name{author}{2}{}{%
-        {{hash=839eedc5272349a8aec4cc43b519ae02}{%
-           family={Balaji},
-           familyi={B\bibinitperiod},
-           given={Ananta\bibnamedelima Narayanan},
-           giveni={A\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
-        {{hash=7560a330cf11a6ef715e8004e64364c7}{%
-           family={Peh},
-           familyi={P\bibinitperiod},
-           given={Li-Shiuan},
-           giveni={L\bibinithyphendelim S\bibinitperiod}}}%
-      }
-      \list{location}{1}{%
-        {New York, NY, USA}%
-      }
-      \list{publisher}{1}{%
-        {Association for Computing Machinery}%
-      }
-      \strng{namehash}{9e2ea4f03948c20c509c325d2597f37e}
-      \strng{fullhash}{9e2ea4f03948c20c509c325d2597f37e}
-      \strng{fullhashraw}{9e2ea4f03948c20c509c325d2597f37e}
-      \strng{bibnamehash}{9e2ea4f03948c20c509c325d2597f37e}
-      \strng{authorbibnamehash}{9e2ea4f03948c20c509c325d2597f37e}
-      \strng{authornamehash}{9e2ea4f03948c20c509c325d2597f37e}
-      \strng{authorfullhash}{9e2ea4f03948c20c509c325d2597f37e}
-      \strng{authorfullhashraw}{9e2ea4f03948c20c509c325d2597f37e}
-      \field{sortinit}{B}
-      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{Existing artificial skin interfaces lack on-skin AI compute that can provide fast neural network inference for time-critical applications. In this paper, we propose AI-on-skin - a wearable artificial skin interface integrated with a neural network hardware accelerator that can be reconfigured to run diverse neural network models and applications. AI-on-skin is designed to scale to the entire body, comprising tiny, low-power, accelerators distributed across the body. We built 7 AI-on-Skin application prototypes and our user trials show AI-On-Skin achieving 20X and 50X speedup over off-body inference via Bluetooth and on-body centralized microprocessor based inference approach respectively. We also project the power performance of AI-on-skin with our accelerator fabricated as silicon chips instead of emulated on FPGAs and show 10X further power savings. To the best of our knowledge, AI-on-Skin is the first ever wearable prototype to demonstrate skin interfaces with on-body AI inference.}
-      \field{journaltitle}{Proc. ACM Hum.-Comput. Interact.}
-      \field{month}{6}
-      \field{number}{EICS}
-      \field{title}{AI-On-Skin: Towards Enabling Fast and Scalable On-body AI Inference for Wearable On-Skin Interfaces}
-      \field{volume}{7}
-      \field{year}{2023}
-      \verb{doi}
-      \verb 10.1145/3593239
-      \endverb
-      \verb{urlraw}
-      \verb https://doi-org.ez328.periodicos.capes.gov.br/10.1145/3593239
-      \endverb
-      \verb{url}
-      \verb https://doi-org.ez328.periodicos.capes.gov.br/10.1145/3593239
-      \endverb
-      \keyw{artificial skin interfaces,epidermal computing,neural network accelerators,smart-textiles}
-    \endentry
-    \entry{10.1145/3716895.3716981}{inproceedings}{}{}
-      \name{author}{3}{}{%
-        {{hash=c2f2dc8ae09dff7627282e7058cd988d}{%
-           family={Jiang},
-           familyi={J\bibinitperiod},
-           given={Jinyi},
+    \entry{10.339/90101173}{article}{}{}
+      \name{author}{5}{}{%
+        {{hash=5012a40dab75eeae07cbbd6d80c178e1}{%
+           family={Khraisat},
+           familyi={K\bibinitperiod},
+           given={Ansam},
+           giveni={A\bibinitperiod}}}%
+        {{hash=6e3a027f3576d3bd051b3fc7b70d397a}{%
+           family={Gondal},
+           familyi={G\bibinitperiod},
+           given={Iqbal},
+           giveni={I\bibinitperiod}}}%
+        {{hash=cfe292959018600afae3f889c34a5f10}{%
+           family={Vamplew},
+           familyi={V\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod}}}%
+        {{hash=e8788e7cc91b16373fb4002321deffee}{%
+           family={Kamruzzaman},
+           familyi={K\bibinitperiod},
+           given={Joarder},
            giveni={J\bibinitperiod}}}%
-        {{hash=cf8b4ff61b876c076a94dd270c97e454}{%
-           family={Wu},
-           familyi={W\bibinitperiod},
-           given={Enpeng},
-           giveni={E\bibinitperiod}}}%
-        {{hash=27e48b2736b8ac602441a9b75630e6b1}{%
-           family={Miao},
-           familyi={M\bibinitperiod},
-           given={Zihan},
-           giveni={Z\bibinitperiod}}}%
+        {{hash=8d4a88dcd0898313ee6456631a68b6b1}{%
+           family={Alazab},
+           familyi={A\bibinitperiod},
+           given={Ammar},
+           giveni={A\bibinitperiod}}}%
       }
-      \list{publisher}{1}{%
-        {Association for Computing Machinery}%
-      }
-      \strng{namehash}{1a87b32bb645b5a83cd9e41c2a99c7db}
-      \strng{fullhash}{4fd657b2baca516f9792c9760e886786}
-      \strng{fullhashraw}{4fd657b2baca516f9792c9760e886786}
-      \strng{bibnamehash}{4fd657b2baca516f9792c9760e886786}
-      \strng{authorbibnamehash}{4fd657b2baca516f9792c9760e886786}
-      \strng{authornamehash}{1a87b32bb645b5a83cd9e41c2a99c7db}
-      \strng{authorfullhash}{4fd657b2baca516f9792c9760e886786}
-      \strng{authorfullhashraw}{4fd657b2baca516f9792c9760e886786}
-      \field{sortinit}{J}
-      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \strng{namehash}{92d3ab44af6488585069c3feb533caac}
+      \strng{fullhash}{1efddc4634f350333208953e37b1ea14}
+      \strng{fullhashraw}{1efddc4634f350333208953e37b1ea14}
+      \strng{bibnamehash}{1efddc4634f350333208953e37b1ea14}
+      \strng{authorbibnamehash}{1efddc4634f350333208953e37b1ea14}
+      \strng{authornamehash}{92d3ab44af6488585069c3feb533caac}
+      \strng{authorfullhash}{1efddc4634f350333208953e37b1ea14}
+      \strng{authorfullhashraw}{1efddc4634f350333208953e37b1ea14}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{abstract}{The development of artificial intelligence (AI) in the beauty industry can reshape the way consumers interact with businesses, enabling them to quickly select more suitable products and providing a more convenient, targeted, and safer comfortable experience. Cosmetics companies integrate AI technology with offline shopping models, not only enhancing customer engagement and novelty in the store but also allowing businesses to identify products that customers prefer and target. South Korea is the first country in the world to enact laws and policies related to the customized cosmetics industry. South Korea's use of AI technology to develop customized cosmetics has been widely noticed in the international beauty market. The AI technology-based customized cosmetics industry in South Korea is mainly composed of three major industries: cosmetic products (skin care, makeup, beauty and hair care, and related products), beauty devices, and software services. In 2015, after Amorepacific Group first developed customized cosmetics in South Korea, companies such as LG Household \&amp; Health Care Ltd, CJ On Style, and H&amp;B began to engage in research and development in the customized cosmetics industry, achieving good results in both technology and product development. This study collects and investigates the development strategies of South Korean customized cosmetics companies and analyzes and organizes the methods of use and production principles of related products. It is hoped to provide some reference value for the development strategies and product research and development of global AI customized cosmetics companies.}
-      \field{booktitle}{Proceedings of the 5th International Conference on Artificial Intelligence and Computer Engineering}
-      \field{isbn}{9798400718007}
-      \field{series}{ICAICE '24}
-      \field{title}{Research on the Application of Artificial Intelligence (AI) in Customized Cosmetics Enterprises in South Korea}
-      \field{year}{2025}
-      \field{pages}{485\bibrangedash 488}
-      \range{pages}{4}
+      \field{abstract}{Cyberttacks are becoming increasingly sophisticated, necessitating the efficient intrusion detection mechanisms to monitor computer resources and generate reports on anomalous or suspicious activities. Many Intrusion Detection Systems (IDSs) use a single classifier for identifying intrusions. Single classifier IDSs are unable to achieve high accuracy and low false alarm rates due to polymorphic, metamorphic, and zero-day behaviors of malware. In this paper, a Hybrid IDS (HIDS) is proposed by combining the C5 decision tree classifier and One Class Support Vector Machine (OC-SVM). HIDS combines the strengths of SIDS) and Anomaly-based Intrusion Detection System (AIDS). The SIDS was developed based on the C5.0 Decision tree classifier and AIDS was developed based on the one-class Support Vector Machine (SVM). This framework aims to identify both the well-known intrusions and zero-day attacks with high detection accuracy and low false-alarm rates. The proposed HIDS is evaluated using the benchmark datasets, namely, Network Security Laboratory-Knowledge Discovery in Databases (NSL-KDD) and Australian Defence Force Academy (ADFA) datasets. Studies show that the performance of HIDS is enhanced, compared to SIDS and AIDS in terms of detection rate and low false-alarm rates.}
+      \field{title}{Hybrid Intrusion Detection System Based on the Stacking Ensemble of C5 Decision Tree Classifier and One Class Support Vector Machine}
+      \field{year}{2020}
+      \field{pages}{18}
+      \range{pages}{1}
       \verb{doi}
-      \verb 10.1145/3716895.3716981
+      \verb 10.339/90101173
       \endverb
-      \verb{urlraw}
-      \verb https://doi-org.ez328.periodicos.capes.gov.br/10.1145/3716895.3716981
-      \endverb
-      \verb{url}
-      \verb https://doi-org.ez328.periodicos.capes.gov.br/10.1145/3716895.3716981
-      \endverb
-      \keyw{Artificial Intelligence (AI),Customized Cosmetics,South Korean AI Cosmetics Enterprise}
+      \keyw{anomaly detection; hybrid approach; C5.0 Decision tree; Cyber analytics; data mining; machine learning; Zero-day malware; Intrusion; Intrusion Detection System}
     \endentry
   \enddatalist
 \endrefsection

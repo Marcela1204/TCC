@@ -62,8 +62,6 @@
       \field{abstract}{Cyberttacks are becoming increasingly sophisticated, necessitating the efficient intrusion detection mechanisms to monitor computer resources and generate reports on anomalous or suspicious activities. Many Intrusion Detection Systems (IDSs) use a single classifier for identifying intrusions. Single classifier IDSs are unable to achieve high accuracy and low false alarm rates due to polymorphic, metamorphic, and zero-day behaviors of malware. In this paper, a Hybrid IDS (HIDS) is proposed by combining the C5 decision tree classifier and One Class Support Vector Machine (OC-SVM). HIDS combines the strengths of SIDS) and Anomaly-based Intrusion Detection System (AIDS). The SIDS was developed based on the C5.0 Decision tree classifier and AIDS was developed based on the one-class Support Vector Machine (SVM). This framework aims to identify both the well-known intrusions and zero-day attacks with high detection accuracy and low false-alarm rates. The proposed HIDS is evaluated using the benchmark datasets, namely, Network Security Laboratory-Knowledge Discovery in Databases (NSL-KDD) and Australian Defence Force Academy (ADFA) datasets. Studies show that the performance of HIDS is enhanced, compared to SIDS and AIDS in terms of detection rate and low false-alarm rates.}
       \field{title}{Hybrid Intrusion Detection System Based on the Stacking Ensemble of C5 Decision Tree Classifier and One Class Support Vector Machine}
       \field{year}{2020}
-      \field{pages}{18}
-      \range{pages}{1}
       \verb{doi}
       \verb 10.339/90101173
       \endverb

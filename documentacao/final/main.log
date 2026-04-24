@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.17)  23 APR 2026 20:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.17)  23 APR 2026 21:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -762,7 +762,20 @@ File: pgflibraryshapes.multipart.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ))
 \@quotelevel=\count467
 \@quotereset=\count468
- (./main.aux)
+ (./main.aux
+
+./main.aux:85: LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.85 <
+      <<<<<< HEAD
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 125.
@@ -815,6 +828,20 @@ LaTeX Font Info:    ... okay on input line 125.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 (/opt/texlive/2026/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+Underfull \hbox (badness 3803) in paragraph at lines 85--13
+[]\OT1/cmr/m/n/10 <<<<<<< HEAD    =======    >>>>>>>
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 85--13
+\OT1/cmr/m/n/10 e7d129f076d60998bc6ab854452efb80319dad58
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 85--13
+\OT1/cmr/m/n/10 <<<<<<< HEAD  =======  >>>>>>>
+ []
+
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count469
 \scratchdimen=\dimen308
@@ -848,12 +875,36 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' found.
  (./main.bbl)
+Runaway argument?
+{In recent years, the number of people using the Internet and network\ETC.
+./main.tex:125: File ended while scanning use of \field.
+<inserted text> 
+                \par 
+l.125 \begin{document}
+                      
+I suspect you have forgotten a `}', causing me
+to read past where you wanted me to stop.
+I'll try to recover; but if the error is serious,
+you'd better type `E' or `X' now and fix your file.
+
 Package biblatex Info: Reference section=0 on input line 125.
 Package biblatex Info: Reference segment=0 on input line 125.
-LaTeX Font Info:    Trying to load font information for OT1+phv on input line 158.
- (/opt/texlive/2026/texmf-dist/tex/latex/psnfss/ot1phv.fd
+<logoinova.png, id=4, 142.28156pt x 28.60687pt>
+File: logoinova.png Graphic file (type png)
+<use logoinova.png>
+Package pdftex.def Info: logoinova.png  used on input line 128.
+(pdftex.def)             Requested size: 141.42363pt x 28.45401pt.
+LaTeX Font Info:    Trying to load font information for OT1+phv on input line 128.
+(/opt/texlive/2026/texmf-dist/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
 )
+LaTeX Font Info:    Trying to load font information for TS1+phv on input line 128.
+ (/opt/texlive/2026/texmf-dist/tex/latex/psnfss/ts1phv.fd
+File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
+) [1{/opt/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/opt/texlive/2026/texmf-dist/fonts/enc/dvips/base/8r.enc}
+
+
+ <./logoinova.png>]
 LaTeX Font Info:    Font shape `OT1/phv/b/it' in size <11> not available
 (Font)              Font shape `OT1/phv/b/sl' tried instead on input line 158.
 LaTeX Font Info:    Calculating math sizes for size <11> on input line 158.
@@ -887,220 +938,80 @@ Underfull \hbox (badness 10000) in paragraph at lines 158--158
 
  []
 
-<logoinova.png, id=4, 142.28156pt x 28.60687pt>
 File: logoinova.png Graphic file (type png)
 <use logoinova.png>
 Package pdftex.def Info: logoinova.png  used on input line 220.
 (pdftex.def)             Requested size: 141.42363pt x 28.45401pt.
-LaTeX Font Info:    Trying to load font information for TS1+phv on input line 220.
-(/opt/texlive/2026/texmf-dist/tex/latex/psnfss/ts1phv.fd
-File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
-) [1{/opt/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/opt/texlive/2026/texmf-dist/fonts/enc/dvips/base/8r.enc}
+[2
 
-
- <./logoinova.png>]
-Underfull \hbox (badness 1888) in paragraph at lines 250--260
-[]\OT1/cmr/m/n/10 A evolu^^Xc~ao das amea^^Xcas cibern^^Seticas acom-
- []
-
-File: logoinova.png Graphic file (type png)
-<use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 296.
-(pdftex.def)             Requested size: 141.42363pt x 28.45401pt.
-[2{/opt/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
-Underfull \hbox (badness 8038) in paragraph at lines 360--362
-\OT1/cmr/m/n/10 ataques $\OML/cmm/m/it/10 neptune$\OT1/cmr/m/n/10 , $\OML/cmm/m/it/10 satan$\OT1/cmr/m/n/10 , $\OML/cmm/m/it/10 ipsweep$\OT1/cmr/m/n/10 , $\OML/cmm/m/it/10 poetsweep$\OT1/cmr/m/n/10 ,
- []
-
-
-Underfull \hbox (badness 1968) in paragraph at lines 360--362
-\OML/cmm/m/it/10 imap$\OT1/cmr/m/n/10 , $\OML/cmm/m/it/10 rootkit$\OT1/cmr/m/n/10 , $\OML/cmm/m/it/10 loadmodule$\OT1/cmr/m/n/10 , $\OML/cmm/m/it/10 ftp[]rite$\OT1/cmr/m/n/10 , $\OML/cmm/m/it/10 multihop$\OT1/cmr/m/n/10 ,
- []
-
-
-Underfull \hbox (badness 1137) in paragraph at lines 360--362
-\OT1/cmr/m/n/10 ataques reais, porem de-v-ido ao alto nu-mero de
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 360--362
-
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-File: logoinova.png Graphic file (type png)
-<use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 390.
-(pdftex.def)             Requested size: 141.42363pt x 28.45401pt.
- [3]
-./main.tex:435: Missing number, treated as zero.
+]
+./main.tex:221: Illegal parameter number in definition of \NewCount.
 <to be read again> 
-                   \pgfnodeparttwentyonebox 
-l.435     \nodepart{twentyone} p
-                                hf
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
+                   1
+l.221 \begin{itemize}
+                     
+You meant to type ## instead of #, right?
+Or maybe a } was forgotten somewhere earlier, and things
+are all screwed up? I'm going to assume that you meant ##.
 
-./main.tex:435: A <box> was supposed to be here.
+./main.tex:221: Illegal parameter number in definition of \NewCount.
 <to be read again> 
-                   =
-l.435     \nodepart{twentyone} p
-                                hf
-I was expecting to see \hbox or \vbox or \copy or \box or
-something like that. So you might find something missing in
-your output. But keep trying; you can fix this later.
+                   1
+l.221 \begin{itemize}
+                     
+You meant to type ## instead of #, right?
+Or maybe a } was forgotten somewhere earlier, and things
+are all screwed up? I'm going to assume that you meant ##.
 
-Missing character: There is no = in font nullfont!
-./main.tex:436: Missing number, treated as zero.
+./main.tex:221: Missing \endcsname inserted.
 <to be read again> 
-                   \pgfnodeparttwentytwobox 
-l.436     \nodepart{twentytwo} p
-                                erl
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
+                   \protect 
+l.221 \begin{itemize}
+                     
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
 
-./main.tex:436: A <box> was supposed to be here.
+./main.tex:221: Undefined control sequence.
+<argument> \blx@bbl@data 
+                         
+l.221 \begin{itemize}
+                     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./main.tex:221: Missing \endcsname inserted.
 <to be read again> 
-                   =
-l.436     \nodepart{twentytwo} p
-                                erl
-I was expecting to see \hbox or \vbox or \copy or \box or
-something like that. So you might find something missing in
-your output. But keep trying; you can fix this later.
+                   \protect 
+l.221 \begin{itemize}
+                     
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
 
-Missing character: There is no = in font nullfont!
-./main.tex:437: Missing number, treated as zero.
-<to be read again> 
-                   \pgfnodeparttwentythreebox 
-l.437     \nodepart{twentythree} s
-                                  py
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
+)
+! Incomplete \iffalse; all text was ignored after line 221.
+<inserted text> 
+                \fi 
+<*> main.tex
+            
+The file ended while I was skipping conditional text.
+This kind of error happens when you say `\if...' and forget
+the matching `\fi'. I've inserted a `\fi'; this might work.
 
-./main.tex:437: A <box> was supposed to be here.
-<to be read again> 
-                   =
-l.437     \nodepart{twentythree} s
-                                  py
-I was expecting to see \hbox or \vbox or \copy or \box or
-something like that. So you might find something missing in
-your output. But keep trying; you can fix this later.
+! Emergency stop.
+<*> main.tex
+            
+*** (job aborted, no legal \end found)
 
-Missing character: There is no = in font nullfont!
-
-./main.tex:474: Package PGF Math Error: Unknown function `twentyone' (in 'twentyone east').
-
-See the PGF Math package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.474 \draw[conexao] (esq.twentyone east)
-                                          to (dir.five west);% phf
-This error message was generated by an \errmessage
-command, so I can't give any explicit help.
-Pretend that you're Hercule Poirot: Examine all clues,
-and deduce the truth by order and method.
-
-
-./main.tex:475: Package PGF Math Error: Unknown function `twentythree' (in 'twentythree east').
-
-See the PGF Math package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.475 \draw[conexao] (esq.twentythree east)
-                                            to (dir.five west); % spy
-(That was another \errmessage.)
-
-
-./main.tex:481: Package PGF Math Error: Unknown function `twentytwo' (in 'twentytwo east').
-
-See the PGF Math package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.481 \draw[conexao] (esq.twentytwo east)
-                                          to (dir.six west);% perl
-(That was another \errmessage.)
-
-
-Underfull \hbox (badness 2564) in paragraph at lines 391--484
-\OT1/cmr/m/n/10 Destes val-ores os ataques forma sep-a-ra-dos nas
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 391--484
-
- []
-
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 499.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 499.
-
-Underfull \hbox (badness 10000) in paragraph at lines 505--506
-[]|\OT1/cmr/m/n/8 Pesquisa para con-hec-i-
- []
-
-
-Underfull \hbox (badness 1728) in paragraph at lines 513--514
-[]|\OT1/cmr/m/n/8 Desenvolvimento do pro-
- []
-
-
-Overfull \hbox (13.58727pt too wide) in paragraph at lines 499--526
- [] 
- []
-
-
-Underfull \hbox (badness 3364) in paragraph at lines 538--542
-\OT1/cmr/m/n/10 preens~ao ao longo de toda a nossa tra-jet^^Soria
- []
-
-
-Package caption Warning: Unused \captionsetup[figure] on input line 38.
-See the caption package documentation for explanation.
-
-
-Package caption Warning: Unused \captionsetup[table] on input line 48.
-See the caption package documentation for explanation.
-
-File: logoinova.png Graphic file (type png)
-<use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 547.
-(pdftex.def)             Requested size: 141.42363pt x 28.45401pt.
-[4] (./main.aux)
- ***********
-LaTeX2e <2025-11-01>
-L3 programming layer <2026-01-19>
- ***********
-
-
-LaTeX Font Warning: Size substitutions with differences
-(Font)              up to 0.5pt have occurred.
-
-Package logreq Info: Writing requests to 'main.run.xml'.
-\openout1 = `main.run.xml'.
-
- ) 
+ 
 Here is how much of TeX's memory you used:
- 25142 strings out of 467525
- 514007 string characters out of 5393165
- 1431902 words of memory out of 5000000
- 53678 multiletter control sequences out of 15000+600000
- 646958 words of font info for 74 fonts, out of 8000000 for 9000
+ 24612 strings out of 467525
+ 502385 string characters out of 5393165
+ 1422698 words of memory out of 5000000
+ 53161 multiletter control sequences out of 15000+600000
+ 644626 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 88i,15n,94p,1398b,1260s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</opt/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></opt/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></opt/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></opt/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></opt/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></opt/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></opt/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></opt/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></opt/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></opt/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></opt/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></opt/texlive/2026/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></opt/texlive/2026/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></opt/texlive/2026/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></opt/texlive/2026/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on main.pdf (4 pages, 195744 bytes).
-PDF statistics:
- 100 PDF objects out of 1000 (max. 8388607)
- 61 compressed objects within 1 object stream
- 0 named destinations out of 1000 (max. 500000)
- 18 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+ 88i,15n,94p,2178b,994s stack positions out of 10000i,1000n,20000p,200000b,200000s
+!  ==> Fatal error occurred, no output PDF file produced!

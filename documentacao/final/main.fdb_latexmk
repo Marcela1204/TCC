@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1776988147.16856 "main.bcf" "main.bbl" "main" 1776988442.35004 0
-  "main.bcf" 1776988442.26559 108677 e65d8985b858c5c585aeb3d8c5356915 "pdflatex"
-  "referencias.bib" 1776979886.71458 39757 11a836604ef237239b10d3db893ba1a6 ""
+["biber main"] 1776988802.13721 "main.bcf" "main.bbl" "main" 1776988803.9446 0
+  "main.bcf" 0 -1 0 "pdflatex"
+  "referencias.bib" 1776988801.05283 39774 38a4d2b160bdf6296880a862a9ceb6b2 ""
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1776988441.37713 "main.tex" "main.pdf" "main" 1776988442.35032 2
+["pdflatex"] 1776988803.16961 "main.tex" "main.pdf" "main" 1776988803.94468 2
   "/opt/texlive/2026/texmf-dist/fonts/enc/dvips/base/8r.enc" 1773771053 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/opt/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1773771053 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/opt/texlive/2026/texmf-dist/fonts/map/fontname/texfonts.map" 1773771053 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -187,14 +187,13 @@
   "/opt/texlive/2026/texmf-var/web2c/pdftex/pdflatex.fmt" 1773771053 3637151 954b0b35bf8aee9aa5ab6e5c575a48e0 ""
   "/opt/texlive/2026/texmf.cnf" 1773771053 585 d90dcc7e4cbb41f80da762fdc25fd0ea ""
   "logoinova.png" 1770851283.10184 8563 2bdf1bdf926197f2974618836c072c1d ""
-  "main.aux" 1776988442.26459 2095 fdd0c8d2b2ed53d70797232485373c64 "pdflatex"
-  "main.bbl" 1776988148.05585 3953 8b06a266123e728b451c77f89f029cda "biber main"
-  "main.run.xml" 1776988442.26685 2406 1b56bcb4755fab85cc41222f32da4e69 "pdflatex"
-  "main.tex" 1776988439.91161 25581 fc33f80ce5e1738876bcec4d2f61633f ""
+  "main.aux" 1776988803.8838 162 1613c76355c25df345564ec493d5fed4 "pdflatex"
+  "main.bbl" 0 -1 0 "biber main"
+  "main.run.xml" 1776988801.05183 2406 a19fd77938cafab8554ec2c8a27f44ec ""
+  "main.tex" 1776988801.05183 26858 1f75b1cedcb7f91fac6ad9ec9f227761 ""
   (generated)
   "main.aux"
   "main.bcf"
   "main.log"
   "main.pdf"
-  "main.run.xml"
   (rewritten before read)

@@ -239,20 +239,20 @@ contemporânea devido à crescente dependência de sistemas digitais.
 Com a consolidação da chamada “civilização cibernética”, iniciada a partir da 
 revolução digital no final do século XX, houve um aumento significativo na 
 produção e circulação de dados, ampliando a superfície de ataque para agentes 
-maliciosos. Dados recentes indicam que o tráfego global per capita 
+maliciosos \cite{10.1109/2019.8644161}. Dados recentes indicam que o tráfego global per capita 
 evoluiu de 16 GB mensais em 2017 para projeções superiores a 50 GB em 2022, 
 enquanto mais de 14 bilhões de registros foram comprometidos desde 2013, 
-evidenciando a magnitude das ameaças digitais. Nesse contexto, 
+evidenciando a magnitude das ameaças digitais \cite{10.1109/2023.3296444} \cite{10.1007/10462-021-10037-9}. Nesse contexto, 
 a Segurança da Informação fundamenta-se na preservação da tríade 
 confidencialidade, integridade e disponibilidade, tornando-se essencial para a 
-proteção de ativos digitais em ambientes cada vez mais interconectados.
+proteção de ativos digitais em ambientes cada vez mais interconectados \cite{10.1016/2023.10031} \cite{10.1109/2023.3296444} \cite{10.1016/2012.09.004}.
 
 A evolução das ameaças cibernéticas acompanha diretamente o avanço tecnológico, 
 tornando os ataques mais sofisticados e diversificados. Entre os 
 principais tipos de ataques identificados na literatura estão os ataques de 
 negação de serviço (DoS), varreduras de rede (Probe), acessos remotos não 
 autorizados (R2L) e escalonamento de privilégios (U2R), cada um explorando 
-vulnerabilidades específicas dos sistemas. Além disso, observa-se o 
+vulnerabilidades específicas dos sistemas \cite{10.1016/2023.10031}. Além disso, observa-se o 
 crescimento expressivo dos ataques de dia zero, que exploram falhas ainda 
 desconhecidas, dificultando a detecção por mecanismos tradicionais. 
 Dessa forma, a complexidade e o volume das ameaças exigem soluções capazes de 
@@ -262,14 +262,14 @@ No presente, mais de 61\% das interações industriais e sociais ocorrem em
 ambiente online, o que torna a rede um alvo estratégico para cibercrimes que 
 agora visam não apenas usuários finais, mas diretamente infraestruturas críticas 
 e instituições bancárias. Essa dependência tecnológica exige que os Sistemas de 
-Detecção de Intrusão (IDS) evoluam proporcionalmente à sofisticação das ameaças.
+Detecção de Intrusão (IDS) evoluam proporcionalmente à sofisticação das ameaças \cite{10.1016/2023.10031}.
 
 \subsection{Sistemas de Detecção de Intrusão}
 Os Intrusion Detection System constituem uma das principais ferramentas para 
 monitoramento e identificação de atividades maliciosas em redes. Desde 
 o primeiro modelo formal proposto em 1987, os IDS evoluíram de abordagens 
 estatísticas simples para sistemas inteligentes capazes de analisar grandes 
-volumes de dados em tempo real. Esses sistemas atuam como uma camada 
+volumes de dados em tempo real \cite{10.1109/2019.8644161}. Esses sistemas atuam como uma camada 
 adicional de segurança, monitorando eventos e gerando alertas quando 
 comportamentos suspeitos são identificados. Assim, os IDS 
 desempenham papel fundamental na mitigação de ataques e na proteção de 
@@ -277,13 +277,13 @@ infraestruturas críticas.
 
 Os IDS podem ser classificados tanto pela fonte de dados quanto pela abordagem 
 de detecção. Em relação à origem das informações, destacam-se os sistemas 
-baseados em rede (NIDS) e os baseados em host (HIDS), enquanto, quanto à técnica 
+baseados em rede (NIDS) e os baseados em host (HIDS)\cite{10.1109/2023.3296444} \cite{10.1016/2020.04.113}, enquanto, quanto à técnica 
 utilizada, dividem-se em sistemas baseados em assinatura (SIDS) e baseados em 
-anomalia (AIDS). Os sistemas baseados em assinatura são eficazes na 
+anomalia (AIDS) \cite{10.1186/42400-019-0038-7} \cite{10.1007/10462-021-10037-9} \cite{10.1016/2022.03.029}. Os sistemas baseados em assinatura são eficazes na 
 identificação de ataques conhecidos, porém incapazes de detectar ameaças 
-inéditas, como ataques de dia zero. Por outro lado, os sistemas 
+inéditas, como ataques de dia zero \cite{10.1109/2023.3296444} \cite{10.1109/2019.8644161}. Por outro lado, os sistemas 
 baseados em anomalia apresentam maior flexibilidade, mas sofrem com altas taxas 
-de falsos positivos, o que impacta diretamente sua aplicabilidade prática.
+de falsos positivos, o que impacta diretamente sua aplicabilidade prática \cite{10.1007/10462-021-10037-9} \cite{10.1016/2017.10.016}.
 
 A literatura destaca que os IDS enfrentam desafios significativos relacionados 
 ao volume e à complexidade dos dados de rede. Com o crescimento 
@@ -293,19 +293,22 @@ Além disso, a presença de atributos redundantes e irrelevantes nos datasets
 compromete a eficiência dos modelos de detecção. Esse cenário evidencia a 
 necessidade de soluções mais inteligentes e adaptativas, capazes de lidar com 
 ambientes de Big Data.
+%\cite{PEGAR A REFERENCIA DESSE PARÁGRAFO}
 
 \subsection{Machine Learning aplicado à detecção de intrusão}
+%\cite{Tá faltando a referência desses parágrafos}
 O Machine Learning surge como uma abordagem promissora para superar as limitações 
 dos IDS tradicionais. Ao permitir que sistemas aprendam padrões 
 diretamente dos dados, o aprendizado de máquina possibilita a identificação de 
-comportamentos anômalos e a adaptação a novos tipos de ataques. 
+comportamentos anômalos e a adaptação a novos tipos de ataques \cite{10.1016/2015.04.191} \cite{10.1016/2020.04.113} \cite{10.1186/42400-019-0038-7}. 
 Estudos recentes apontam um crescimento significativo no uso de técnicas de ML 
 e Deep Learning na detecção de intrusões, especialmente a partir de 2018. 
 Dessa forma, o ML se consolida como um componente essencial para o 
 desenvolvimento de IDS mais eficientes.
 
+%\cite{Tá faltando a referência desses parágrafos}
 Entre os paradigmas de aprendizado, o modelo supervisionado destaca-se como o 
-mais utilizado na literatura. Essa abordagem utiliza dados previamente 
+mais utilizado na literatura \cite{10.1109/2019.8644161} \cite{10.1186/42400-019-0038-7}. Essa abordagem utiliza dados previamente 
 rotulados para treinar modelos capazes de classificar o tráfego de rede como 
 normal ou malicioso. A disponibilidade de bases de dados como NSL-KDD e 
 CICIDS-2017 favorece a aplicação desse tipo de técnica, permitindo comparações 
@@ -319,7 +322,7 @@ o custo computacional e pode reduzir a acurácia dos modelos. Nesse
 contexto, técnicas de seleção de atributos tornam-se essenciais para identificar 
 características relevantes e reduzir a complexidade do sistema. 
 A literatura demonstra que é possível reduzir significativamente o número de 
-atributos sem perda de desempenho, melhorando a eficiência dos modelos.
+atributos sem perda de desempenho, melhorando a eficiência dos modelos \cite{10.1007/10994-014-5473-9}.
 
 \subsection{Algoritmos de classificação}
 Diversos algoritmos de classificação têm sido aplicados na detecção de intrusões, 
@@ -331,28 +334,28 @@ generalização. Dessa forma, a escolha do modelo adequado depende
 diretamente das características do conjunto de dados e do problema abordado.
 
 O Random Forest destaca-se pela alta acurácia e robustez, alcançando taxas superiores 
-a 99\% em bases como KDD Cup 99 e NSL-KDD. Esse algoritmo utiliza 
+a 99\% em bases como KDD Cup 99 e NSL-KDD \cite{10.1007/10207-023-00682-2} \cite{10.1016/2016.06.016}. Esse algoritmo utiliza 
 múltiplas árvores de decisão para reduzir o risco de sobreajuste. 
 Por outro lado, o SVM apresenta bom desempenho em espaços de alta dimensionalidade, 
-embora sua eficiência dependa fortemente da escolha dos parâmetros. 
+embora sua eficiência dependa fortemente da escolha dos parâmetros \cite{10.1007/10207-023-00682-2} \cite{10.1109/2023.3296444} \cite{10.1016/2017.10.016}. 
 Assim, ambos os algoritmos são amplamente utilizados em cenários de detecção de 
 intrusão.
 
 Outros algoritmos também desempenham papel relevante na literatura. O 
 KNN destaca-se pela simplicidade, mas possui alto custo computacional na fase 
 de classificação, enquanto as árvores de decisão oferecem interpretabilidade, 
-sendo úteis para análise de regras. Já o Naive Bayes apresenta boa 
+sendo úteis para análise de regras \cite{10.1007/10207-023-00682-2} \cite{10.1186/42400-019-0038-7} \cite{10.1109/2023.3296444}. Já o Naive Bayes apresenta boa 
 eficiência computacional, embora sua suposição de independência entre atributos 
-possa limitar seu desempenho. Dessa forma, a combinação de 
+possa limitar seu desempenho \cite{10.1007/10207-023-00682-2} \cite{10.1186/42400-019-0038-7} \cite{10.1007/11227-015-1615-5}. Dessa forma, a combinação de 
 diferentes algoritmos, por meio de técnicas ensemble, tem sido explorada para 
 melhorar os resultados.
 
 Estudos indicam que a integração entre algoritmos de classificação e técnicas de
-seleção de atributos é fundamental para alcançar alto desempenho em IDS. 
+seleção de atributos é fundamental para alcançar alto desempenho em IDS \cite{10.1007/10207-023-00682-2} \cite{10.1186/40537-018-0145-4}. 
 A redução de dimensionalidade permite diminuir o custo computacional e aumentar 
 a velocidade de processamento, especialmente em redes de alta velocidade. 
 Além disso, a escolha adequada de atributos contribui diretamente para a melhoria da 
-acurácia e redução de falsos positivos. Assim, a combinação dessas técnicas 
+acurácia e redução de falsos positivos \cite{10.1007/10994-014-5473-9}. Assim, a combinação dessas técnicas 
 representa uma abordagem eficaz para a construção de sistemas de detecção mais robustos.
 
 \subsection{Análise de Dados e Pré-processamento}

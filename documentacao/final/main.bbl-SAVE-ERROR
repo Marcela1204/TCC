@@ -19,6 +19,333 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global/global}
+    \entry{10.1007/10462-021-10037-9}{survey}{}{}
+      \name{author}{2}{}{%
+        {{hash=47712837afdcaab6bc13fdf8508362b8}{%
+           family={A.},
+           familyi={A\bibinitperiod},
+           given={Thakkar},
+           giveni={T\bibinitperiod}}}%
+        {{hash=2ced1ecd779daff0be87a87394f17ff8}{%
+           family={R.},
+           familyi={R\bibinitperiod},
+           given={Lohiya},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{49f695a15513d710181be1047f4f390f}
+      \strng{fullhash}{49f695a15513d710181be1047f4f390f}
+      \strng{fullhashraw}{49f695a15513d710181be1047f4f390f}
+      \strng{bibnamehash}{49f695a15513d710181be1047f4f390f}
+      \strng{authorbibnamehash}{49f695a15513d710181be1047f4f390f}
+      \strng{authornamehash}{49f695a15513d710181be1047f4f390f}
+      \strng{authorfullhash}{49f695a15513d710181be1047f4f390f}
+      \strng{authorfullhashraw}{49f695a15513d710181be1047f4f390f}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{With the increase in the usage of the Internet, a large amount of information is exchanged between different communicating devices. The data should be communicated securely between the communicating devices and therefore, network security is one of the dominant research areas for the current network scenario. Intrusion detection systems (IDSs) are therefore widely used along with other security mechanisms such as firewall and access control. Many research ideas have been proposed pertaining to the IDS using machine learning (ML) techniques, deep learning (DL) techniques, and swarm and evolutionary algorithms (SWEVO). These methods have been tested on the datasets such as DARPA, KDD CUP 99, and NSL-KDD using network features to classify attack types. This paper surveys the intrusion detection problem by considering algorithms from areas such as ML, DL, and SWEVO. The survey is a representative research work carried out in the field of IDS from the year 2008 to 2020. The paper focuses on the methods that have incorporated feature selection in their models for performance evaluation. The paper also discusses the different datasets of IDS and a detailed description of recent dataset CIC IDS-2017. The paper presents applications of IDS with challenges and potential future research directions. The study presented, can serve as a pedestal for research communities and novice researchers in the field of network security for understanding and developing efficient IDS models.}
+      \field{title}{A survey on intrusion detection system: feature selection, model, performance measures, application perspective, challenges , and future research directions}
+      \field{year}{2021}
+      \verb{doi}
+      \verb 10.1007/10462-021-10037-9
+      \endverb
+    \endentry
+    \entry{10.1016/2022.03.029}{survey}{}{}
+      \name{author}{3}{}{%
+        {{hash=688edddd1d45251286573c7bd64460fa}{%
+           family={Abdallah},
+           familyi={A\bibinitperiod},
+           given={Emad\bibnamedelima E.},
+           giveni={E\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=2ba42b42f227bf01b2b537ffee52d5e0}{%
+           family={Eleisah},
+           familyi={E\bibinitperiod},
+           given={Wafa’},
+           giveni={W\bibinitperiod}}}%
+        {{hash=49888f7fb478038a4eb561b0d8cbe3af}{%
+           family={Otoom},
+           familyi={O\bibinitperiod},
+           given={Ahmed\bibnamedelima Fawzi},
+           giveni={A\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+      }
+      \strng{namehash}{46f231e6d47fd8c91fcf4c347efc090d}
+      \strng{fullhash}{b2e82091224232f5d74bc7c6c7a5e085}
+      \strng{fullhashraw}{b2e82091224232f5d74bc7c6c7a5e085}
+      \strng{bibnamehash}{b2e82091224232f5d74bc7c6c7a5e085}
+      \strng{authorbibnamehash}{b2e82091224232f5d74bc7c6c7a5e085}
+      \strng{authornamehash}{46f231e6d47fd8c91fcf4c347efc090d}
+      \strng{authorfullhash}{b2e82091224232f5d74bc7c6c7a5e085}
+      \strng{authorfullhashraw}{b2e82091224232f5d74bc7c6c7a5e085}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{In this paper, we investigate the subject of intrusion detection using supervised machine learning methods. The main goal is to provide a taxonomy for linked intrusion detection systems and supervised machine learning algorithms. For this purpose, we provide a deep discussion of the concepts of intrusion detection systems, supervised machine learning techniques, and cyber-security attacks. Then, concerning the application of supervised learning for intrusion detection, we cover relevant efforts. Finally, a taxonomy is provided based on these related works. Based on this taxonomy, we can conclude that the classification performance of supervised learning algorithms is high and promising based on a study of four popular data sets in this domain: KDD’99, NSL-KDD, CICIDS2017, and UNSW-NB15. Moreover, feature selection is important and, in many cases, is needed for an enhancement in performance. Furthermore, data imbalance can be a concern, and sampling approaches can help resolve the issue. Finally, for good performance, large intrusion detection data sets necessitate a deep learning technique.}
+      \field{title}{Intrusion Detection Systems using Supervised Machine Learning Techniques: A survey}
+      \field{year}{2022}
+      \verb{doi}
+      \verb 10.1016/2022.03.029
+      \endverb
+      \keyw{intrusion detection systems cyber security supervised machine learning algorithms}
+    \endentry
+    \entry{10.1007/10207-023-00682-2}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=ef034e1710d8fcbeaddbcae7698b6ee0}{%
+           family={Abdulganiyu},
+           familyi={A\bibinitperiod},
+           given={Oluwadamilare\bibnamedelima Harazeem},
+           giveni={O\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=476c589b2d3d6b1ca67f2cd0a316df0e}{%
+           family={Tchakoucht},
+           familyi={T\bibinitperiod},
+           given={Taha\bibnamedelima Ait},
+           giveni={T\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=166affe840995ca1e3a5f95f3b4d3f56}{%
+           family={Saheed},
+           familyi={S\bibinitperiod},
+           given={Yakub\bibnamedelima Kayode},
+           giveni={Y\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+      }
+      \strng{namehash}{3c79618394d7ab50c4f055eb931931e5}
+      \strng{fullhash}{5b0bcef6a31c64708a8cef76bf12ef01}
+      \strng{fullhashraw}{5b0bcef6a31c64708a8cef76bf12ef01}
+      \strng{bibnamehash}{5b0bcef6a31c64708a8cef76bf12ef01}
+      \strng{authorbibnamehash}{5b0bcef6a31c64708a8cef76bf12ef01}
+      \strng{authornamehash}{3c79618394d7ab50c4f055eb931931e5}
+      \strng{authorfullhash}{5b0bcef6a31c64708a8cef76bf12ef01}
+      \strng{authorfullhashraw}{5b0bcef6a31c64708a8cef76bf12ef01}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{With the recent increase in internet usage, the number of important, sensitive, confidential individual and corporate data passing through internet has increasingly grown. With gaps in the security systems, attackers have attempted to intrude the network, thereby gaining access to essential and confidential information, which may cause harm to the operation of the systems, and also affect the confidentiality of the data. To counter these possible attacks, intrusion detection systems (IDSs), which is an essential branch of cybersecurity, were employed to monitor and analyze network traffic thereby detects and reports malicious activities. A large number of review papers have covered different approaches for intrusion detection in networks, most of which follow a non-systematic approach, merely made a comparison of the existing techniques without reflecting an in-depth analytical synthesis of the methodologies and performances of the approaches to give a complete understanding of the state of IDS. Nonetheless, many of these reviews investigated more about the anomaly-based IDS with more emphasis on deep-learning models, while signature, hybrid-based (signature + anomaly-based) have received minimal focus. Hence, by adhering to the principles of Preferred Reporting Items for Systematic Reviews and Meta-Analyses (PRISMA), this work reviewed existing contributions on anomaly-, signature-, and hybrid-based approaches to provide a comprehensive overview of network IDS’s state of the art. The articles were retrieved from seven databases (ScienceDirect, SpringerNature , IEEE, MDPI, Hindawi, PeerJ, and Taylor & Francis) which cut across various reputable journals and conference Proceedings. Among the 776 pieces of the literature identified, 71 were selected for analysis and synthesis to answer the research questions. Based on the research findings, we identified unexplored study areas and unresolved research challenges. In order to create a better IDS model, we conclude by presenting promising, high-impact future research areas.}
+      \field{title}{A systematic literature review for network intrusion detection system (IDS)}
+      \field{year}{2023}
+      \verb{doi}
+      \verb 10.1007/10207-023-00682-2
+      \endverb
+      \keyw{Network intrusion detection system Signature-based Anomaly-based Artificial intelligence Rule-based Pattern matching}
+    \endentry
+    \entry{10.1016/2023.10031}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=c1fb64a3a6fd293d90286be7f6d4f8d4}{%
+           family={Admass},
+           familyi={A\bibinitperiod},
+           given={Wasyihun\bibnamedelima Sema},
+           giveni={W\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=097f77b187df8f172b887994dd2d13ab}{%
+           family={Munaye},
+           familyi={M\bibinitperiod},
+           given={Yirga\bibnamedelima Yayeh},
+           giveni={Y\bibinitperiod\bibinitdelim Y\bibinitperiod}}}%
+        {{hash=fdf59ff2b4c091eb94e7796204529241}{%
+           family={Diro},
+           familyi={D\bibinitperiod},
+           given={Abebe\bibnamedelima Abeshu},
+           giveni={A\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{10833e5d4e5416b5cb95ed5a929bd3a2}
+      \strng{fullhash}{a305fd86cc8e5367dcfb3f6811392df1}
+      \strng{fullhashraw}{a305fd86cc8e5367dcfb3f6811392df1}
+      \strng{bibnamehash}{a305fd86cc8e5367dcfb3f6811392df1}
+      \strng{authorbibnamehash}{a305fd86cc8e5367dcfb3f6811392df1}
+      \strng{authornamehash}{10833e5d4e5416b5cb95ed5a929bd3a2}
+      \strng{authorfullhash}{a305fd86cc8e5367dcfb3f6811392df1}
+      \strng{authorfullhashraw}{a305fd86cc8e5367dcfb3f6811392df1}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Cyber security has become a very critical concern that needs the attention of researchers, academicians, and organizations to confidentially ensure the protection and security of information systems. Due to the increasing demand for digitalization, every individual and organization faces continually shifting cyber threats. This article provides an overview of the state of the art in cyber security, challenges, and tactics, current conditions, and global trends of cyber security. To stay ahead of the curve in cyber security, we conducted a systematic review to uncover the latest trends, challenges, and state-of-the-art in cyber security. Moreover, we address the future direction of cyber security, presenting the possible strategies and approaches to addressing the increasing cyber security threat landscapes , the emerging trends, and innovations like Artificial Intelligence (AI) and machine learning (ML) to detect and automate cyber threat responses. Additionally, this article underlines the importance of ongoing adoption along with collaboration among stakeholders in the cyber ecosystem.}
+      \field{title}{Cyber security: State of the art, challenges and future directions}
+      \field{year}{2023}
+      \verb{doi}
+      \verb 10.1016/2023.10031
+      \endverb
+      \keyw{Cyber-security State-of-the-art Challenges Trends Future directions}
+    \endentry
+    \entry{10.1109/2023.3296444}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=1d0e77de90731c529d569fecffd7df2d}{%
+           family={Azam},
+           familyi={A\bibinitperiod},
+           given={Zahedi},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=ec25d6e795535bbbd383eacef1149164}{%
+           family={Islam},
+           familyi={I\bibinitperiod},
+           given={Md.\bibnamedelimi Motaharul},
+           giveni={M\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=bbd6dbe719929afd3b15fb13529fc676}{%
+           family={Huda},
+           familyi={H\bibinitperiod},
+           given={Mohammad\bibnamedelima Nurul},
+           giveni={M\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+      }
+      \strng{namehash}{3c80dd1117b49091660c6a62a29910ee}
+      \strng{fullhash}{4f8bc0e27de8822023d018ce78bfa73c}
+      \strng{fullhashraw}{4f8bc0e27de8822023d018ce78bfa73c}
+      \strng{bibnamehash}{4f8bc0e27de8822023d018ce78bfa73c}
+      \strng{authorbibnamehash}{4f8bc0e27de8822023d018ce78bfa73c}
+      \strng{authornamehash}{3c80dd1117b49091660c6a62a29910ee}
+      \strng{authorfullhash}{4f8bc0e27de8822023d018ce78bfa73c}
+      \strng{authorfullhashraw}{4f8bc0e27de8822023d018ce78bfa73c}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Cyber-attacks pose increasing challenges in precisely detecting intrusions, risking data confidentiality, integrity , and availability. This review paper presents recent IDS taxonomy, a comprehensive review of intrusion detection techniques, and commonly used datasets for evaluation. It discusses evasion techniques employed by attackers and the challenges in combating them to enhance network security. Researchers strive to improve IDS by accurately detecting intruders, reducing false positives, and identifying new threats. Machine learning (ML) and deep learning (DL) techniques are adopted in IDS systems, showing potential in efficiently detecting intruders across networks. The paper explores the latest trends and advancements in ML and DL-based network intrusion detection systems (NIDS), including methodology, evaluation metrics, and dataset selection. It emphasizes research obstacles and proposes a future research model to address weaknesses in the methodologies. The decision tree, known for its speed and user-friendliness, is proposed as a model for detecting result anomalies, combining findings from a comparative survey. This research aims to provide insights into building an effective decision tree-based detection framework.}
+      \field{title}{Comparative Analysis of Intrusion Detection Systems and Machine Learning-Based Model Analysis Through Decision Tree}
+      \field{year}{2023}
+      \verb{doi}
+      \verb 10.1109/2023.3296444
+      \endverb
+      \keyw{Intrusion detection system,machine learning,inductive learning,DDoS attacks,decision tree,supervised and unsupervised learning}
+    \endentry
+    \entry{10.1016/2016.06.016}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=5567e2ca9a330f2f69fd88df2c2a7a7f}{%
+           family={Belavagi},
+           familyi={B\bibinitperiod},
+           given={Manjula\bibnamedelima C.},
+           giveni={M\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=476eec3fc67070fe7f3679f28455b569}{%
+           family={Muniyal},
+           familyi={M\bibinitperiod},
+           given={Balachandra},
+           giveni={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{d611c1c4b9d871cf7662a986107a2493}
+      \strng{fullhash}{d611c1c4b9d871cf7662a986107a2493}
+      \strng{fullhashraw}{d611c1c4b9d871cf7662a986107a2493}
+      \strng{bibnamehash}{d611c1c4b9d871cf7662a986107a2493}
+      \strng{authorbibnamehash}{d611c1c4b9d871cf7662a986107a2493}
+      \strng{authornamehash}{d611c1c4b9d871cf7662a986107a2493}
+      \strng{authorfullhash}{d611c1c4b9d871cf7662a986107a2493}
+      \strng{authorfullhashraw}{d611c1c4b9d871cf7662a986107a2493}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Intrusion detection system plays an important role in network security. Intrusion detection model is a predictive model used to predict the network data traffic as normal or intrusion. Machine Learning algorithms are used to build accurate models for clustering, classification and prediction. In this paper classification and predictive models for intrusion detection are built by using machine learning classification algorithms namely Logistic Regression , Gaussian Naive Bayes, Support Vector Machine and Random Forest. These algorithms are tested with NSL-KDD data set. Experimental results shows that Random Forest Classifier out performs the other methods in identifying whether the data traffic is normal or an attack.}
+      \field{title}{Performance Evaluation of Supervised Machine Learning Algorithms for Intrusion Detection}
+      \field{year}{2016}
+      \verb{doi}
+      \verb 10.1016/2016.06.016
+      \endverb
+      \keyw{Classification Algorithms Intrusion Detection Machine Learning Network Security Supervised Learning.}
+    \endentry
+    \entry{10.1007/10994-014-5473-9}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=3b0cdd917cf250a27fa15631e5fa9961}{%
+           family={Iglesias},
+           familyi={I\bibinitperiod},
+           given={Félix},
+           giveni={F\bibinitperiod}}}%
+        {{hash=2082545a725a488c4f6f4d943bdbade5}{%
+           family={Zseby},
+           familyi={Z\bibinitperiod},
+           given={Tanja},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{8171bb7693873caf6fe3cfb2638614fb}
+      \strng{fullhash}{8171bb7693873caf6fe3cfb2638614fb}
+      \strng{fullhashraw}{8171bb7693873caf6fe3cfb2638614fb}
+      \strng{bibnamehash}{8171bb7693873caf6fe3cfb2638614fb}
+      \strng{authorbibnamehash}{8171bb7693873caf6fe3cfb2638614fb}
+      \strng{authornamehash}{8171bb7693873caf6fe3cfb2638614fb}
+      \strng{authorfullhash}{8171bb7693873caf6fe3cfb2638614fb}
+      \strng{authorfullhashraw}{8171bb7693873caf6fe3cfb2638614fb}
+      \field{sortinit}{I}
+      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Anomaly detection in communication networks provides the basis for the uncov- ering of novel attacks, misconfigurations and network failures. Resource constraints for data storage, transmission and processing make it beneficial to restrict input data to features that are (a) highly relevant for the detection task and (b) easily derivable from network obser- vations without expensive operations. Removing strong correlated, redundant and irrelevant features also improves the detection quality for many algorithms that are based on learning techniques. In this paper we address the feature selection problem for network traffic based anomaly detection. We propose a multi-stage feature selection method using filters and step- wise regression wrappers. Our analysis is based on 41 widely-adopted traffic features that are presented in several commonly used traffic data sets. With our combined feature selection method we could reduce the original feature vectors from 41 to only 16 features. We tested our results with five fundamentally different classifiers, observing no significant reduction of the detection performance. In order to quantify the practical benefits of our results, we ana- lyzed the costs for generating individual features from standard IP Flow Information Export records, available at many routers. We show that we can eliminate 13 very costly features and thus reducing the computational effort for on-line feature generation from live traffic observations at network nodes.}
+      \field{title}{Analysis of network traffic features for anomaly detection}
+      \field{year}{2014}
+      \verb{doi}
+      \verb 10.1007/10994-014-5473-9
+      \endverb
+      \keyw{Feature selection · Anomaly detection · Network security · Data preprocessing · Supervised classification}
+    \endentry
+    \entry{10.1016/2015.04.191}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=7d4eea5aa5722117f4e3eb6a841da60a}{%
+           family={Jabez},
+           familyi={J\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=348bbac5dad6ccb8f65af2f045745474}{%
+           family={Dr.},
+           familyi={D\bibinitperiod},
+           given={B.\bibnamedelimi Muthukumar},
+           giveni={B\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \strng{namehash}{a010f7bd24c8bed3364519621f3ffb1b}
+      \strng{fullhash}{a010f7bd24c8bed3364519621f3ffb1b}
+      \strng{fullhashraw}{a010f7bd24c8bed3364519621f3ffb1b}
+      \strng{bibnamehash}{a010f7bd24c8bed3364519621f3ffb1b}
+      \strng{authorbibnamehash}{a010f7bd24c8bed3364519621f3ffb1b}
+      \strng{authornamehash}{a010f7bd24c8bed3364519621f3ffb1b}
+      \strng{authorfullhash}{a010f7bd24c8bed3364519621f3ffb1b}
+      \strng{authorfullhashraw}{a010f7bd24c8bed3364519621f3ffb1b}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{An Intrusion Detection System (IDS) is a software application or device that monitors the system or activities of network for policy violations or malicious activities and generates reports to the management system. A number of systems may try to prevent an intrusion attempt but this is neither required nor expected of a monitoring system. The main focus of Intrusion detection and prevention systems (IDPS) is to identify the possible incidents, logging information about them and in report attempts. In addition, organizations use IDPS for other purposes, like identifying problems with security policies, deterring individuals and documenting existing threats from infringing security policies. IDPS have become an essential addition to the security infrastructure of nearly every organization. Various methods can be used to detect intrusions but each one is specific to a specific method. The main goal of an intrusion detection system is to detect the attacks efficiently. Furthermore, it is equally important to detect attacks at a beginning stage in order to reduce their impacts. This research work proposed a new approach called outlier detection where, the anomaly dataset is measured by the Neighborhood Outlier Factor (NOF). Here, trained model consists of big datasets with distributed storage environment for improving the performance of Intrusion Detection system. The experimental results proved that the proposed approach identifies the anomalies very effectively than any other approaches.}
+      \field{title}{Intrusion Detection System (IDS): Anomaly Detection Using Outlier Detection Approach}
+      \field{year}{2015}
+      \verb{doi}
+      \verb 10.1016/2015.04.191
+      \endverb
+      \keyw{IDS Oulier Anomaly}
+    \endentry
+    \entry{10.1186/42400-019-0038-7}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=5012a40dab75eeae07cbbd6d80c178e1}{%
+           family={Khraisat},
+           familyi={K\bibinitperiod},
+           given={Ansam},
+           giveni={A\bibinitperiod}}}%
+        {{hash=6e3a027f3576d3bd051b3fc7b70d397a}{%
+           family={Gondal},
+           familyi={G\bibinitperiod},
+           given={Iqbal},
+           giveni={I\bibinitperiod}}}%
+        {{hash=cfe292959018600afae3f889c34a5f10}{%
+           family={Vamplew},
+           familyi={V\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod}}}%
+        {{hash=e8788e7cc91b16373fb4002321deffee}{%
+           family={Kamruzzaman},
+           familyi={K\bibinitperiod},
+           given={Joarder},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{92d3ab44af6488585069c3feb533caac}
+      \strng{fullhash}{850e47207157d916a61981ee87bae53d}
+      \strng{fullhashraw}{850e47207157d916a61981ee87bae53d}
+      \strng{bibnamehash}{850e47207157d916a61981ee87bae53d}
+      \strng{authorbibnamehash}{850e47207157d916a61981ee87bae53d}
+      \strng{authornamehash}{92d3ab44af6488585069c3feb533caac}
+      \strng{authorfullhash}{850e47207157d916a61981ee87bae53d}
+      \strng{authorfullhashraw}{850e47207157d916a61981ee87bae53d}
+      \field{extraname}{1}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Cyber-attacks are becoming more sophisticated and thereby presenting increasing challenges in accurately detecting intrusions. Failure to prevent the intrusions could degrade the credibility of security services, e.g. data confidentiality, integrity, and availability. Numerous intrusion detection methods have been proposed in the literature to tackle computer security threats, which can be broadly classified into Signature-based Intrusion Detection Systems (SIDS) and Anomaly-based Intrusion Detection Systems (AIDS). This survey paper presents a taxonomy of contemporary IDS, a comprehensive review of notable recent works, and an overview of the datasets commonly used for evaluation purposes. It also presents evasion techniques used by attackers to avoid detection and discusses future research challenges to counter such techniques so as to make computer systems more secure.}
+      \field{title}{Survey of intrusion detection systems: techniques, datasets and challenges}
+      \field{year}{2019}
+      \verb{doi}
+      \verb 10.1186/42400-019-0038-7
+      \endverb
+      \keyw{Malware,Intrusion detection system,NSL_KDD,Anomaly detection,Machine learning}
+    \endentry
     \entry{10.339/90101173}{article}{}{}
       \name{author}{5}{}{%
         {{hash=5012a40dab75eeae07cbbd6d80c178e1}{%
@@ -55,6 +382,7 @@
       \strng{authornamehash}{92d3ab44af6488585069c3feb533caac}
       \strng{authorfullhash}{1efddc4634f350333208953e37b1ea14}
       \strng{authorfullhashraw}{1efddc4634f350333208953e37b1ea14}
+      \field{extraname}{2}
       \field{sortinit}{K}
       \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
       \field{labelnamesource}{author}
@@ -66,6 +394,240 @@
       \verb 10.339/90101173
       \endverb
       \keyw{anomaly detection; hybrid approach; C5.0 Decision tree; Cyber analytics; data mining; machine learning; Zero-day malware; Intrusion; Intrusion Detection System}
+    \endentry
+    \entry{10.1016/2012.09.004}{review}{}{}
+      \name{author}{4}{}{%
+        {{hash=f8405f2653a0c8d9f9d76701184c9815}{%
+           family={Liao},
+           familyi={L\bibinitperiod},
+           given={Hung-Jen},
+           giveni={H\bibinithyphendelim J\bibinitperiod}}}%
+        {{hash=b7e445b7f6bcee838f0d47dfc6b97cda}{%
+           family={Lin},
+           familyi={L\bibinitperiod},
+           given={Chun-Hung\bibnamedelima Richard},
+           giveni={C\bibinithyphendelim H\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=477555d172f3582fb5c19d400e0192ef}{%
+           family={Lin},
+           familyi={L\bibinitperiod},
+           given={Ying-Chih},
+           giveni={Y\bibinithyphendelim C\bibinitperiod}}}%
+        {{hash=6c84d67007d89d04952ef806d4fac852}{%
+           family={Tung},
+           familyi={T\bibinitperiod},
+           given={Kuang-Yuan},
+           giveni={K\bibinithyphendelim Y\bibinitperiod}}}%
+      }
+      \strng{namehash}{a978bec826fc85cb9ab7b8bf824d8a6d}
+      \strng{fullhash}{5479d89d20eef725cc72def2d32c8c8d}
+      \strng{fullhashraw}{5479d89d20eef725cc72def2d32c8c8d}
+      \strng{bibnamehash}{5479d89d20eef725cc72def2d32c8c8d}
+      \strng{authorbibnamehash}{5479d89d20eef725cc72def2d32c8c8d}
+      \strng{authornamehash}{a978bec826fc85cb9ab7b8bf824d8a6d}
+      \strng{authorfullhash}{5479d89d20eef725cc72def2d32c8c8d}
+      \strng{authorfullhashraw}{5479d89d20eef725cc72def2d32c8c8d}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{With the increasing amount of network throughput and security threat, the study of intrusion detection systems (IDSs) has received a lot of attention throughout the computer science field. Current IDSs pose challenges on not only capricious intrusion categories, but also huge computational power. Though there is a number of existing literatures to IDS issues, we attempt to give a more elaborate image for a comprehensive review. Through the extensive survey and sophisticated organization, we propose the taxonomy to outline modern IDSs. In addition, tables and figures we summarized in the content contribute to easily grasp the overall picture of IDSs.}
+      \field{title}{Intrusion detection system: A comprehensive review}
+      \field{year}{2012}
+      \verb{doi}
+      \verb 10.1016/2012.09.004
+      \endverb
+    \endentry
+    \entry{10.1186/40537-018-0145-4}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=f7403a0e217fcbf71d6faab19dcdc30d}{%
+           family={Othman},
+           familyi={O\bibinitperiod},
+           given={Suad\bibnamedelima Mohammed},
+           giveni={S\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=0e269a52e26aa6742630882d99fe19f3}{%
+           family={Ba‑Alwi},
+           familyi={B\bibinithyphendelim A\bibinitperiod},
+           given={Fadl\bibnamedelima Mutaher},
+           giveni={F\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=e258164280cebd8fee14004cfd809565}{%
+           family={Nabeel},
+           familyi={N\bibinitperiod},
+           given={Taha},
+           giveni={T\bibinitperiod}}}%
+        {{hash=9ec2272720820a13b6e0f557211c3488}{%
+           family={Al‑Hashida},
+           familyi={A\bibinithyphendelim H\bibinitperiod},
+           given={Amal\bibnamedelima Y.},
+           giveni={A\bibinitperiod\bibinitdelim Y\bibinitperiod}}}%
+      }
+      \strng{namehash}{f83888da880993147bf34599df1fffa2}
+      \strng{fullhash}{b8d214af6a5e30e4075286904c2de907}
+      \strng{fullhashraw}{b8d214af6a5e30e4075286904c2de907}
+      \strng{bibnamehash}{b8d214af6a5e30e4075286904c2de907}
+      \strng{authorbibnamehash}{b8d214af6a5e30e4075286904c2de907}
+      \strng{authornamehash}{f83888da880993147bf34599df1fffa2}
+      \strng{authorfullhash}{b8d214af6a5e30e4075286904c2de907}
+      \strng{authorfullhashraw}{b8d214af6a5e30e4075286904c2de907}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Recently, the huge amounts of data and its incremental increase have changed the importance of information security and data analysis systems for Big Data. Intrusion detection system (IDS) is a system that monitors and analyzes data to detect any intrusion in the system or network. High volume, variety and high speed of data generated in the network have made the data analysis process to detect attacks by traditional techniques very difficult. Big Data techniques are used in IDS to deal with Big Data for accurate and efficient data analysis process. This paper introduced Spark-Chi-SVM model for intrusion detection. In this model, we have used ChiSqSelector for feature selection, and built an intrusion detection model by using support vector machine (SVM) classifier on Apache Spark Big Data platform. We used KDD99 to train and test the model. In the experiment, we introduced a comparison between Chi-SVM classifier and Chi-Logistic Regression classifier. The results of the experiment showed that Spark-Chi-SVM model has high performance, reduces the training time and is efficient for Big Data.}
+      \field{title}{Intrusion detection model using machine learning algorithm on Big Data environment}
+      \field{year}{2018}
+      \verb{doi}
+      \verb 10.1186.40537-018-0145-4
+      \endverb
+      \keyw{Intrusion detection,Big Data,Apache Spark,Support vector machine (SVM),ChiSqSelector}
+    \endentry
+    \entry{10.1007/11227-015-1615-5}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=fb116ef6ac75e4ec70dacbc7e40f2c22}{%
+           family={Rathore},
+           familyi={R\bibinitperiod},
+           given={M.\bibnamedelimi Mazhar},
+           giveni={M\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=6b7549ae9fa3b1c777f5ef0a93051bf2}{%
+           family={Ahmad},
+           familyi={A\bibinitperiod},
+           given={Awais},
+           giveni={A\bibinitperiod}}}%
+        {{hash=ceef3925d1f1c212e8b5c828bbabe53a}{%
+           family={Paul},
+           familyi={P\bibinitperiod},
+           given={Anand},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{19239fe8a0818a4b8f5c9ad9252233e5}
+      \strng{fullhash}{b49cb16503a1a703c1fe618ee6579db8}
+      \strng{fullhashraw}{b49cb16503a1a703c1fe618ee6579db8}
+      \strng{bibnamehash}{b49cb16503a1a703c1fe618ee6579db8}
+      \strng{authorbibnamehash}{b49cb16503a1a703c1fe618ee6579db8}
+      \strng{authornamehash}{19239fe8a0818a4b8f5c9ad9252233e5}
+      \strng{authorfullhash}{b49cb16503a1a703c1fe618ee6579db8}
+      \strng{authorfullhashraw}{b49cb16503a1a703c1fe618ee6579db8}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{In recent years, the number of people using the Internet and network services is increasing day by day. On a daily basis, a large amount of data is generated over the Internet from zeta byte to petabytes with a very high speed. On the other hand, we see more security threats on the network, the Internet, websites, and the enterprise network. Therefore, detecting intrusion in such ultra-high-speed environment in real time is a challenging task. Many intrusion detection systems (IDSs) are proposed for various types of network attacks using machine learning approaches. Most of them are unable to detect recent unknown attacks, whereas the others do not provide a real-time solution to overcome the above-mentioned challenges. Therefore, to address these problems, we propose a real-time intrusion detection system for ultra-high-speed big data environment using Hadoop implementation. The proposed system includes four-layered IDS architecture, which consists of the capturing layer, filtration and load balancing layer, processing or Hadoop layer, and the decision-making layer. Furthermore, feature selection scheme is proposed that selects nine parameters for classification using (FSR) and (BER), as well as from the analysis of DARPA datasets. In addition, five major machine learning approaches are used to evaluate the proposed system including J48, REPTree, random forest tree, conjunctive rule, support vector machine, and Naïve Bayes classifiers. Results show that among all these classifiers, REPTree and J48 are the best classifiers in terms of accuracy as well as efficiency. The proposed system architecture is evaluated with respect to accuracy in terms of true positive (TP) and false positive (FP), with respect to efficiency in terms of processing time and by comparing results with traditional techniques. It has more than 99 % TP and less than 0.001 % FP on REPTree and J48. The system has overall higher accuracy than existing IDSs with the capability to work in real time in ultra-high-speed big data environment.}
+      \field{title}{Real time intrusion detection system for ultra-high-speed big data environments}
+      \field{year}{2016}
+      \verb{doi}
+      \verb 10.1007/11227-015-1615-5
+      \endverb
+    \endentry
+    \entry{10.1016/2017.10.016}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=9f35c1f4c5dcf41e04bb1d2f1eead8e6}{%
+           family={Shah},
+           familyi={S\bibinitperiod},
+           given={Syed\bibnamedelimb Ali\bibnamedelima Raza},
+           giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=ffc53abc0807455b1dbd5506c4b3f7e2}{%
+           family={Issac},
+           familyi={I\bibinitperiod},
+           given={Biju},
+           giveni={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{853f129a05d55c60b9b3a3b37bc52814}
+      \strng{fullhash}{853f129a05d55c60b9b3a3b37bc52814}
+      \strng{fullhashraw}{853f129a05d55c60b9b3a3b37bc52814}
+      \strng{bibnamehash}{853f129a05d55c60b9b3a3b37bc52814}
+      \strng{authorbibnamehash}{853f129a05d55c60b9b3a3b37bc52814}
+      \strng{authornamehash}{853f129a05d55c60b9b3a3b37bc52814}
+      \strng{authorfullhash}{853f129a05d55c60b9b3a3b37bc52814}
+      \strng{authorfullhashraw}{853f129a05d55c60b9b3a3b37bc52814}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This study investigates the performance of two open source intrusion detection systems (IDSs) namely Snort and Suricata for accurately detecting the malicious traffic on computer networks. Snort and Suricata were installed on two different but identical computers and the performance was evaluated at 10 Gbps network speed. It was noted that Suricata could process a higher speed of network traffic than Snort with lower packet drop rate but it consumed higher computational resources. Snort had higher detection accuracy and was thus selected for further experiments. It was observed that the Snort triggered a high rate of false positive alarms. To solve this problem a Snort adaptive plug-in was developed. To select the best performing algorithm for Snort adaptive plug-in, an empirical study was carried out with different learning algorithms and Support Vector Machine (SVM) was selected. A hybrid version of SVM and Fuzzy logic produced a better detection accuracy. But the best result was achieved using an optimised SVM with firefly algorithm with FPR (false positive rate) as 8.6% and FNR (false negative rate) as 2.2%, which is a good result. The novelty of this work is the performance comparison of two IDSs at 10 Gbps and the application of hybrid and optimised machine learning algorithms to Snort.}
+      \field{title}{Performance comparison of intrusion detection systems and application of machine learning to Snort system}
+      \field{year}{2017}
+      \verb{doi}
+      \verb 10.1016/2017.10.016
+      \endverb
+    \endentry
+    \entry{10.1016/2020.04.113}{article}{}{}
+      \name{author}{5}{}{%
+        {{hash=436a65708c642e623f2e0a3bb6e22f81}{%
+           family={T.Saranyaa},
+           familyi={T\bibinitperiod}}}%
+        {{hash=bb346233c4995ffe94b0951dff35853d}{%
+           family={S.Sridevib},
+           familyi={S\bibinitperiod}}}%
+        {{hash=00549d42fd71ab3f0b219c6d7740f9fc}{%
+           family={C.Deisyc},
+           familyi={C\bibinitperiod}}}%
+        {{hash=60f503f5e42cb9cf8bb1d87827db0f08}{%
+           family={Chungd},
+           familyi={C\bibinitperiod},
+           given={Tran\bibnamedelima Duc},
+           giveni={T\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=5b3712c29e7fb46bb05c639745d2072d}{%
+           family={Khan},
+           familyi={K\bibinitperiod},
+           given={M.K.A.Ahamed},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{a5627403c33b8c9968eb95f5f29dd537}
+      \strng{fullhash}{3a02fc444fa4abb47f32d39821faf263}
+      \strng{fullhashraw}{3a02fc444fa4abb47f32d39821faf263}
+      \strng{bibnamehash}{3a02fc444fa4abb47f32d39821faf263}
+      \strng{authorbibnamehash}{3a02fc444fa4abb47f32d39821faf263}
+      \strng{authornamehash}{a5627403c33b8c9968eb95f5f29dd537}
+      \strng{authorfullhash}{3a02fc444fa4abb47f32d39821faf263}
+      \strng{authorfullhashraw}{3a02fc444fa4abb47f32d39821faf263}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The rapid growth of technologies not only formulates life easier but also exposes a lot of security issues. With the advancement of the Internet over years, the number of attacks over the Internet has been increased. Intrusion Detection System (IDS) is one of the supportive layers applicable to information security. IDS provide a salubrious environment for business and keeps away from suspicious network activities. Recently, Machine Learning (ML) algorithms are applied in IDS in order to identify and classify the security threats. This paper explores the comparative study of various ML algorithms used in IDS for several applications such as fog computing, Internet of Things (IoT), big data, smart city , and 5G network. In addition, this work also aims for classifying the intrusions using ML algorithms like Linear Discriminant Analysis (LDA), Classification and Regression Trees (CART) and Random Forest. The work was tested with the KDD-CUP dataset and their efficiency was measured and also compared along with the latest researches.}
+      \field{title}{Performance Analysis of Machine Learning Algorithms in Intrusion Detection System: A Review}
+      \field{year}{2020}
+      \verb{doi}
+      \verb 10.1016/2020.04.113
+      \endverb
+      \keyw{Intrusion Detection System(IDS) Machine Learning(ML) Algorithm Classification Random Forest Support Vector Machine Accuracy}
+    \endentry
+    \entry{10.1109/2019.8644161}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=e6586c8bb7d253f970171aa5ede47758}{%
+           family={Taher},
+           familyi={T\bibinitperiod},
+           given={Kazi\bibnamedelima Abu},
+           giveni={K\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=925a60111eb7ced9bab4b7e0fb69ed2a}{%
+           family={Jisan},
+           familyi={J\bibinitperiod},
+           given={Billal\bibnamedelimb Mohammed\bibnamedelima Yasin},
+           giveni={B\bibinitperiod\bibinitdelim M\bibinitperiod\bibinitdelim Y\bibinitperiod}}}%
+        {{hash=26935fd136ec2f6d6beeaf8fa2a267e0}{%
+           family={Rahman},
+           familyi={R\bibinitperiod},
+           given={Md.\bibnamedelimi Mahbubur},
+           giveni={M\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \strng{namehash}{bf22d1555cfa8a74da5221da958252a5}
+      \strng{fullhash}{03cce7bd0f7b583a4e41b79e367ad125}
+      \strng{fullhashraw}{03cce7bd0f7b583a4e41b79e367ad125}
+      \strng{bibnamehash}{03cce7bd0f7b583a4e41b79e367ad125}
+      \strng{authorbibnamehash}{03cce7bd0f7b583a4e41b79e367ad125}
+      \strng{authornamehash}{bf22d1555cfa8a74da5221da958252a5}
+      \strng{authorfullhash}{03cce7bd0f7b583a4e41b79e367ad125}
+      \strng{authorfullhashraw}{03cce7bd0f7b583a4e41b79e367ad125}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{A novel supervised machine learning system is developed to classify network traffic whether it is malicious or benign. To find the best model considering detection success rate, combination of supervised learning algorithm and feature selection method have been used. Through this study, it is found that Artificial Neural Network (ANN) based machine learning with wrapper feature selection outperform support vector machine (SVM) technique while classifying network traffic. To evaluate the performance, NSL-KDD dataset is used to classify network traffic using SVM and ANN supervised machine learning techniques. Comparative study shows that the proposed model is efficient than other existing models with respect to intrusion detection success rate.}
+      \field{title}{Network Intrusion Detection using Supervised Machine Learning Technique with Feature Selection}
+      \field{year}{2019}
+      \verb{doi}
+      \verb 10.1109/2019.0644161
+      \endverb
+      \keyw{intrusion,machine learning,deep learning,neural network,support vector machine,feature selection}
     \endentry
   \enddatalist
 \endrefsection

@@ -2374,3 +2374,83 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">referencias.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
+    <bcf:citekey order="1" intorder="1">10.1109/2019.8644161</bcf:citekey>
+    <bcf:citekey order="2" intorder="1">10.1109/2023.3296444</bcf:citekey>
+    <bcf:citekey order="3" intorder="1">10.1007/10462-021-10037-9</bcf:citekey>
+    <bcf:citekey order="4" intorder="1">10.1016/2023.10031</bcf:citekey>
+    <bcf:citekey order="5" intorder="1">10.1109/2023.3296444</bcf:citekey>
+    <bcf:citekey order="6" intorder="1">10.1016/2012.09.004</bcf:citekey>
+    <bcf:citekey order="7" intorder="1">10.1016/2023.10031</bcf:citekey>
+    <bcf:citekey order="8" intorder="1">10.1016/2023.10031</bcf:citekey>
+    <bcf:citekey order="9" intorder="1">10.1109/2019.8644161</bcf:citekey>
+    <bcf:citekey order="10" intorder="1">10.1109/2023.3296444</bcf:citekey>
+    <bcf:citekey order="11" intorder="1">10.1016/2020.04.113</bcf:citekey>
+    <bcf:citekey order="12" intorder="1">10.1186/42400-019-0038-7</bcf:citekey>
+    <bcf:citekey order="13" intorder="1">10.1007/10462-021-10037-9</bcf:citekey>
+    <bcf:citekey order="14" intorder="1">10.1016/2022.03.029</bcf:citekey>
+    <bcf:citekey order="15" intorder="1">10.1109/2023.3296444</bcf:citekey>
+    <bcf:citekey order="16" intorder="1">10.1109/2019.8644161</bcf:citekey>
+    <bcf:citekey order="17" intorder="1">10.1007/10462-021-10037-9</bcf:citekey>
+    <bcf:citekey order="18" intorder="1">10.1016/2017.10.016</bcf:citekey>
+    <bcf:citekey order="19" intorder="1">10.1016/2015.04.191</bcf:citekey>
+    <bcf:citekey order="20" intorder="1">10.1016/2020.04.113</bcf:citekey>
+    <bcf:citekey order="21" intorder="1">10.1186/42400-019-0038-7</bcf:citekey>
+    <bcf:citekey order="22" intorder="1">10.1109/2019.8644161</bcf:citekey>
+    <bcf:citekey order="23" intorder="1">10.1186/42400-019-0038-7</bcf:citekey>
+    <bcf:citekey order="24" intorder="1">10.1007/10994-014-5473-9</bcf:citekey>
+    <bcf:citekey order="25" intorder="1">10.1007/10207-023-00682-2</bcf:citekey>
+    <bcf:citekey order="26" intorder="1">10.1016/2016.06.016</bcf:citekey>
+    <bcf:citekey order="27" intorder="1">10.1007/10207-023-00682-2</bcf:citekey>
+    <bcf:citekey order="28" intorder="1">10.1109/2023.3296444</bcf:citekey>
+    <bcf:citekey order="29" intorder="1">10.1016/2017.10.016</bcf:citekey>
+    <bcf:citekey order="30" intorder="1">10.1007/10207-023-00682-2</bcf:citekey>
+    <bcf:citekey order="31" intorder="1">10.1186/42400-019-0038-7</bcf:citekey>
+    <bcf:citekey order="32" intorder="1">10.1109/2023.3296444</bcf:citekey>
+    <bcf:citekey order="33" intorder="1">10.1007/10207-023-00682-2</bcf:citekey>
+    <bcf:citekey order="34" intorder="1">10.1186/42400-019-0038-7</bcf:citekey>
+    <bcf:citekey order="35" intorder="1">10.1007/11227-015-1615-5</bcf:citekey>
+    <bcf:citekey order="36" intorder="1">10.1007/10207-023-00682-2</bcf:citekey>
+    <bcf:citekey order="37" intorder="1">10.1186/40537-018-0145-4</bcf:citekey>
+    <bcf:citekey order="38" intorder="1">10.1007/10994-014-5473-9</bcf:citekey>
+  </bcf:section>
+  <!-- SORTING TEMPLATES -->
+  <bcf:sortingtemplate name="nty">
+    <bcf:sort order="1">
+      <bcf:sortitem order="1">presort</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="2" final="1">
+      <bcf:sortitem order="1">sortkey</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="3">
+      <bcf:sortitem order="1">sortname</bcf:sortitem>
+      <bcf:sortitem order="2">author</bcf:sortitem>
+      <bcf:sortitem order="3">editor</bcf:sortitem>
+      <bcf:sortitem order="4">translator</bcf:sortitem>
+      <bcf:sortitem order="5">sorttitle</bcf:sortitem>
+      <bcf:sortitem order="6">title</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="4">
+      <bcf:sortitem order="1">sorttitle</bcf:sortitem>
+      <bcf:sortitem order="2">title</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="5">
+      <bcf:sortitem order="1">sortyear</bcf:sortitem>
+      <bcf:sortitem order="2">year</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="6">
+      <bcf:sortitem order="1">volume</bcf:sortitem>
+      <bcf:sortitem literal="1" order="2">0</bcf:sortitem>
+    </bcf:sort>
+  </bcf:sortingtemplate>
+  <!-- DATALISTS -->
+  <bcf:datalist section="0"
+                name="nty/global//global/global/global"
+                type="entry"
+                sortingtemplatename="nty"
+                sortingnamekeytemplatename="global"
+                labelprefix=""
+                uniquenametemplatename="global"
+                labelalphanametemplatename="global"
+                namehashtemplatename="global">
+  </bcf:datalist>
+</bcf:controlfile>

@@ -8,7 +8,6 @@
 \usepackage{xcolor}
 \usepackage{fancyhdr}
 \usepackage{helvet}
-\usepackage{}
 \usepackage{multicol}
 \usepackage{titlesec}     % Para personalizar \section
 \usepackage[style=ieee, sorting=nty, language=portuguese]{biblatex}
@@ -23,7 +22,7 @@
 \usepackage{array}
 \usepackage{booktabs}
 \usepackage{tikz}
-\usetikzlibrary{positioning, shapes.multipart}
+\usetikzlibrary{matrix, positioning, arrows.meta}
 
 %-------------------------- ESTILOS NÃO ALTERAR ------------------------------------------------%
 % Estilo para legendas de figura e tabela
@@ -239,20 +238,20 @@ contemporânea devido à crescente dependência de sistemas digitais.
 Com a consolidação da chamada “civilização cibernética”, iniciada a partir da 
 revolução digital no final do século XX, houve um aumento significativo na 
 produção e circulação de dados, ampliando a superfície de ataque para agentes 
-maliciosos \cite{10.1109/2019.8644161}. Dados recentes indicam que o tráfego global per capita 
+maliciosos \cite{Kazi2019network}. Dados recentes indicam que o tráfego global per capita 
 evoluiu de 16 GB mensais em 2017 para projeções superiores a 50 GB em 2022, 
 enquanto mais de 14 bilhões de registros foram comprometidos desde 2013, 
-evidenciando a magnitude das ameaças digitais \cite{10.1109/2023.3296444} \cite{10.1007/10462-021-10037-9}. Nesse contexto, 
+evidenciando a magnitude das ameaças digitais \cite{zehedi2023comparative} \cite{Thakkar2021Survey}. Nesse contexto, 
 a Segurança da Informação fundamenta-se na preservação da tríade 
 confidencialidade, integridade e disponibilidade, tornando-se essencial para a 
-proteção de ativos digitais em ambientes cada vez mais interconectados \cite{10.1016/2023.10031} \cite{10.1109/2023.3296444} \cite{10.1016/2012.09.004}.
+proteção de ativos digitais em ambientes cada vez mais interconectados \cite{wasyhun2023cyber} \cite{zehedi2023comparative} \cite{Liao2013Intrusion}.
 
 A evolução das ameaças cibernéticas acompanha diretamente o avanço tecnológico, 
 tornando os ataques mais sofisticados e diversificados. Entre os 
 principais tipos de ataques identificados na literatura estão os ataques de 
 negação de serviço (DoS), varreduras de rede (Probe), acessos remotos não 
 autorizados (R2L) e escalonamento de privilégios (U2R), cada um explorando 
-vulnerabilidades específicas dos sistemas \cite{10.1016/2023.10031}. Além disso, observa-se o 
+vulnerabilidades específicas dos sistemas \cite{wasyhun2023cyber}. Além disso, observa-se o 
 crescimento expressivo dos ataques de dia zero, que exploram falhas ainda 
 desconhecidas, dificultando a detecção por mecanismos tradicionais. 
 Dessa forma, a complexidade e o volume das ameaças exigem soluções capazes de 
@@ -262,14 +261,14 @@ No presente, mais de 61\% das interações industriais e sociais ocorrem em
 ambiente online, o que torna a rede um alvo estratégico para cibercrimes que 
 agora visam não apenas usuários finais, mas diretamente infraestruturas críticas 
 e instituições bancárias. Essa dependência tecnológica exige que os Sistemas de 
-Detecção de Intrusão (IDS) evoluam proporcionalmente à sofisticação das ameaças \cite{10.1016/2023.10031}.
+Detecção de Intrusão (IDS) evoluam proporcionalmente à sofisticação das ameaças \cite{wasyhun2023cyber}.
 
 \subsection{Sistemas de Detecção de Intrusão}
 Os Intrusion Detection System constituem uma das principais ferramentas para 
 monitoramento e identificação de atividades maliciosas em redes. Desde 
 o primeiro modelo formal proposto em 1987, os IDS evoluíram de abordagens 
 estatísticas simples para sistemas inteligentes capazes de analisar grandes 
-volumes de dados em tempo real \cite{10.1109/2019.8644161}. Esses sistemas atuam como uma camada 
+volumes de dados em tempo real \cite{Kazi2019network}. Esses sistemas atuam como uma camada 
 adicional de segurança, monitorando eventos e gerando alertas quando 
 comportamentos suspeitos são identificados. Assim, os IDS 
 desempenham papel fundamental na mitigação de ataques e na proteção de 
@@ -277,13 +276,13 @@ infraestruturas críticas.
 
 Os IDS podem ser classificados tanto pela fonte de dados quanto pela abordagem 
 de detecção. Em relação à origem das informações, destacam-se os sistemas 
-baseados em rede (NIDS) e os baseados em host (HIDS)\cite{10.1109/2023.3296444} \cite{10.1016/2020.04.113}, enquanto, quanto à técnica 
+baseados em rede (NIDS) e os baseados em host (HIDS)\cite{wasyhun2023cyber} \cite{Saranya2020Performance}, enquanto, quanto à técnica 
 utilizada, dividem-se em sistemas baseados em assinatura (SIDS) e baseados em 
-anomalia (AIDS) \cite{10.1186/42400-019-0038-7} \cite{10.1007/10462-021-10037-9} \cite{10.1016/2022.03.029}. Os sistemas baseados em assinatura são eficazes na 
+anomalia (AIDS) \cite{Khraisat2019Survey} \cite{Thakkar2021Survey} \cite{emad2022intrusion}. Os sistemas baseados em assinatura são eficazes na 
 identificação de ataques conhecidos, porém incapazes de detectar ameaças 
-inéditas, como ataques de dia zero \cite{10.1109/2023.3296444} \cite{10.1109/2019.8644161}. Por outro lado, os sistemas 
+inéditas, como ataques de dia zero \cite{zehedi2023comparative} \cite{Kazi2019network}. Por outro lado, os sistemas 
 baseados em anomalia apresentam maior flexibilidade, mas sofrem com altas taxas 
-de falsos positivos, o que impacta diretamente sua aplicabilidade prática \cite{10.1007/10462-021-10037-9} \cite{10.1016/2017.10.016}.
+de falsos positivos, o que impacta diretamente sua aplicabilidade prática \cite{Thakkar2021Survey} \cite{Shah2018Performance}.
 
 A literatura destaca que os IDS enfrentam desafios significativos relacionados 
 ao volume e à complexidade dos dados de rede. Com o crescimento 
@@ -300,7 +299,7 @@ ambientes de Big Data.
 O Machine Learning surge como uma abordagem promissora para superar as limitações 
 dos IDS tradicionais. Ao permitir que sistemas aprendam padrões 
 diretamente dos dados, o aprendizado de máquina possibilita a identificação de 
-comportamentos anômalos e a adaptação a novos tipos de ataques \cite{10.1016/2015.04.191} \cite{10.1016/2020.04.113} \cite{10.1186/42400-019-0038-7}. 
+comportamentos anômalos e a adaptação a novos tipos de ataques \cite{Jabez2015Intrusion} \cite{Saranya2020Performance} \cite{Khraisat2019Survey}. 
 Estudos recentes apontam um crescimento significativo no uso de técnicas de ML 
 e Deep Learning na detecção de intrusões, especialmente a partir de 2018. 
 Dessa forma, o ML se consolida como um componente essencial para o 
@@ -308,7 +307,7 @@ desenvolvimento de IDS mais eficientes.
 
 %\cite{Tá faltando a referência desses parágrafos}
 Entre os paradigmas de aprendizado, o modelo supervisionado destaca-se como o 
-mais utilizado na literatura \cite{10.1109/2019.8644161} \cite{10.1186/42400-019-0038-7}. Essa abordagem utiliza dados previamente 
+mais utilizado na literatura \cite{Kazi2019network} \cite{Khraisat2019Survey}. Essa abordagem utiliza dados previamente 
 rotulados para treinar modelos capazes de classificar o tráfego de rede como 
 normal ou malicioso. A disponibilidade de bases de dados como NSL-KDD e 
 CICIDS-2017 favorece a aplicação desse tipo de técnica, permitindo comparações 
@@ -322,7 +321,7 @@ o custo computacional e pode reduzir a acurácia dos modelos. Nesse
 contexto, técnicas de seleção de atributos tornam-se essenciais para identificar 
 características relevantes e reduzir a complexidade do sistema. 
 A literatura demonstra que é possível reduzir significativamente o número de 
-atributos sem perda de desempenho, melhorando a eficiência dos modelos \cite{10.1007/10994-014-5473-9}.
+atributos sem perda de desempenho, melhorando a eficiência dos modelos \cite{felix2014analysis}.
 
 \subsection{Algoritmos de classificação}
 Diversos algoritmos de classificação têm sido aplicados na detecção de intrusões, 
@@ -334,33 +333,32 @@ generalização. Dessa forma, a escolha do modelo adequado depende
 diretamente das características do conjunto de dados e do problema abordado.
 
 O Random Forest destaca-se pela alta acurácia e robustez, alcançando taxas superiores 
-a 99\% em bases como KDD Cup 99 e NSL-KDD \cite{10.1007/10207-023-00682-2} \cite{10.1016/2016.06.016}. Esse algoritmo utiliza 
+a 99\% em bases como KDD Cup 99 e NSL-KDD \cite{Abdulganiyu2023Systematic} \cite{Belavagi2016Performance}. Esse algoritmo utiliza 
 múltiplas árvores de decisão para reduzir o risco de sobreajuste. 
 Por outro lado, o SVM apresenta bom desempenho em espaços de alta dimensionalidade, 
-embora sua eficiência dependa fortemente da escolha dos parâmetros \cite{10.1007/10207-023-00682-2} \cite{10.1109/2023.3296444} \cite{10.1016/2017.10.016}. 
+embora sua eficiência dependa fortemente da escolha dos parâmetros \cite{Abdulganiyu2023Systematic} \cite{zehedi2023comparative} \cite{Shah2018Performance}. 
 Assim, ambos os algoritmos são amplamente utilizados em cenários de detecção de 
 intrusão.
 
 Outros algoritmos também desempenham papel relevante na literatura. O 
 KNN destaca-se pela simplicidade, mas possui alto custo computacional na fase 
 de classificação, enquanto as árvores de decisão oferecem interpretabilidade, 
-sendo úteis para análise de regras \cite{10.1007/10207-023-00682-2} \cite{10.1186/42400-019-0038-7} \cite{10.1109/2023.3296444}. Já o Naive Bayes apresenta boa 
+sendo úteis para análise de regras \cite{Abdulganiyu2023Systematic} \cite{Khraisat2019Survey} \cite{zehedi2023comparative}. Já o Naive Bayes apresenta boa 
 eficiência computacional, embora sua suposição de independência entre atributos 
-possa limitar seu desempenho \cite{10.1007/10207-023-00682-2} \cite{10.1186/42400-019-0038-7} \cite{10.1007/11227-015-1615-5}. Dessa forma, a combinação de 
+possa limitar seu desempenho \cite{Abdulganiyu2023Systematic} \cite{Khraisat2019Survey} \cite{Rathore2016RealTime}. Dessa forma, a combinação de 
 diferentes algoritmos, por meio de técnicas ensemble, tem sido explorada para 
 melhorar os resultados.
 
 Estudos indicam que a integração entre algoritmos de classificação e técnicas de
-seleção de atributos é fundamental para alcançar alto desempenho em IDS \cite{10.1007/10207-023-00682-2} \cite{10.1186/40537-018-0145-4}. 
+seleção de atributos é fundamental para alcançar alto desempenho em IDS \cite{Abdulganiyu2023Systematic} \cite{Othman2018Intrusion}. 
 A redução de dimensionalidade permite diminuir o custo computacional e aumentar 
 a velocidade de processamento, especialmente em redes de alta velocidade. 
 Além disso, a escolha adequada de atributos contribui diretamente para a melhoria da 
-acurácia e redução de falsos positivos \cite{10.1007/10994-014-5473-9}. Assim, a combinação dessas técnicas 
+acurácia e redução de falsos positivos \cite{felix2014analysis}. Assim, a combinação dessas técnicas 
 representa uma abordagem eficaz para a construção de sistemas de detecção mais robustos.
 
 \subsection{Análise de Dados e Pré-processamento}
-%FIXME:
-Para a analise de dados foram considerados a base de dados NSL-KDD que considera os seguintes ataques $neptune$, $satan$, $ipsweep$, $poetsweep$, $smurf$, $nmap$, $back$, $teardrop$, $warezclient$, $pod$, $guess_passwd$, $buffer_overflow$, $warezmaster$, $land$, $imap$, $rootkit$, $loadmodule$, $ftp_write$, $multihop$, $phf$, $perl$, $spy$ alguns dos valores citados nao sao ataques reais, porem devido ao alto numero de trafego considerado por essas aplicacoes estas estao sendo consideradas ataques neste contexto.
+Para a análise de dados foram considerados a base de dados NSL-KDD que considera os seguintes ataques $neptune$, $satan$, $ipsweep$, $poetsweep$, $smurf$, $nmap$, $back$, $teardrop$, $warezclient$, $pod$, $guess\_passwd$, $buffer_overflow$, $warezmaster$, $land$, $imap$, $rootkit$, $loadmodule$, $ftp_write$, $multihop$, $phf$, $perl$, $spy$ alguns dos valores citados não são ataques reais, porém devido ao alto número de tráfego considerado por essas aplicacoes estas estão sendo consideradas ataques neste contexto. \\
 A base de dados conta com os seguintes valores \\
 \begin{center}
 \begin{tabular}{|c c|}
@@ -394,97 +392,73 @@ A base de dados conta com os seguintes valores \\
 Destes valores os ataques forma separados nas seguintes categorias: $normal$, $dos$, $probe$, $r2l$, $u2r$ Para melhor vizualizacao da matriz de correlacao.
 \linebreak \\
 \begin{tikzpicture}[
-    % Estilo das tabelas
-	scale=0.6, transform shape,
+    % Estilo da matriz (tabela)
     tabela/.style={
-        rectangle split, 
-        rectangle split parts=#1, 
-        draw, 
-        thick, 
-        minimum width=2cm, 
-        inner sep=5pt,
-        fill=gray!5
+        matrix of nodes,
+        nodes={
+            draw, 
+            minimum width=3cm, 
+            minimum height=0.6cm, 
+            anchor=center, 
+            inner sep=2pt,
+            fill=gray!5
+        },
+        column sep=-\pgflinewidth, % Junta as bordas
+        row sep=-\pgflinewidth,    % Junta as bordas
+        nodes in empty cells
     },
+    % Estilo do cabeçalho
+    header/.style={fill=gray!30, font=\bfseries},
     % Estilo das conexões
     conexao/.style={
-        ->, 
-        >=stealth, 
-        thick, 
-        blue!60!black, 
-        out=0, in=180 % Sai pela direita (0°) e entra pela esquerda (180°)
+        ->, >=stealth, thick, blue!60!black,
+        rounded corners=2pt
     }
 ]
-\node[tabela=23] (esq) {
-    \textbf{Tipo de Ataque}
-    \nodepart{two} normal
-    \nodepart{three} neptune
-    \nodepart{four} satan
-    \nodepart{five} ipsweep
-    \nodepart{six} smurf
-    \nodepart{seven} nmap
-    \nodepart{eight} back
-    \nodepart{nine} teardrop
-    \nodepart{ten} warezclient
-    \nodepart{eleven} pod
-    \nodepart{twelve} guess\_passwd
-    \nodepart{thirteen} buffer\_overflow
-    \nodepart{fourteen} warezmaster
-    \nodepart{fifteen} land
-    \nodepart{sixteen} imap
-    \nodepart{seventeen} rootkit
-    \nodepart{eighteen} loadmodule
-    \nodepart{nineteen} ftp\_write
-    \nodepart{twenty} multihop
-    \nodepart{twentyone} phf
-    \nodepart{twentytwo} perl
-    \nodepart{twentythree} spy
+
+% Tabela Esquerda (22 ataques + 1 cabeçalho)
+\matrix [tabela] (esq) {
+    |[header]| Tipo de Ataque \\
+    normal \\ neptune \\ satan \\ ipsweep \\ smurf \\ nmap \\ back \\ 
+    teardrop \\ warezclient \\ pod \\ guess\_passwd \\ buffer\_overflow \\ 
+    warezmaster \\ land \\ imap \\ rootkit \\ loadmodule \\ ftp\_write \\ 
+    multihop \\ phf \\ perl \\ spy \\
 };
 
-% Tabela Direita: 5 categorias + 1 cabeçalho = 6 partes
-\node[tabela=6, right=5cm of esq] (dir) {
-    \textbf{Categoria (Label)}
-    \nodepart{two} normal
-    \nodepart{three} dos
-    \nodepart{four} probe
-    \nodepart{five} r2l
-    \nodepart{six} u2r
+% Tabela Direita (5 categorias + 1 cabeçalho)
+\matrix [tabela, right=4cm of esq] (dir) {
+    |[header]| Categoria \\
+    normal \\ dos \\ probe \\ r2l \\ u2r \\
 };
 
-% Mapeamento (Conexões)
-% Normal -> Normal
-\draw[conexao] (esq.two east) to (dir.two west);
+% --- MAPEAMENTO (CONEXÕES) ---
 
-% DoS -> Neptune, Smurf, Back, Teardrop, Pod, Land
-\draw[conexao] (esq.three east) to (dir.three west); % neptune
-\draw[conexao] (esq.six east) to (dir.three west);   % smurf
-\draw[conexao] (esq.eight east) to (dir.three west); % back
-\draw[conexao] (esq.nine east) to (dir.three west);  % teardrop
-\draw[conexao] (esq.eleven east) to (dir.three west);% pod
-\draw[conexao] (esq.fifteen east) to (dir.three west);% land
+% Função auxiliar para desenhar: \draw[conexao] (esq-LINHA.east) -- (dir-LINHA.west);
 
-% Probe -> Satan, Ipsweep, Nmap
-\draw[conexao] (esq.four east) to (dir.four west);  % satan
-\draw[conexao] (esq.five east) to (dir.four west);  % ipsweep
-\draw[conexao] (esq.seven east) to (dir.four west); % nmap
+% Normal
+\draw[conexao] (esq-2-1.east) -- (dir-2-1.west);
 
-% R2L -> Warezclient, Guess_passwd, Warezmaster, Imap, Ftp_write, Multihop, Phf, Spy
-\draw[conexao] (esq.ten east) to (dir.five west);      % warezclient
-\draw[conexao] (esq.twelve east) to (dir.five west);   % guess_passwd
-\draw[conexao] (esq.fourteen east) to (dir.five west); % warezmaster
-\draw[conexao] (esq.sixteen east) to (dir.five west);  % imap
-\draw[conexao] (esq.nineteen east) to (dir.five west); % ftp_write
-\draw[conexao] (esq.twenty east) to (dir.five west);   % multihop
-\draw[conexao] (esq.twentyone east) to (dir.five west);% phf
-\draw[conexao] (esq.twentythree east) to (dir.five west); % spy
+% DoS (neptune, smurf, back, teardrop, pod, land)
+\foreach \i in {3, 6, 8, 9, 11, 15} {
+    \draw[conexao] (esq-\i-1.east) -- (dir-3-1.west);
+}
 
-% U2R -> Buffer_overflow, Rootkit, Loadmodule, Perl
-\draw[conexao] (esq.thirteen east) to (dir.six west);  % buffer_overflow
-\draw[conexao] (esq.seventeen east) to (dir.six west); % rootkit
-\draw[conexao] (esq.eighteen east) to (dir.six west);  % loadmodule
-\draw[conexao] (esq.twentytwo east) to (dir.six west);% perl
+% Probe (satan, ipsweep, nmap)
+\foreach \i in {4, 5, 7} {
+    \draw[conexao] (esq-\i-1.east) -- (dir-4-1.west);
+}
+
+% R2L (warezclient, guess_passwd, warezmaster, imap, ftp_write, multihop, phf, spy)
+\foreach \i in {10, 12, 14, 16, 19, 20, 21, 23} {
+    \draw[conexao] (esq-\i-1.east) -- (dir-5-1.west);
+}
+
+% U2R (buffer_overflow, rootkit, loadmodule, perl)
+\foreach \i in {13, 17, 18, 22} {
+    \draw[conexao] (esq-\i-1.east) -- (dir-6-1.west);
+}
 
 \end{tikzpicture}
-
 
 \subsection{Redução de Dimensionalidade e Seleção de Atributos}
 \subsection{Base de Dados NSL-KDD e UNSW-NB15}
@@ -534,7 +508,6 @@ Finalização do TCC
 Nesta primeira etapa foi definido o algorítimo de machine learning ultilizado e feitas as analises dos componentes para definição dos componentes mais importantes
 
 \section{Referências}
-testando bilbiografia \cite{10.339/90101173}
 \printbibliography[heading=none]
 
 \section*{Agradecimentos}

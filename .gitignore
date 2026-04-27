@@ -9,3 +9,13 @@ documentacao/final/main.run.xml
 documentacao/final/main.bcf
 documentacao/final/main.log
 documentacao/final/main.bbl
+*.aux
+*.blg
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.run.xml
+*.bcf
+*.log
+*.bbl

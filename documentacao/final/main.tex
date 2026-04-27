@@ -358,8 +358,9 @@ acurácia e redução de falsos positivos \cite{felix2014analysis}. Assim, a com
 representa uma abordagem eficaz para a construção de sistemas de detecção mais robustos.
 
 \subsection{Análise de Dados e Pré-processamento}
-Para a análise de dados foram considerados a base de dados NSL-KDD que considera os seguintes ataques $neptune$, $satan$, $ipsweep$, $poetsweep$, $smurf$, $nmap$, $back$, $teardrop$, $warezclient$, $pod$, $guess\_passwd$, $buffer_overflow$, $warezmaster$, $land$, $imap$, $rootkit$, $loadmodule$, $ftp_write$, $multihop$, $phf$, $perl$, $spy$ alguns dos valores citados não são ataques reais, porém devido ao alto número de tráfego considerado por essas aplicacoes estas estão sendo consideradas ataques neste contexto. \\
-A base de dados conta com os seguintes valores \\
+Para a análise de dados foram considerados a base de dados NSL-KDD que considera os seguintes ataques $neptune$, $satan$, $ipsweep$, $poetsweep$, $smurf$, $nmap$, $back$, $teardrop$, $warezclient$, $pod$, $guess\_passwd$, $buffer\_overflow$, $warezmaster$, $land$, $imap$, $rootkit$, $loadmodule$, $ftp\_write$, $multihop$, $phf$, $perl$, $spy$ alguns dos valores citados não são ataques reais, porém devido ao alto número de tráfego considerado por essas aplicacoes estas estão sendo consideradas ataques neste contexto. \\
+\linebreak
+A base de dados conta com os seguintes valores
 \begin{center}
 \begin{tabular}{|c c|}
 	\hline
@@ -392,7 +393,6 @@ A base de dados conta com os seguintes valores \\
 Destes valores os ataques forma separados nas seguintes categorias: $normal$, $dos$, $probe$, $r2l$, $u2r$ Para melhor vizualizacao da matriz de correlacao.
 \linebreak \\
 \begin{tikzpicture}[
-    % Estilo da matriz (tabela)
     tabela/.style={
         matrix of nodes,
         nodes={
@@ -407,16 +407,13 @@ Destes valores os ataques forma separados nas seguintes categorias: $normal$, $d
         row sep=-\pgflinewidth,    % Junta as bordas
         nodes in empty cells
     },
-    % Estilo do cabeçalho
     header/.style={fill=gray!30, font=\bfseries},
-    % Estilo das conexões
     conexao/.style={
         ->, >=stealth, thick, blue!60!black,
         rounded corners=2pt
     }
 ]
 
-% Tabela Esquerda (22 ataques + 1 cabeçalho)
 \matrix [tabela] (esq) {
     |[header]| Tipo de Ataque \\
     normal \\ neptune \\ satan \\ ipsweep \\ smurf \\ nmap \\ back \\ 
@@ -425,15 +422,11 @@ Destes valores os ataques forma separados nas seguintes categorias: $normal$, $d
     multihop \\ phf \\ perl \\ spy \\
 };
 
-% Tabela Direita (5 categorias + 1 cabeçalho)
 \matrix [tabela, right=4cm of esq] (dir) {
     |[header]| Categoria \\
     normal \\ dos \\ probe \\ r2l \\ u2r \\
 };
 
-% --- MAPEAMENTO (CONEXÕES) ---
-
-% Função auxiliar para desenhar: \draw[conexao] (esq-LINHA.east) -- (dir-LINHA.west);
 
 % Normal
 \draw[conexao] (esq-2-1.east) -- (dir-2-1.west);

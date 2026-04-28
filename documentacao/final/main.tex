@@ -392,66 +392,41 @@ A base de dados conta com os seguintes valores
 \end{center}
 Destes valores os ataques forma separados nas seguintes categorias: $normal$, $dos$, $probe$, $r2l$, $u2r$ Para melhor vizualizacao da matriz de correlacao.
 \linebreak \\
-\begin{tikzpicture}[
-    tabela/.style={
-        matrix of nodes,
-        nodes={
-            draw, 
-            minimum width=3cm, 
-            minimum height=0.6cm, 
-            anchor=center, 
-            inner sep=2pt,
-            fill=gray!5
-        },
-        column sep=-\pgflinewidth, % Junta as bordas
-        row sep=-\pgflinewidth,    % Junta as bordas
-        nodes in empty cells
-    },
-    header/.style={fill=gray!30, font=\bfseries},
-    conexao/.style={
-        ->, >=stealth, thick, blue!60!black,
-        rounded corners=2pt
-    }
-]
+\begin{center}
+	
+\begin{tabular}{|c|r|}
+	\hline
+	\textbf{Categoria} & \textbf{Tipos de Ataque} \\
+	\hline
+	normal & Normal \\
+	\hline
+	dos & Neptune \\
+	    & smurf \\
+	    & teardrop \\
+	    & pod \\
+	    & land \\
+	\hline
+	probe & nmap \\
+	      & ipsweep \\
+	      & satan \\
+	\hline
+	r2l & warezclient \\
+	    & warezmaster \\
+	    & 	guess\_passwd \\
+	    & 	imap \\
+	    & 	ftp_write \\
+	    & 	multihop \\
+	    & 	phf \\
+	    & 	spy \\
+	\hline
+	u2r & buffer\_overflow \\
+	    & 	rootkit \\
+	    & 	loadmodule \\
+	    & 	perl \\
+	\hline
+\end{tabular}
+\end{center}
 
-\matrix [tabela] (esq) {
-    |[header]| Tipo de Ataque \\
-    normal \\ neptune \\ satan \\ ipsweep \\ smurf \\ nmap \\ back \\ 
-    teardrop \\ warezclient \\ pod \\ guess\_passwd \\ buffer\_overflow \\ 
-    warezmaster \\ land \\ imap \\ rootkit \\ loadmodule \\ ftp\_write \\ 
-    multihop \\ phf \\ perl \\ spy \\
-};
-
-\matrix [tabela, right=4cm of esq] (dir) {
-    |[header]| Categoria \\
-    normal \\ dos \\ probe \\ r2l \\ u2r \\
-};
-
-
-% Normal
-\draw[conexao] (esq-2-1.east) -- (dir-2-1.west);
-
-% DoS (neptune, smurf, back, teardrop, pod, land)
-\foreach \i in {3, 6, 8, 9, 11, 15} {
-    \draw[conexao] (esq-\i-1.east) -- (dir-3-1.west);
-}
-
-% Probe (satan, ipsweep, nmap)
-\foreach \i in {4, 5, 7} {
-    \draw[conexao] (esq-\i-1.east) -- (dir-4-1.west);
-}
-
-% R2L (warezclient, guess_passwd, warezmaster, imap, ftp_write, multihop, phf, spy)
-\foreach \i in {10, 12, 14, 16, 19, 20, 21, 23} {
-    \draw[conexao] (esq-\i-1.east) -- (dir-5-1.west);
-}
-
-% U2R (buffer_overflow, rootkit, loadmodule, perl)
-\foreach \i in {13, 17, 18, 22} {
-    \draw[conexao] (esq-\i-1.east) -- (dir-6-1.west);
-}
-
-\end{tikzpicture}
 
 \subsection{Redução de Dimensionalidade e Seleção de Atributos}
 \subsection{Base de Dados NSL-KDD e UNSW-NB15}

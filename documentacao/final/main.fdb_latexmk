@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 0 "main.bcf" "main.bbl" "main" 1777331601.40106 -1
-  "main.bcf" 1777331601.26352 111450 e02f0602e460ad0aba285a695bc2716d "pdflatex"
+["biber main"] 0 "main.bcf" "main.bbl" "main" 1777336995.52014 -1
+  "main.bcf" 1777336995.40393 111450 e02f0602e460ad0aba285a695bc2716d "pdflatex"
   "referencias.bib" 1776994899.65638 6119 b5c4efb86f6b895513691abfa5dae004 ""
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1777331599.89917 "main.tex" "main.pdf" "main" 1777331601.40148 2
+["pdflatex"] 1777336994.10551 "main.tex" "main.pdf" "main" 1777336995.52053 0
   "/etc/texmf/web2c/texmf.cnf" 1765883605.16586 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -38,7 +38,6 @@
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb" 1248133631 32166 b0c356b15f19587482a9217ce1d8fa67 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb" 1248133631 32001 6aeea3afe875097b1eb0da29acd61e28 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1248133631 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
-  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb" 1248133631 36281 c355509802a035cadc5f15869451dcee ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1248133631 32762 224316ccc9ad3ca0423a14971cfa7fc1 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1248133631 32726 0a1aea6fcd6468ee2cf64d891f5c43c8 ""
@@ -188,10 +187,10 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1773227342 5541477 3118940318599480888143717dd32d64 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1772756647 3639712 9bdbf709ef18d067bcb8cf310ce757d2 ""
   "logoinova.png" 1770555560.91433 8563 2bdf1bdf926197f2974618836c072c1d ""
-  "main.aux" 1777331601.25952 6222 8797b8f95be2251a7b19b32c1f91c72b "pdflatex"
+  "main.aux" 1777336995.39992 6222 8797b8f95be2251a7b19b32c1f91c72b "pdflatex"
   "main.bbl" 1777330749.07155 26150 e732630d169df2fd4152cf03b3134845 "biber main"
-  "main.run.xml" 1777331601.26872 2406 1b56bcb4755fab85cc41222f32da4e69 "pdflatex"
-  "main.tex" 1777331598.17827 24156 f400857a41bc014d06a448ddee21994c ""
+  "main.run.xml" 1777336995.40793 2406 1b56bcb4755fab85cc41222f32da4e69 "pdflatex"
+  "main.tex" 1777336993.05748 24301 f6587f29e129426aa92daf10b93ef22e ""
   (generated)
   "main.aux"
   "main.bcf"

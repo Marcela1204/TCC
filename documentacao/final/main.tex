@@ -393,37 +393,36 @@ A base de dados conta com os seguintes valores
 Destes valores os ataques forma separados nas seguintes categorias: $normal$, $dos$, $probe$, $r2l$, $u2r$ Para melhor vizualizacao da matriz de correlacao.
 \linebreak \\
 \begin{center}
-	
-\begin{tabular}{|c|r|}
-	\hline
-	\textbf{Categoria} & \textbf{Tipos de Ataque} \\
-	\hline
-	normal & Normal \\
-	\hline
-	dos & Neptune \\
-	    & smurf \\
-	    & teardrop \\
-	    & pod \\
-	    & land \\
-	\hline
-	probe & nmap \\
-	      & ipsweep \\
-	      & satan \\
-	\hline
-	r2l & warezclient \\
-	    & warezmaster \\
-	    & 	guess\_passwd \\
-	    & 	imap \\
-	    & 	ftp_write \\
-	    & 	multihop \\
-	    & 	phf \\
-	    & 	spy \\
-	\hline
-	u2r & buffer\_overflow \\
-	    & 	rootkit \\
-	    & 	loadmodule \\
-	    & 	perl \\
-	\hline
+\begin{tabular}{|c|c|}
+    \hline
+    \textbf{Categoria} & \textbf{Tipos de Ataque} \\
+    \hline
+    normal & Normal \\
+    \hline
+    \multirow{5}{*}{dos} & Neptune \\
+        & smurf \\
+        & teardrop \\
+        & pod \\
+        & land \\
+    \hline
+    \multirow{3}{*}{probe} & nmap \\
+          & ipsweep \\
+          & satan \\
+    \hline
+    \multirow{8}{*}{r2l} & warezclient \\
+        & warezmaster \\
+        & guess\_passwd \\
+        & imap \\
+        & ftp\_write \\
+        & multihop \\
+        & phf \\
+        & spy \\
+    \hline
+    \multirow{4}{*}{u2r} & buffer\_overflow \\
+        & rootkit \\
+        & loadmodule \\
+        & perl \\
+    \hline
 \end{tabular}
 \end{center}
 

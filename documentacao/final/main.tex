@@ -357,6 +357,48 @@ Além disso, a escolha adequada de atributos contribui diretamente para a melhor
 acurácia e redução de falsos positivos \cite{felix2014analysis}. Assim, a combinação dessas técnicas 
 representa uma abordagem eficaz para a construção de sistemas de detecção mais robustos.
 
+% \subsection{Base de Dados NSL-KDD e UNSW-NB15}
+\subsection{Métricas de Avaliação}
+
+
+\section{Metodologia}
+
+%NOTE: AINDA FALTA AJUSTAR PARA AS COISAS QUE DE FATO ACONTECERAM NO CRONOGRAMA
+\section{Cronograma}
+\begin{center}
+\footnotesize % diminui a fonte
+\renewcommand{\arraystretch}{1.3}
+
+\begin{tabular}{|p{3.5cm}|*{5}{c|}}
+\hline
+\multirow{2}{*}{\textbf{Etapas}} & \multicolumn{5}{c|}{\textbf{2026}} \\ \cline{2-6}
+ & Fev & Mar & Abr & Mai & Jun \\
+\hline
+
+Pesquisa para conhecimento do público-alvo
+& X & X &  &  &  \\
+\hline
+
+Pesquisa de opinião sobre o público-alvo
+&  & X & X &  &  \\
+\hline
+
+Desenvolvimento do projeto
+&  &  & X & X &  \\
+\hline
+
+Testes e validação
+&  &  &  & X & X \\
+\hline
+
+Finalização do TCC
+&  &  &  &  & X \\
+\hline
+
+\end{tabular}
+\end{center}
+
+\section{Resultados Preliminares}
 \subsection{Análise de Dados e Pré-processamento}
 Para a análise de dados foi considerado a base de dados NSL-KDD com os seguintes ataques: $neptune$, $satan$, $ipsweep$, $poetsweep$, $smurf$, $nmap$, $back$, $teardrop$, $warezclient$, $pod$, $guess\_passwd$, $buffer\_overflow$, $warezmaster$, $land$, $imap$, $rootkit$, $loadmodule$, $ftp\_write$, $multihop$, $phf$, $perl$, $spy$. alguns dos valores citados não são ataques reais, porém no contexto desta análise componentes como: $loadmodule$, $perl$ e $nmap$ foram categorizados como ataques.
 \linebreak
@@ -395,7 +437,6 @@ A base de dados conta com os seguintes valores \\
 \caption{Dados presentes na base NSL-KDD}
 	\end{table}
 \end{center}
-\linebreak
 Para melhor vizualização dos dados os ataques foram separados nas seguintes categorias: $normal$, $dos$, $probe$, $r2l$, $u2r$.
 \begin{center}
 	\begin{table}[H]
@@ -442,7 +483,6 @@ A matriz de correlação mostra que a contagem de pacotes e ocorrência de erros
 \includegraphics[width=8cm,height=8cm]{matriz_corr.png}
 \caption{Matriz de correlação da base NSL\_KDD}
 \end{figure}
-\linebreak
 Para validar as informações da matriz de correlação foi feita uma análise baseada em $PCA$, plotando um gráfico com os dois primeiros componentes e separando os valores pelos grupos anteriormente mencionados na tabela \ref{tab:ataquesXcategoria}.
 \begin{figure}[H]
 	\centering
@@ -452,55 +492,13 @@ Para validar as informações da matriz de correlação foi feita uma análise b
 \end{figure}
 
 \subsection{Redução de Dimensionalidade e Seleção de Atri-butos}
-Buscando uma margem de variância a cima de 90\% foi calculado o $PCA$ para variados números de componentes, para descobrir a melhor variância, com o menor número de componentes. Definido 23 componentes como a melhor média amostral
+Buscando uma margem de variância a cima de 95\% foi calculado o $PCA$ para variados números de componentes, para descobrir a melhor variância, com o menor número de componentes. Definido 23 componentes como a melhor média amostral
 \begin{figure}[H]
 \centering
 \label{fig:pca_variancia}
 \includegraphics[width=8.69cm,height=7cm]{pcaXvariancia.png}	
 \caption{Variância explicada para PCA}
 \end{figure}
-\subsection{Base de Dados NSL-KDD e UNSW-NB15}
-\subsection{Métricas de Avaliação}
-
-
-\section{Metodologia}
-
-%NOTE: AINDA FALTA AJUSTAR PARA AS COISAS QUE DE FATO ACONTECERAM NO CRONOGRAMA
-\section{Cronograma}
-\begin{center}
-\footnotesize % diminui a fonte
-\renewcommand{\arraystretch}{1.3}
-
-\begin{tabular}{|p{3.5cm}|*{5}{c|}}
-\hline
-\multirow{2}{*}{\textbf{Etapas}} & \multicolumn{5}{c|}{\textbf{2026}} \\ \cline{2-6}
- & Fev & Mar & Abr & Mai & Jun \\
-\hline
-
-Pesquisa para conhecimento do público-alvo
-& X & X &  &  &  \\
-\hline
-
-Pesquisa de opinião sobre o público-alvo
-&  & X & X &  &  \\
-\hline
-
-Desenvolvimento do projeto
-&  &  & X & X &  \\
-\hline
-
-Testes e validação
-&  &  &  & X & X \\
-\hline
-
-Finalização do TCC
-&  &  &  &  & X \\
-\hline
-
-\end{tabular}
-\end{center}
-
-\section{Resultados Parciais}
 
 \section{Considerações Finais e Perspectivas Futuras}
 Nesta primeira etapa foi definido o algorítimo de machine learning ultilizado e feitas as analises dos componentes para definição dos componentes mais importantes

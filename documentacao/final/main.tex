@@ -358,10 +358,13 @@ acurácia e redução de falsos positivos \cite{felix2014analysis}. Assim, a com
 representa uma abordagem eficaz para a construção de sistemas de detecção mais robustos.
 
 \subsection{Análise de Dados e Pré-processamento}
-Para a análise de dados foram considerados a base de dados NSL-KDD que considera os seguintes ataques $neptune$, $satan$, $ipsweep$, $poetsweep$, $smurf$, $nmap$, $back$, $teardrop$, $warezclient$, $pod$, $guess\_passwd$, $buffer\_overflow$, $warezmaster$, $land$, $imap$, $rootkit$, $loadmodule$, $ftp\_write$, $multihop$, $phf$, $perl$, $spy$ alguns dos valores citados não são ataques reais, porém devido ao alto número de tráfego considerado por essas aplicacoes estas estão sendo consideradas ataques neste contexto. \\
+Para a análise de dados foi considerado a base de dados NSL-KDD com os seguintes ataques: $neptune$, $satan$, $ipsweep$, $poetsweep$, $smurf$, $nmap$, $back$, $teardrop$, $warezclient$, $pod$, $guess\_passwd$, $buffer\_overflow$, $warezmaster$, $land$, $imap$, $rootkit$, $loadmodule$, $ftp\_write$, $multihop$, $phf$, $perl$, $spy$. alguns dos valores citados não são ataques reais, porém no contexto desta análise componentes como: $loadmodule$, $perl$ e $nmap$ foram categorizados como ataques.
 \linebreak
-A base de dados conta com os seguintes valores
+A base de dados conta com os seguintes valores \\
 \begin{center}
+	\begin{table}[H]
+		\centering
+		\label{tab:dados_base_NSL_KDD}
 \begin{tabular}{|c c|}
 	\hline
 	normal & 67343 \\
@@ -389,45 +392,73 @@ A base de dados conta com os seguintes valores
 	spy & 2 \\
 	\hline
 \end{tabular}
+\caption{Dados presentes na base NSL-KDD}
+	\end{table}
 \end{center}
-Destes valores os ataques forma separados nas seguintes categorias: $normal$, $dos$, $probe$, $r2l$, $u2r$ Para melhor vizualizacao da matriz de correlacao.
-\linebreak \\
+\linebreak
+Para melhor vizualização dos dados os ataques foram separados nas seguintes categorias: $normal$, $dos$, $probe$, $r2l$, $u2r$.
 \begin{center}
-\begin{tabular}{|c|c|}
-    \hline
-    \textbf{Categoria} & \textbf{Tipos de Ataque} \\
-    \hline
-    normal & Normal \\
-    \hline
-    \multirow{5}{*}{dos} & Neptune \\
-        & smurf \\
-        & teardrop \\
-        & pod \\
-        & land \\
-    \hline
-    \multirow{3}{*}{probe} & nmap \\
-          & ipsweep \\
-          & satan \\
-    \hline
-    \multirow{8}{*}{r2l} & warezclient \\
-        & warezmaster \\
-        & guess\_passwd \\
-        & imap \\
-        & ftp\_write \\
-        & multihop \\
-        & phf \\
-        & spy \\
-    \hline
-    \multirow{4}{*}{u2r} & buffer\_overflow \\
-        & rootkit \\
-        & loadmodule \\
-        & perl \\
-    \hline
-\end{tabular}
+	\begin{table}[H]
+\label{tab:ataquesXcategoria}
+\centering
+		\begin{tabular}{|c|c|}
+		    \hline
+		    \textbf{Categoria} & \textbf{Tipos de Ataque} \\
+		    \hline
+		    normal & Normal \\
+		    \hline
+		    \multirow{5}{*}{dos} & Neptune \\
+		        & smurf \\
+		        & teardrop \\
+		        & pod \\
+		        & land \\
+		    \hline
+		    \multirow{3}{*}{probe} & nmap \\
+		          & ipsweep \\
+		          & satan \\
+		    \hline
+		    \multirow{8}{*}{r2l} & warezclient \\
+		        & warezmaster \\
+		        & guess\_passwd \\
+		        & imap \\
+		        & ftp\_write \\
+		        & multihop \\
+		        & phf \\
+		        & spy \\
+		    \hline
+		    \multirow{4}{*}{u2r} & buffer\_overflow \\
+		        & rootkit \\
+		        & loadmodule \\
+		        & perl \\
+		    \hline
+		\end{tabular}
+	\caption{Definição de tipos de ataque por grupos}
+	\end{table}
 \end{center}
+A matriz de correlação mostra que a contagem de pacotes e ocorrência de erros são os componentes com maior correlação.
+\begin{figure}[H]
+\centering
+\label{fig:matriz_corr}
+\includegraphics[width=8cm,height=8cm]{matriz_corr.png}
+\caption{Matriz de correlação da base NSL\_KDD}
+\end{figure}
+\linebreak
+Para validar as informações da matriz de correlação foi feita uma análise baseada em $PCA$, plotando um gráfico com os dois primeiros componentes e separando os valores pelos grupos anteriormente mencionados na tabela \ref{tab:ataquesXcategoria}.
+\begin{figure}[H]
+	\centering
+	\label{fig:pca_componentes}
+	\includegraphics[width=8.69cm,height=7cm]{pca_classes.png}
+	\caption{vizualização de dois componentes do PCA separado por classes}
+\end{figure}
 
-
-\subsection{Redução de Dimensionalidade e Seleção de Atributos}
+\subsection{Redução de Dimensionalidade e Seleção de Atri-butos}
+Buscando uma margem de variância a cima de 90\% foi calculado o $PCA$ para variados números de componentes, para descobrir a melhor variância, com o menor número de componentes. Definido 23 componentes como a melhor média amostral
+\begin{figure}[H]
+\centering
+\label{fig:pca_variancia}
+\includegraphics[width=8.69cm,height=7cm]{pcaXvariancia.png}	
+\caption{Variância explicada para PCA}
+\end{figure}
 \subsection{Base de Dados NSL-KDD e UNSW-NB15}
 \subsection{Métricas de Avaliação}
 

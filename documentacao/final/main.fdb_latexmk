@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 0 "main.bcf" "main.bbl" "main" 1777336995.52014 -1
-  "main.bcf" 1777336995.40393 111450 e02f0602e460ad0aba285a695bc2716d "pdflatex"
+["biber main"] 0 "main.bcf" "main.bbl" "main" 1777426385.38856 -1
+  "main.bcf" 1777426385.25217 111450 e02f0602e460ad0aba285a695bc2716d "pdflatex"
   "referencias.bib" 1776994899.65638 6119 b5c4efb86f6b895513691abfa5dae004 ""
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1777336994.10551 "main.tex" "main.pdf" "main" 1777336995.52053 0
+["pdflatex"] 1777426383.63678 "main.tex" "main.pdf" "main" 1777426385.38897 2
   "/etc/texmf/web2c/texmf.cnf" 1765883605.16586 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -22,6 +22,7 @@
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1136768653 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1136768653 1328 c834bbb027764024c09d3d2bf908b5f0 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx8.tfm" 1136768653 1332 1fde11373e221473104d6cc5993f046e ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx9.tfm" 1136768653 1328 5442e22a7072966dbaf88ca900acf3f0 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmcsc10.tfm" 1136768653 1300 63a6111ee6274895728663cf4b4e7e81 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm" 1136768653 1528 abec98dbc43e172678c11b3b9031252a ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm" 1136768653 1512 f21f83efb36853c0b70002322c1ab3ad ""
@@ -29,6 +30,7 @@
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr10.tfm" 1136768653 1296 45809c5a464d5f32c8f98ba97c1bb47f ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr6.tfm" 1136768653 1300 b62933e007d01cfd073f79b963c01526 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr8.tfm" 1136768653 1292 21c1c5bfeaebccffdb478fd231a0997d ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr9.tfm" 1136768653 1292 6b21b9c2c7bebb38aa2273f7ca0fb3af ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm" 1136768653 1124 6c73e740cf17375f03eec0ee63599741 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm" 1136768653 1116 933a60c408fc0a863a92debe84b2d294 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm" 1136768653 1120 8b7d695260f3cff42e636090a8002094 ""
@@ -187,10 +189,13 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1773227342 5541477 3118940318599480888143717dd32d64 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1772756647 3639712 9bdbf709ef18d067bcb8cf310ce757d2 ""
   "logoinova.png" 1770555560.91433 8563 2bdf1bdf926197f2974618836c072c1d ""
-  "main.aux" 1777336995.39992 6222 8797b8f95be2251a7b19b32c1f91c72b "pdflatex"
+  "main.aux" 1777426385.24718 7753 5216cba8835fb4459fff181f9f7c54a0 "pdflatex"
   "main.bbl" 1777330749.07155 26150 e732630d169df2fd4152cf03b3134845 "biber main"
-  "main.run.xml" 1777336995.40793 2406 1b56bcb4755fab85cc41222f32da4e69 "pdflatex"
-  "main.tex" 1777336993.05748 24301 f6587f29e129426aa92daf10b93ef22e ""
+  "main.run.xml" 1777426385.25577 2406 1b56bcb4755fab85cc41222f32da4e69 "pdflatex"
+  "main.tex" 1777426383.35114 25724 0d1155cd6570c73ab11afd02c9a0f527 ""
+  "matriz_corr.png" 1777422256.55509 156449 45a58e1a2b1d3cded6c558b8419298b6 ""
+  "pcaXvariancia.png" 1777424250.08013 35151 bcc0b7e7568402afd7b57957b9fa9bc1 ""
+  "pca_classes.png" 1777423072.99781 71643 b0a798c9df96fb51945893d36f1d3d4b ""
   (generated)
   "main.aux"
   "main.bcf"

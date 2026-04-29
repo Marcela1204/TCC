@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.3.5)  27 APR 2026 21:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.3.5)  28 APR 2026 22:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -891,8 +891,18 @@ File: logoinova.png Graphic file (type png)
 Package pdftex.def Info: logoinova.png  used on input line 287.
 (pdftex.def)             Requested size: 141.42363pt x 28.45401pt.
 [2{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
-Underfull \hbox (badness 8038) in paragraph at lines 361--364
-\OT1/cmr/m/n/10 ataques $\OML/cmm/m/it/10 neptune$\OT1/cmr/m/n/10 , $\OML/cmm/m/it/10 satan$\OT1/cmr/m/n/10 , $\OML/cmm/m/it/10 ipsweep$\OT1/cmr/m/n/10 , $\OML/cmm/m/it/10 poetsweep$\OT1/cmr/m/n/10 ,
+Underfull \hbox (badness 6300) in paragraph at lines 361--364
+[]\OT1/cmr/m/n/10 Para a an^^Salise de da-dos foi con-sid-er-ado
+ []
+
+
+Underfull \hbox (badness 3396) in paragraph at lines 361--364
+\OT1/cmr/m/n/10 a base de da-dos NSL-KDD com os seguintes
+ []
+
+
+Underfull \hbox (badness 3158) in paragraph at lines 361--364
+\OT1/cmr/m/n/10 ataques: $\OML/cmm/m/it/10 neptune$\OT1/cmr/m/n/10 , $\OML/cmm/m/it/10 satan$\OT1/cmr/m/n/10 , $\OML/cmm/m/it/10 ipsweep$\OT1/cmr/m/n/10 , $\OML/cmm/m/it/10 poetsweep$\OT1/cmr/m/n/10 ,
  []
 
 
@@ -906,6 +916,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 361--364
  []
 
 
+Underfull \hbox (badness 1721) in paragraph at lines 361--364
+\OML/cmm/m/it/10 multihop$\OT1/cmr/m/n/10 , $\OML/cmm/m/it/10 phf$\OT1/cmr/m/n/10 , $\OML/cmm/m/it/10 perl$\OT1/cmr/m/n/10 , $\OML/cmm/m/it/10 spy$\OT1/cmr/m/n/10 . al-guns dos val-ores
+ []
+
+
+Underfull \hbox (badness 4505) in paragraph at lines 361--364
+\OT1/cmr/m/n/10 desta an^^Salise com-po-nentes como: $\OML/cmm/m/it/10 loadmodule$\OT1/cmr/m/n/10 ,
+ []
+
+
+Underfull \hbox (badness 1102) in paragraph at lines 361--364
+\OML/cmm/m/it/10 perl$ \OT1/cmr/m/n/10 e $\OML/cmm/m/it/10 nmap$ \OT1/cmr/m/n/10 foram cat-e-go-riza-dos como ataques.
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 361--364
 
  []
@@ -915,69 +940,115 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 File: logoinova.png Graphic file (type png)
 <use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 392.
+Package pdftex.def Info: logoinova.png  used on input line 397.
 (pdftex.def)             Requested size: 141.42363pt x 28.45401pt.
  [3]
-Underfull \hbox (badness 2564) in paragraph at lines 393--395
-\OT1/cmr/m/n/10 Destes val-ores os ataques forma sep-a-ra-dos nas
+
+./main.tex:399: LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.399 P
+       ara melhor vizualização dos dados os ataques foram separados nas se...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+<matriz_corr.png, id=28, 791.3565pt x 628.0263pt>
+File: matriz_corr.png Graphic file (type png)
+<use matriz_corr.png>
+Package pdftex.def Info: matriz_corr.png  used on input line 442.
+(pdftex.def)             Requested size: 227.61586pt x 227.62256pt.
+
+./main.tex:446: LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.446 P
+       ara validar as informações da matriz de correlação foi feita uma ...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Package caption Warning: \label without proper reference on input line 402.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `tab:ataquesXcategoria' on page 4 undefined on input line 446.
+
+<pca_classes.png, id=29, 408.3255pt x 328.8285pt>
+File: pca_classes.png Graphic file (type png)
+<use pca_classes.png>
+Package pdftex.def Info: pca_classes.png  used on input line 450.
+(pdftex.def)             Requested size: 247.25887pt x 199.17517pt.
+
+Overfull \hbox (15.41043pt too wide) in paragraph at lines 450--451
+ [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 393--395
-
+Underfull \hbox (badness 1142) in paragraph at lines 446--452
+\OT1/cmr/m/n/10 rela^^Xc~ao foi feita uma an^^Salise baseada em $\OML/cmm/m/it/10 PCA$\OT1/cmr/m/n/10 ,
  []
 
+<pcaXvariancia.png, id=30, 611.4042pt x 340.3917pt>
+File: pcaXvariancia.png Graphic file (type png)
+<use pcaXvariancia.png>
+Package pdftex.def Info: pcaXvariancia.png  used on input line 459.
+(pdftex.def)             Requested size: 247.2535pt x 199.16728pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 393--395
-
+Overfull \hbox (15.40506pt too wide) in paragraph at lines 459--460
+ [][] 
  []
 
+File: logoinova.png Graphic file (type png)
+<use logoinova.png>
+Package pdftex.def Info: logoinova.png  used on input line 461.
+(pdftex.def)             Requested size: 141.42363pt x 28.45401pt.
+[4 <./matriz_corr.png> <./pca_classes.png>]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 443.
+(Font)              <8> on input line 474.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 443.
+(Font)              <6> on input line 474.
 
-Underfull \hbox (badness 10000) in paragraph at lines 449--450
+Underfull \hbox (badness 10000) in paragraph at lines 480--481
 []|\OT1/cmr/m/n/8 Pesquisa para con-hec-i-
  []
 
 
-Underfull \hbox (badness 1728) in paragraph at lines 457--458
+Underfull \hbox (badness 1728) in paragraph at lines 488--489
 []|\OT1/cmr/m/n/8 Desenvolvimento do pro-
  []
 
 
-Overfull \hbox (13.58727pt too wide) in paragraph at lines 443--470
+Overfull \hbox (13.58727pt too wide) in paragraph at lines 474--501
  [] 
  []
 
 
-Underfull \hbox (badness 1215) in paragraph at lines 478--478
+Underfull \hbox (badness 1215) in paragraph at lines 509--509
 \OT1/cmr/m/n/10 Eval-u-a-tion of Su-per-vised Ma-chine Learn-ing
  []
 
 File: logoinova.png Graphic file (type png)
 <use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 478.
+Package pdftex.def Info: logoinova.png  used on input line 509.
 (pdftex.def)             Requested size: 141.42363pt x 28.45401pt.
-[4]
-Underfull \hbox (badness 3364) in paragraph at lines 481--485
+[5 <./pcaXvariancia.png>]
+Underfull \hbox (badness 3364) in paragraph at lines 512--516
 \OT1/cmr/m/n/10 preens~ao ao longo de toda a nossa tra-jet^^Soria
  []
 
-
-Package caption Warning: Unused \captionsetup[figure] on input line 37.
-See the caption package documentation for explanation.
-
-
-Package caption Warning: Unused \captionsetup[table] on input line 47.
-See the caption package documentation for explanation.
-
 File: logoinova.png Graphic file (type png)
 <use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 490.
+Package pdftex.def Info: logoinova.png  used on input line 521.
 (pdftex.def)             Requested size: 141.42363pt x 28.45401pt.
-[5
+[6
 
 ] (./main.aux)
  ***********
@@ -989,23 +1060,29 @@ L3 programming layer <2026-01-19>
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
 
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 24688 strings out of 467533
- 499076 string characters out of 5422139
- 1421680 words of memory out of 5000000
- 53225 multiletter control sequences out of 15000+600000
- 646958 words of font info for 74 fonts, out of 8000000 for 9000
+ 24734 strings out of 467533
+ 499966 string characters out of 5422139
+ 1416210 words of memory out of 5000000
+ 53267 multiletter control sequences out of 15000+600000
+ 650958 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 88i,16n,94p,693b,1434s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 88i,16n,94p,693b,1432s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on main.pdf (5 pages, 196439 bytes).
+Output written on main.pdf (6 pages, 375342 bytes).
 PDF statistics:
- 98 PDF objects out of 1000 (max. 8388607)
- 60 compressed objects within 1 object stream
+ 107 PDF objects out of 1000 (max. 8388607)
+ 62 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 18 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 33 words of extra memory for PDF output out of 10000 (max. 10000000)
 

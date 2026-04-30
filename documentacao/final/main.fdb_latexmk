@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 0 "main.bcf" "main.bbl" "main" 1777504246.73619 -1
-  "main.bcf" 1777504246.60984 111450 e02f0602e460ad0aba285a695bc2716d "pdflatex"
+["biber main"] 0 "main.bcf" "main.bbl" "main" 1777504560.51001 -1
+  "main.bcf" 1777504560.37945 111450 e02f0602e460ad0aba285a695bc2716d "pdflatex"
   "referencias.bib" 1776994899.65638 6119 b5c4efb86f6b895513691abfa5dae004 ""
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1777504244.99904 "main.tex" "main.pdf" "main" 1777504246.73658 0
+["pdflatex"] 1777504558.77057 "main.tex" "main.pdf" "main" 1777504560.51036 0
   "/etc/texmf/web2c/texmf.cnf" 1765883605.16586 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -189,10 +189,10 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1773227342 5541477 3118940318599480888143717dd32d64 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1772756647 3639712 9bdbf709ef18d067bcb8cf310ce757d2 ""
   "logoinova.png" 1770555560.91433 8563 2bdf1bdf926197f2974618836c072c1d ""
-  "main.aux" 1777504246.60584 7633 c07907711b8546af1858aabce22e2b47 "pdflatex"
+  "main.aux" 1777504560.37545 7633 87dd69fbd079e469ca61c49ca4a6fdad "pdflatex"
   "main.bbl" 1777330749.07155 26150 e732630d169df2fd4152cf03b3134845 "biber main"
-  "main.run.xml" 1777504246.61112 2406 1b56bcb4755fab85cc41222f32da4e69 "pdflatex"
-  "main.tex" 1777504242.75387 25708 7041d2db35a4775ecaeda19580d127e7 ""
+  "main.run.xml" 1777504560.3832 2406 1b56bcb4755fab85cc41222f32da4e69 "pdflatex"
+  "main.tex" 1777504555.71206 25652 b8a6875ef8e4d8cfb9a436f6a40dcae3 ""
   "matriz_corr.png" 1777422256.55509 156449 45a58e1a2b1d3cded6c558b8419298b6 ""
   "pcaXvariancia.png" 1777424250.08013 35151 bcc0b7e7568402afd7b57957b9fa9bc1 ""
   "pca_classes.png" 1777423072.99781 71643 b0a798c9df96fb51945893d36f1d3d4b ""

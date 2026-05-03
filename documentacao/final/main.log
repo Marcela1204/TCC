@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.3.5)  29 APR 2026 20:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.3.5)  3 MAY 2026 17:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -742,26 +742,56 @@ File: pgflibraryarrows.meta.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgfarrowlength=\dimen309
 \pgfarrowwidth=\dimen310
 \pgfarrowlinewidth=\dimen311
-)
-\@quotelevel=\count467
-\@quotereset=\count468
- (./main.aux)
+) (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count467
+\lst@gtempboxa=\box121
+\lst@token=\toks39
+\lst@length=\count468
+\lst@currlwidth=\dimen312
+\lst@column=\count469
+\lst@pos=\count470
+\lst@lostspace=\dimen313
+\lst@width=\dimen314
+\lst@newlines=\count471
+\lst@lineno=\count472
+\lst@maxwidth=\dimen315
+ (/usr/share/texlive/texmf-dist/tex/latex/listings/lstpatch.sty
+File: lstpatch.sty 2025/11/14 1.11b (Carsten Heinz)
+) (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2025/11/14 1.11b (Carsten Heinz)
+\c@lstnumber=\count473
+\lst@skipnumbers=\count474
+\lst@framebox=\box122
+) (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2025/11/14 1.11b listings configuration
+))
+Package: listings 2025/11/14 1.11b (Carsten Heinz)
+
+==> First Aid for listings.sty no longer applied!
+    Expected:
+        2024/09/23 1.10c (Carsten Heinz)
+    but found:
+        2025/11/14 1.11b (Carsten Heinz)
+    so I'm assuming it got fixed.
+\@quotelevel=\count475
+\@quotereset=\count476
+(./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 124.
-LaTeX Font Info:    ... okay on input line 124.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 124.
-LaTeX Font Info:    ... okay on input line 124.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 124.
-LaTeX Font Info:    ... okay on input line 124.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 124.
-LaTeX Font Info:    ... okay on input line 124.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 124.
-LaTeX Font Info:    ... okay on input line 124.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 124.
-LaTeX Font Info:    ... okay on input line 124.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 124.
-LaTeX Font Info:    ... okay on input line 124.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -799,17 +829,17 @@ LaTeX Font Info:    ... okay on input line 124.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count469
-\scratchdimen=\dimen312
-\scratchbox=\box121
-\nofMPsegments=\count470
-\nofMParguments=\count471
-\everyMPshowfont=\toks39
-\MPscratchCnt=\count472
-\MPscratchDim=\dimen313
-\MPnumerator=\count473
-\makeMPintoPDFobject=\count474
-\everyMPtoPDFconversion=\toks40
+\scratchcounter=\count477
+\scratchdimen=\dimen316
+\scratchbox=\box123
+\nofMPsegments=\count478
+\nofMParguments=\count479
+\everyMPshowfont=\toks40
+\MPscratchCnt=\count480
+\MPscratchDim=\dimen317
+\MPnumerator=\count481
+\makeMPintoPDFobject=\count482
+\everyMPtoPDFconversion=\toks41
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -817,6 +847,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 Package biblatex Info: Trying to load language 'portuguese'...
 Package biblatex Info: ... file 'portuguese.lbx' found.
@@ -831,133 +862,134 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' found.
  (./main.bbl)
-Package biblatex Info: Reference section=0 on input line 124.
-Package biblatex Info: Reference segment=0 on input line 124.
-LaTeX Font Info:    Trying to load font information for OT1+phv on input line 157.
+Package biblatex Info: Reference section=0 on input line 150.
+Package biblatex Info: Reference segment=0 on input line 150.
+\c@lstlisting=\count483
+LaTeX Font Info:    Trying to load font information for OT1+phv on input line 183.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
 )
 LaTeX Font Info:    Font shape `OT1/phv/b/it' in size <11> not available
-(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 157.
-LaTeX Font Info:    Calculating math sizes for size <11> on input line 157.
+(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 183.
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 183.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 157.
+(Font)              size <5> substituted on input line 183.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <5.5> not available
-(Font)              size <5> substituted on input line 157.
+(Font)              size <5> substituted on input line 183.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 157.
+(Font)              size <5> substituted on input line 183.
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <11> on input line 157.
+(Font)              <11> on input line 183.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7.69997> on input line 157.
+(Font)              <7.69997> on input line 183.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5.5> on input line 157.
+(Font)              <5.5> on input line 183.
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <10> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 157.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 183.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 157.
+(Font)              <7> on input line 183.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 157.
+(Font)              <5> on input line 183.
 
-Underfull \hbox (badness 10000) in paragraph at lines 157--157
+Underfull \hbox (badness 10000) in paragraph at lines 183--183
 
  []
 
 <logoinova.png, id=4, 142.28156pt x 28.60687pt>
 File: logoinova.png Graphic file (type png)
 <use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 219.
+Package pdftex.def Info: logoinova.png  used on input line 245.
 (pdftex.def)             Requested size: 141.42363pt x 28.45401pt.
-LaTeX Font Info:    Trying to load font information for TS1+phv on input line 219.
+LaTeX Font Info:    Trying to load font information for TS1+phv on input line 245.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1phv.fd
 File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
 ) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}
 
 
  <./logoinova.png>]
-Underfull \hbox (badness 1888) in paragraph at lines 249--259
+Underfull \hbox (badness 1888) in paragraph at lines 275--285
 []\OT1/cmr/m/n/10 A evolu^^Xc~ao das amea^^Xcas cibern^^Seticas acom-
  []
 
 File: logoinova.png Graphic file (type png)
 <use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 287.
+Package pdftex.def Info: logoinova.png  used on input line 313.
 (pdftex.def)             Requested size: 141.42363pt x 28.45401pt.
 [2{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 372.
+(Font)              <8> on input line 396.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 372.
+(Font)              <6> on input line 396.
 
-Underfull \hbox (badness 10000) in paragraph at lines 378--379
+Underfull \hbox (badness 10000) in paragraph at lines 402--403
 []|\OT1/cmr/m/n/8 Pesquisa para con-hec-i-
  []
 
 
-Underfull \hbox (badness 1728) in paragraph at lines 386--387
+Underfull \hbox (badness 1728) in paragraph at lines 410--411
 []|\OT1/cmr/m/n/8 Desenvolvimento do pro-
  []
 
 
-Overfull \hbox (13.58727pt too wide) in paragraph at lines 372--399
+Overfull \hbox (13.58727pt too wide) in paragraph at lines 396--423
  [] 
  []
 
 
-Underfull \hbox (badness 6300) in paragraph at lines 403--437
+Underfull \hbox (badness 6300) in paragraph at lines 427--461
 []\OT1/cmr/m/n/10 Para a an^^Salise de da-dos foi con-sid-er-ado
  []
 
 
-Underfull \hbox (badness 3396) in paragraph at lines 403--437
+Underfull \hbox (badness 3396) in paragraph at lines 427--461
 \OT1/cmr/m/n/10 a base de da-dos NSL-KDD com os seguintes
  []
 
 
-Underfull \hbox (badness 3158) in paragraph at lines 403--437
+Underfull \hbox (badness 3158) in paragraph at lines 427--461
 \OT1/cmr/m/n/10 ataques: $\OML/cmm/m/it/10 neptune$\OT1/cmr/m/n/10 , $\OML/cmm/m/it/10 satan$\OT1/cmr/m/n/10 , $\OML/cmm/m/it/10 ipsweep$\OT1/cmr/m/n/10 , $\OML/cmm/m/it/10 poetsweep$\OT1/cmr/m/n/10 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 403--437
+Underfull \hbox (badness 10000) in paragraph at lines 427--461
 \OML/cmm/m/it/10 guess[]passwd$\OT1/cmr/m/n/10 , $\OML/cmm/m/it/10 buffer[]overflow$\OT1/cmr/m/n/10 , $\OML/cmm/m/it/10 warezmaster$\OT1/cmr/m/n/10 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 403--437
+Underfull \hbox (badness 10000) in paragraph at lines 427--461
 \OML/cmm/m/it/10 land$\OT1/cmr/m/n/10 , $\OML/cmm/m/it/10 imap$\OT1/cmr/m/n/10 , $\OML/cmm/m/it/10 rootkit$\OT1/cmr/m/n/10 , $\OML/cmm/m/it/10 loadmodule$\OT1/cmr/m/n/10 , $\OML/cmm/m/it/10 ftp[]write$\OT1/cmr/m/n/10 ,
  []
 
 
-Underfull \hbox (badness 1721) in paragraph at lines 403--437
+Underfull \hbox (badness 1721) in paragraph at lines 427--461
 \OML/cmm/m/it/10 multihop$\OT1/cmr/m/n/10 , $\OML/cmm/m/it/10 phf$\OT1/cmr/m/n/10 , $\OML/cmm/m/it/10 perl$\OT1/cmr/m/n/10 , $\OML/cmm/m/it/10 spy$\OT1/cmr/m/n/10 . al-guns dos val-ores
  []
 
 
-Underfull \hbox (badness 4505) in paragraph at lines 403--437
+Underfull \hbox (badness 4505) in paragraph at lines 427--461
 \OT1/cmr/m/n/10 desta an^^Salise com-po-nentes como: $\OML/cmm/m/it/10 loadmodule$\OT1/cmr/m/n/10 ,
  []
 
 
-Underfull \hbox (badness 1102) in paragraph at lines 403--437
+Underfull \hbox (badness 1102) in paragraph at lines 427--461
 \OML/cmm/m/it/10 perl$ \OT1/cmr/m/n/10 e $\OML/cmm/m/it/10 nmap$ \OT1/cmr/m/n/10 foram cat-e-go-riza-dos como ataques.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 403--437
+Underfull \hbox (badness 10000) in paragraph at lines 427--461
 
  []
 
 File: logoinova.png Graphic file (type png)
 <use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 437.
+Package pdftex.def Info: logoinova.png  used on input line 461.
 (pdftex.def)             Requested size: 141.42363pt x 28.45401pt.
 [3]
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -965,29 +997,29 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 <matriz_corr.png, id=28, 791.3565pt x 628.0263pt>
 File: matriz_corr.png Graphic file (type png)
 <use matriz_corr.png>
-Package pdftex.def Info: matriz_corr.png  used on input line 479.
+Package pdftex.def Info: matriz_corr.png  used on input line 503.
 (pdftex.def)             Requested size: 227.61586pt x 227.62256pt.
 
 
-Package caption Warning: \label without proper reference on input line 440.
+Package caption Warning: \label without proper reference on input line 464.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `tab:ataquesXcategoria' on page 4 undefined on input line 482.
+LaTeX Warning: Reference `tab:ataquesXcategoria' on page 4 undefined on input line 506.
+
+
+Underfull \hbox (badness 1142) in paragraph at lines 506--507
+\OT1/cmr/m/n/10 rela^^Xc~ao foi feita uma an^^Salise baseada em $\OML/cmm/m/it/10 PCA$\OT1/cmr/m/n/10 ,
+ []
 
 <pca_classes.png, id=29, 408.3255pt x 328.8285pt>
 File: pca_classes.png Graphic file (type png)
 <use pca_classes.png>
-Package pdftex.def Info: pca_classes.png  used on input line 486.
+Package pdftex.def Info: pca_classes.png  used on input line 511.
 (pdftex.def)             Requested size: 247.25887pt x 199.17517pt.
 
-Overfull \hbox (15.41043pt too wide) in paragraph at lines 486--487
+Overfull \hbox (15.41043pt too wide) in paragraph at lines 511--512
  [][] 
- []
-
-
-Underfull \hbox (badness 1142) in paragraph at lines 482--488
-\OT1/cmr/m/n/10 rela^^Xc~ao foi feita uma an^^Salise baseada em $\OML/cmm/m/it/10 PCA$\OT1/cmr/m/n/10 ,
  []
 
 
@@ -995,36 +1027,41 @@ Underfull \vbox (badness 6188) has occurred while \output is active []
 
 File: logoinova.png Graphic file (type png)
 <use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 489.
+Package pdftex.def Info: logoinova.png  used on input line 514.
 (pdftex.def)             Requested size: 141.42363pt x 28.45401pt.
  [4 <./matriz_corr.png>]
 <pcaXvariancia.png, id=36, 611.4042pt x 340.3917pt>
 File: pcaXvariancia.png Graphic file (type png)
 <use pcaXvariancia.png>
-Package pdftex.def Info: pcaXvariancia.png  used on input line 495.
+Package pdftex.def Info: pcaXvariancia.png  used on input line 520.
 (pdftex.def)             Requested size: 247.2535pt x 199.16728pt.
 
-Overfull \hbox (15.40506pt too wide) in paragraph at lines 495--496
+Overfull \hbox (15.40506pt too wide) in paragraph at lines 520--521
  [][] 
  []
 
 
-Underfull \hbox (badness 1215) in paragraph at lines 503--503
+Overfull \hbox (219.0356pt too wide) in paragraph at lines 543--554
+ [][] 
+ []
+
+
+Underfull \hbox (badness 1215) in paragraph at lines 563--563
 \OT1/cmr/m/n/10 Eval-u-a-tion of Su-per-vised Ma-chine Learn-ing
  []
 
 File: logoinova.png Graphic file (type png)
 <use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 503.
+Package pdftex.def Info: logoinova.png  used on input line 563.
 (pdftex.def)             Requested size: 141.42363pt x 28.45401pt.
 [5 <./pca_classes.png> <./pcaXvariancia.png>]
-Underfull \hbox (badness 3364) in paragraph at lines 506--510
+Underfull \hbox (badness 3364) in paragraph at lines 566--570
 \OT1/cmr/m/n/10 preens~ao ao longo de toda a nossa tra-jet^^Soria
  []
 
 File: logoinova.png Graphic file (type png)
 <use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 515.
+Package pdftex.def Info: logoinova.png  used on input line 575.
 (pdftex.def)             Requested size: 141.42363pt x 28.45401pt.
 [6
 
@@ -1046,15 +1083,15 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 24734 strings out of 467533
- 499966 string characters out of 5422139
- 1419211 words of memory out of 5000000
- 53267 multiletter control sequences out of 15000+600000
+ 26077 strings out of 467533
+ 519426 string characters out of 5422139
+ 1439217 words of memory out of 5000000
+ 54598 multiletter control sequences out of 15000+600000
  650958 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  88i,16n,94p,693b,1432s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on main.pdf (6 pages, 374508 bytes).
+Output written on main.pdf (6 pages, 378327 bytes).
 PDF statistics:
  107 PDF objects out of 1000 (max. 8388607)
  62 compressed objects within 1 object stream

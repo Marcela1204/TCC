@@ -23,6 +23,32 @@
 \usepackage{booktabs}
 \usepackage{tikz}
 \usetikzlibrary{matrix, positioning, arrows.meta}
+\usepackage{listings}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
 
 %-------------------------- ESTILOS NÃO ALTERAR ------------------------------------------------%
 % Estilo para legendas de figura e tabela
@@ -361,8 +387,6 @@ representa uma abordagem eficaz para a construção de sistemas de detecção ma
 \subsection{Métricas de Avaliação}
 
 
-\section{Metodologia}
-
 %NOTE: AINDA FALTA AJUSTAR PARA AS COISAS QUE DE FATO ACONTECERAM NO CRONOGRAMA
 \section{Cronograma}
 \begin{center}
@@ -402,7 +426,7 @@ Finalização do TCC
 \subsection{Análise de Dados e Pré-processamento}
 Para a análise de dados foi considerado a base de dados NSL-KDD com os seguintes ataques: $neptune$, $satan$, $ipsweep$, $poetsweep$, $smurf$, $nmap$, $back$, $teardrop$, $warezclient$, $pod$, $guess\_passwd$, $buffer\_overflow$, $warezmaster$, $land$, $imap$, $rootkit$, $loadmodule$, $ftp\_write$, $multihop$, $phf$, $perl$, $spy$. alguns dos valores citados não são ataques reais, porém no contexto desta análise componentes como: $loadmodule$, $perl$ e $nmap$ foram categorizados como ataques.
 \linebreak
-A base de dados conta com os seguintes valores \\
+% A base de dados conta com os seguintes valores \\
 	\begin{table}[H]
 		\centering
 		\label{tab:dados_base_NSL_KDD}
@@ -472,7 +496,7 @@ Para melhor vizualização dos dados os ataques foram separados nas seguintes ca
 		\end{tabular}
 	\caption{Definição de tipos de ataque por grupos}
 	\end{table}
-A matriz de correlação mostra que a contagem de pacotes e ocorrência de erros são os componentes com maior correlação.
+A matriz de correlação mostra que, a contagem de pacotes e ocorrência de erros são os componentes com maior correlação.
 \begin{figure}[H]
 \centering
 \label{fig:matriz_corr}
@@ -480,6 +504,7 @@ A matriz de correlação mostra que a contagem de pacotes e ocorrência de erros
 \caption{Matriz de correlação da base NSL\_KDD}
 \end{figure}
 Para validar as informações da matriz de correlação foi feita uma análise baseada em $PCA$, plotando um gráfico com os dois primeiros componentes e separando os valores pelos grupos anteriormente mencionados na tabela \ref{tab:ataquesXcategoria}.
+
 \begin{figure}[H]
 	\centering
 	\label{fig:pca_componentes}
@@ -495,6 +520,41 @@ Buscando uma margem de variância a cima de 95\% foi calculado o $PCA$ para vari
 \includegraphics[width=8.69cm,height=7cm]{pcaXvariancia.png}	
 \caption{Variância explicada para PCA}
 \end{figure}
+
+\section{Metodologia}
+O algorítimo ultilizado para as análises foi o $Decision Tree$, este conta com o menor tempo de teste e melhor acurácia, estes valores são a maior métrica ultilizada pois o objetivo do sistema é ser execudato em tempo real para garantir uma resposta rápida a incidentes. \\
+% \subsection{}
+Ultilizando os testes do capítulo anterior, foi desenvolvida uma análise com os variados algorítimos mais ultilizados ($Random Forest$, $Decision Tree$, $KNN$, $SVM$, $Logistic Regression$).
+%FIXME: adicionar o documento de referência sobre os algoritimos ultilizados %
+Ultilizando um random state de 42 para os algorítimos citados, obtiveram-se os seguintes valores:
+% \begin{lstlisting}
+% ===============================================================================================
+% Modelo               Acurácia   Precisão   Recall     F1-Score   Tempo treino(s) Tempo teste(s)
+% ===============================================================================================
+% Random Forest        0.9987     0.9992     0.9979     0.9985     6.3216          0.1268         
+% Decision Tree        0.9977     0.9975     0.9975     0.9975     0.8541          0.0035         
+% KNN                  0.9935     0.9921     0.9940     0.9931     0.0052          16.5641        
+% Logistic Regression  0.9454     0.9504     0.9313     0.9408     3.0691          0.0037         
+% SVM (linear)         0.9544     0.9594     0.9418     0.9506     217.7609        9.0564         
+% \end{lstlisting}
+\begin{table}[H]
+	\centering
+	\label{tab:Tempos_treino}
+	\begin{tabular}{|l c c c c c c|}
+		\hline
+		Modelo & Acurácia & Precisão & Recall & F1-Score & Tempo Treino(s) & Tempo Teste(s) \\
+		\hline
+		Random Forest & 0.9987 & 0.9992 & 0.9979 & 0.9985 & 6.3216 & 0.1268 \\
+		Decision Tree & 0.9977 & 0.9975 & 0.9975 & 0.9975 & 0.8541 & 0.0035 \\
+		KNN & 0.9935 & 0.9921 & 0.9940 & 0.9931 & 0.0052 & 16.5641 \\
+		Logistic Regression & 0.9454 & 0.9504 & 0.9313 & 0.9408 & 3.0691 & 0.0037 \\
+		SVM (linear) & 0.9544 & 0.9594 & 0.9418 & 0.9506 & 217.7609 & 9.0564 \\
+		\hline
+	\end{tabular}
+	\caption{Estátisticas de treino dos modelos}
+\end{table}
+%FIXME: Reajustar tamanho da tabela
+
 
 \section{Considerações Finais e Perspectivas Futuras}
 Nesta primeira etapa foi definido o algorítimo de machine learning ultilizado e feitas as analises dos componentes para definição dos componentes mais importantes

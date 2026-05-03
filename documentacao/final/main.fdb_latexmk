@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 0 "main.bcf" "main.bbl" "main" 1777504560.51001 -1
-  "main.bcf" 1777504560.37945 111450 e02f0602e460ad0aba285a695bc2716d "pdflatex"
-  "referencias.bib" 1776994899.65638 6119 b5c4efb86f6b895513691abfa5dae004 ""
+["biber main"] 1777837887.97668 "main.bcf" "main.bbl" "main" 1777840513.75123 0
+  "main.bcf" 1777840513.63143 111450 e02f0602e460ad0aba285a695bc2716d "pdflatex"
+  "referencias.bib" 1777678687.89555 6119 b5c4efb86f6b895513691abfa5dae004 ""
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1777504558.77057 "main.tex" "main.pdf" "main" 1777504560.51036 0
+["pdflatex"] 1777840512.17263 "main.tex" "main.pdf" "main" 1777840513.75153 0
   "/etc/texmf/web2c/texmf.cnf" 1765883605.16586 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -158,6 +158,10 @@
   "/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg" 1279039959 678 4792914a8f45be57bb98413425e4c7af ""
   "/usr/share/texlive/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex" 1632168149 95525 6fd0552101a6b1f9b7a84b402ec435ba ""
   "/usr/share/texlive/texmf-dist/tex/latex/lipsum/lipsum.sty" 1632168149 14690 c2c754218a7108db7823a4839c1bc3cd ""
+  "/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg" 1763671178 1865 73df61e45e2dfdc239ef37ab16d87d6a ""
+  "/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty" 1763671178 81627 6a9c17f89f356724d1c9813b7025f0c1 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty" 1763671178 77105 002e983b638eadbf04e580642335f689 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/listings/lstpatch.sty" 1710360531 353 9024412f43e92cd5b21fe9ded82d0610 ""
   "/usr/share/texlive/texmf-dist/tex/latex/logreq/logreq.def" 1284153563 1620 fb1c32b818f2058eca187e5c41dfae77 ""
   "/usr/share/texlive/texmf-dist/tex/latex/logreq/logreq.sty" 1284153563 6187 b27afc771af565d3a9ff1ca7d16d0d46 ""
   "/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty" 1731446765 6696 886c9f3087d0b973ed2c19aa79cb3023 ""
@@ -189,13 +193,13 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1773227342 5541477 3118940318599480888143717dd32d64 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1772756647 3639712 9bdbf709ef18d067bcb8cf310ce757d2 ""
   "logoinova.png" 1770555560.91433 8563 2bdf1bdf926197f2974618836c072c1d ""
-  "main.aux" 1777504560.37545 7633 87dd69fbd079e469ca61c49ca4a6fdad "pdflatex"
-  "main.bbl" 1777330749.07155 26150 e732630d169df2fd4152cf03b3134845 "biber main"
-  "main.run.xml" 1777504560.3832 2406 1b56bcb4755fab85cc41222f32da4e69 "pdflatex"
-  "main.tex" 1777504555.71206 25652 b8a6875ef8e4d8cfb9a436f6a40dcae3 ""
-  "matriz_corr.png" 1777422256.55509 156449 45a58e1a2b1d3cded6c558b8419298b6 ""
-  "pcaXvariancia.png" 1777424250.08013 35151 bcc0b7e7568402afd7b57957b9fa9bc1 ""
-  "pca_classes.png" 1777423072.99781 71643 b0a798c9df96fb51945893d36f1d3d4b ""
+  "main.aux" 1777840513.62743 7887 ffe69765a83512dbe6ea03b1fd70ea53 "pdflatex"
+  "main.bbl" 1777837888.98425 26150 e732630d169df2fd4152cf03b3134845 "biber main"
+  "main.run.xml" 1777840513.63719 2406 1b56bcb4755fab85cc41222f32da4e69 "pdflatex"
+  "main.tex" 1777840512.02347 28632 6ed4ba6abb4ab4d6376cfed10d9acd00 ""
+  "matriz_corr.png" 1777678687.89555 156449 45a58e1a2b1d3cded6c558b8419298b6 ""
+  "pcaXvariancia.png" 1777678687.89555 35151 bcc0b7e7568402afd7b57957b9fa9bc1 ""
+  "pca_classes.png" 1777678687.89555 71643 b0a798c9df96fb51945893d36f1d3d4b ""
   (generated)
   "main.aux"
   "main.bcf"

@@ -561,6 +561,47 @@ Ultilizando os valores anteriormente definidos na figura \ref{fig:pca_componente
 	\includegraphics[width=8.69cm,height=7cm]{./PCA_2D.png}
 	\caption{PCA classificando tráfego como ataque e normal}
 \end{figure}
+Estudando as features com o auxilio dos resutados do $PCA$ chegou-se a Conclusão que com 7 features é possível alcançar uma acurácia com valores a cima de 95\%:\\
+\begin{figure}[H]
+	\label{fig:Importancia_features}
+	\includegraphics[width=8.69cm,height=7cm]{./Importancia_features.png} %FIXME: corrigir a imagem no notebook e adicionar
+	\caption{Representação da importância de cada feature para a acurácia}
+\end{figure}
+Afim de refinar os dados representado no $PCA$ pela imagem \ref{fig:Importancia_features} uma análise similar foi feita utilizado o algorítimo $Decision Tree$:
+\begin{figure}[H]
+	\label{fig:DecisionTree_features}
+	\includegraphics[width=9cm,height=6cm]{./decisiontree_features.png}
+	\caption{Features variadas para o decision tree}
+\end{figure}
+Indicando que o número otimo de features é 18, onde a acurácia é maior. \\
+Sendo elas:
+\begin{table}[H]
+	\centering
+	\label{tab:top18Features}
+	\begin{tabular}{|l l|}
+		\hline
+		1. & src\_bytes \\
+		2. & dst\_host_srv_count \\
+		3. & count \\
+		4. & dst\_bytes \\
+		5. & dst\_host_srv_rerror_rate \\
+		6. & hot \\
+		7. & dst\_host\_same\_src\_port\_rate \\
+		8. & logged\_in \\
+		9. & srv\_count \\
+		10. & dst\_host\_same\_srv\_rate \\
+		11. & duration \\
+		12. & wrong\_fragment \\
+		13. & dst\_host\_rerror\_rate \\
+		14. & dst\_host\_diff\_srv\_rate \\
+		15. & dst\_host\_count \\
+		16. & dst\_host\_srv\_diff\_host\_rate \\
+		17. & dst\_host\_serror\_rate \\
+		18. & diff\_srv\_rate \\
+		\hline
+	\end{tabular}
+	
+\end{table}
 
 
 \section{Considerações Finais e Perspectivas Futuras}

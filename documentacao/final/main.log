@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.3.5)  3 MAY 2026 17:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.3.5)  3 MAY 2026 17:49
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1046,26 +1046,53 @@ Overfull \hbox (219.0356pt too wide) in paragraph at lines 543--554
  []
 
 
-Underfull \hbox (badness 1215) in paragraph at lines 563--563
-\OT1/cmr/m/n/10 Eval-u-a-tion of Su-per-vised Ma-chine Learn-ing
+Package caption Warning: \label without proper reference on input line 542.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `tab:Tempos_treino' on page 5 undefined on input line 557.
+
+
+Package caption Warning: \label without proper reference on input line 510.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `fig:pca_componentes' on page 5 undefined on input line 558.
+
+<./PCA_2D.png, id=37, 465.23813pt x 361.35pt>
+File: ./PCA_2D.png Graphic file (type png)
+<use ./PCA_2D.png>
+Package pdftex.def Info: ./PCA_2D.png  used on input line 561.
+(pdftex.def)             Requested size: 247.24942pt x 199.16766pt.
+
+Overfull \hbox (15.40099pt too wide) in paragraph at lines 561--562
+[][] 
+ []
+
+
+Underfull \hbox (badness 1147) in paragraph at lines 557--563
+\OT1/cmr/m/n/10 Ultilizando os val-ores an-te-ri-or-mente definidos na
  []
 
 File: logoinova.png Graphic file (type png)
 <use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 563.
+Package pdftex.def Info: logoinova.png  used on input line 570.
 (pdftex.def)             Requested size: 141.42363pt x 28.45401pt.
-[5 <./pca_classes.png> <./pcaXvariancia.png>]
-Underfull \hbox (badness 3364) in paragraph at lines 566--570
+[5 <./pca_classes.png> <./pcaXvariancia.png> <./PCA_2D.png (PNG copy)>]
+Underfull \hbox (badness 1215) in paragraph at lines 570--570
+\OT1/cmr/m/n/10 Eval-u-a-tion of Su-per-vised Ma-chine Learn-ing
+ []
+
+
+Underfull \hbox (badness 3364) in paragraph at lines 573--577
 \OT1/cmr/m/n/10 preens~ao ao longo de toda a nossa tra-jet^^Soria
  []
 
 File: logoinova.png Graphic file (type png)
 <use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 575.
+Package pdftex.def Info: logoinova.png  used on input line 582.
 (pdftex.def)             Requested size: 141.42363pt x 28.45401pt.
-[6
-
-] (./main.aux)
+[6] (./main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -1083,18 +1110,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 26077 strings out of 467533
- 519426 string characters out of 5422139
- 1439217 words of memory out of 5000000
- 54598 multiletter control sequences out of 15000+600000
+ 26085 strings out of 467533
+ 519581 string characters out of 5422139
+ 1439292 words of memory out of 5000000
+ 54606 multiletter control sequences out of 15000+600000
  650958 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 88i,16n,94p,693b,1432s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 88i,16n,94p,693b,1423s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on main.pdf (6 pages, 378327 bytes).
+Output written on main.pdf (6 pages, 472023 bytes).
 PDF statistics:
- 107 PDF objects out of 1000 (max. 8388607)
+ 108 PDF objects out of 1000 (max. 8388607)
  62 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 33 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 38 words of extra memory for PDF output out of 10000 (max. 10000000)
 

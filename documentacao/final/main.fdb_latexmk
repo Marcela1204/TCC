@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1777837887.97668 "main.bcf" "main.bbl" "main" 1777840513.75123 0
-  "main.bcf" 1777840513.63143 111450 e02f0602e460ad0aba285a695bc2716d "pdflatex"
+["biber main"] 1777837887.97668 "main.bcf" "main.bbl" "main" 1777841387.86254 0
+  "main.bcf" 1777841387.74364 111450 e02f0602e460ad0aba285a695bc2716d "pdflatex"
   "referencias.bib" 1777678687.89555 6119 b5c4efb86f6b895513691abfa5dae004 ""
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1777840512.17263 "main.tex" "main.pdf" "main" 1777840513.75153 0
+["pdflatex"] 1777841386.30604 "main.tex" "main.pdf" "main" 1777841387.863 0
   "/etc/texmf/web2c/texmf.cnf" 1765883605.16586 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -192,11 +192,12 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1769369718 41603 27f93b3067076450172040dcd57ca8b3 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1773227342 5541477 3118940318599480888143717dd32d64 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1772756647 3639712 9bdbf709ef18d067bcb8cf310ce757d2 ""
+  "PCA_2D.png" 1777841277.45014 93170 aa80406e05867484741c71d4eb718eeb ""
   "logoinova.png" 1770555560.91433 8563 2bdf1bdf926197f2974618836c072c1d ""
-  "main.aux" 1777840513.62743 7887 ffe69765a83512dbe6ea03b1fd70ea53 "pdflatex"
+  "main.aux" 1777841387.73964 8158 38b802595089cac641f1671a346a633b "pdflatex"
   "main.bbl" 1777837888.98425 26150 e732630d169df2fd4152cf03b3134845 "biber main"
-  "main.run.xml" 1777840513.63719 2406 1b56bcb4755fab85cc41222f32da4e69 "pdflatex"
-  "main.tex" 1777840512.02347 28632 6ed4ba6abb4ab4d6376cfed10d9acd00 ""
+  "main.run.xml" 1777841387.75047 2406 1b56bcb4755fab85cc41222f32da4e69 "pdflatex"
+  "main.tex" 1777841386.0134 29163 a55877f564d13c9af3749d3206938ccb ""
   "matriz_corr.png" 1777678687.89555 156449 45a58e1a2b1d3cded6c558b8419298b6 ""
   "pcaXvariancia.png" 1777678687.89555 35151 bcc0b7e7568402afd7b57957b9fa9bc1 ""
   "pca_classes.png" 1777678687.89555 71643 b0a798c9df96fb51945893d36f1d3d4b ""

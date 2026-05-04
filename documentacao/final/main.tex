@@ -517,7 +517,7 @@ Buscando uma margem de variância a cima de 95\% foi calculado o $PCA$ para vari
 \begin{figure}[H]
 \centering
 \label{fig:pca_variancia}
-\includegraphics[width=8.69cm,height=7cm]{pcaXvariancia.png}	
+\includegraphics[width=8.5cm,height=5.5cm]{pcaXvariancia.png}	
 \caption{Variância explicada para PCA}
 \end{figure}
 
@@ -527,33 +527,24 @@ O algorítimo ultilizado para as análises foi o $Decision Tree$, este conta com
 Ultilizando os testes do capítulo anterior, foi desenvolvida uma análise com os variados algorítimos mais ultilizados ($Random Forest$, $Decision Tree$, $KNN$, $SVM$, $Logistic Regression$).
 %FIXME: adicionar o documento de referência sobre os algoritimos ultilizados %
 Ultilizando um random state de 42 para os algorítimos citados, obtiveram-se os seguintes valores:
-% \begin{lstlisting}
-% ===============================================================================================
-% Modelo               Acurácia   Precisão   Recall     F1-Score   Tempo treino(s) Tempo teste(s)
-% ===============================================================================================
-% Random Forest        0.9987     0.9992     0.9979     0.9985     6.3216          0.1268         
-% Decision Tree        0.9977     0.9975     0.9975     0.9975     0.8541          0.0035         
-% KNN                  0.9935     0.9921     0.9940     0.9931     0.0052          16.5641        
-% Logistic Regression  0.9454     0.9504     0.9313     0.9408     3.0691          0.0037         
-% SVM (linear)         0.9544     0.9594     0.9418     0.9506     217.7609        9.0564         
-% \end{lstlisting}
 \begin{table}[H]
 	\centering
 	\label{tab:Tempos_treino}
-	\begin{tabular}{|l c c c c c c|}
+	\small
+	\setlength{\tabcolsep}{1pt}
+	\begin{tabular}{|l c|c|c|c c c|}
 		\hline
-		Modelo & Acurácia & Precisão & Recall & F1-Score & Tempo Treino(s) & Tempo Teste(s) \\
+		Modelo & Acc & Prec & Rec & F1 & Tempo Treino(s) & Tempo Teste(s) \\
 		\hline
-		Random Forest & 0.9987 & 0.9992 & 0.9979 & 0.9985 & 6.3216 & 0.1268 \\
-		Decision Tree & 0.9977 & 0.9975 & 0.9975 & 0.9975 & 0.8541 & 0.0035 \\
+		RF & 0.9987 & 0.9992 & 0.9979 & 0.9985 & 6.3216 & 0.1268 \\
+		DT & 0.9977 & 0.9975 & 0.9975 & 0.9975 & 0.8541 & 0.0035 \\
 		KNN & 0.9935 & 0.9921 & 0.9940 & 0.9931 & 0.0052 & 16.5641 \\
-		Logistic Regression & 0.9454 & 0.9504 & 0.9313 & 0.9408 & 3.0691 & 0.0037 \\
-		SVM (linear) & 0.9544 & 0.9594 & 0.9418 & 0.9506 & 217.7609 & 9.0564 \\
+		LR & 0.9454 & 0.9504 & 0.9313 & 0.9408 & 3.0691 & 0.0037 \\
+		SVM & 0.9544 & 0.9594 & 0.9418 & 0.9506 & 217.7609 & 9.0564 \\
 		\hline
 	\end{tabular}
 	\caption{Estátisticas de treino dos modelos}
 \end{table}
-%FIXME: Reajustar tamanho da tabela
 Dados os valores da tabela \ref{tab:Tempos_treino} o algorítimo selecionado foi o Decision Tree, dado seu baixo tempo de teste e alta acurácia.\\
 Ultilizando os valores anteriormente definidos na figura \ref{fig:pca_componentes} para uma melhor vizualização dos dados que realmente importam, o gráfico foi dividido entre ataques e tráfego normal:
 \begin{figure}[H]
@@ -564,7 +555,7 @@ Ultilizando os valores anteriormente definidos na figura \ref{fig:pca_componente
 Estudando as features com o auxilio dos resutados do $PCA$ chegou-se a Conclusão que com 7 features é possível alcançar uma acurácia com valores a cima de 95\%:\\
 \begin{figure}[H]
 	\label{fig:Importancia_features}
-	\includegraphics[width=8.69cm,height=7cm]{./Importancia_features.png} %FIXME: corrigir a imagem no notebook e adicionar
+	\includegraphics[width=8.69cm,height=11cm]{./Importancia_features.png}
 	\caption{Representação da importância de cada feature para a acurácia}
 \end{figure}
 Afim de refinar os dados representado no $PCA$ pela imagem \ref{fig:Importancia_features} uma análise similar foi feita utilizado o algorítimo $Decision Tree$:
@@ -581,10 +572,10 @@ Sendo elas:
 	\begin{tabular}{|l l|}
 		\hline
 		1. & src\_bytes \\
-		2. & dst\_host_srv_count \\
+		2. & dst\_host\_srv\_count \\
 		3. & count \\
 		4. & dst\_bytes \\
-		5. & dst\_host_srv_rerror_rate \\
+		5. & dst\_host\_srv\_rerror\_rate \\
 		6. & hot \\
 		7. & dst\_host\_same\_src\_port\_rate \\
 		8. & logged\_in \\

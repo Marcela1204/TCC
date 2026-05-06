@@ -25,6 +25,7 @@
 \usetikzlibrary{matrix, positioning, arrows.meta}
 \usepackage{listings}
 \usepackage{adjustbox}
+\usepackage{hyperref}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -544,12 +545,14 @@ podem atingir até 99,9\% de acurácia quando combinados com estratégias
 adequadas de pré-processamento. Esses achados consolidam a ideia de que a 
 qualidade dos dados é tão importante quanto a escolha do algoritmo.
 
-A fim de organizar e comparar os principais trabalhos relacionados à detecção 
-de  e algoritmos de classificação, foi elaborada a Tabela I contendo os 
-estudos mais relevantes identificados na literatura. A tabela apresenta 
-critérios como tipo de abordagem, técnicas utilizadas e bases de dados 
-empregadas, permitindo uma análise comparativa entre as propostas.
+A fim de organizar e comparar os principais trabalhos\footnote{Arquivo disponível em: \url{https://1drv.ms/x/c/46f377637be54264/IQB7NxizkmLAS7_X22no62qJAZll5FV9_5Dt7G3kALLXvTY?e=ypAxe1}} relacionados à detecção 
+de intrusões e machine learning, foi elaborada a Tabela I contendo os 
+estudos mais relevantes identificados na literatura. 
+%A tabela apresenta 
+%critérios como tipo de abordagem, técnicas utilizadas e bases de dados 
+%empregadas, permitindo uma análise comparativa entre as propostas.
 
+%\footnote{\url{https://www.unb.ca/cic/datasets/kdd.html}}.
 %ESTOU TESTANDO O ESTILO E SE A TABELA VAI FICAR LEGAL ASSIM
 \begin{table*}[htbp]
 \centering
@@ -588,7 +591,7 @@ Título & Citações & Autor & Ano & Tipo & HIDS/NIDS & Sig. & Técnica & Técni
 
 \cite{Liao2013Intrusion} & 2463 & Liao et al. & 2013 & Revisão & Vários & AD, SD, SPA & Vários & Bayes, Game Theory, Data Mining & Alta Acurácia (em SVM/DM) & KDD Cup 99 \\
 
-\cite{Kazi2019network} & 327 & Taher et al. & 2019 & Estudo de Caso & NIDS & Anomalia & Supervisionada & SVM e ANN & 94,02\% (Acurácia) & NSL-KDD \\
+\cite{Kazi2019Network} & 327 & Taher et al. & 2019 & Estudo de Caso & NIDS & Anomalia & Supervisionada & SVM e ANN & 94,02\% (Acurácia) & NSL-KDD \\
 
 \cite{Saranya2020Performance} & 555 & Saranya et al. & 2020 & Revisão/Prop. & Ambos & Ambos + Híb. & Supervisionada & LDA, CART, RF & 99,81\% (Acurácia) & KDD-CUP \\
 
@@ -616,45 +619,136 @@ Título & Citações & Autor & Ano & Tipo & HIDS/NIDS & Sig. & Técnica & Técni
 
 %NOTE: AINDA FALTA AJUSTAR PARA AS COISAS QUE DE FATO ACONTECERAM NO CRONOGRAMA
 \section{Cronograma}
+
+\begin{enumerate}
+	\item \textbf{Janeiro}
+		\begin{enumerate}
+			\item \textbf{Levantamento Inicial da Área de Pesquisa:} Realização de estudos introdutórios sobre a área de Segurança da Informação, com foco em Intrusion Detection Systems (IDS) e aplicação de técnicas de Machine Learning na detecção de ameaças cibernéticas.
+		\end{enumerate}
+	\item \textbf{Fevereiro}
+		\begin{enumerate}
+			\item \textbf{Continuidade do Levantamento Teórico da Área:} Aprofundamento da pesquisa introdutória, visando consolidar o entendimento sobre redes de computadores, segurança cibernética e métodos de detecção de intrusões. 
+			\item \textbf{Definição do Tema de Pesquisa:} Delimitação do escopo do Trabalho de Conclusão de Curso, estabelecendo o foco na utilização de técnicas de aprendizado de máquina aplicadas à detecção de intrusões em redes computacionais.
+			\item \textbf{Entrega do Checklist do TCC:} Organização e submissão da documentação inicial exigida para formalização e acompanhamento do desenvolvimento do Trabalho de Conclusão de Curso.
+		\end{enumerate}
+	\item \textbf{Março}
+		\begin{enumerate}
+			\item \textbf{Pesquisa e Seleção de Referências Bibliográficas:} Levantamento de artigos científicos, trabalhos acadêmicos e materiais técnicos relacionados à detecção de intrusões, pré-processamento de dados e algoritmos de Machine Learning aplicados à cibersegurança.
+			\item \textbf{Levantamento e Seleção das Bases de Dados:} Análise e escolha das bases de dados utilizadas no projeto, incluindo a NSL-KDD para o desenvolvimento inicial, além das bases UNSW-NB15 e CICIDS2017 previstas para utilização em etapas futuras do MVP.
+			\item \textbf{Estudo de Técnicas de Pré-Processamento e Extração de Características:} Pesquisa sobre métodos de tratamento e redução de dimensionalidade dos dados, incluindo técnicas como PCA (Principal Component Analysis), matriz de correlação e extração de features relevantes para otimização dos modelos.
+			\item \textbf{Pesquisa sobre Algoritmos de Machine Learning:} Estudo dos principais algoritmos supervisionados e não supervisionados aplicáveis à detecção de intrusões, analisando características, vantagens e limitações de cada abordagem.
+		\end{enumerate}
+	\item \textbf{Abril}
+		\begin{enumerate}
+			\item \textbf{Levantamento de Dados Analíticos para Fundamentação do Tema:} Coleta e análise de informações estatísticas e estudos recentes que evidenciam o crescimento das ameaças cibernéticas e a relevância da utilização de sistemas inteligentes de detecção de intrusão.
+			\item \textbf{Elaboração das Referências Bibliográficas:} Estruturação e organização das referências utilizadas no trabalho, seguindo as normas acadêmicas exigidas.
+			\item \textbf{Desenvolvimento Inicial Utilizando a Base NSL-KDD:} Realização de estudos práticos envolvendo pré-processamento de dados, aplicação de algoritmos supervisionados e análise de métricas de desempenho, como acurácia, precisão, recall e taxa de detecção.
+		\end{enumerate}
+	\item \textbf{Maio}
+		\begin{enumerate}
+			\item \textbf{Definição do Algoritmo Supervisionado Principal:} Escolha do algoritmo supervisionado mais adequado para o desenvolvimento do MVP1, considerando desempenho, capacidade de generalização e resultados obtidos nos testes preliminares.
+			\item \textbf{Continuidade do Desenvolvimento com a Base NSL-KDD:} Aprimoramento das etapas de pré-processamento, treinamento e avaliação dos modelos supervisionados aplicados à base de dados NSL-KDD.
+			\item \textbf{Sistematização da Revisão Bibliográfica:} Organização e consolidação dos conteúdos teóricos levantados ao longo da pesquisa, estruturando a fundamentação teórica do trabalho.
+			\item \textbf{Sistematização dos Resultados do MVP1:} Documentação e análise dos resultados obtidos durante o desenvolvimento do primeiro MVP, destacando métricas de desempenho, limitações e possibilidades de melhoria.
+			\item \textbf{Elaboração da Apresentação do Trabalho de Conclusão de Curso:} Desenvolvimento do material de apresentação contendo os principais objetivos, metodologia, resultados parciais e contribuições do projeto.
+		\end{enumerate}
+	\item \textbf{Junho}
+		\begin{enumerate}
+			\item \textbf{Apresentação do Trabalho de Conclusão de Curso:} Apresentação formal do projeto desenvolvido, abordando fundamentação teórica, metodologia aplicada, desenvolvimento do MVP, resultados alcançados e considerações finais do trabalho.
+		\end{enumerate}
+\end{enumerate}
+
+
 \begin{center}
-\footnotesize % diminui a fonte
+\footnotesize
 \renewcommand{\arraystretch}{1.3}
 
-\begin{tabular}{|p{3.5cm}|*{5}{c|}}
+\begin{tabular}{|p{1cm}|*{12}{c|}}
 \hline
-\multirow{2}{*}{\textbf{Etapas}} & \multicolumn{5}{c|}{\textbf{2026}} \\ \cline{2-6}
- & Fev & Mar & Abr & Mai & Jun \\
+\multirow{2}{*}{\textbf{Etapas}} & \multicolumn{12}{c|}{\textbf{2026}} \\ \cline{2-13}
+
+& Jan & Fev & Mar & Abr & Mai & Jun & Jul & Ago & Set & Out & Nov & Dez \\
 \hline
 
-Pesquisa para conhecimento do público-alvo
-& X & X &  &  &  \\
+1(a)
+& X &  &  &  &  &  &  &  &  &  &  &  \\
 \hline
 
-Pesquisa de opinião sobre o público-alvo
-&  & X & X &  &  \\
+2(a)
+&  & X &  &  &  &  &  &  &  &  &  &  \\
 \hline
 
-Desenvolvimento do projeto
-&  &  & X & X &  \\
+2(b)
+&  & X &  &  &  &  &  &  &  &  &  &  \\
 \hline
 
-Testes e validação
-&  &  &  & X & X \\
+2(c)
+&  & X &  &  &  &  &  &  &  &  &  &  \\
 \hline
 
-Finalização do TCC
-&  &  &  &  & X \\
+3(a)
+&  &  & X &  &  &  &  &  &  &  &  &  \\
+\hline
+
+3(b)
+&  &  & X &  &  &  &  &  &  &  &  &  \\
+\hline
+
+3(c)
+&  &  & X &  &  &  &  &  &  &  &  &  \\
+\hline
+
+3(d)
+&  &  & X &  &  &  &  &  &  &  &  &  \\
+\hline
+
+4(a)
+&  &  &  & X &  &  &  &  &  &  &  &  \\
+\hline
+
+4(b)
+&  &  &  & X &  &  &  &  &  &  &  &  \\
+\hline
+
+4(c)
+&  &  &  & X &  &  &  &  &  &  &  &  \\
+\hline
+
+5(a)
+&  &  &  &  & X &  &  &  &  &  &  &  \\
+\hline
+
+5(b)
+&  &  &  &  & X &  &  &  &  &  &  &  \\
+\hline
+
+5(c)
+&  &  &  &  & X &  &  &  &  &  &  &  \\
+\hline
+
+5(d)
+&  &  &  &  & X &  &  &  &  &  &  &  \\
+\hline
+
+5(e)
+&  &  &  &  & X &  &  &  &  &  &  &  \\
+\hline
+
+6(a)
+&  &  &  &  &  & X &  &  &  &  &  &  \\
 \hline
 
 \end{tabular}
 \end{center}
-\section{Metodologia}
+
 \section{Resultados Preliminares}
 \subsection{Análise de Dados e Pré-processamento}
 Para a análise de dados foi considerado a base de dados NSL-KDD com os seguintes ataques: $neptune$, $satan$, $ipsweep$, $poetsweep$, $smurf$, $nmap$, $back$, $teardrop$, $warezclient$, $pod$, $guess\_passwd$, $buffer\_overflow$, $warezmaster$, $land$, $imap$, $rootkit$, $loadmodule$, $ftp\_write$, $multihop$, $phf$, $perl$, $spy$. alguns dos valores citados não são ataques reais, porém no contexto desta análise componentes como: $loadmodule$, $perl$ e $nmap$ foram categorizados como ataques.
+\linebreak
 % A base de dados conta com os seguintes valores \\
 	\begin{table}[H]
 		\centering
+		\label{tab:dados_base_NSL_KDD}
 \begin{tabular}{|c c|}
 	\hline
 	normal & 67343 \\
@@ -683,10 +777,10 @@ Para a análise de dados foi considerado a base de dados NSL-KDD com os seguinte
 	\hline
 \end{tabular}
 \caption{Dados presentes na base NSL-KDD}
-		\label{tab:dados_base_NSL_KDD}
 	\end{table}
 Para melhor vizualização dos dados os ataques foram separados nas seguintes categorias: $normal$, $dos$, $probe$, $r2l$, $u2r$.
 	\begin{table}[H]
+\label{tab:ataquesXcategoria}
 \centering
 		\begin{tabular}{|c|c|}
 		    \hline
@@ -720,39 +814,41 @@ Para melhor vizualização dos dados os ataques foram separados nas seguintes ca
 		    \hline
 		\end{tabular}
 	\caption{Definição de tipos de ataque por grupos}
-	\label{tab:ataquesXcategoria}
 	\end{table}
 A matriz de correlação mostra que, a contagem de pacotes e ocorrência de erros são os componentes com maior correlação.
 \begin{figure}[H]
 \centering
+\label{fig:matriz_corr}
 \includegraphics[width=8cm,height=8cm]{matriz_corr.png}
 \caption{Matriz de correlação da base NSL\_KDD}
-\label{fig:matriz_corr}
 \end{figure}
 Para validar as informações da matriz de correlação foi feita uma análise baseada em $PCA$, plotando um gráfico com os dois primeiros componentes e separando os valores pelos grupos anteriormente mencionados na tabela \ref{tab:ataquesXcategoria}.
 
 \begin{figure}[H]
 	\centering
+	\label{fig:pca_componentes}
 	\includegraphics[width=8.69cm,height=7cm]{pca_classes.png}
 	\caption{vizualização de dois componentes do PCA separado por classes}
-	\label{fig:pca_componentes}
 \end{figure}
 
 \subsection{Redução de Dimensionalidade e Seleção de Atri-butos}
 Buscando uma margem de variância a cima de 95\% foi calculado o $PCA$ para variados números de componentes, para descobrir a melhor variância, com o menor número de componentes. Definido 23 componentes como a melhor média amostral
 \begin{figure}[H]
 \centering
+\label{fig:pca_variancia}
 \includegraphics[width=8.5cm,height=5.5cm]{pcaXvariancia.png}	
 \caption{Variância explicada para PCA}
-\label{fig:pca_variancia}
 \end{figure}
 
+\section{Metodologia}
 O algorítimo ultilizado para as análises foi o $Decision Tree$, este conta com o menor tempo de teste e melhor acurácia, estes valores são a maior métrica ultilizada pois o objetivo do sistema é ser execudato em tempo real para garantir uma resposta rápida a incidentes. \\
 % \subsection{}
-Ultilizando os testes do capítulo anterior, foi desenvolvida uma análise com os variados algorítimos mais ultilizados ($Random Forest$ (RF), $Decision Tree$ (DT), $KNN$, $SVM$, $Logistic Regression$ (LR)) \cite{zehedi2023comparative} \cite{James2023Introduction}.
+Ultilizando os testes do capítulo anterior, foi desenvolvida uma análise com os variados algorítimos mais ultilizados ($Random Forest$, $Decision Tree$, $KNN$, $SVM$, $Logistic Regression$).
+%FIXME: adicionar o documento de referência sobre os algoritimos ultilizados %
 Ultilizando um random state de 42 para os algorítimos citados, obtiveram-se os seguintes valores:
 \begin{table}[H]
 	\centering
+	\label{tab:Tempos_treino}
 	\small
 	\setlength{\tabcolsep}{1pt}
 	\begin{tabular}{|l c|c|c|c c c|}
@@ -767,31 +863,31 @@ Ultilizando um random state de 42 para os algorítimos citados, obtiveram-se os 
 		\hline
 	\end{tabular}
 	\caption{Estátisticas de treino dos modelos}
-	\label{tab:Tempos_treino}
 \end{table}
 Dados os valores da tabela \ref{tab:Tempos_treino} o algorítimo selecionado foi o Decision Tree, dado seu baixo tempo de teste e alta acurácia.\\
 Ultilizando os valores anteriormente definidos na figura \ref{fig:pca_componentes} para uma melhor vizualização dos dados que realmente importam, o gráfico foi dividido entre ataques e tráfego normal:
 \begin{figure}[H]
+	\label{fig:pca_ataqueXnormal}
 	\includegraphics[width=8.69cm,height=7cm]{./PCA_2D.png}
 	\caption{PCA classificando tráfego como ataque e normal}
-	\label{fig:pca_ataqueXnormal}
 \end{figure}
-Estudando as features com o auxilio dos resutados do $PCA$ chegou-se a Conclusão que com 16 features é possível alcançar uma acurácia com valores a cima de 90\%:\\
+Estudando as features com o auxilio dos resutados do $PCA$ chegou-se a Conclusão que com 7 features é possível alcançar uma acurácia com valores a cima de 95\%:\\
 \begin{figure}[H]
+	\label{fig:Importancia_features}
 	\includegraphics[width=8.69cm,height=11cm]{./Importancia_features.png}
 	\caption{Representação da importância de cada feature para a acurácia}
-	\label{fig:Importancia_features}
 \end{figure}
 Afim de refinar os dados representado no $PCA$ pela imagem \ref{fig:Importancia_features} uma análise similar foi feita utilizado o algorítimo $Decision Tree$:
 \begin{figure}[H]
+	\label{fig:DecisionTree_features}
 	\includegraphics[width=9cm,height=6cm]{./decisiontree_features.png}
 	\caption{Features variadas para o decision tree}
-	\label{fig:DecisionTree_features}
 \end{figure}
 Indicando que o número otimo de features é 18, onde a acurácia é maior. \\
 Sendo elas:
 \begin{table}[H]
 	\centering
+	\label{tab:top18Features}
 	\begin{tabular}{|l l|}
 		\hline
 		1. & src\_bytes \\
@@ -814,8 +910,7 @@ Sendo elas:
 		18. & diff\_srv\_rate \\
 		\hline
 	\end{tabular}
-	\label{tab:top18Features}
-	\caption{Ranking top 18 features mais importantes}
+	
 \end{table}
 
 

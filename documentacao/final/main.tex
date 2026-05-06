@@ -156,7 +156,7 @@
 
 \raggedright
 
-\inovatitle{Tecnologias de Machine Learning para Detecção de Intrusões em Redes de Computadores}
+\inovatitle{Tecnologias de Machine Learning para Detecção de Intrusões em Redes de Computadores: Uma Pesquisa Exploratória e Experimental}
 
 \autores{$^1$Lucas Kerr do Amaral, $^2$Marcela Nalesso}
 
@@ -188,14 +188,18 @@ dos algoritmos, ajuste de hiperparâmetros à novos modelo, e evolução da sist
 % VOU COLOCAR ALGUNS DADOS NESSA INTRODUÇÃO
 
 O avanço das redes de computadores e a crescente digitalização de serviços têm 
-ampliado significativamente a exposição de sistemas a ameaças cibernéticas. 
-Com o aumento do volume de dados trafegados e da complexidade das infraestruturas, 
-observa-se também um crescimento expressivo na quantidade e sofisticação dos 
-ataques, como negações de serviço, varreduras de rede e acessos não autorizados. 
-Esse cenário evidencia a necessidade de mecanismos eficazes de monitoramento e 
-proteção, capazes de identificar comportamentos maliciosos em tempo hábil. Nesse 
-contexto, a área de Segurança da Informação destaca-se como fundamental para 
-garantir a integridade, confidencialidade e disponibilidade das informações.
+ampliado significativamente a exposição de sistemas a ameaças cibernéticas. Esse 
+crescimento é acompanhado por um aumento expressivo no volume de dados trafegados, 
+que passou de aproximadamente 16 GB por usuário ao mês em 2017 para cerca de 50 GB 
+mensais em 2022 \cite{Thakkar2021Survey}. Esse cenário contribui diretamente para a ampliação da superfície 
+de ataque, refletindo no aumento da quantidade e da sofisticação de ameaças, como 
+negações de serviço, varreduras de rede e acessos não autorizados. Paralelamente, os 
+impactos de falhas de segurança tornam-se cada vez mais críticos, sendo que mais de 
+14 bilhões de registros de dados foram vazados desde 2013, além de prejuízos 
+financeiros significativos, como os 29,8 bilhões de dólares perdidos em golpes 
+telefônicos apenas no ano de 2020 \cite{zehedi2023comparative}. Diante desse contexto, a área de Segurança da 
+Informação destaca-se como fundamental para garantir a integridade, confidencialidade 
+e disponibilidade das informações.
 
 Entre os mecanismos utilizados para proteção de redes, destacam-se os \textit{Intrusion 
 Detection System}, responsáveis por monitorar atividades e identificar possíveis 
@@ -216,8 +220,8 @@ atributos e da capacidade de lidar com a alta dimensionalidade das bases. Assim,
 compreender a influência dessas variáveis torna-se essencial para o 
 desenvolvimento de soluções mais eficientes.
 
-Diante desse cenário, bases de dados como a NSL-KDD e UNSW-NB15 têm sido 
-amplamente utilizadas para avaliação de técnicas de detecção de intrusão. 
+Diante desse cenário, bases de dados como a NSL-KDD %e UNSW-NB15 
+têm sido amplamente utilizadas para avaliação de técnicas de detecção de intrusão. 
 Essas bases reúnem diferentes tipos de ataques e atributos de rede, permitindo 
 a aplicação e comparação de modelos de classificação. Entretanto, a presença 
 de grande quantidade de variáveis pode introduzir redundância e dificultar o 
@@ -531,7 +535,7 @@ de atributos pode ser altamente eficaz quando bem direcionada. Esse achado é
 particularmente relevante para aplicações em tempo real, onde a latência e o 
 custo computacional são fatores críticos.
 
-Por fim, \cite{emad2022intrusion} reforçam, em sua revisão sobre técnicas 
+Além disso, \cite{emad2022intrusion} reforçam, em sua revisão sobre técnicas 
 supervisionadas para IDS, que a seleção de atributos é um dos fatores mais 
 críticos para o desempenho dos modelos. O estudo analisa múltiplos datasets e 
 demonstra que a redução para conjuntos de 10 a 19 atributos é comum em 
@@ -539,6 +543,12 @@ abordagens eficientes. Os resultados indicam que modelos como Random Forest
 podem atingir até 99,9\% de acurácia quando combinados com estratégias 
 adequadas de pré-processamento. Esses achados consolidam a ideia de que a 
 qualidade dos dados é tão importante quanto a escolha do algoritmo.
+
+A fim de organizar e comparar os principais trabalhos relacionados à detecção 
+de  e algoritmos de classificação, foi elaborada a Tabela I contendo os 
+estudos mais relevantes identificados na literatura. A tabela apresenta 
+critérios como tipo de abordagem, técnicas utilizadas e bases de dados 
+empregadas, permitindo uma análise comparativa entre as propostas.
 
 %ESTOU TESTANDO O ESTILO E SE A TABELA VAI FICAR LEGAL ASSIM
 \begin{table*}[htbp]
@@ -594,13 +604,14 @@ Título & Citações & Autor & Ano & Tipo & HIDS/NIDS & Sig. & Técnica & Técni
 
 \cite{emad2022intrusion} & 175 & Abdallah et al. & 2022 & Pesquisa & NIDS focus & Anomalia/Uso Ind. & Supervisionada & RF, SVM, LR, GNB, J48, DNN & 99,9\% (Acurácia em RF) & KDD99, NSL-KDD, CICIDS2017 \\
 
-%FALTA COLOCAR O ARTIGO DE STATISTICAL LEARNING IN PYTHON
+\cite{James2023Introduction} & 1879 & James et al. & 2023 & Estudo Didático & Não se aplica & Não se aplica & Ambos & LR, DT, SVM, RF, KNN, PCA, K-means e outros & Não se aplica & Bases didáticas \\
+
 
 \bottomrule
 \end{tabular}
 \end{adjustbox}
 
-\caption{Resumo dos trabalhos sobre IDS}
+\caption{Revisão dos trabalhos sobre IDS}
 \end{table*}
 
 %NOTE: AINDA FALTA AJUSTAR PARA AS COISAS QUE DE FATO ACONTECERAM NO CRONOGRAMA

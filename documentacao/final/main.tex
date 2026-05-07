@@ -26,6 +26,9 @@
 \usepackage{listings}
 \usepackage{adjustbox}
 \usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{multirow}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -658,88 +661,149 @@ Título & Citações & Autor & Ano & Tipo & HIDS/NIDS & Sig. & Técnica & Técni
 		\end{enumerate}
 \end{enumerate}
 
-
-\begin{center}
+\begin{table}[H]
+\centering
 \footnotesize
-\renewcommand{\arraystretch}{1.3}
+\renewcommand{\arraystretch}{0.9}
+\setlength{\tabcolsep}{2pt}
 
-\begin{tabular}{|p{1cm}|*{12}{c|}}
+\caption{Cronograma do projeto}
+
+\begin{tabular}{|p{0.7cm}|*{12}{c|}}
 \hline
-\multirow{2}{*}{\textbf{Etapas}} & \multicolumn{12}{c|}{\textbf{2026}} \\ \cline{2-13}
+
+\multirow{2}{*}{\textbf{Item}} 
+& \multicolumn{12}{c|}{\textbf{2026}} \\ \cline{2-13}
 
 & Jan & Fev & Mar & Abr & Mai & Jun & Jul & Ago & Set & Out & Nov & Dez \\
 \hline
 
-1(a)
-& X &  &  &  &  &  &  &  &  &  &  &  \\
+1(a) & X &  &  &  &  &  &  &  &  &  &  &  \\
 \hline
 
-2(a)
-&  & X &  &  &  &  &  &  &  &  &  &  \\
+2(a) &  & X &  &  &  &  &  &  &  &  &  &  \\
 \hline
 
-2(b)
-&  & X &  &  &  &  &  &  &  &  &  &  \\
+2(b) &  & X &  &  &  &  &  &  &  &  &  &  \\
 \hline
 
-2(c)
-&  & X &  &  &  &  &  &  &  &  &  &  \\
+2(c) &  & X &  &  &  &  &  &  &  &  &  &  \\
 \hline
 
-3(a)
-&  &  & X &  &  &  &  &  &  &  &  &  \\
+3(a) &  &  & X &  &  &  &  &  &  &  &  &  \\
 \hline
 
-3(b)
-&  &  & X &  &  &  &  &  &  &  &  &  \\
+3(b) &  &  & X &  &  &  &  &  &  &  &  &  \\
 \hline
 
-3(c)
-&  &  & X &  &  &  &  &  &  &  &  &  \\
+3(c) &  &  & X &  &  &  &  &  &  &  &  &  \\
 \hline
 
-3(d)
-&  &  & X &  &  &  &  &  &  &  &  &  \\
+3(d) &  &  & X &  &  &  &  &  &  &  &  &  \\
 \hline
 
-4(a)
-&  &  &  & X &  &  &  &  &  &  &  &  \\
+4(a) &  &  &  & X &  &  &  &  &  &  &  &  \\
 \hline
 
-4(b)
-&  &  &  & X &  &  &  &  &  &  &  &  \\
+4(b) &  &  &  & X &  &  &  &  &  &  &  &  \\
 \hline
 
-4(c)
-&  &  &  & X &  &  &  &  &  &  &  &  \\
+4(c) &  &  &  & X &  &  &  &  &  &  &  &  \\
 \hline
 
-5(a)
-&  &  &  &  & X &  &  &  &  &  &  &  \\
+5(a) &  &  &  &  & X &  &  &  &  &  &  &  \\
 \hline
 
-5(b)
-&  &  &  &  & X &  &  &  &  &  &  &  \\
+5(b) &  &  &  &  & X &  &  &  &  &  &  &  \\
 \hline
 
-5(c)
-&  &  &  &  & X &  &  &  &  &  &  &  \\
+5(c) &  &  &  &  & X &  &  &  &  &  &  &  \\
 \hline
 
-5(d)
-&  &  &  &  & X &  &  &  &  &  &  &  \\
+5(d) &  &  &  &  & X &  &  &  &  &  &  &  \\
 \hline
 
-5(e)
-&  &  &  &  & X &  &  &  &  &  &  &  \\
+5(e) &  &  &  &  & X &  &  &  &  &  &  &  \\
 \hline
 
-6(a)
-&  &  &  &  &  & X &  &  &  &  &  &  \\
+6(a) &  &  &  &  &  & X &  &  &  &  &  &  \\
 \hline
 
 \end{tabular}
-\end{center}
+\end{table}
+
+\section{Metodologia}
+O algorítimo ultilizado para as análises foi o $Decision Tree$, este conta com o menor tempo de teste e melhor acurácia, estes valores são a maior métrica ultilizada pois o objetivo do sistema é ser execudato em tempo real para garantir uma resposta rápida a incidentes. \\
+% \subsection{}
+Ultilizando os testes do capítulo anterior, foi desenvolvida uma análise com os variados algorítimos mais ultilizados ($Random Forest$, $Decision Tree$, $KNN$, $SVM$, $Logistic Regression$).
+%FIXME: adicionar o documento de referência sobre os algoritimos ultilizados %
+Ultilizando um random state de 42 para os algorítimos citados, obtiveram-se os seguintes valores:
+\begin{table}[H]
+	\centering
+	\label{tab:Tempos_treino}
+	\small
+	\setlength{\tabcolsep}{1pt}
+	\begin{tabular}{|l c|c|c|c c c|}
+		\hline
+		Modelo & Acc & Prec & Rec & F1 & Tempo Treino(s) & Tempo Teste(s) \\
+		\hline
+		RF & 0.9987 & 0.9992 & 0.9979 & 0.9985 & 6.3216 & 0.1268 \\
+		DT & 0.9977 & 0.9975 & 0.9975 & 0.9975 & 0.8541 & 0.0035 \\
+		KNN & 0.9935 & 0.9921 & 0.9940 & 0.9931 & 0.0052 & 16.5641 \\
+		LR & 0.9454 & 0.9504 & 0.9313 & 0.9408 & 3.0691 & 0.0037 \\
+		SVM & 0.9544 & 0.9594 & 0.9418 & 0.9506 & 217.7609 & 9.0564 \\
+		\hline
+	\end{tabular}
+	\caption{Estátisticas de treino dos modelos}
+\end{table}
+Dados os valores da tabela \ref{tab:Tempos_treino} o algorítimo selecionado foi o Decision Tree, dado seu baixo tempo de teste e alta acurácia.\\
+Ultilizando os valores anteriormente definidos na figura \ref{fig:pca_componentes} para uma melhor vizualização dos dados que realmente importam, o gráfico foi dividido entre ataques e tráfego normal:
+\begin{figure}[H]
+	\label{fig:pca_ataqueXnormal}
+	\includegraphics[width=8.69cm,height=7cm]{./PCA_2D.png}
+	\caption{PCA classificando tráfego como ataque e normal}
+\end{figure}
+Estudando as features com o auxilio dos resutados do $PCA$ chegou-se a Conclusão que com 7 features é possível alcançar uma acurácia com valores a cima de 95\%:\\
+\begin{figure}[H]
+	\label{fig:Importancia_features}
+	\includegraphics[width=8.69cm,height=11cm]{./Importancia_features.png}
+	\caption{Representação da importância de cada feature para a acurácia}
+\end{figure}
+Afim de refinar os dados representado no $PCA$ pela imagem \ref{fig:Importancia_features} uma análise similar foi feita utilizado o algorítimo $Decision Tree$:
+\begin{figure}[H]
+	\label{fig:DecisionTree_features}
+	\includegraphics[width=9cm,height=6cm]{./decisiontree_features.png}
+	\caption{Features variadas para o decision tree}
+\end{figure}
+Indicando que o número otimo de features é 18, onde a acurácia é maior. \\
+Sendo elas:
+\begin{table}[H]
+	\centering
+	\label{tab:top18Features}
+	\begin{tabular}{|l l|}
+		\hline
+		1. & src\_bytes \\
+		2. & dst\_host\_srv\_count \\
+		3. & count \\
+		4. & dst\_bytes \\
+		5. & dst\_host\_srv\_rerror\_rate \\
+		6. & hot \\
+		7. & dst\_host\_same\_src\_port\_rate \\
+		8. & logged\_in \\
+		9. & srv\_count \\
+		10. & dst\_host\_same\_srv\_rate \\
+		11. & duration \\
+		12. & wrong\_fragment \\
+		13. & dst\_host\_rerror\_rate \\
+		14. & dst\_host\_diff\_srv\_rate \\
+		15. & dst\_host\_count \\
+		16. & dst\_host\_srv\_diff\_host\_rate \\
+		17. & dst\_host\_serror\_rate \\
+		18. & diff\_srv\_rate \\
+		\hline
+	\end{tabular}
+	
+\end{table}
 
 \section{Resultados Preliminares}
 \subsection{Análise de Dados e Pré-processamento}
@@ -840,79 +904,6 @@ Buscando uma margem de variância a cima de 95\% foi calculado o $PCA$ para vari
 \caption{Variância explicada para PCA}
 \end{figure}
 
-\section{Metodologia}
-O algorítimo ultilizado para as análises foi o $Decision Tree$, este conta com o menor tempo de teste e melhor acurácia, estes valores são a maior métrica ultilizada pois o objetivo do sistema é ser execudato em tempo real para garantir uma resposta rápida a incidentes. \\
-% \subsection{}
-Ultilizando os testes do capítulo anterior, foi desenvolvida uma análise com os variados algorítimos mais ultilizados ($Random Forest$, $Decision Tree$, $KNN$, $SVM$, $Logistic Regression$).
-%FIXME: adicionar o documento de referência sobre os algoritimos ultilizados %
-Ultilizando um random state de 42 para os algorítimos citados, obtiveram-se os seguintes valores:
-\begin{table}[H]
-	\centering
-	\label{tab:Tempos_treino}
-	\small
-	\setlength{\tabcolsep}{1pt}
-	\begin{tabular}{|l c|c|c|c c c|}
-		\hline
-		Modelo & Acc & Prec & Rec & F1 & Tempo Treino(s) & Tempo Teste(s) \\
-		\hline
-		RF & 0.9987 & 0.9992 & 0.9979 & 0.9985 & 6.3216 & 0.1268 \\
-		DT & 0.9977 & 0.9975 & 0.9975 & 0.9975 & 0.8541 & 0.0035 \\
-		KNN & 0.9935 & 0.9921 & 0.9940 & 0.9931 & 0.0052 & 16.5641 \\
-		LR & 0.9454 & 0.9504 & 0.9313 & 0.9408 & 3.0691 & 0.0037 \\
-		SVM & 0.9544 & 0.9594 & 0.9418 & 0.9506 & 217.7609 & 9.0564 \\
-		\hline
-	\end{tabular}
-	\caption{Estátisticas de treino dos modelos}
-\end{table}
-Dados os valores da tabela \ref{tab:Tempos_treino} o algorítimo selecionado foi o Decision Tree, dado seu baixo tempo de teste e alta acurácia.\\
-Ultilizando os valores anteriormente definidos na figura \ref{fig:pca_componentes} para uma melhor vizualização dos dados que realmente importam, o gráfico foi dividido entre ataques e tráfego normal:
-\begin{figure}[H]
-	\label{fig:pca_ataqueXnormal}
-	\includegraphics[width=8.69cm,height=7cm]{./PCA_2D.png}
-	\caption{PCA classificando tráfego como ataque e normal}
-\end{figure}
-Estudando as features com o auxilio dos resutados do $PCA$ chegou-se a Conclusão que com 7 features é possível alcançar uma acurácia com valores a cima de 95\%:\\
-\begin{figure}[H]
-	\label{fig:Importancia_features}
-	\includegraphics[width=8.69cm,height=11cm]{./Importancia_features.png}
-	\caption{Representação da importância de cada feature para a acurácia}
-\end{figure}
-Afim de refinar os dados representado no $PCA$ pela imagem \ref{fig:Importancia_features} uma análise similar foi feita utilizado o algorítimo $Decision Tree$:
-\begin{figure}[H]
-	\label{fig:DecisionTree_features}
-	\includegraphics[width=9cm,height=6cm]{./decisiontree_features.png}
-	\caption{Features variadas para o decision tree}
-\end{figure}
-Indicando que o número otimo de features é 18, onde a acurácia é maior. \\
-Sendo elas:
-\begin{table}[H]
-	\centering
-	\label{tab:top18Features}
-	\begin{tabular}{|l l|}
-		\hline
-		1. & src\_bytes \\
-		2. & dst\_host\_srv\_count \\
-		3. & count \\
-		4. & dst\_bytes \\
-		5. & dst\_host\_srv\_rerror\_rate \\
-		6. & hot \\
-		7. & dst\_host\_same\_src\_port\_rate \\
-		8. & logged\_in \\
-		9. & srv\_count \\
-		10. & dst\_host\_same\_srv\_rate \\
-		11. & duration \\
-		12. & wrong\_fragment \\
-		13. & dst\_host\_rerror\_rate \\
-		14. & dst\_host\_diff\_srv\_rate \\
-		15. & dst\_host\_count \\
-		16. & dst\_host\_srv\_diff\_host\_rate \\
-		17. & dst\_host\_serror\_rate \\
-		18. & diff\_srv\_rate \\
-		\hline
-	\end{tabular}
-	
-\end{table}
-
 
 \section{Considerações Finais e Perspectivas Futuras}
 Nesta primeira etapa foi definido o algorítimo de machine learning ultilizado e feitas as analises dos componentes para definição dos componentes mais importantes
@@ -920,7 +911,7 @@ Nesta primeira etapa foi definido o algorítimo de machine learning ultilizado e
 \section{Referências}
 \printbibliography[heading=none]
 
-\section*{Agradecimentos}
+\section{Agradecimentos}
 Agradecemos, primeiramente, às nossas famílias, pelo apoio incondicional,
 incentivo constante e compreensão ao longo de toda a nossa trajetória 
 acadêmica. Sem esse suporte, a realização deste trabalho não seria

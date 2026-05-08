@@ -740,7 +740,6 @@ Ultilizando os testes do capítulo anterior, foi desenvolvida uma análise com o
 Ultilizando um random state de 42 para os algorítimos citados, obtiveram-se os seguintes valores:
 \begin{table}[H]
 	\centering
-	\label{tab:Tempos_treino}
 	\small
 	\setlength{\tabcolsep}{1pt}
 	\begin{tabular}{|l c|c|c|c c c|}
@@ -755,31 +754,31 @@ Ultilizando um random state de 42 para os algorítimos citados, obtiveram-se os 
 		\hline
 	\end{tabular}
 	\caption{Estátisticas de treino dos modelos}
+	\label{tab:Tempos_treino}
 \end{table}
 Dados os valores da tabela \ref{tab:Tempos_treino} o algorítimo selecionado foi o Decision Tree, dado seu baixo tempo de teste e alta acurácia.\\
 Ultilizando os valores anteriormente definidos na figura \ref{fig:pca_componentes} para uma melhor vizualização dos dados que realmente importam, o gráfico foi dividido entre ataques e tráfego normal:
 \begin{figure}[H]
-	\label{fig:pca_ataqueXnormal}
 	\includegraphics[width=8.69cm,height=7cm]{./PCA_2D.png}
 	\caption{PCA classificando tráfego como ataque e normal}
+	\label{fig:pca_ataqueXnormal}
 \end{figure}
 Estudando as features com o auxilio dos resutados do $PCA$ chegou-se a Conclusão que com 7 features é possível alcançar uma acurácia com valores a cima de 95\%:\\
 \begin{figure}[H]
-	\label{fig:Importancia_features}
 	\includegraphics[width=8.69cm,height=11cm]{./Importancia_features.png}
 	\caption{Representação da importância de cada feature para a acurácia}
+	\label{fig:Importancia_features}
 \end{figure}
 Afim de refinar os dados representado no $PCA$ pela imagem \ref{fig:Importancia_features} uma análise similar foi feita utilizado o algorítimo $Decision Tree$:
 \begin{figure}[H]
-	\label{fig:DecisionTree_features}
 	\includegraphics[width=9cm,height=6cm]{./decisiontree_features.png}
 	\caption{Features variadas para o decision tree}
+	\label{fig:DecisionTree_features}
 \end{figure}
 Indicando que o número otimo de features é 18, onde a acurácia é maior. \\
 Sendo elas:
 \begin{table}[H]
 	\centering
-	\label{tab:top18Features}
 	\begin{tabular}{|l l|}
 		\hline
 		1. & src\_bytes \\
@@ -802,6 +801,7 @@ Sendo elas:
 		18. & diff\_srv\_rate \\
 		\hline
 	\end{tabular}
+	\label{tab:top18Features}
 	
 \end{table}
 
@@ -812,7 +812,6 @@ Para a análise de dados foi considerado a base de dados NSL-KDD com os seguinte
 % A base de dados conta com os seguintes valores \\
 	\begin{table}[H]
 		\centering
-		\label{tab:dados_base_NSL_KDD}
 \begin{tabular}{|c c|}
 	\hline
 	normal & 67343 \\
@@ -841,10 +840,10 @@ Para a análise de dados foi considerado a base de dados NSL-KDD com os seguinte
 	\hline
 \end{tabular}
 \caption{Dados presentes na base NSL-KDD}
+		\label{tab:dados_base_NSL_KDD}
 	\end{table}
 Para melhor vizualização dos dados os ataques foram separados nas seguintes categorias: $normal$, $dos$, $probe$, $r2l$, $u2r$.
 	\begin{table}[H]
-\label{tab:ataquesXcategoria}
 \centering
 		\begin{tabular}{|c|c|}
 		    \hline
@@ -878,30 +877,31 @@ Para melhor vizualização dos dados os ataques foram separados nas seguintes ca
 		    \hline
 		\end{tabular}
 	\caption{Definição de tipos de ataque por grupos}
+\label{tab:ataquesXcategoria}
 	\end{table}
 A matriz de correlação mostra que, a contagem de pacotes e ocorrência de erros são os componentes com maior correlação.
 \begin{figure}[H]
 \centering
-\label{fig:matriz_corr}
 \includegraphics[width=8cm,height=8cm]{matriz_corr.png}
 \caption{Matriz de correlação da base NSL\_KDD}
+\label{fig:matriz_corr}
 \end{figure}
 Para validar as informações da matriz de correlação foi feita uma análise baseada em $PCA$, plotando um gráfico com os dois primeiros componentes e separando os valores pelos grupos anteriormente mencionados na tabela \ref{tab:ataquesXcategoria}.
 
 \begin{figure}[H]
 	\centering
-	\label{fig:pca_componentes}
 	\includegraphics[width=8.69cm,height=7cm]{pca_classes.png}
 	\caption{vizualização de dois componentes do PCA separado por classes}
+	\label{fig:pca_componentes}
 \end{figure}
 
 \subsection{Redução de Dimensionalidade e Seleção de Atri-butos}
 Buscando uma margem de variância a cima de 95\% foi calculado o $PCA$ para variados números de componentes, para descobrir a melhor variância, com o menor número de componentes. Definido 23 componentes como a melhor média amostral
 \begin{figure}[H]
 \centering
-\label{fig:pca_variancia}
 \includegraphics[width=8.5cm,height=5.5cm]{pcaXvariancia.png}	
 \caption{Variância explicada para PCA}
+\label{fig:pca_variancia}
 \end{figure}
 
 

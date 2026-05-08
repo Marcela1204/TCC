@@ -315,7 +315,6 @@ INPUT ./logoinova.png
 INPUT ./logoinova.png
 INPUT ./logoinova.png
 INPUT ./logoinova.png
-OUTPUT main.pdf
 INPUT ./logoinova.png
 INPUT /opt/texlive/2026/texmf-dist/tex/latex/psnfss/ts1phv.fd
 INPUT /opt/texlive/2026/texmf-dist/tex/latex/psnfss/ts1phv.fd
@@ -421,6 +420,8 @@ INPUT ./logoinova.png
 INPUT ./logoinova.png
 INPUT ./logoinova.png
 INPUT main.aux
+INPUT ./main.out
+INPUT ./main.out
 INPUT main.run.xml
 OUTPUT main.run.xml
 INPUT /opt/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb

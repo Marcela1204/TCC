@@ -4,7 +4,7 @@
 \usepackage{lipsum}
 \usepackage{graphicx}
 \usepackage{float}
-\usepackage{caption}    % Para personalizar legendas, opcional
+\usepackage{caption}    % Para personalizar legendas, opcionalrefe
 \usepackage{xcolor}
 \usepackage{fancyhdr}
 \usepackage{helvet}
@@ -25,6 +25,10 @@
 \usetikzlibrary{matrix, positioning, arrows.meta}
 \usepackage{listings}
 \usepackage{adjustbox}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{multirow}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -544,12 +548,14 @@ podem atingir até 99,9\% de acurácia quando combinados com estratégias
 adequadas de pré-processamento. Esses achados consolidam a ideia de que a 
 qualidade dos dados é tão importante quanto a escolha do algoritmo.
 
-A fim de organizar e comparar os principais trabalhos relacionados à detecção 
-de  e algoritmos de classificação, foi elaborada a Tabela I contendo os 
-estudos mais relevantes identificados na literatura. A tabela apresenta 
-critérios como tipo de abordagem, técnicas utilizadas e bases de dados 
-empregadas, permitindo uma análise comparativa entre as propostas.
+A fim de organizar e comparar os principais trabalhos\footnote{Arquivo disponível em: \url{https://1drv.ms/x/c/46f377637be54264/IQB7NxizkmLAS7_X22no62qJAZll5FV9_5Dt7G3kALLXvTY?e=ypAxe1}} relacionados à detecção 
+de intrusões e machine learning, foi elaborada a Tabela I contendo os 
+estudos mais relevantes identificados na literatura. 
+%A tabela apresenta 
+%critérios como tipo de abordagem, técnicas utilizadas e bases de dados 
+%empregadas, permitindo uma análise comparativa entre as propostas.
 
+%\footnote{\url{https://www.unb.ca/cic/datasets/kdd.html}}.
 %ESTOU TESTANDO O ESTILO E SE A TABELA VAI FICAR LEGAL ASSIM
 \begin{table*}[htbp]
 \centering
@@ -588,7 +594,7 @@ Título & Citações & Autor & Ano & Tipo & HIDS/NIDS & Sig. & Técnica & Técni
 
 \cite{Liao2013Intrusion} & 2463 & Liao et al. & 2013 & Revisão & Vários & AD, SD, SPA & Vários & Bayes, Game Theory, Data Mining & Alta Acurácia (em SVM/DM) & KDD Cup 99 \\
 
-\cite{Kazi2019Network} & 327 & Taher et al. & 2019 & Estudo de Caso & NIDS & Anomalia & Supervisionada & SVM e ANN & 94,02\% (Acurácia) & NSL-KDD \\
+\cite{Kazi2019network} & 327 & Taher et al. & 2019 & Estudo de Caso & NIDS & Anomalia & Supervisionada & SVM e ANN & 94,02\% (Acurácia) & NSL-KDD \\
 
 \cite{Saranya2020Performance} & 555 & Saranya et al. & 2020 & Revisão/Prop. & Ambos & Ambos + Híb. & Supervisionada & LDA, CART, RF & 99,81\% (Acurácia) & KDD-CUP \\
 
@@ -616,38 +622,188 @@ Título & Citações & Autor & Ano & Tipo & HIDS/NIDS & Sig. & Técnica & Técni
 
 %NOTE: AINDA FALTA AJUSTAR PARA AS COISAS QUE DE FATO ACONTECERAM NO CRONOGRAMA
 \section{Cronograma}
-\begin{center}
-\footnotesize % diminui a fonte
-\renewcommand{\arraystretch}{1.3}
 
-\begin{tabular}{|p{3.5cm}|*{5}{c|}}
-\hline
-\multirow{2}{*}{\textbf{Etapas}} & \multicolumn{5}{c|}{\textbf{2026}} \\ \cline{2-6}
- & Fev & Mar & Abr & Mai & Jun \\
+\begin{enumerate}
+	\item \textbf{Janeiro}
+		\begin{enumerate}
+			\item \textbf{Levantamento Inicial da Área de Pesquisa:} Realização de estudos introdutórios sobre a área de Segurança da Informação, com foco em Intrusion Detection Systems (IDS) e aplicação de técnicas de Machine Learning na detecção de ameaças cibernéticas.
+		\end{enumerate}
+	\item \textbf{Fevereiro}
+		\begin{enumerate}
+			\item \textbf{Continuidade do Levantamento Teórico da Área:} Aprofundamento da pesquisa introdutória, visando consolidar o entendimento sobre redes de computadores, segurança cibernética e métodos de detecção de intrusões. 
+			\item \textbf{Definição do Tema de Pesquisa:} Delimitação do escopo do Trabalho de Conclusão de Curso, estabelecendo o foco na utilização de técnicas de aprendizado de máquina aplicadas à detecção de intrusões em redes computacionais.
+			\item \textbf{Entrega do Checklist do TCC:} Organização e submissão da documentação inicial exigida para formalização e acompanhamento do desenvolvimento do Trabalho de Conclusão de Curso.
+		\end{enumerate}
+	\item \textbf{Março}
+		\begin{enumerate}
+			\item \textbf{Pesquisa e Seleção de Referências Bibliográficas:} Levantamento de artigos científicos, trabalhos acadêmicos e materiais técnicos relacionados à detecção de intrusões, pré-processamento de dados e algoritmos de Machine Learning aplicados à cibersegurança.
+			\item \textbf{Levantamento e Seleção das Bases de Dados:} Análise e escolha das bases de dados utilizadas no projeto, incluindo a NSL-KDD para o desenvolvimento inicial, além das bases UNSW-NB15 e CICIDS2017 previstas para utilização em etapas futuras do MVP.
+			\item \textbf{Estudo de Técnicas de Pré-Processamento e Extração de Características:} Pesquisa sobre métodos de tratamento e redução de dimensionalidade dos dados, incluindo técnicas como PCA (Principal Component Analysis), matriz de correlação e extração de features relevantes para otimização dos modelos.
+			\item \textbf{Pesquisa sobre Algoritmos de Machine Learning:} Estudo dos principais algoritmos supervisionados e não supervisionados aplicáveis à detecção de intrusões, analisando características, vantagens e limitações de cada abordagem.
+		\end{enumerate}
+	\item \textbf{Abril}
+		\begin{enumerate}
+			\item \textbf{Levantamento de Dados Analíticos para Fundamentação do Tema:} Coleta e análise de informações estatísticas e estudos recentes que evidenciam o crescimento das ameaças cibernéticas e a relevância da utilização de sistemas inteligentes de detecção de intrusão.
+			\item \textbf{Elaboração das Referências Bibliográficas:} Estruturação e organização das referências utilizadas no trabalho, seguindo as normas acadêmicas exigidas.
+			\item \textbf{Desenvolvimento Inicial Utilizando a Base NSL-KDD:} Realização de estudos práticos envolvendo pré-processamento de dados, aplicação de algoritmos supervisionados e análise de métricas de desempenho, como acurácia, precisão, recall e taxa de detecção.
+		\end{enumerate}
+	\item \textbf{Maio}
+		\begin{enumerate}
+			\item \textbf{Definição do Algoritmo Supervisionado Principal:} Escolha do algoritmo supervisionado mais adequado para o desenvolvimento do MVP1, considerando desempenho, capacidade de generalização e resultados obtidos nos testes preliminares.
+			\item \textbf{Continuidade do Desenvolvimento com a Base NSL-KDD:} Aprimoramento das etapas de pré-processamento, treinamento e avaliação dos modelos supervisionados aplicados à base de dados NSL-KDD.
+			\item \textbf{Sistematização da Revisão Bibliográfica:} Organização e consolidação dos conteúdos teóricos levantados ao longo da pesquisa, estruturando a fundamentação teórica do trabalho.
+			\item \textbf{Sistematização dos Resultados do MVP1:} Documentação e análise dos resultados obtidos durante o desenvolvimento do primeiro MVP, destacando métricas de desempenho, limitações e possibilidades de melhoria.
+			\item \textbf{Elaboração da Apresentação do Trabalho de Conclusão de Curso:} Desenvolvimento do material de apresentação contendo os principais objetivos, metodologia, resultados parciais e contribuições do projeto.
+		\end{enumerate}
+	\item \textbf{Junho}
+		\begin{enumerate}
+			\item \textbf{Apresentação do Trabalho de Conclusão de Curso:} Apresentação formal do projeto desenvolvido, abordando fundamentação teórica, metodologia aplicada, desenvolvimento do MVP, resultados alcançados e considerações finais do trabalho.
+		\end{enumerate}
+\end{enumerate}
+
+\begin{table}[H]
+\centering
+\footnotesize
+\renewcommand{\arraystretch}{0.9}
+\setlength{\tabcolsep}{2pt}
+
+\caption{Cronograma do projeto}
+
+\begin{tabular}{|p{0.7cm}|*{12}{c|}}
 \hline
 
-Pesquisa para conhecimento do público-alvo
-& X & X &  &  &  \\
+\multirow{2}{*}{\textbf{Item}} 
+& \multicolumn{12}{c|}{\textbf{2026}} \\ \cline{2-13}
+
+& Jan & Fev & Mar & Abr & Mai & Jun & Jul & Ago & Set & Out & Nov & Dez \\
 \hline
 
-Pesquisa de opinião sobre o público-alvo
-&  & X & X &  &  \\
+1(a) & X &  &  &  &  &  &  &  &  &  &  &  \\
 \hline
 
-Desenvolvimento do projeto
-&  &  & X & X &  \\
+2(a) &  & X &  &  &  &  &  &  &  &  &  &  \\
 \hline
 
-Testes e validação
-&  &  &  & X & X \\
+2(b) &  & X &  &  &  &  &  &  &  &  &  &  \\
 \hline
 
-Finalização do TCC
-&  &  &  &  & X \\
+2(c) &  & X &  &  &  &  &  &  &  &  &  &  \\
+\hline
+
+3(a) &  &  & X &  &  &  &  &  &  &  &  &  \\
+\hline
+
+3(b) &  &  & X &  &  &  &  &  &  &  &  &  \\
+\hline
+
+3(c) &  &  & X &  &  &  &  &  &  &  &  &  \\
+\hline
+
+3(d) &  &  & X &  &  &  &  &  &  &  &  &  \\
+\hline
+
+4(a) &  &  &  & X &  &  &  &  &  &  &  &  \\
+\hline
+
+4(b) &  &  &  & X &  &  &  &  &  &  &  &  \\
+\hline
+
+4(c) &  &  &  & X &  &  &  &  &  &  &  &  \\
+\hline
+
+5(a) &  &  &  &  & X &  &  &  &  &  &  &  \\
+\hline
+
+5(b) &  &  &  &  & X &  &  &  &  &  &  &  \\
+\hline
+
+5(c) &  &  &  &  & X &  &  &  &  &  &  &  \\
+\hline
+
+5(d) &  &  &  &  & X &  &  &  &  &  &  &  \\
+\hline
+
+5(e) &  &  &  &  & X &  &  &  &  &  &  &  \\
+\hline
+
+6(a) &  &  &  &  &  & X &  &  &  &  &  &  \\
 \hline
 
 \end{tabular}
-\end{center}
+\end{table}
+
+\section{Metodologia}
+O algorítimo ultilizado para as análises foi o $Decision Tree$, este conta com o menor tempo de teste e melhor acurácia, estes valores são a maior métrica ultilizada pois o objetivo do sistema é ser execudato em tempo real para garantir uma resposta rápida a incidentes. \\
+% \subsection{}
+Ultilizando os testes do capítulo anterior, foi desenvolvida uma análise com os variados algorítimos mais ultilizados ($Random Forest$, $Decision Tree$, $KNN$, $SVM$, $Logistic Regression$).
+%FIXME: adicionar o documento de referência sobre os algoritimos ultilizados %
+Ultilizando um random state de 42 para os algorítimos citados, obtiveram-se os seguintes valores:
+\begin{table}[H]
+	\centering
+	\label{tab:Tempos_treino}
+	\small
+	\setlength{\tabcolsep}{1pt}
+	\begin{tabular}{|l c|c|c|c c c|}
+		\hline
+		Modelo & Acc & Prec & Rec & F1 & Tempo Treino(s) & Tempo Teste(s) \\
+		\hline
+		RF & 0.9987 & 0.9992 & 0.9979 & 0.9985 & 6.3216 & 0.1268 \\
+		DT & 0.9977 & 0.9975 & 0.9975 & 0.9975 & 0.8541 & 0.0035 \\
+		KNN & 0.9935 & 0.9921 & 0.9940 & 0.9931 & 0.0052 & 16.5641 \\
+		LR & 0.9454 & 0.9504 & 0.9313 & 0.9408 & 3.0691 & 0.0037 \\
+		SVM & 0.9544 & 0.9594 & 0.9418 & 0.9506 & 217.7609 & 9.0564 \\
+		\hline
+	\end{tabular}
+	\caption{Estátisticas de treino dos modelos}
+\end{table}
+Dados os valores da tabela \ref{tab:Tempos_treino} o algorítimo selecionado foi o Decision Tree, dado seu baixo tempo de teste e alta acurácia.\\
+Ultilizando os valores anteriormente definidos na figura \ref{fig:pca_componentes} para uma melhor vizualização dos dados que realmente importam, o gráfico foi dividido entre ataques e tráfego normal:
+\begin{figure}[H]
+	\label{fig:pca_ataqueXnormal}
+	\includegraphics[width=8.69cm,height=7cm]{./PCA_2D.png}
+	\caption{PCA classificando tráfego como ataque e normal}
+\end{figure}
+Estudando as features com o auxilio dos resutados do $PCA$ chegou-se a Conclusão que com 7 features é possível alcançar uma acurácia com valores a cima de 95\%:\\
+\begin{figure}[H]
+	\label{fig:Importancia_features}
+	\includegraphics[width=8.69cm,height=11cm]{./Importancia_features.png}
+	\caption{Representação da importância de cada feature para a acurácia}
+\end{figure}
+Afim de refinar os dados representado no $PCA$ pela imagem \ref{fig:Importancia_features} uma análise similar foi feita utilizado o algorítimo $Decision Tree$:
+\begin{figure}[H]
+	\label{fig:DecisionTree_features}
+	\includegraphics[width=9cm,height=6cm]{./decisiontree_features.png}
+	\caption{Features variadas para o decision tree}
+\end{figure}
+Indicando que o número otimo de features é 18, onde a acurácia é maior. \\
+Sendo elas:
+\begin{table}[H]
+	\centering
+	\label{tab:top18Features}
+	\begin{tabular}{|l l|}
+		\hline
+		1. & src\_bytes \\
+		2. & dst\_host\_srv\_count \\
+		3. & count \\
+		4. & dst\_bytes \\
+		5. & dst\_host\_srv\_rerror\_rate \\
+		6. & hot \\
+		7. & dst\_host\_same\_src\_port\_rate \\
+		8. & logged\_in \\
+		9. & srv\_count \\
+		10. & dst\_host\_same\_srv\_rate \\
+		11. & duration \\
+		12. & wrong\_fragment \\
+		13. & dst\_host\_rerror\_rate \\
+		14. & dst\_host\_diff\_srv\_rate \\
+		15. & dst\_host\_count \\
+		16. & dst\_host\_srv\_diff\_host\_rate \\
+		17. & dst\_host\_serror\_rate \\
+		18. & diff\_srv\_rate \\
+		\hline
+	\end{tabular}
+	
+\end{table}
 
 \section{Resultados Preliminares}
 \subsection{Análise de Dados e Pré-processamento}
@@ -748,79 +904,6 @@ Buscando uma margem de variância a cima de 95\% foi calculado o $PCA$ para vari
 \caption{Variância explicada para PCA}
 \end{figure}
 
-\section{Metodologia}
-O algorítimo ultilizado para as análises foi o $Decision Tree$, este conta com o menor tempo de teste e melhor acurácia, estes valores são a maior métrica ultilizada pois o objetivo do sistema é ser execudato em tempo real para garantir uma resposta rápida a incidentes. \\
-% \subsection{}
-Ultilizando os testes do capítulo anterior, foi desenvolvida uma análise com os variados algorítimos mais ultilizados ($Random Forest$, $Decision Tree$, $KNN$, $SVM$, $Logistic Regression$).
-%FIXME: adicionar o documento de referência sobre os algoritimos ultilizados %
-Ultilizando um random state de 42 para os algorítimos citados, obtiveram-se os seguintes valores:
-\begin{table}[H]
-	\centering
-	\label{tab:Tempos_treino}
-	\small
-	\setlength{\tabcolsep}{1pt}
-	\begin{tabular}{|l c|c|c|c c c|}
-		\hline
-		Modelo & Acc & Prec & Rec & F1 & Tempo Treino(s) & Tempo Teste(s) \\
-		\hline
-		RF & 0.9987 & 0.9992 & 0.9979 & 0.9985 & 6.3216 & 0.1268 \\
-		DT & 0.9977 & 0.9975 & 0.9975 & 0.9975 & 0.8541 & 0.0035 \\
-		KNN & 0.9935 & 0.9921 & 0.9940 & 0.9931 & 0.0052 & 16.5641 \\
-		LR & 0.9454 & 0.9504 & 0.9313 & 0.9408 & 3.0691 & 0.0037 \\
-		SVM & 0.9544 & 0.9594 & 0.9418 & 0.9506 & 217.7609 & 9.0564 \\
-		\hline
-	\end{tabular}
-	\caption{Estátisticas de treino dos modelos}
-\end{table}
-Dados os valores da tabela \ref{tab:Tempos_treino} o algorítimo selecionado foi o Decision Tree, dado seu baixo tempo de teste e alta acurácia.\\
-Ultilizando os valores anteriormente definidos na figura \ref{fig:pca_componentes} para uma melhor vizualização dos dados que realmente importam, o gráfico foi dividido entre ataques e tráfego normal:
-\begin{figure}[H]
-	\label{fig:pca_ataqueXnormal}
-	\includegraphics[width=8.69cm,height=7cm]{./PCA_2D.png}
-	\caption{PCA classificando tráfego como ataque e normal}
-\end{figure}
-Estudando as features com o auxilio dos resutados do $PCA$ chegou-se a Conclusão que com 7 features é possível alcançar uma acurácia com valores a cima de 95\%:\\
-\begin{figure}[H]
-	\label{fig:Importancia_features}
-	\includegraphics[width=8.69cm,height=11cm]{./Importancia_features.png}
-	\caption{Representação da importância de cada feature para a acurácia}
-\end{figure}
-Afim de refinar os dados representado no $PCA$ pela imagem \ref{fig:Importancia_features} uma análise similar foi feita utilizado o algorítimo $Decision Tree$:
-\begin{figure}[H]
-	\label{fig:DecisionTree_features}
-	\includegraphics[width=9cm,height=6cm]{./decisiontree_features.png}
-	\caption{Features variadas para o decision tree}
-\end{figure}
-Indicando que o número otimo de features é 18, onde a acurácia é maior. \\
-Sendo elas:
-\begin{table}[H]
-	\centering
-	\label{tab:top18Features}
-	\begin{tabular}{|l l|}
-		\hline
-		1. & src\_bytes \\
-		2. & dst\_host\_srv\_count \\
-		3. & count \\
-		4. & dst\_bytes \\
-		5. & dst\_host\_srv\_rerror\_rate \\
-		6. & hot \\
-		7. & dst\_host\_same\_src\_port\_rate \\
-		8. & logged\_in \\
-		9. & srv\_count \\
-		10. & dst\_host\_same\_srv\_rate \\
-		11. & duration \\
-		12. & wrong\_fragment \\
-		13. & dst\_host\_rerror\_rate \\
-		14. & dst\_host\_diff\_srv\_rate \\
-		15. & dst\_host\_count \\
-		16. & dst\_host\_srv\_diff\_host\_rate \\
-		17. & dst\_host\_serror\_rate \\
-		18. & diff\_srv\_rate \\
-		\hline
-	\end{tabular}
-	
-\end{table}
-
 
 \section{Considerações Finais e Perspectivas Futuras}
 Nesta primeira etapa foi definido o algorítimo de machine learning ultilizado e feitas as analises dos componentes para definição dos componentes mais importantes
@@ -828,7 +911,7 @@ Nesta primeira etapa foi definido o algorítimo de machine learning ultilizado e
 \section{Referências}
 \printbibliography[heading=none]
 
-\section*{Agradecimentos}
+\section{Agradecimentos}
 Agradecemos, primeiramente, às nossas famílias, pelo apoio incondicional,
 incentivo constante e compreensão ao longo de toda a nossa trajetória 
 acadêmica. Sem esse suporte, a realização deste trabalho não seria

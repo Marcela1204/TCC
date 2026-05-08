@@ -826,20 +826,24 @@ Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
  (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 151.
-LaTeX Font Info:    ... okay on input line 151.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 151.
-LaTeX Font Info:    ... okay on input line 151.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 151.
-LaTeX Font Info:    ... okay on input line 151.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 151.
-LaTeX Font Info:    ... okay on input line 151.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 151.
-LaTeX Font Info:    ... okay on input line 151.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 151.
-LaTeX Font Info:    ... okay on input line 151.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 151.
-LaTeX Font Info:    ... okay on input line 151.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 155.
+LaTeX Font Info:    ... okay on input line 155.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 155.
+LaTeX Font Info:    ... okay on input line 155.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 155.
+LaTeX Font Info:    ... okay on input line 155.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 155.
+LaTeX Font Info:    ... okay on input line 155.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 155.
+LaTeX Font Info:    ... okay on input line 155.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 155.
+LaTeX Font Info:    ... okay on input line 155.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 155.
+LaTeX Font Info:    ... okay on input line 155.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 155.
+LaTeX Font Info:    ... okay on input line 155.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 155.
+LaTeX Font Info:    ... okay on input line 155.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -877,8 +881,8 @@ LaTeX Font Info:    ... okay on input line 151.
 
 (/opt/texlive/2026/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count480
-\scratchdimen=\dimen330
+\scratchcounter=\count491
+\scratchdimen=\dimen334
 \scratchbox=\box125
 \nofMPsegments=\count481
 \nofMParguments=\count482
@@ -895,6 +899,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 Package biblatex Info: Trying to load language 'portuguese'...
@@ -926,35 +931,35 @@ LaTeX Font Info:    Trying to load font information for OT1+phv on input line 18
 File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
 )
 LaTeX Font Info:    Font shape `OT1/phv/b/it' in size <11> not available
-(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 184.
-LaTeX Font Info:    Calculating math sizes for size <11> on input line 184.
+(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 188.
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 188.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 184.
+(Font)              size <5> substituted on input line 188.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <5.5> not available
-(Font)              size <5> substituted on input line 184.
+(Font)              size <5> substituted on input line 188.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 184.
+(Font)              size <5> substituted on input line 188.
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <11> on input line 184.
+(Font)              <11> on input line 188.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7.69997> on input line 184.
+(Font)              <7.69997> on input line 188.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5.5> on input line 184.
+(Font)              <5.5> on input line 188.
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <10> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 184.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 188.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 184.
+(Font)              <7> on input line 188.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 184.
+(Font)              <5> on input line 188.
 
-Underfull \hbox (badness 10000) in paragraph at lines 184--184
+Underfull \hbox (badness 10000) in paragraph at lines 188--188
 
  []
 
@@ -1003,12 +1008,12 @@ Underfull \hbox (badness 1466) in paragraph at lines 402--414
 LaTeX Warning: Citation 'Xianwei2019Adaptive' on page 4 undefined on input line 461.
 
 
-Underfull \hbox (badness 1259) in paragraph at lines 461--467
+Underfull \hbox (badness 1259) in paragraph at lines 465--471
 []\OT1/cmr/m/n/10 A uti-liza^^Xc~ao de ^^Sarvores em mod-e-los en-sem-
  []
 
 
-Underfull \hbox (badness 1502) in paragraph at lines 468--474
+Underfull \hbox (badness 1502) in paragraph at lines 472--478
 []\OT1/cmr/m/n/10 A apli-ca-bil-i-dade das ^^Sarvores de de-cis~ao em
  []
 
@@ -1021,22 +1026,22 @@ Package pdftex.def Info: logoinova.png  used on input line 481.
 LaTeX Warning: Citation 'patrick2022study' on page 5 undefined on input line 484.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 483--495
+Underfull \hbox (badness 10000) in paragraph at lines 487--499
 []\OT1/cmr/m/n/10 A relev^ancia do pr^^Se-processamento e da
  []
 
 
-Underfull \hbox (badness 2005) in paragraph at lines 483--495
+Underfull \hbox (badness 2005) in paragraph at lines 487--499
 \OT1/cmr/m/n/10 tec^^Xc~ao de in-trus~ao ^^Se ev-i-den-ci-ada no es-tudo de
  []
 
 
-Underfull \hbox (badness 2285) in paragraph at lines 483--495
+Underfull \hbox (badness 2285) in paragraph at lines 487--499
 \OT1/cmr/m/n/10 am-pla-mente uti-liza-dos, como KD-D-Cup99 e CI-
  []
 
 
-Underfull \hbox (badness 2512) in paragraph at lines 483--495
+Underfull \hbox (badness 2512) in paragraph at lines 487--499
 \OT1/cmr/m/n/10 es-trat^^Segias, es-pe-cial-mente com-bi-na-dos com deep
  []
 
@@ -1044,17 +1049,21 @@ Underfull \hbox (badness 2512) in paragraph at lines 483--495
 LaTeX Warning: Citation 'patrick2022study' on page 5 undefined on input line 565.
 
 
-Underfull \hbox (badness 1635) in paragraph at lines 565--565
+LaTeX Warning: Citation 'patrick2022study' on page 5 undefined on input line 57
+1.
+
+
+Underfull \hbox (badness 1635) in paragraph at lines 571--571
 []|\OT1/cmr/m/n/10 CNN, DNN, SVM, En-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 565--566
+Underfull \hbox (badness 10000) in paragraph at lines 571--572
 []|\OT1/cmr/m/n/10 KDD99, NSL-KDD,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 565--566
+Underfull \hbox (badness 10000) in paragraph at lines 571--572
 \OT1/cmr/m/n/10 UNSW-NB15, CI-
  []
 
@@ -1069,7 +1078,7 @@ Underfull \hbox (badness 1331) in paragraph at lines 569--569
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 569--570
+Underfull \hbox (badness 10000) in paragraph at lines 575--576
 []|\OT1/cmr/m/n/10 KDD99, NSL-KDD,
  []
 
@@ -1077,7 +1086,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 569--570
 LaTeX Warning: Citation 'Xianwei2019Adaptive' on page 5 undefined on input line 573.
 
 
-Underfull \hbox (badness 1859) in paragraph at lines 575--575
+Underfull \hbox (badness 1859) in paragraph at lines 581--581
 []|\OT1/cmr/m/n/10 DTC, kNN, NB, ANN,
  []
 
@@ -1100,7 +1109,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 589--589
 LaTeX Warning: Citation 'Kazi2019Network' on page 5 undefined on input line 591.
 
 
-Underfull \hbox (badness 2005) in paragraph at lines 599--600
+Underfull \hbox (badness 2005) in paragraph at lines 605--606
 []|\OT1/cmr/m/n/10 DARPA, KDD99, NSL-
  []
 
@@ -1118,7 +1127,7 @@ Underfull \hbox (badness 1231) in paragraph at lines 605--606
 LaTeX Warning: Citation 'James2023Introduction' on page 5 undefined on input line 607.
 
 
-Overfull \hbox (3.51611pt too wide) in paragraph at lines 607--607
+Overfull \hbox (3.51611pt too wide) in paragraph at lines 613--613
 []|[]| 
  []
 
@@ -1182,8 +1191,8 @@ Underfull \hbox (badness 1102) in paragraph at lines 654--688
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 654--688
-
+Underfull \hbox (badness 1769) in paragraph at lines 646--647
+[]\OT1/cmr/bx/n/10 Levantamento de Da-dos Anal^^S^^Pticos
  []
 
 File: logoinova.png Graphic file (type png)
@@ -1205,8 +1214,9 @@ Package pdftex.def Info: logoinova.png  used on input line 733.
 (pdftex.def)             Requested size: 141.4128pt x 28.45183pt.
  [6]
 
-Package caption Warning: \label without proper reference on input line 691.
-See the caption package documentation for explanation.
+Underfull \hbox (badness 10000) in paragraph at lines 653--654
+[]\OT1/cmr/bx/n/10 Continuidade do De-sen-volvi-mento
+ []
 
 
 LaTeX Warning: Reference `tab:ataquesXcategoria' on page 7 undefined on input line 733.
@@ -1222,8 +1232,8 @@ File: pca_classes.png Graphic file (type png)
 Package pdftex.def Info: pca_classes.png  used on input line 738.
 (pdftex.def)             Requested size: 247.25887pt x 199.17517pt.
 
-Overfull \hbox (15.41043pt too wide) in paragraph at lines 738--739
- [][] 
+Underfull \hbox (badness 1365) in paragraph at lines 654--655
+\OT1/cmr/m/n/10 pesquisa, es-tru-tu-rando a fun-da-menta^^Xc~ao
  []
 
 <pcaXvariancia.png, id=41, 611.4042pt x 340.3917pt>
@@ -1232,7 +1242,7 @@ File: pcaXvariancia.png Graphic file (type png)
 Package pdftex.def Info: pcaXvariancia.png  used on input line 747.
 (pdftex.def)             Requested size: 241.85185pt x 156.48859pt.
 
-Overfull \hbox (10.00342pt too wide) in paragraph at lines 747--748
+Overfull \hbox (11.72646pt too wide) in paragraph at lines 672--733
  [][] 
  []
 
@@ -1240,21 +1250,21 @@ Overfull \hbox (10.00342pt too wide) in paragraph at lines 747--748
 Underfull \vbox (badness 2088) has occurred while \output is active []
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 762.
+(Font)              <9> on input line 746.
 
-Overfull \hbox (47.4554pt too wide) in paragraph at lines 762--773
+Overfull \hbox (47.4554pt too wide) in paragraph at lines 746--757
  [][] 
  []
 
 
-Package caption Warning: \label without proper reference on input line 759.
+Package caption Warning: \label without proper reference on input line 743.
 See the caption package documentation for explanation.
 
 
 LaTeX Warning: Reference `tab:Tempos_treino' on page 7 undefined on input line 775.
 
 
-Package caption Warning: \label without proper reference on input line 737.
+Package caption Warning: \label without proper reference on input line 893.
 See the caption package documentation for explanation.
 
 
@@ -1263,15 +1273,15 @@ LaTeX Warning: Reference `fig:pca_componentes' on page 7 undefined on input line
 <./PCA_2D.png, id=42, 465.23813pt x 361.35pt>
 File: ./PCA_2D.png Graphic file (type png)
 <use ./PCA_2D.png>
-Package pdftex.def Info: ./PCA_2D.png  used on input line 779.
+Package pdftex.def Info: ./PCA_2D.png  used on input line 763.
 (pdftex.def)             Requested size: 247.24942pt x 199.16766pt.
 
-Overfull \hbox (15.40099pt too wide) in paragraph at lines 779--780
+Overfull \hbox (15.40099pt too wide) in paragraph at lines 763--764
 [][] 
  []
 
 
-Underfull \hbox (badness 1147) in paragraph at lines 775--781
+Underfull \hbox (badness 1147) in paragraph at lines 759--765
 \OT1/cmr/m/n/10 Ultilizando os val-ores an-te-ri-or-mente definidos na
  []
 
@@ -1286,15 +1296,15 @@ Package pdftex.def Info: logoinova.png  used on input line 782.
 <./Importancia_features.png, id=51, 456.20438pt x 592.46344pt>
 File: ./Importancia_features.png Graphic file (type png)
 <use ./Importancia_features.png>
-Package pdftex.def Info: ./Importancia_features.png  used on input line 785.
+Package pdftex.def Info: ./Importancia_features.png  used on input line 769.
 (pdftex.def)             Requested size: 247.25163pt x 312.99162pt.
 
-Overfull \hbox (15.4032pt too wide) in paragraph at lines 785--786
+Overfull \hbox (15.4032pt too wide) in paragraph at lines 769--770
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 782--787
+Underfull \hbox (badness 10000) in paragraph at lines 766--771
 
  []
 
@@ -1308,10 +1318,10 @@ LaTeX Warning: Reference `fig:Importancia_features' on page 8 undefined on input
 <./decisiontree_features.png, id=52, 859.2903pt x 426.393pt>
 File: ./decisiontree_features.png Graphic file (type png)
 <use ./decisiontree_features.png>
-Package pdftex.def Info: ./decisiontree_features.png  used on input line 791.
+Package pdftex.def Info: ./decisiontree_features.png  used on input line 775.
 (pdftex.def)             Requested size: 256.07144pt x 170.71683pt.
 
-Overfull \hbox (24.223pt too wide) in paragraph at lines 791--792
+Overfull \hbox (24.223pt too wide) in paragraph at lines 775--776
 [][] 
  []
 
@@ -1330,7 +1340,7 @@ Underfull \hbox (badness 1783) in paragraph at lines 829--829
  []
 
 
-Underfull \hbox (badness 3364) in paragraph at lines 832--836
+Underfull \hbox (badness 3364) in paragraph at lines 915--919
 \OT1/cmr/m/n/10 preens~ao ao longo de toda a nossa tra-jet^^Soria
  []
 
@@ -1351,6 +1361,8 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Warning: There were undefined references.
 
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 3044AD5AFE0F18AD063B3C8DD676B1C3;3465.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                main

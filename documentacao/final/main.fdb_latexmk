@@ -219,6 +219,7 @@
   "main.aux"
   "main.bcf"
   "main.log"
+  "main.out"
   "main.pdf"
   "main.run.xml"
   (rewritten before read)

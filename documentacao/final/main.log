@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.5)  13 MAY 2026 20:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.5)  14 MAY 2026 20:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1293,26 +1293,26 @@ Underfull \hbox (badness 10000) in paragraph at lines 188--188
  []
 
 
-LaTeX Warning: Citation 'Thakkar2021Survey' on page 1 undefined on input line 1
-98.
+LaTeX Warning: Citation 'Thakkar2021Survey' on page 1 undefined on input line 2
+00.
 
 
 LaTeX Warning: Citation 'zehedi2023comparative' on page 1 undefined on input li
-ne 204.
+ne 206.
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 1960) has occurred while \output is active []
 
 
 Underfull \vbox (badness 2781) has occurred while \output is active []
 
-<logoinova.png, id=74, 426.84468pt x 85.82062pt>
+<logoinova.png, id=98, 426.84468pt x 85.82062pt>
 File: logoinova.png Graphic file (type png)
 <use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 245.
+Package pdftex.def Info: logoinova.png  used on input line 247.
 (pdftex.def)             Requested size: 141.4128pt x 28.45183pt.
 LaTeX Font Info:    Trying to load font information for TS1+phv on input line 2
-45.
+47.
 
 (C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1phv.fd
 File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
@@ -1323,790 +1323,817 @@ Marcela/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}
 
  <./logoinova.png>]
 
-LaTeX Warning: Citation 'wasyhun2023cyber' on page 2 undefined on input line 26
-9.
+LaTeX Warning: Citation 'wasyhun2023cyber' on page 2 undefined on input line 27
+1.
 
 
-LaTeX Warning: Citation 'Kazi2019network' on page 2 undefined on input line 270
+LaTeX Warning: Citation 'Kazi2019network' on page 2 undefined on input line 272
 .
 
 
 LaTeX Warning: Citation 'wasyhun2023cyber' on page 2 undefined on input line 27
+8.
+
+
+LaTeX Warning: Citation 'diptiben2022cyber' on page 2 undefined on input line 2
+83.
+
+
+LaTeX Warning: Citation 'wasyhun2023cyber' on page 2 undefined on input line 28
 6.
 
 
 LaTeX Warning: Citation 'diptiben2022cyber' on page 2 undefined on input line 2
-81.
+89.
 
 
-LaTeX Warning: Citation 'wasyhun2023cyber' on page 2 undefined on input line 28
-4.
-
-
-LaTeX Warning: Citation 'diptiben2022cyber' on page 2 undefined on input line 2
-87.
-
-
-Underfull \hbox (badness 1077) in paragraph at lines 278--291
+Underfull \hbox (badness 1077) in paragraph at lines 280--293
 \OT1/cmr/m/n/10 po-dendo oca-sionar per-das fi-nan-ceiras ex-pres-si-vas,
  []
 
 
-Underfull \hbox (badness 2269) in paragraph at lines 278--291
+Underfull \hbox (badness 2269) in paragraph at lines 280--293
 \OT1/cmr/m/n/10 danos ^^Ra rep-uta^^Xc~ao in-sti-tu-cional e at^^Se im-pactos
  []
 
 
 LaTeX Warning: Citation 'wasyhun2023cyber' on page 2 undefined on input line 29
-7.
-
-
-LaTeX Warning: Citation 'Thakkar2021Survey' on page 2 undefined on input line 2
-99.
-
-
-LaTeX Warning: Citation 'solane2015using' on page 2 undefined on input line 299
-.
-
-
-LaTeX Warning: Citation 'wasyhun2023cyber' on page 2 undefined on input line 30
 9.
 
 
+LaTeX Warning: Citation 'Thakkar2021Survey' on page 2 undefined on input line 3
+01.
+
+
+LaTeX Warning: Citation 'solane2015using' on page 2 undefined on input line 301
+.
+
+
 LaTeX Warning: Citation 'wasyhun2023cyber' on page 2 undefined on input line 31
-2.
+1.
 
 
-Underfull \hbox (badness 1062) in paragraph at lines 305--316
+LaTeX Warning: Citation 'wasyhun2023cyber' on page 2 undefined on input line 31
+4.
+
+
+Underfull \hbox (badness 1062) in paragraph at lines 307--318
 \OT1/cmr/m/n/10 stru-tivo dessas amea^^Xcas, in-cluindo roubo de da-
  []
 
 File: logoinova.png Graphic file (type png)
 <use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 316.
+Package pdftex.def Info: logoinova.png  used on input line 318.
 (pdftex.def)             Requested size: 141.4128pt x 28.45183pt.
 [2]
 
 LaTeX Warning: Citation 'emad2022intrusion' on page 3 undefined on input line 3
-22.
+24.
 
 
 LaTeX Warning: Citation 'patrick2022study' on page 3 undefined on input line 32
-6.
+8.
 
 
-Underfull \hbox (badness 1708) in paragraph at lines 317--328
+Underfull \hbox (badness 1708) in paragraph at lines 319--330
 \OT1/cmr/m/n/10 Esses sis-temas per-mitem a de-tec^^Xc~ao pre-coce de
  []
 
 
-LaTeX Warning: Citation 'patrick2022study' on page 3 undefined on input line 33
-9.
+LaTeX Warning: Citation 'patrick2022study' on page 3 undefined on input line 34
+1.
 
 
 LaTeX Warning: Citation 'emad2022intrusion' on page 3 undefined on input line 3
-41.
+43.
 
 
 LaTeX Warning: Citation 'Khraisat2019Survey' on page 3 undefined on input line 
-351.
+353.
 
 
 LaTeX Warning: Citation 'zehedi2023comparative' on page 3 undefined on input li
-ne 351.
+ne 353.
 
 
 LaTeX Warning: Citation 'Thakkar2021Survey' on page 3 undefined on input line 3
-51.
+53.
 
 
 LaTeX Warning: Citation 'Khraisat2019Hybrid' on page 3 undefined on input line 
-351.
+353.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 343--355
+Underfull \hbox (badness 10000) in paragraph at lines 345--357
 [] []
  []
 
 
-LaTeX Warning: Citation 'Kazi2019network' on page 3 undefined on input line 360
+LaTeX Warning: Citation 'Kazi2019network' on page 3 undefined on input line 362
 .
 
 
 LaTeX Warning: Citation 'emad2022intrusion' on page 3 undefined on input line 3
-65.
+67.
 
 
 LaTeX Warning: Citation 'patrick2022study' on page 3 undefined on input line 36
-5.
+7.
 
 
 LaTeX Warning: Citation 'zehedi2023comparative' on page 3 undefined on input li
-ne 376.
+ne 378.
 
 
 LaTeX Warning: Citation 'Thakkar2021Survey' on page 3 undefined on input line 3
-76.
+78.
 
 
-Underfull \hbox (badness 1308) in paragraph at lines 369--380
+Underfull \hbox (badness 1308) in paragraph at lines 371--382
 \OT1/cmr/m/n/10 tradi-cionais, o ML pos-si-bilita a iden-ti-fica^^Xc~ao de
  []
 
 
 LaTeX Warning: Citation 'zehedi2023comparative' on page 3 undefined on input li
-ne 388.
+ne 390.
 
 
 LaTeX Warning: Citation 'emad2022intrusion' on page 3 undefined on input line 3
-88.
+90.
 
 File: logoinova.png Graphic file (type png)
 <use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 393.
+Package pdftex.def Info: logoinova.png  used on input line 395.
 (pdftex.def)             Requested size: 141.4128pt x 28.45183pt.
 [3]
 
 LaTeX Warning: Citation 'zehedi2023comparative' on page 4 undefined on input li
-ne 402.
+ne 404.
 
 
 LaTeX Warning: Citation 'zehedi2023comparative' on page 4 undefined on input li
-ne 416.
+ne 418.
 
 
 LaTeX Warning: Citation 'Thakkar2021Survey' on page 4 undefined on input line 4
-16.
+18.
 
 
-Underfull \hbox (badness 1466) in paragraph at lines 406--418
+Underfull \hbox (badness 1466) in paragraph at lines 408--420
 []\OT1/cmr/m/n/10 Al^^Sem disso, eta-pas como pr^^Se-processamento,
  []
 
 
 LaTeX Warning: Citation 'Liao2013Intrusion' on page 4 undefined on input line 4
-22.
+24.
 
 
-Underfull \hbox (badness 1048) in paragraph at lines 421--429
+Underfull \hbox (badness 1048) in paragraph at lines 423--431
 \OT1/cmr/m/n/10 de [], que re-al-iza uma re-vis~ao
  []
 
 
 LaTeX Warning: Citation 'Saranya2020Performance' on page 4 undefined on input l
-ine 431.
+ine 433.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 430--438
+Underfull \hbox (badness 10000) in paragraph at lines 432--440
 []\OT1/cmr/m/n/10 A aplica^^Xc~ao de al-go-rit-mos su-per-vi-sion-a-
  []
 
 
-Underfull \hbox (badness 6078) in paragraph at lines 430--438
+Underfull \hbox (badness 6078) in paragraph at lines 432--440
 \OT1/cmr/m/n/10 dos em am-bi-entes mod-er-nos ^^Se anal-isada por
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 430--438
+Underfull \hbox (badness 10000) in paragraph at lines 432--440
 []\OT1/cmr/m/n/10 , que in-ves-tigam o
  []
 
 
-Underfull \hbox (badness 1142) in paragraph at lines 430--438
+Underfull \hbox (badness 1142) in paragraph at lines 432--440
 \OT1/cmr/m/n/10 99,65% de acur^^Sacia, su-perando o CART iso-lado
  []
 
 
 LaTeX Warning: Citation 'Khraisat2019Hybrid' on page 4 undefined on input line 
-440.
+442.
 
 
 LaTeX Warning: Citation 'zehedi2023comparative' on page 4 undefined on input li
-ne 449.
+ne 451.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 448--456
+Underfull \hbox (badness 10000) in paragraph at lines 450--458
 []\OT1/cmr/m/n/10 A efici^encia e in-ter-pretabil-i-dade das
  []
 
 
-Underfull \hbox (badness 1163) in paragraph at lines 448--456
+Underfull \hbox (badness 1163) in paragraph at lines 450--458
 \OT1/cmr/m/n/10 ^^Sarvores de de-cis~ao s~ao desta-cadas no es-tudo de
  []
 
 
-Underfull \hbox (badness 5548) in paragraph at lines 448--456
+Underfull \hbox (badness 5548) in paragraph at lines 450--458
 []\OT1/cmr/m/n/10 , que prop~oe esse al-
  []
 
 
-Underfull \hbox (badness 2035) in paragraph at lines 448--456
+Underfull \hbox (badness 2035) in paragraph at lines 450--458
 \OT1/cmr/m/n/10 go-ritmo como mod-elo cen-tral para de-tec^^Xc~ao de
  []
 
 
-Underfull \hbox (badness 3417) in paragraph at lines 448--456
+Underfull \hbox (badness 3417) in paragraph at lines 450--458
 \OT1/cmr/m/n/10 de-cis~ao al-ta-mente rel-e-vantes para sis-temas que
  []
 
 
 LaTeX Warning: Citation 'Depren2005Intelligent' on page 4 undefined on input li
-ne 458.
+ne 460.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 457--464
+Underfull \hbox (badness 10000) in paragraph at lines 459--466
 []\OT1/cmr/m/n/10 A ro-bustez das ^^Sarvores de de-cis~ao em
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 457--464
+Underfull \hbox (badness 10000) in paragraph at lines 459--466
 \OT1/cmr/m/n/10 ar-quite-turas h^^S^^Pbridas ^^Se demon-strada por
  []
 
 
-Underfull \hbox (badness 6461) in paragraph at lines 457--464
+Underfull \hbox (badness 6461) in paragraph at lines 459--466
 []\OT1/cmr/m/n/10 , que com-bi-nam o al-
  []
 
 
-Underfull \hbox (badness 2521) in paragraph at lines 457--464
+Underfull \hbox (badness 2521) in paragraph at lines 459--466
 \OT1/cmr/m/n/10 ev-i-den-cia que ^^Sarvores de de-cis~ao, quando bem
  []
 
 
 LaTeX Warning: Citation 'Xianwei2019Adaptive' on page 4 undefined on input line
- 465.
+ 467.
 
 
-Underfull \hbox (badness 1259) in paragraph at lines 465--471
+Underfull \hbox (badness 1259) in paragraph at lines 467--473
 []\OT1/cmr/m/n/10 A uti-liza^^Xc~ao de ^^Sarvores em mod-e-los en-sem-
  []
 
 File: logoinova.png Graphic file (type png)
 <use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 471.
+Package pdftex.def Info: logoinova.png  used on input line 473.
 (pdftex.def)             Requested size: 141.4128pt x 28.45183pt.
 [4]
 
 LaTeX Warning: Citation 'Rathore2016RealTime' on page 5 undefined on input line
- 473.
+ 475.
 
 
-Underfull \hbox (badness 1502) in paragraph at lines 472--478
+Underfull \hbox (badness 1502) in paragraph at lines 474--480
 []\OT1/cmr/m/n/10 A apli-ca-bil-i-dade das ^^Sarvores de de-cis~ao em
  []
 
 
-Underfull \hbox (badness 1776) in paragraph at lines 472--478
+Underfull \hbox (badness 1776) in paragraph at lines 474--480
 \OT1/cmr/m/n/10 cen^^Sarios de alta per-for-mance ^^Se ev-i-den-ci-ada por
  []
 
 
 LaTeX Warning: Citation 'Abdulganiyu2023Systematic' on page 5 undefined on inpu
-t line 479.
+t line 481.
 
 
-LaTeX Warning: Citation 'patrick2022study' on page 5 undefined on input line 48
-8.
+LaTeX Warning: Citation 'patrick2022study' on page 5 undefined on input line 49
+0.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 487--499
+Underfull \hbox (badness 10000) in paragraph at lines 489--501
 []\OT1/cmr/m/n/10 A relev^ancia do pr^^Se-processamento e da
  []
 
 
-Underfull \hbox (badness 2005) in paragraph at lines 487--499
+Underfull \hbox (badness 2005) in paragraph at lines 489--501
 \OT1/cmr/m/n/10 tec^^Xc~ao de in-trus~ao ^^Se ev-i-den-ci-ada no es-tudo de
  []
 
 
-Underfull \hbox (badness 2285) in paragraph at lines 487--499
+Underfull \hbox (badness 2285) in paragraph at lines 489--501
 \OT1/cmr/m/n/10 am-pla-mente uti-liza-dos, como KD-D-Cup99 e CI-
  []
 
 
-Underfull \hbox (badness 2512) in paragraph at lines 487--499
+Underfull \hbox (badness 2512) in paragraph at lines 489--501
 \OT1/cmr/m/n/10 es-trat^^Segias, es-pe-cial-mente com-bi-na-dos com deep
  []
 
 
 LaTeX Warning: Citation 'Thakkar2021Survey' on page 5 undefined on input line 5
-01.
+03.
 
 
 LaTeX Warning: Citation 'felix2014analysis' on page 5 undefined on input line 5
-12.
+14.
 
 
 LaTeX Warning: Citation 'Othman2018Intrusion' on page 5 undefined on input line
- 523.
+ 525.
 
 
 LaTeX Warning: Citation 'Rathore2016RealTime' on page 5 undefined on input line
- 533.
+ 535.
 
 
 LaTeX Warning: Citation 'emad2022intrusion' on page 5 undefined on input line 5
-42.
+44.
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 551.
+(Font)              <8> on input line 553.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 551.
+(Font)              <6> on input line 553.
 
-Underfull \hbox (badness 10000) in paragraph at lines 551--551
+Underfull \hbox (badness 10000) in paragraph at lines 553--553
 [][][]\OT1/cmr/m/n/8 Arquivo dispon^^S^^Pvel em: []$\OT1/cmtt/m/n/8 https : / /
  1drv . ms / x / c /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 551--551
+Underfull \hbox (badness 10000) in paragraph at lines 553--553
 \OT1/cmtt/m/n/8 46f377637be54264 / IQB7NxizkmLAS7 _ X22no62qJAZll5FV9 _
  []
 
 
 LaTeX Warning: Citation 'patrick2022study' on page 5 undefined on input line 57
-1.
+3.
 
 
-Underfull \hbox (badness 1635) in paragraph at lines 571--571
+Underfull \hbox (badness 1635) in paragraph at lines 573--573
 []|\OT1/cmr/m/n/10 CNN, DNN, SVM, En-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 571--572
+Underfull \hbox (badness 10000) in paragraph at lines 573--574
 []|\OT1/cmr/m/n/10 KDD99, NSL-KDD,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 571--572
+Underfull \hbox (badness 10000) in paragraph at lines 573--574
 \OT1/cmr/m/n/10 UNSW-NB15, CI-
  []
 
 
 LaTeX Warning: Citation 'Thakkar2021Survey' on page 5 undefined on input line 5
-73.
+75.
 
 
-Underfull \hbox (badness 1231) in paragraph at lines 573--574
+Underfull \hbox (badness 1231) in paragraph at lines 575--576
 []|\OT1/cmr/m/n/10 KDD99, NSL-KDD, CI-
  []
 
 
 LaTeX Warning: Citation 'Abdulganiyu2023Systematic' on page 5 undefined on inpu
-t line 575.
+t line 577.
 
 
-Overfull \hbox (28.634pt too wide) in paragraph at lines 575--575
+Overfull \hbox (28.634pt too wide) in paragraph at lines 577--577
 []|[]| 
  []
 
 
-Underfull \hbox (badness 1331) in paragraph at lines 575--575
+Underfull \hbox (badness 1331) in paragraph at lines 577--577
 []|\OT1/cmr/m/n/10 CNN, ANN, RF, SVM,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 575--576
+Underfull \hbox (badness 10000) in paragraph at lines 577--578
 []|\OT1/cmr/m/n/10 KDD99, NSL-KDD,
  []
 
 
 LaTeX Warning: Citation 'Depren2005Intelligent' on page 5 undefined on input li
-ne 577.
+ne 579.
 
 
 LaTeX Warning: Citation 'Xianwei2019Adaptive' on page 5 undefined on input line
- 579.
+ 581.
 
 
 LaTeX Warning: Citation 'felix2014analysis' on page 5 undefined on input line 5
-81.
+83.
 
 
-Underfull \hbox (badness 1859) in paragraph at lines 581--581
+Underfull \hbox (badness 1859) in paragraph at lines 583--583
 []|\OT1/cmr/m/n/10 DTC, kNN, NB, ANN,
  []
 
 
 LaTeX Warning: Citation 'zehedi2023comparative' on page 5 undefined on input li
-ne 583.
+ne 585.
 
 
-Overfull \hbox (2.25085pt too wide) in paragraph at lines 583--583
+Overfull \hbox (2.25085pt too wide) in paragraph at lines 585--585
 []|[]| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 583--584
+Underfull \hbox (badness 10000) in paragraph at lines 585--586
 []|\OT1/cmr/m/n/10 NSL-KDD, ADFA,
  []
 
 
 LaTeX Warning: Citation 'diptiben2022cyber' on page 5 undefined on input line 5
-85.
+87.
 
 
 LaTeX Warning: Citation 'wasyhun2023cyber' on page 5 undefined on input line 58
-7.
+9.
 
 
 LaTeX Warning: Citation 'Khraisat2019Hybrid' on page 5 undefined on input line 
-589.
+591.
 
 
-Underfull \hbox (badness 2103) in paragraph at lines 589--589
+Underfull \hbox (badness 2103) in paragraph at lines 591--591
 []|\OT1/cmr/m/n/10 Stacking (C5.0 + One-
  []
 
 
 LaTeX Warning: Citation 'Jabez2015Intrusion' on page 5 undefined on input line 
-591.
+593.
 
 
 LaTeX Warning: Citation 'Othman2018Intrusion' on page 5 undefined on input line
- 593.
+ 595.
 
 
 LaTeX Warning: Citation 'Liao2013Intrusion' on page 5 undefined on input line 5
-95.
+97.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 595--595
+Underfull \hbox (badness 10000) in paragraph at lines 597--597
 []|\OT1/cmr/m/n/10 Bayes, Game The-ory,
  []
 
 
-LaTeX Warning: Citation 'Kazi2019network' on page 5 undefined on input line 597
+LaTeX Warning: Citation 'Kazi2019network' on page 5 undefined on input line 599
 .
 
 
 LaTeX Warning: Citation 'Saranya2020Performance' on page 5 undefined on input l
-ine 599.
+ine 601.
 
 
-Overfull \hbox (12.3966pt too wide) in paragraph at lines 599--599
+Overfull \hbox (12.3966pt too wide) in paragraph at lines 601--601
 []|[]| 
  []
 
 
 LaTeX Warning: Citation 'Shah2018Performance' on page 5 undefined on input line
- 601.
+ 603.
 
 
 LaTeX Warning: Citation 'Belavagi2016Performance' on page 5 undefined on input 
-line 603.
+line 605.
 
 
-Overfull \hbox (14.56328pt too wide) in paragraph at lines 603--603
+Overfull \hbox (14.56328pt too wide) in paragraph at lines 605--605
 []|[]| 
  []
 
 
 LaTeX Warning: Citation 'Rathore2016RealTime' on page 5 undefined on input line
- 605.
+ 607.
 
 
-Underfull \hbox (badness 2005) in paragraph at lines 605--606
+Underfull \hbox (badness 2005) in paragraph at lines 607--608
 []|\OT1/cmr/m/n/10 DARPA, KDD99, NSL-
  []
 
 
 LaTeX Warning: Citation 'Khraisat2019Survey' on page 5 undefined on input line 
-607.
+609.
 
 
-Underfull \hbox (badness 2103) in paragraph at lines 607--607
+Underfull \hbox (badness 2103) in paragraph at lines 609--609
 []|\OT1/cmr/m/n/10 Stacking (C5.0 + One-
  []
 
 
-LaTeX Warning: Citation 'solane2015using' on page 5 undefined on input line 609
+LaTeX Warning: Citation 'solane2015using' on page 5 undefined on input line 611
 .
 
 
 LaTeX Warning: Citation 'emad2022intrusion' on page 5 undefined on input line 6
-11.
+13.
 
 
-Underfull \hbox (badness 1231) in paragraph at lines 611--612
+Underfull \hbox (badness 1231) in paragraph at lines 613--614
 []|\OT1/cmr/m/n/10 KDD99, NSL-KDD, CI-
  []
 
 
 LaTeX Warning: Citation 'James2023Introduction' on page 5 undefined on input li
-ne 613.
+ne 615.
 
 
-Overfull \hbox (3.51611pt too wide) in paragraph at lines 613--613
+Overfull \hbox (3.51611pt too wide) in paragraph at lines 615--615
 []|[]| 
  []
 
 File: logoinova.png Graphic file (type png)
 <use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 629.
+Package pdftex.def Info: logoinova.png  used on input line 631.
 (pdftex.def)             Requested size: 141.4128pt x 28.45183pt.
 [5]
-Underfull \hbox (badness 3482) in paragraph at lines 629--630
+Underfull \hbox (badness 3482) in paragraph at lines 631--632
 []\OT1/cmr/bx/n/10 Levantamento Ini-cial da []Area de
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 633--634
+Underfull \hbox (badness 10000) in paragraph at lines 635--636
 []\OT1/cmr/bx/n/10 Continuidade do Lev-an-ta-mento
  []
 
 
-Underfull \hbox (badness 1874) in paragraph at lines 639--640
+Underfull \hbox (badness 1874) in paragraph at lines 641--642
 []\OT1/cmr/bx/n/10 Pesquisa e Sele^^Xc~ao de Re-fer^encias
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 641--642
+Underfull \hbox (badness 10000) in paragraph at lines 643--644
 []\OT1/cmr/bx/n/10 Estudo de T^^Secnicas de Pr^^Se-
  []
 
 
-Underfull \hbox (badness 1097) in paragraph at lines 642--643
+Underfull \hbox (badness 1097) in paragraph at lines 644--645
 []\OT1/cmr/bx/n/10 Pesquisa so-bre Al-go-rit-mos de Ma-
  []
 
 
-Underfull \hbox (badness 1210) in paragraph at lines 642--643
+Underfull \hbox (badness 1210) in paragraph at lines 644--645
 \OT1/cmr/m/n/10 al-go-rit-mos su-per-vi-sion-a-dos e n~ao su-per-
  []
 
 
-Underfull \hbox (badness 2027) in paragraph at lines 642--643
+Underfull \hbox (badness 2027) in paragraph at lines 644--645
 \OT1/cmr/m/n/10 vi-sion-a-dos aplic^^Saveis ^^Ra de-tec^^Xc~ao de in-
  []
 
 
-Underfull \hbox (badness 1769) in paragraph at lines 646--647
+Underfull \hbox (badness 1769) in paragraph at lines 648--649
 []\OT1/cmr/bx/n/10 Levantamento de Da-dos Anal^^S^^Pticos
  []
 
 File: logoinova.png Graphic file (type png)
 <use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 647.
+Package pdftex.def Info: logoinova.png  used on input line 649.
 (pdftex.def)             Requested size: 141.4128pt x 28.45183pt.
 [6]
-Underfull \hbox (badness 4699) in paragraph at lines 647--648
+Underfull \hbox (badness 4699) in paragraph at lines 649--650
 []\OT1/cmr/bx/n/10 Elabora^^Xc~ao das Re-fer^encias Bib-li-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 653--654
+Underfull \hbox (badness 10000) in paragraph at lines 655--656
 []\OT1/cmr/bx/n/10 Continuidade do De-sen-volvi-mento
  []
 
 
-Underfull \hbox (badness 3417) in paragraph at lines 653--654
+Underfull \hbox (badness 3417) in paragraph at lines 655--656
 \OT1/cmr/bx/n/10 com a Base NSL-KDD: \OT1/cmr/m/n/10 Ap-ri-mora-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 654--655
+Underfull \hbox (badness 10000) in paragraph at lines 656--657
 []\OT1/cmr/bx/n/10 Sistematiza^^Xc~ao da Re-vis~ao Bib-li-
  []
 
 
-Underfull \hbox (badness 1365) in paragraph at lines 654--655
+Underfull \hbox (badness 1365) in paragraph at lines 656--657
 \OT1/cmr/m/n/10 pesquisa, es-tru-tu-rando a fun-da-menta^^Xc~ao
  []
 
 
-Underfull \hbox (badness 4805) in paragraph at lines 655--656
+Underfull \hbox (badness 4805) in paragraph at lines 657--658
 []\OT1/cmr/bx/n/10 Sistematiza^^Xc~ao dos Re-sul-ta-dos do
  []
 
 
-Overfull \hbox (11.72646pt too wide) in paragraph at lines 672--733
+Overfull \hbox (11.72646pt too wide) in paragraph at lines 674--735
  [][] 
  []
 
-<./metodologia.jpg, id=133, 722.7pt x 131.74219pt>
+<./metodologia.jpg, id=157, 722.7pt x 131.74219pt>
 File: ./metodologia.jpg Graphic file (type jpg)
 <use ./metodologia.jpg>
-Package pdftex.def Info: ./metodologia.jpg  used on input line 738.
+Package pdftex.def Info: ./metodologia.jpg  used on input line 746.
 (pdftex.def)             Requested size: 256.06956pt x 49.79317pt.
 
-Overfull \hbox (24.22113pt too wide) in paragraph at lines 738--739
-[][] 
- []
-
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 752.
-
-Overfull \hbox (47.4554pt too wide) in paragraph at lines 752--763
- [][] 
- []
-
-<./PCA_2D.png, id=136, 465.23813pt x 361.35pt>
-File: ./PCA_2D.png Graphic file (type png)
-<use ./PCA_2D.png>
-Package pdftex.def Info: ./PCA_2D.png  used on input line 769.
-(pdftex.def)             Requested size: 247.24942pt x 199.16766pt.
-
-Overfull \hbox (15.40099pt too wide) in paragraph at lines 769--770
+Overfull \hbox (24.22113pt too wide) in paragraph at lines 746--747
 [][] 
  []
 
 
-Underfull \hbox (badness 1147) in paragraph at lines 766--772
-\OT1/cmr/m/n/10 Ultilizando os val-ores an-te-ri-or-mente definidos na
+Underfull \hbox (badness 1107) in paragraph at lines 751--757
+\OT1/cmr/m/n/10 rit-mos de clas-si-fica^^Xc~ao a par-tir da uti-liza^^Xc~ao de
  []
-
-
-Underfull \vbox (badness 3780) has occurred while \output is active []
 
 File: logoinova.png Graphic file (type png)
 <use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 773.
+Package pdftex.def Info: logoinova.png  used on input line 769.
 (pdftex.def)             Requested size: 141.4128pt x 28.45183pt.
- [7 <./metodologia.jpg>]
-<./Importancia_features.png, id=159, 456.20438pt x 592.46344pt>
+[7 <./metodologia.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 771--771
+[][][]\OT1/cmr/m/n/8 Arquivo dispon^^S^^Pvel em: []$\OT1/cmtt/m/n/8 https : / /
+ colab . research .
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 771--771
+\OT1/cmtt/m/n/8 google . com / drive / 1ipTH1Lz002ih8L _ m5bJHFtuqD93UC1AQ ?
+ []
+
+
+Underfull \hbox (badness 1314) in paragraph at lines 769--775
+\OT1/cmr/m/n/10 pro-ces-sa-mento, vi-su-al-iza^^Xc~ao e an^^Salise dos da-dos,
+ []
+
+
+LaTeX Warning: Citation 'Belavagi2016Performance' on page 8 undefined on input 
+line 818.
+
+
+LaTeX Warning: Citation 'Jabez2015Intrusion' on page 8 undefined on input line 
+818.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <9> on input line 845.
+
+Overfull \hbox (47.4554pt too wide) in paragraph at lines 845--856
+ [][] 
+ []
+
+File: logoinova.png Graphic file (type png)
+<use logoinova.png>
+Package pdftex.def Info: logoinova.png  used on input line 859.
+(pdftex.def)             Requested size: 141.4128pt x 28.45183pt.
+[8]
+<./PCA_2D.png, id=188, 465.23813pt x 361.35pt>
+File: ./PCA_2D.png Graphic file (type png)
+<use ./PCA_2D.png>
+Package pdftex.def Info: ./PCA_2D.png  used on input line 862.
+(pdftex.def)             Requested size: 247.24942pt x 199.16766pt.
+
+Overfull \hbox (15.40099pt too wide) in paragraph at lines 862--863
+[][] 
+ []
+
+
+Underfull \hbox (badness 1147) in paragraph at lines 859--865
+\OT1/cmr/m/n/10 Ultilizando os val-ores an-te-ri-or-mente definidos na
+ []
+
+<./Importancia_features.png, id=189, 456.20438pt x 592.46344pt>
 File: ./Importancia_features.png Graphic file (type png)
 <use ./Importancia_features.png>
-Package pdftex.def Info: ./Importancia_features.png  used on input line 775.
+Package pdftex.def Info: ./Importancia_features.png  used on input line 868.
 (pdftex.def)             Requested size: 247.25163pt x 312.99162pt.
 
-Overfull \hbox (15.4032pt too wide) in paragraph at lines 775--776
+Overfull \hbox (15.4032pt too wide) in paragraph at lines 868--869
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 773--778
+Underfull \hbox (badness 10000) in paragraph at lines 866--871
 
  []
 
-<./decisiontree_features.png, id=161, 859.2903pt x 426.393pt>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+<./decisiontree_features.png, id=191, 859.2903pt x 426.393pt>
 File: ./decisiontree_features.png Graphic file (type png)
 <use ./decisiontree_features.png>
-Package pdftex.def Info: ./decisiontree_features.png  used on input line 781.
+Package pdftex.def Info: ./decisiontree_features.png  used on input line 874.
 (pdftex.def)             Requested size: 256.07144pt x 170.71683pt.
 
-Overfull \hbox (24.223pt too wide) in paragraph at lines 781--782
+Overfull \hbox (24.223pt too wide) in paragraph at lines 874--875
 [][] 
  []
 
 
-Underfull \hbox (badness 6300) in paragraph at lines 817--851
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+File: logoinova.png Graphic file (type png)
+<use logoinova.png>
+Package pdftex.def Info: logoinova.png  used on input line 907.
+(pdftex.def)             Requested size: 141.4128pt x 28.45183pt.
+ [9 <./PCA_2D.png (PNG copy)> <./Importancia_features.png (PNG copy)> <./decisi
+ontree_features.png>]
+Underfull \hbox (badness 6300) in paragraph at lines 910--944
 []\OT1/cmr/m/n/10 Para a an^^Salise de da-dos foi con-sid-er-ado
  []
 
 
-Underfull \hbox (badness 3396) in paragraph at lines 817--851
+Underfull \hbox (badness 3396) in paragraph at lines 910--944
 \OT1/cmr/m/n/10 a base de da-dos NSL-KDD com os seguintes
  []
 
 
-Underfull \hbox (badness 3158) in paragraph at lines 817--851
+Underfull \hbox (badness 3158) in paragraph at lines 910--944
 \OT1/cmr/m/n/10 ataques: $\OML/cmm/m/it/10 neptune$\OT1/cmr/m/n/10 , $\OML/cmm/
 m/it/10 satan$\OT1/cmr/m/n/10 , $\OML/cmm/m/it/10 ipsweep$\OT1/cmr/m/n/10 , $\O
 ML/cmm/m/it/10 poetsweep$\OT1/cmr/m/n/10 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 817--851
+Underfull \hbox (badness 10000) in paragraph at lines 910--944
 \OML/cmm/m/it/10 guess[]passwd$\OT1/cmr/m/n/10 , $\OML/cmm/m/it/10 buffer[]over
 flow$\OT1/cmr/m/n/10 , $\OML/cmm/m/it/10 warezmaster$\OT1/cmr/m/n/10 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 817--851
+Underfull \hbox (badness 10000) in paragraph at lines 910--944
 \OML/cmm/m/it/10 land$\OT1/cmr/m/n/10 , $\OML/cmm/m/it/10 imap$\OT1/cmr/m/n/10 
 , $\OML/cmm/m/it/10 rootkit$\OT1/cmr/m/n/10 , $\OML/cmm/m/it/10 loadmodule$\OT1
 /cmr/m/n/10 , $\OML/cmm/m/it/10 ftp[]write$\OT1/cmr/m/n/10 ,
  []
 
 
-Underfull \hbox (badness 1721) in paragraph at lines 817--851
+Underfull \hbox (badness 1721) in paragraph at lines 910--944
 \OML/cmm/m/it/10 multihop$\OT1/cmr/m/n/10 , $\OML/cmm/m/it/10 phf$\OT1/cmr/m/n/
 10 , $\OML/cmm/m/it/10 perl$\OT1/cmr/m/n/10 , $\OML/cmm/m/it/10 spy$\OT1/cmr/m/
 n/10 . al-guns dos val-ores
  []
 
 
-Underfull \hbox (badness 4505) in paragraph at lines 817--851
+Underfull \hbox (badness 4505) in paragraph at lines 910--944
 \OT1/cmr/m/n/10 desta an^^Salise com-po-nentes como: $\OML/cmm/m/it/10 loadmodu
 le$\OT1/cmr/m/n/10 ,
  []
 
 
-Underfull \hbox (badness 1102) in paragraph at lines 817--851
+Underfull \hbox (badness 1102) in paragraph at lines 910--944
 \OML/cmm/m/it/10 perl$ \OT1/cmr/m/n/10 e $\OML/cmm/m/it/10 nmap$ \OT1/cmr/m/n/1
 0 foram cat-e-go-riza-dos como ataques.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 817--851
+Underfull \hbox (badness 10000) in paragraph at lines 910--944
 
  []
 
-
-Underfull \vbox (badness 1472) has occurred while \output is active []
-
-File: logoinova.png Graphic file (type png)
-<use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 852.
-(pdftex.def)             Requested size: 141.4128pt x 28.45183pt.
- [8 <./PCA_2D.png (PNG copy)> <./Importancia_features.png (PNG copy)> <./decisi
-ontree_features.png>]
-<matriz_corr.png, id=171, 791.3565pt x 628.0263pt>
+<matriz_corr.png, id=203, 791.3565pt x 628.0263pt>
 File: matriz_corr.png Graphic file (type png)
 <use matriz_corr.png>
-Package pdftex.def Info: matriz_corr.png  used on input line 892.
+Package pdftex.def Info: matriz_corr.png  used on input line 985.
 (pdftex.def)             Requested size: 227.61586pt x 227.62256pt.
 
-Underfull \hbox (badness 1142) in paragraph at lines 896--897
+Underfull \hbox (badness 1142) in paragraph at lines 989--990
 \OT1/cmr/m/n/10 rela^^Xc~ao foi feita uma an^^Salise baseada em $\OML/cmm/m/it/
 10 PCA$\OT1/cmr/m/n/10 ,
  []
 
-<pca_classes.png, id=173, 408.3255pt x 328.8285pt>
+<pca_classes.png, id=205, 408.3255pt x 328.8285pt>
 File: pca_classes.png Graphic file (type png)
 <use pca_classes.png>
-Package pdftex.def Info: pca_classes.png  used on input line 900.
+Package pdftex.def Info: pca_classes.png  used on input line 993.
 (pdftex.def)             Requested size: 247.25887pt x 199.17517pt.
 
-Overfull \hbox (15.41043pt too wide) in paragraph at lines 900--901
+Overfull \hbox (15.41043pt too wide) in paragraph at lines 993--994
  [][] 
  []
-
-<pcaXvariancia.png, id=174, 611.4042pt x 340.3917pt>
-File: pcaXvariancia.png Graphic file (type png)
-<use pcaXvariancia.png>
-Package pdftex.def Info: pcaXvariancia.png  used on input line 909.
-(pdftex.def)             Requested size: 241.85185pt x 156.48859pt.
-
-Overfull \hbox (10.00342pt too wide) in paragraph at lines 909--910
- [][] 
- []
-
-
-Underfull \vbox (badness 2088) has occurred while \output is active []
 
 File: logoinova.png Graphic file (type png)
 <use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 913.
+Package pdftex.def Info: logoinova.png  used on input line 996.
 (pdftex.def)             Requested size: 141.4128pt x 28.45183pt.
- [9 <./matriz_corr.png> <./pca_classes.png>]
+[10 <./matriz_corr.png>]
+<pcaXvariancia.png, id=215, 611.4042pt x 340.3917pt>
+File: pcaXvariancia.png Graphic file (type png)
+<use pcaXvariancia.png>
+Package pdftex.def Info: pcaXvariancia.png  used on input line 1002.
+(pdftex.def)             Requested size: 241.85185pt x 156.48859pt.
 
-LaTeX Warning: Empty bibliography on input line 919.
+Overfull \hbox (10.00342pt too wide) in paragraph at lines 1002--1003
+ [][] 
+ []
 
 
-Underfull \hbox (badness 3364) in paragraph at lines 922--926
+LaTeX Warning: Empty bibliography on input line 1012.
+
+
+Underfull \hbox (badness 3364) in paragraph at lines 1015--1019
 \OT1/cmr/m/n/10 preens~ao ao longo de toda a nossa tra-jet^^Soria
  []
 
 File: logoinova.png Graphic file (type png)
 <use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 931.
+Package pdftex.def Info: logoinova.png  used on input line 1024.
 (pdftex.def)             Requested size: 141.4128pt x 28.45183pt.
-[10
-
- <./pcaXvariancia.png>] (main.aux)
+[11 <./pca_classes.png> <./pcaXvariancia.png>] (main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
@@ -2120,7 +2147,7 @@ LaTeX Font Warning: Size substitutions with differences
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 3044AD5AFE0F18AD063B3C8DD676B1C3;3465.
+(rerunfilecheck)             Checksum: 919C9AF8F17176DEB02FCC29A9969D66;4640.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                main
@@ -2131,10 +2158,10 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 33297 strings out of 467871
- 637757 string characters out of 5417409
- 1588888 words of memory out of 5000000
- 61624 multiletter control sequences out of 15000+600000
+ 33311 strings out of 467871
+ 637945 string characters out of 5417409
+ 1588907 words of memory out of 5000000
+ 61630 multiletter control sequences out of 15000+600000
  651270 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  88i,16n,94p,695b,1142s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -2155,9 +2182,9 @@ onts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/Marcela/AppData/Local/Programs/MiK
 TeX/fonts/type1/urw/helvetic/uhvbo8a.pfb><C:/Users/Marcela/AppData/Local/Progra
 ms/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/Marcela/AppData/Local/P
 rograms/MiKTeX/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on main.pdf (10 pages, 667187 bytes).
+Output written on main.pdf (11 pages, 684263 bytes).
 PDF statistics:
- 269 PDF objects out of 1000 (max. 8388607)
- 65 named destinations out of 1000 (max. 500000)
- 189 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 305 PDF objects out of 1000 (max. 8388607)
+ 73 named destinations out of 1000 (max. 500000)
+ 237 words of extra memory for PDF output out of 10000 (max. 10000000)
 

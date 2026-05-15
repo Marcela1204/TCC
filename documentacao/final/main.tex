@@ -182,10 +182,12 @@ Resultados preliminares serão apresentados. Como contribuições futuras, prev�
 dos algoritmos, ajuste de hiperparâmetros à novos modelo, e evolução da sistema para tempo real
  e em cenários reais.}
 
-\keyword{Sistemas de Detecção de Intrusões, Machine Learning, Seguranças da Informação, Análise de Dados, Redução de Dimensionalidade e Cybersegurança.}
+\keyword{Sistemas de Detecção de Intrusões, Machine Learning, Segurança da Informação, Análise de Dados, Redução de Dimensionalidade e Cybersegurança.}
 
 \end{@twocolumnfalse}
 ]
+
+\section{Lista de Abreviaturas e Siglas}
 
 \section{Introdução}
 
@@ -733,6 +735,104 @@ Título & Citações & Autor & Ano & Tipo & HIDS/NIDS & Sig. & Técnica & Técni
 \end{table}
 
 \section{Metodologia}
+
+Este trabalho propõe uma abordagem voltada na avaliação do desempenho de algoritmos 
+de aprendizado de máquina supervisionado aplicados à detecção de intrusões em redes 
+de computadores. A metodologia adotada foi estruturada em etapas sequenciais, 
+contemplando desde a seleção das bases de dados até a avaliação dos algoritmos 
+utilizados, conforme ilustrado na Figura 1.
+
+\begin{figure}[H]
+	\includegraphics[width=9cm,height=1.75cm]{./metodologia.jpg}
+	\caption{Metodologia do projeto}
+	\label{fig:metodologia}
+\end{figure}
+
+A pesquisa possui caráter aplicado, com abordagem quantitativa e objetivo 
+experimental, buscando comparar o desempenho de diferentes algoritmos de 
+classificação a partir da utilização de técnicas de redução e seleção de atributos. 
+O fluxo metodológico foi dividido em cinco etapas principais: seleção das bases de 
+dados, processamento dos dados, aplicação de técnicas de redução de dimensionalidade, 
+treinamento dos algoritmos e avaliação de desempenho.
+
+\subsection{Seleção das Bases de Dados}
+A base de dados utilizada neste trabalho foi a NSL-KDD, uma versão aprimorada da 
+base KDD Cup 1999, desenvolvida com o objetivo de reduzir redundâncias e 
+inconsistências presentes no conjunto original. A escolha dessa base ocorreu devido 
+à sua ampla utilização na literatura científica voltada à detecção de intrusões e 
+aprendizado de máquina, sendo considerada uma das principais referências para 
+avaliação de sistemas $IDS$. A base contém registros de 
+conexões de rede classificados entre tráfego normal (53,46\%) e diferentes categorias 
+de ataques (46,54\%), possibilitando a aplicação de técnicas de classificação 
+supervisionada.
+
+Os dados foram obtidos por meio da plataforma \textit{Kaggle}\footnote{ Disponível em: \url{https://www.kaggle.com/datasets/hassan06/nslkdd}}, utilizando a biblioteca 
+\textit{KaggleHub}. O desenvolvimento do projeto foi realizado em linguagem \textit{Python}, com 
+execução no ambiente \textit{Jupyter Notebook}\footnote{ Arquivo disponível em: \url{https://colab.research.google.com/drive/1ipTH1Lz002ih8L_m5bJHFtuqD93UC1AQ?usp=sharing}}, permitindo a organização e execução 
+sequencial das etapas do experimento. Além disso, foram utilizadas bibliotecas 
+específicas para manipulação, processamento, visualização e análise dos dados, 
+contribuindo para o desenvolvimento completo da metodologia proposta.
+
+Entre as principais bibliotecas utilizadas estão \textit{Pandas}, responsável pela leitura e 
+organização dos dados em estruturas tabulares; \textit{NumPy}, utilizado em operações 
+matemáticas e manipulação numérica; \textit{Matplotlib} e \textit{Seaborn}, empregados na geração de 
+gráficos e visualizações estatísticas; e \textit{Scikit-learn}, utilizada na implementação 
+das técnicas de aprendizado de máquina, incluindo codificação de atributos categóricos, 
+padronização dos dados, aplicação do $PCA$, divisão dos conjuntos de treinamento e 
+teste, treinamento dos algoritmos e validação dos modelos. Essas ferramentas foram 
+fundamentais para o processamento dos dados e análise dos resultados obtidos ao 
+longo da pesquisa.
+
+\subsection{Processamento dos Dados}
+Após o carregamento da base de dados NSL-KDD, foi realizada uma etapa de 
+pré-processamento com o objetivo de preparar os dados para aplicação dos algoritmos 
+de aprendizado de máquina. Inicialmente, foram definidos manualmente os nomes dos 43 
+atributos da base, permitindo melhor interpretação das variáveis e facilitando a 
+manipulação das informações durante o desenvolvimento do projeto. Em seguida, os 
+dados foram carregados em estruturas do tipo \textit{DataFrame} utilizando a biblioteca 
+\textit{Pandas}, possibilitando operações de análise, filtragem e transformação dos registros. 
+Durante essa etapa, também foi realizada a verificação da estrutura da base, 
+incluindo quantidade de linhas, colunas, tipos de dados e identificação das classes 
+presentes no conjunto de dados. Posteriormente, a coluna denominada \textit{difficulty} foi 
+removida, por ser considerada irrelevante para o processo de classificação e não 
+contribuir significativamente para o desempenho dos modelos.
+
+% Aqui é legal colocar alguma referência de texto? Tem textos que usaram a mesma base e tem essas descrições...
+
+Na sequência, foi realizada uma análise exploratória dos atributos categóricos 
+presentes na base, especialmente nas colunas relacionadas ao protocolo de rede 
+(\textit{protocol\_type}), serviço (\textit{service}) e status da conexão (\textit{flag}). Foram analisados 
+os valores únicos de cada atributo, permitindo compreender melhor a distribuição 
+das informações presentes na base. Como algoritmos de aprendizado de máquina 
+supervisionado trabalham predominantemente com dados numéricos, foi necessário 
+converter os atributos categóricos para representações numéricas. Para isso, foi 
+utilizada a técnica de \textit{Label Encoding}, disponibilizada pela biblioteca \textit{Scikit-learn}, 
+responsável por transformar cada categoria textual em um valor inteiro 
+correspondente. Essa etapa foi fundamental para garantir a compatibilidade dos 
+dados com os algoritmos utilizados posteriormente no treinamento dos modelos.
+
+Além da transformação dos atributos categóricos, também foi realizado um processo 
+de agrupamento das classes originais de ataques presentes na base NSL-KDD. 
+Inicialmente, a base possui diversos tipos específicos de ataques, o que poderia 
+aumentar a complexidade do problema de classificação. Dessa forma, os ataques 
+foram reorganizados em categorias mais abrangentes, sendo elas \cite{Belavagi2016Performance} \cite{Jabez2015Intrusion}: 
+\begin{itemize}
+	\item \textbf{Normal:} Tráfego legítimo e sem atividades maliciosas.
+	\item \textbf{DoS (Denial of Service):} Ataques que visam sobrecarregar os recursos do sistema, tornando-o indisponível para usuários legítimos.
+	\item \textbf{Probe:} Ataques de sondagem que buscam coletar informações sobre o sistema ou rede, identificando vulnerabilidades.
+	\item \textbf{R2L (Remote to Local):} Ataques onde o invasor tenta obter acesso local a partir de uma máquina remota, explorando falhas de autenticação.
+	\item \textbf{U2R (User to Root):} Ataques onde o invasor já possui acesso local e busca elevar seus privilégios para obter controle total do sistema.
+\end{itemize}
+Esse agrupamento teve como objetivo simplificar o processo de classificação, 
+reduzir a complexidade do problema e melhorar a interpretação dos resultados 
+obtidos pelos algoritmos de aprendizado de máquina.
+
+\subsection{Redução de Dimensionalidade}
+\subsection{Treinamento dos Algoritmos}
+\subsection{Avaliação de Desempenho}
+
+%---------------------------------------------------------------------------------
+
 O algorítimo ultilizado para as análises foi o $Decision Tree$, este conta com o menor tempo de teste e melhor acurácia, estes valores são a maior métrica ultilizada pois o objetivo do sistema é ser execudato em tempo real para garantir uma resposta rápida a incidentes. \\
 % \subsection{}
 Ultilizando os testes do capítulo anterior, foi desenvolvida uma análise com os variados algorítimos mais ultilizados ($Random Forest$, $Decision Tree$, $KNN$, $SVM$, $Logistic Regression$).

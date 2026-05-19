@@ -155,7 +155,7 @@
 \begin{document}
 
 \setlength{\columnsep}{20pt}
-\twocolumn[%
+\twocolumn[
 \begin{@twocolumnfalse}
 
 \raggedright
@@ -836,7 +836,7 @@ obtidos pelos algoritmos de aprendizado de máquina.
 O algorítimo ultilizado para as análises foi o $Decision Tree$, este conta com o menor tempo de teste e melhor acurácia, estes valores são a maior métrica ultilizada pois o objetivo do sistema é ser execudato em tempo real para garantir uma resposta rápida a incidentes. \\
 % \subsection{}
 Ultilizando os testes do capítulo anterior, foi desenvolvida uma análise com os variados algorítimos mais ultilizados ($Random Forest$, $Decision Tree$, $KNN$, $SVM$, $Logistic Regression$).
-%FIXME: adicionar o documento de referência sobre os algoritimos ultilizados %
+%FIXME: adicionar o documento de referência sobre os algoritimos ultilizados
 Ultilizando um random state de 42 para os algorítimos citados, obtiveram-se os seguintes valores:
 \begin{table}[H]
 	\centering
@@ -844,7 +844,8 @@ Ultilizando um random state de 42 para os algorítimos citados, obtiveram-se os 
 	\setlength{\tabcolsep}{1pt}
 	\begin{tabular}{|l c|c|c|c c c|}
 		\hline
-		Modelo & Acc & Prec & Rec & F1 & Tempo Treino(s) & Tempo Teste(s) \\
+		%FIXME: as notas de rodapé não estão aparecendo
+		Modelo & Acc\footnote{Acurácia} & Prec\footnote{Precisão} & Rec\footnote{Recall} & F1\footnote{F1-score} & Tempo Treino(s) & Tempo Teste(s) \\
 		\hline
 		RF & 0.9987 & 0.9992 & 0.9979 & 0.9985 & 6.3216 & 0.1268 \\
 		DT & 0.9977 & 0.9975 & 0.9975 & 0.9975 & 0.8541 & 0.0035 \\
@@ -902,12 +903,32 @@ Sendo elas:
 		\hline
 	\end{tabular}
 	\label{tab:top18Features}
-	
 \end{table}
+\begin{enumerate}
+	\item \textbf{src\_bytes}: Bytes enviados da origem para o destino.
+	\item \textbf{dst\_host\_srv\_count}: Número de conexões destinadas a mesma porta no host de destino.
+	\item \textbf{count}: Número de conexões feitas ao mesmo host de destino.
+	\item \textbf{dst\_bytes}: Bytes enviados do destino de volta ao host de origem.
+	\item \textbf{dst\_host\_srv\_rerror\_rate}: Porcentagem de pacotes recusados tentando acessar a mesma porta do destino.
+	\item \textbf{hot}: Número de operações suspeitas detectadas na conexão.
+	\item \textbf{dst\_host\_same\_src\_port\_rate }: Porcentagem de conexões para o destino que ultilizaram a mesma porta de origem.
+	\item \textbf{logged\_in }: Flag booleana que informa se o usuário autenticou no serviço ou não.
+	\item \textbf{srv\_count}: Número de conexões feitas para a mesma porta que a conexão atual.
+	\item \textbf{dst\_host\_same\_srv\_rate }: Porcentagem de conexões que foram para a mesma porta do destino.
+	\item \textbf{duration }: Tempo de duração da conexão em segundos.
+	\item \textbf{wrong\_fragment }: Número de fragmentos corrompidos na conexão.
+	\item \textbf{dst\_host\_rerror\_rate }: Porcentagem de conexões que foram recusadas.
+	\item \textbf{dst\_host\_diff\_srv\_rate }: Porcentagem de conexões que foram para portas diferentes do destino.
+	\item \textbf{dst\_host\_count }: Número de conexões direcinadas para o mesmo ip de destino.
+	\item \textbf{dst\_host\_srv\_diff\_host\_rate }: Porcentagem de conexões para  amesma porta que vieram de varidas origens.
+	\item \textbf{dst\_host\_serror\_rate }: Porcentagem de conexões que receberam erro do tipo $SYN$.
+	\item \textbf{diff\_srv\_rate }: Porcentagem de conexões que foram para portas diferentes.
+\end{enumerate}
+
 
 \section{Resultados Preliminares}
 \subsection{Análise de Dados e Pré-processamento}
-Para a análise de dados foi considerado a base de dados NSL-KDD com os seguintes ataques: $neptune$, $satan$, $ipsweep$, $poetsweep$, $smurf$, $nmap$, $back$, $teardrop$, $warezclient$, $pod$, $guess\_passwd$, $buffer\_overflow$, $warezmaster$, $land$, $imap$, $rootkit$, $loadmodule$, $ftp\_write$, $multihop$, $phf$, $perl$, $spy$. alguns dos valores citados não são ataques reais, porém no contexto desta análise componentes como: $loadmodule$, $perl$ e $nmap$ foram categorizados como ataques.
+Para a análise de dados foi considerado a base de dados NSL-KDD com os seguintes ataques listados na tabela \ref{tab:dados_base_NSL_KDD}. alguns dos valores citados não são ataques reais, porém no contexto desta análise componentes como: $loadmodule$, $perl$ e $nmap$ foram categorizados como ataques.
 \linebreak
 % A base de dados conta com os seguintes valores \\
 	\begin{table}[H]
@@ -979,7 +1000,7 @@ Para melhor vizualização dos dados os ataques foram separados nas seguintes ca
 	\caption{Definição de tipos de ataque por grupos}
 \label{tab:ataquesXcategoria}
 	\end{table}
-A matriz de correlação mostra que, a contagem de pacotes e ocorrência de erros são os componentes com maior correlação.
+	Com o objetivo de análisar os dados e diminuir o espaço dimensional, foi utilizado a matriz de correlação \ref{fig:matriz_corr} que representa que a contagem de pacotes e ocorrência de erros são os componentes com maior correlação entre si.
 \begin{figure}[H]
 \centering
 \includegraphics[width=8cm,height=8cm]{matriz_corr.png}
@@ -996,7 +1017,7 @@ Para validar as informações da matriz de correlação foi feita uma análise b
 \end{figure}
 
 \subsection{Redução de Dimensionalidade e Seleção de Atri-butos}
-Buscando uma margem de variância a cima de 95\% foi calculado o $PCA$ para variados números de componentes, para descobrir a melhor variância, com o menor número de componentes. Definido 23 componentes como a melhor média amostral
+Buscando uma margem de variância a cima de 95\% foi calculado o $PCA$ para variados números de componentes, para descobrir a melhor variância, com o menor número de componentes. Definido 23 de todos os 43 componentes como a melhor média amostral
 \begin{figure}[H]
 \centering
 \includegraphics[width=8.5cm,height=5.5cm]{pcaXvariancia.png}	

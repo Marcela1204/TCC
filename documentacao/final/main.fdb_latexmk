@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1778266401.80465 "main.bcf" "main.bbl" "main" 1778279499.88668 0
-  "main.bcf" 1778279499.73458 113565 dfa9137b1589bf49afd880e1fc5be4cd "pdflatex"
-  "referencias.bib" 1778115859.74158 7362 b97597ee11ebff12a3c71dd15ce3a165 ""
+["biber main"] 1779198723.25197 "main.bcf" "main.bbl" "main" 1779199359.63041 0
+  "main.bcf" 1779199359.4773 113718 bbb2fcce10c7cbd48d802f2254296958 "pdflatex"
+  "referencias.bib" 1778803556.86726 7362 b97597ee11ebff12a3c71dd15ce3a165 ""
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1778279497.58318 "main.tex" "main.pdf" "main" 1778279499.88704 0
+["pdflatex"] 1779199357.13915 "main.tex" "main.pdf" "main" 1779199359.6308 0
   "/etc/texmf/web2c/texmf.cnf" 1765883605.16586 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -228,12 +228,13 @@
   "PCA_2D.png" 1777841277.45014 93170 aa80406e05867484741c71d4eb718eeb ""
   "decisiontree_features.png" 1777842546.5494 66258 c7bd006d7a521882a915e65d9d8ef846 ""
   "logoinova.png" 1778266391.38833 14643 b20949c28b8c158dc06d05c0f983112c ""
-  "main.aux" 1778279499.72658 12489 8eceda57ede1c139f35fd34805def6b2 "pdflatex"
-  "main.bbl" 1778266403.20626 38765 3e48db320feef250e0859cb95f1ba1ca "biber main"
-  "main.out" 1778279499.73058 3465 3044ad5afe0f18ad063b3c8dd676b1c3 "pdflatex"
-  "main.run.xml" 1778279499.73868 2406 1b56bcb4755fab85cc41222f32da4e69 "pdflatex"
-  "main.tex" 1778279494.53458 50886 9487ce4b03dc11c0ac1772a50786a0e9 ""
+  "main.aux" 1779199359.4693 13687 5b796c9882e8c9dd127198d15e20c008 "pdflatex"
+  "main.bbl" 1779198724.25638 38765 3e48db320feef250e0859cb95f1ba1ca "biber main"
+  "main.out" 1779199359.4733 4640 919c9af8f17176deb02fcc29a9969d66 "pdflatex"
+  "main.run.xml" 1779199359.48108 2406 1b56bcb4755fab85cc41222f32da4e69 "pdflatex"
+  "main.tex" 1779199352.62913 59676 ce03e7a2a2593b7b437cae3d19cbf663 ""
   "matriz_corr.png" 1777678687.89555 156449 45a58e1a2b1d3cded6c558b8419298b6 ""
+  "metodologia.jpg" 1778803281.55927 27094 96355fef3c7a516bdb3b8a580f554b56 ""
   "pcaXvariancia.png" 1777678687.89555 35151 bcc0b7e7568402afd7b57957b9fa9bc1 ""
   "pca_classes.png" 1777678687.89555 71643 b0a798c9df96fb51945893d36f1d3d4b ""
   (generated)

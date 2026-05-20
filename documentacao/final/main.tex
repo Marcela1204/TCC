@@ -29,6 +29,7 @@
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{multirow}
+\usepackage{tabularx}  
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -207,43 +208,27 @@ telefônicos apenas no ano de 2020 \cite{zehedi2023comparative}. Diante desse co
 Informação destaca-se como fundamental para garantir a integridade, confidencialidade 
 e disponibilidade das informações.
 
-Entre os mecanismos utilizados para proteção de redes, destacam-se os \textit{Intrusion 
-Detection System}, responsáveis por monitorar atividades e identificar possíveis 
-intrusões. Tradicionalmente, esses sistemas baseiam-se em assinaturas ou regras 
-previamente definidas, o que limita sua capacidade de detectar ataques 
-desconhecidos ou variações de ameaças existentes. Como consequência, tais 
-abordagens apresentam limitações relevantes, como elevada taxa de falsos positivos 
-e baixa adaptabilidade a novos cenários. Dessa forma, torna-se necessário 
-investigar abordagens mais flexíveis e inteligentes para aprimorar a detecção 
-de intrusões.
+Os Sistemas de Detecção de Intrusão (IDS) são fundamentais para a segurança de 
+redes, pois monitoram atividades suspeitas e identificam possíveis ataques 
+por meio da análise de tráfego e comportamento. Esses sistemas podem ser 
+implementados em hardware ou software e realizam funções como geração de 
+alertas e resposta a incidentes. O conceito de IDS surgiu na década de 1980, 
+inicialmente baseado na análise de logs e padrões conhecidos, o que limitava 
+sua eficácia frente a ameaças mais complexas. Com o avanço dos ataques, os 
+IDS evoluíram para abordagens mais dinâmicas, incorporando análise comportamental 
+e, posteriormente, técnicas de detecção por anomalias na década de 1990, 
+permitindo a identificação de ataques desconhecidos \cite{patrick2022study}. Dessa forma, os IDS 
+consolidaram-se como mecanismos essenciais para a proteção de ativos digitais 
+e mitigação de ameaças em redes \cite{emad2022intrusion}. 
 
 Nesse sentido, o uso de técnicas de \textit{Machine Learning} tem se consolidado como uma 
-alternativa promissora. Esses métodos permitem a identificação de padrões complexos 
+alternativa promissora \cite{Khraisat2019Survey}. Esses métodos permitem a identificação de padrões complexos 
 nos dados, possibilitando a detecção de comportamentos anômalos sem depender 
 exclusivamente de regras pré-definidas. No entanto, a eficácia desses modelos 
 depende diretamente da qualidade dos dados utilizados, da seleção adequada de 
 atributos e da capacidade de lidar com a alta dimensionalidade das bases. Assim, 
 compreender a influência dessas variáveis torna-se essencial para o 
 desenvolvimento de soluções mais eficientes.
-
-Diante desse cenário, bases de dados como a NSL-KDD %e UNSW-NB15 
-têm sido amplamente utilizadas para avaliação de técnicas de detecção de intrusão. 
-Essas bases reúnem diferentes tipos de ataques e atributos de rede, permitindo 
-a aplicação e comparação de modelos de classificação. Entretanto, a presença 
-de grande quantidade de variáveis pode introduzir redundância e dificultar o 
-aprendizado dos algoritmos, impactando negativamente seu desempenho. Nesse 
-contexto, técnicas como a \textit{Principal Component Analysis} (PCA) e Matriz de 
-Correlação tornam-se relevantes para reduzir a dimensionalidade e destacar 
-características mais significativas.
-
-Considerando essas limitações, surge a necessidade de investigar de forma 
-sistemática a relação entre atributos, técnicas de redução de dimensionalidade 
-e desempenho de algoritmos de classificação. Estudos existentes frequentemente 
-analisam esses elementos de forma isolada, não explorando de maneira integrada 
-seu impacto na detecção de intrusões. Essa lacuna dificulta a identificação de 
-abordagens mais eficientes e a construção de soluções práticas aplicáveis em 
-ambientes reais. Assim, justifica-se a realização de uma análise abrangente 
-que integre esses aspectos.
 
 Dessa forma, este trabalho tem como objetivo geral analisar e avaliar técnicas de 
 \textit{Machine Learning} aplicadas à detecção de intrusões, identificando atributos 
@@ -253,11 +238,7 @@ Especificamente, propõe-se:
 \begin{itemize}
     \item Realizar a análise exploratória das bases NSL-KDD e UNSW-NB15, para compreender sua estrutura, identificar características gerais dos dados e verificar a presença de inconsistências, valores ausentes ou desbalanceamento entre classes.
     \item Investigar a distribuição das classes e identificar padrões nos dados, buscando compreender o comportamento do tráfego de rede e possíveis distinções entre atividades normais e diferentes tipos de ataques.
-    \item Aplicar a matriz de correlação para análise das variáveis, a fim de identificar relações entre atributos, detectar possíveis redundâncias e avaliar o impacto dessas correlações na modelagem dos dados.
-    \item Utilizar a técnica de \textit{Principal Component Analysis} (PCA) para reduzir a dimensionalidade do conjunto de dados, facilitando a visualização, interpretação e identificação de padrões relevantes.
     \item Treinar modelos de classificação baseados em \textit{Machine Learning}, aplicando diferentes algoritmos com o objetivo de identificar padrões de intrusão e classificar o tráfego de rede.
-    \item Avaliar o desempenho dos modelos por meio de métricas quantitativas, como acurácia, precisão, recall e F1-score, visando medir a eficácia dos algoritmos na detecção de intrusões.
-    \item Comparar o desempenho dos diferentes algoritmos de classificação, analisando seus resultados e identificando aqueles mais adequados ao problema de detecção de intrusão em redes de computadores.
 \end{itemize}
 
 Os resultados obtidos servirão como base para o desenvolvimento de um protótipo 
@@ -265,7 +246,6 @@ de sistema de detecção de intrusão, contribuindo para o avanço de soluções
 eficazes na área.
 
 \section{Fundamentação Teórica}
-\subsection{Segurança da Informação e Ameaças em Redes}
 A segurança da informação tornou-se um elemento central na sociedade 
 contemporânea devido à crescente dependência de sistemas digitais. Com a 
 consolidação da chamada “civilização cibernética” \cite{wasyhun2023cyber}, iniciada a partir da 
@@ -328,20 +308,6 @@ máquina, capazes de analisar padrões complexos e melhorar a eficiência da
 detecção \cite{patrick2022study}. Assim, o aprimoramento dos IDS é fundamental para enfrentar os 
 desafios contemporâneos da segurança em redes. 
 
-\subsection{Sistemas de Detecção de Intrusão}
-Os Sistemas de Detecção de Intrusão (IDS) são fundamentais para a segurança de 
-redes, pois monitoram atividades suspeitas e identificam possíveis ataques 
-por meio da análise de tráfego e comportamento. Esses sistemas podem ser 
-implementados em hardware ou software e realizam funções como geração de 
-alertas e resposta a incidentes. O conceito de IDS surgiu na década de 1980, 
-inicialmente baseado na análise de logs e padrões conhecidos, o que limitava 
-sua eficácia frente a ameaças mais complexas. Com o avanço dos ataques, os 
-IDS evoluíram para abordagens mais dinâmicas, incorporando análise comportamental 
-e, posteriormente, técnicas de detecção por anomalias na década de 1990, 
-permitindo a identificação de ataques desconhecidos \cite{patrick2022study}. Dessa forma, os IDS 
-consolidaram-se como mecanismos essenciais para a proteção de ativos digitais 
-e mitigação de ameaças em redes \cite{emad2022intrusion}. 
-
 Os IDS podem ser classificados de acordo com sua forma de implantação e método 
 de detecção, o que influencia diretamente sua eficiência. Quanto à 
 implantação, destacam-se os sistemas baseados em host (HIDS), que monitoram 
@@ -367,7 +333,6 @@ essenciais, os IDS tradicionais ainda não são totalmente suficientes para
 lidar com a complexidade das ameaças modernas \cite{emad2022intrusion} \cite{patrick2022study}. Dessa forma, torna-se 
 necessário aprimorar continuamente esses sistemas. 
 
-\subsection{Machine Learning aplicado à detecção de intrusão}
 O uso de Machine Learning (ML) tem se consolidado como uma abordagem fundamental 
 para aprimorar os Sistemas de Detecção de Intrusão (IDS), permitindo a 
 análise automatizada de grandes volumes de dados de rede. Diferentemente dos 
@@ -418,8 +383,6 @@ dados e algoritmos de ML é fundamental para o desenvolvimento de IDS mais
 eficientes e confiáveis \cite{zehedi2023comparative} \cite{Thakkar2021Survey}. Portanto, o uso estruturado dessas técnicas 
 potencializa os resultados obtidos na detecção de intrusões. 
 
-\subsection{Algoritmos de classificação}
-\subsubsection{Visão Geral}
 A diversidade de algoritmos utilizados em sistemas de detecção de intrusão é 
 destacada no trabalho de \cite{Liao2013Intrusion}, que realiza uma revisão 
 abrangente das técnicas de IDS, incluindo métodos baseados em Bayes, teoria 
@@ -446,7 +409,6 @@ capacidade do sistema. Os resultados mostram acurácia de 83,24\% no NSL-KDD e
 97,04\% no dataset ADFA. Esses resultados evidenciam que a combinação de 
 algoritmos pode superar limitações individuais de cada abordagem.
 
-\subsubsection{Ênfase em Árvores de Decisão}
 A eficiência e interpretabilidade das árvores de decisão são destacadas no 
 estudo de \cite{zehedi2023comparative}, que propõe esse algoritmo como modelo central 
 para detecção de intrusão. O trabalho explora variações como ID3, C4.5 e CART, 
@@ -485,7 +447,6 @@ reforçam que as árvores de decisão são uma das abordagens mais consistentes 
 versáteis dentro da área de detecção de intrusão, especialmente quando 
 combinadas com técnicas de pré-processamento e seleção de atributos.
 
-\subsection{Redução de Dimensionalidade e Seleção de Atributos}
 A relevância do pré-processamento e da redução de dimensionalidade em sistemas 
 de detecção de intrusão é evidenciada no estudo de \cite{patrick2022study}, que 
 revisa o estado da arte de IDS baseados em inteligência artificial e 
@@ -551,7 +512,7 @@ adequadas de pré-processamento. Esses achados consolidam a ideia de que a
 qualidade dos dados é tão importante quanto a escolha do algoritmo.
 
 A fim de organizar e comparar os principais trabalhos\footnote{Arquivo disponível em: \url{https://1drv.ms/x/c/46f377637be54264/IQB7NxizkmLAS7_X22no62qJAZll5FV9_5Dt7G3kALLXvTY?e=ypAxe1}} relacionados à detecção 
-de intrusões e machine learning, foi elaborada a Tabela I contendo os 
+de intrusões e machine learning, foi elaborada a Tabela I encontrada na seção de Anexos contendo os 
 estudos mais relevantes identificados na literatura. 
 %A tabela apresenta 
 %critérios como tipo de abordagem, técnicas utilizadas e bases de dados 
@@ -559,180 +520,7 @@ estudos mais relevantes identificados na literatura.
 
 %\footnote{\url{https://www.unb.ca/cic/datasets/kdd.html}}.
 %ESTOU TESTANDO O ESTILO E SE A TABELA VAI FICAR LEGAL ASSIM
-\begin{table*}[htbp]
-\centering
-\fontsize{10}{12}\selectfont
-\renewcommand{\arraystretch}{1.2}
 
-\begin{adjustbox}{width=\textwidth}
-\begin{tabular}{p{4cm} c p{3cm} c p{3cm} c c c p{4cm} c p{4cm}}
-\toprule
-Título & Citações & Autor & Ano & Tipo & HIDS/NIDS & Sig. & Técnica & Técnica Utilizada & Desempenho & Base \\
-\midrule
-
-\cite{patrick2022study} & 172 & Vanin et al. & 2022 & Revisão & Ambos & Ambos & Ambos & CNN, DNN, SVM, Ensembles & 99,24\% (Acurácia) & KDD99, NSL-KDD, UNSW-NB15, CICIDS2017 \\
-
-\cite{Thakkar2021Survey} & 459 & Thakkar \& Lohiya & 2022 & Pesquisa/Revisão & NIDS & Ambos & Ambos & ML, DL e SWEVO & 95,5\% (Acurácia) & KDD99, NSL-KDD, CICIDS2017 \\
-
-\cite{Abdulganiyu2023Systematic} & 330 & Abdulganiyu et al. & 2022 & SLR & NIDS & Ambos + Híbrido & Sup. & CNN, ANN, RF, SVM, DT & CNN+AE (~100\%) & KDD99, NSL-KDD, UNSW-NB15 \\
-
-\cite{Depren2005Intelligent} & 803 & Depren et al. & 2005 & Proposta & NIDS & Híbrido & Ambos & SOM (N. Sup.) e J.48 (Sup.) & 99,84\% (Uso Indevido) & KDD Cup 99 \\
-
-\cite{Xianwei2019Adaptive} & 696 & Gao et al. & 2019 & Proposta & NIDS & Anomalia & Supervisionada & Ensemble (DT, RF, KNN, DNN) & 85,2\% (Acurácia) & NSL-KDD \\
-
-\cite{felix2014analysis} & 293 & Iglesias \& Zseby & 2015 & Análise & NIDS & Anomalia & Supervisionada & DTC, kNN, NB, ANN, SVM & 78,68\% (Acurácia) & NSL-KDD \\
-
-\cite{zehedi2023comparative} & 319 & Azam et al. & 2023 & Revisão & NIDS & Híbrido & Supervisionada & DT (C4.5, ID3, CART) & 97,36\% (Acurácia) & NSL-KDD, ADFA, KDD99 \\
-
-\cite{diptiben2022cyber} & 253 & Ghelani et al. & 2022 & Visão Geral & NIDS/Ciberseg. & Geral & Plataforma IA & Geral ML/DL & Qualitativo & Bibliográfica \\
-
-\cite{wasyhun2023cyber} & 466 & Admass et al. & 2024 & Revisão & Geral & Geral & Ambos & ML/DL & Síntese de Estado da Arte & EHR (Tempo Real) \\
-
-\cite{Khraisat2019Hybrid} & 256 & Khraisat et al. & 2020 & Proposta & Ambos & Híbrido & Supervisionada & Stacking (C5.0 + One-Class SVM) & 97,04\% (ADFA) & NSL-KDD, ADFA \\
-
-\cite{Jabez2015Intrusion} & 365 & Jabez \& Muthukumar & 2015 & Proposta & NIDS & Anomalia & Não Sup. & NOF (Outlier Detection) & Tempo de CPU superior & KDD Cup 99 \\
-
-\cite{Othman2018Intrusion} & 305 & Othman et al. & 2018 & Proposta & NIDS & Anomalia & Supervisionada & SVMWithSGD (Spark) & 99,55\% (AUROC) & KDD Cup 99 \\
-
-\cite{Liao2013Intrusion} & 2463 & Liao et al. & 2013 & Revisão & Vários & AD, SD, SPA & Vários & Bayes, Game Theory, Data Mining & Alta Acurácia (em SVM/DM) & KDD Cup 99 \\
-
-\cite{Kazi2019network} & 327 & Taher et al. & 2019 & Estudo de Caso & NIDS & Anomalia & Supervisionada & SVM e ANN & 94,02\% (Acurácia) & NSL-KDD \\
-
-\cite{Saranya2020Performance} & 555 & Saranya et al. & 2020 & Revisão/Prop. & Ambos & Ambos + Híb. & Supervisionada & LDA, CART, RF & 99,81\% (Acurácia) & KDD-CUP \\
-
-\cite{Shah2018Performance} & 332 & Shah \& Issac & 2018 & Estudo Comp. & NIDS (Snort) & Híbrido & Supervisionada & SVM, DT, Fuzzy, Naive Bayes & SVM superior & Snort logs, DARPA, NSL-KDD \\
-
-\cite{Belavagi2016Performance} & 482 & Belavagi \& Muniyal & 2016 & Estudo de Caso & NIDS & Anomalia/Uso Ind. & Supervisionada & LR, SVM, GNB, RF & 99\% (Acurácia) & NSL-KDD \\
-
-\cite{Rathore2016RealTime} & 147 & Rathore et al. & 2017 & Proposta & NIDS & Anomalia & Supervisionada & REPTree, J48, SVM, NB & > 99\% (Taxa Ver. Pos.) & DARPA, KDD99, NSL-KDD \\
-
-\cite{Khraisat2019Survey} & 256 & Khraisat et al. & 2020 & Proposta & Ambos & Híbrido & Supervisionada & Stacking (C5.0 + One-Class SVM) & 97,04\% (ADFA) & NSL-KDD, ADFA \\
-
-\cite{solane2015using} & 175 & Duque \& Omar & 2015 & Proposta & NIDS context & Anomalia & Não Sup. & K-means (Clustering) & 81,61\% (Eficiência) & NSL-KDD \\
-
-\cite{emad2022intrusion} & 175 & Abdallah et al. & 2022 & Pesquisa & NIDS focus & Anomalia/Uso Ind. & Supervisionada & RF, SVM, LR, GNB, J48, DNN & 99,9\% (Acurácia em RF) & KDD99, NSL-KDD, CICIDS2017 \\
-
-\cite{James2023Introduction} & 1879 & James et al. & 2023 & Estudo Didático & Não se aplica & Não se aplica & Ambos & LR, DT, SVM, RF, KNN, PCA, K-means e outros & Não se aplica & Bases didáticas \\
-
-
-\bottomrule
-\end{tabular}
-\end{adjustbox}
-
-\caption{Revisão dos trabalhos sobre IDS}
-\end{table*}
-
-%NOTE: AINDA FALTA AJUSTAR PARA AS COISAS QUE DE FATO ACONTECERAM NO CRONOGRAMA
-\section{Cronograma}
-
-\begin{enumerate}
-	\item \textbf{Janeiro}
-		\begin{enumerate}
-			\item \textbf{Levantamento Inicial da Área de Pesquisa:} Realização de estudos introdutórios sobre a área de Segurança da Informação, com foco em Intrusion Detection Systems (IDS) e aplicação de técnicas de Machine Learning na detecção de ameaças cibernéticas.
-		\end{enumerate}
-	\item \textbf{Fevereiro}
-		\begin{enumerate}
-			\item \textbf{Continuidade do Levantamento Teórico da Área:} Aprofundamento da pesquisa introdutória, visando consolidar o entendimento sobre redes de computadores, segurança cibernética e métodos de detecção de intrusões. 
-			\item \textbf{Definição do Tema de Pesquisa:} Delimitação do escopo do Trabalho de Conclusão de Curso, estabelecendo o foco na utilização de técnicas de aprendizado de máquina aplicadas à detecção de intrusões em redes computacionais.
-			\item \textbf{Entrega do Checklist do TCC:} Organização e submissão da documentação inicial exigida para formalização e acompanhamento do desenvolvimento do Trabalho de Conclusão de Curso.
-		\end{enumerate}
-	\item \textbf{Março}
-		\begin{enumerate}
-			\item \textbf{Pesquisa e Seleção de Referências Bibliográficas:} Levantamento de artigos científicos, trabalhos acadêmicos e materiais técnicos relacionados à detecção de intrusões, pré-processamento de dados e algoritmos de Machine Learning aplicados à cibersegurança.
-			\item \textbf{Levantamento e Seleção das Bases de Dados:} Análise e escolha das bases de dados utilizadas no projeto, incluindo a NSL-KDD para o desenvolvimento inicial, além das bases UNSW-NB15 e CICIDS2017 previstas para utilização em etapas futuras do MVP.
-			\item \textbf{Estudo de Técnicas de Pré-Processamento e Extração de Características:} Pesquisa sobre métodos de tratamento e redução de dimensionalidade dos dados, incluindo técnicas como PCA (Principal Component Analysis), matriz de correlação e extração de features relevantes para otimização dos modelos.
-			\item \textbf{Pesquisa sobre Algoritmos de Machine Learning:} Estudo dos principais algoritmos supervisionados e não supervisionados aplicáveis à detecção de intrusões, analisando características, vantagens e limitações de cada abordagem.
-		\end{enumerate}
-	\item \textbf{Abril}
-		\begin{enumerate}
-			\item \textbf{Levantamento de Dados Analíticos para Fundamentação do Tema:} Coleta e análise de informações estatísticas e estudos recentes que evidenciam o crescimento das ameaças cibernéticas e a relevância da utilização de sistemas inteligentes de detecção de intrusão.
-			\item \textbf{Elaboração das Referências Bibliográficas:} Estruturação e organização das referências utilizadas no trabalho, seguindo as normas acadêmicas exigidas.
-			\item \textbf{Desenvolvimento Inicial Utilizando a Base NSL-KDD:} Realização de estudos práticos envolvendo pré-processamento de dados, aplicação de algoritmos supervisionados e análise de métricas de desempenho, como acurácia, precisão, recall e taxa de detecção.
-		\end{enumerate}
-	\item \textbf{Maio}
-		\begin{enumerate}
-			\item \textbf{Definição do Algoritmo Supervisionado Principal:} Escolha do algoritmo supervisionado mais adequado para o desenvolvimento do MVP1, considerando desempenho, capacidade de generalização e resultados obtidos nos testes preliminares.
-			\item \textbf{Continuidade do Desenvolvimento com a Base NSL-KDD:} Aprimoramento das etapas de pré-processamento, treinamento e avaliação dos modelos supervisionados aplicados à base de dados NSL-KDD.
-			\item \textbf{Sistematização da Revisão Bibliográfica:} Organização e consolidação dos conteúdos teóricos levantados ao longo da pesquisa, estruturando a fundamentação teórica do trabalho.
-			\item \textbf{Sistematização dos Resultados do MVP1:} Documentação e análise dos resultados obtidos durante o desenvolvimento do primeiro MVP, destacando métricas de desempenho, limitações e possibilidades de melhoria.
-			\item \textbf{Elaboração da Apresentação do Trabalho de Conclusão de Curso:} Desenvolvimento do material de apresentação contendo os principais objetivos, metodologia, resultados parciais e contribuições do projeto.
-		\end{enumerate}
-	\item \textbf{Junho}
-		\begin{enumerate}
-			\item \textbf{Apresentação do Trabalho de Conclusão de Curso:} Apresentação formal do projeto desenvolvido, abordando fundamentação teórica, metodologia aplicada, desenvolvimento do MVP, resultados alcançados e considerações finais do trabalho.
-		\end{enumerate}
-\end{enumerate}
-
-\begin{table}[H]
-\centering
-\footnotesize
-\renewcommand{\arraystretch}{0.9}
-\setlength{\tabcolsep}{2pt}
-
-\caption{Cronograma do projeto}
-
-\begin{tabular}{|p{0.7cm}|*{12}{c|}}
-\hline
-
-\multirow{2}{*}{\textbf{Item}} 
-& \multicolumn{12}{c|}{\textbf{2026}} \\ \cline{2-13}
-
-& Jan & Fev & Mar & Abr & Mai & Jun & Jul & Ago & Set & Out & Nov & Dez \\
-\hline
-
-1(a) & X &  &  &  &  &  &  &  &  &  &  &  \\
-\hline
-
-2(a) &  & X &  &  &  &  &  &  &  &  &  &  \\
-\hline
-
-2(b) &  & X &  &  &  &  &  &  &  &  &  &  \\
-\hline
-
-2(c) &  & X &  &  &  &  &  &  &  &  &  &  \\
-\hline
-
-3(a) &  &  & X &  &  &  &  &  &  &  &  &  \\
-\hline
-
-3(b) &  &  & X &  &  &  &  &  &  &  &  &  \\
-\hline
-
-3(c) &  &  & X &  &  &  &  &  &  &  &  &  \\
-\hline
-
-3(d) &  &  & X &  &  &  &  &  &  &  &  &  \\
-\hline
-
-4(a) &  &  &  & X &  &  &  &  &  &  &  &  \\
-\hline
-
-4(b) &  &  &  & X &  &  &  &  &  &  &  &  \\
-\hline
-
-4(c) &  &  &  & X &  &  &  &  &  &  &  &  \\
-\hline
-
-5(a) &  &  &  &  & X &  &  &  &  &  &  &  \\
-\hline
-
-5(b) &  &  &  &  & X &  &  &  &  &  &  &  \\
-\hline
-
-5(c) &  &  &  &  & X &  &  &  &  &  &  &  \\
-\hline
-
-5(d) &  &  &  &  & X &  &  &  &  &  &  &  \\
-\hline
-
-5(e) &  &  &  &  & X &  &  &  &  &  &  &  \\
-\hline
-
-6(a) &  &  &  &  &  & X &  &  &  &  &  &  \\
-\hline
-
-\end{tabular}
-\end{table}
 
 \section{Metodologia}
 
@@ -743,7 +531,7 @@ contemplando desde a seleção das bases de dados até a avaliação dos algorit
 utilizados, conforme ilustrado na Figura 1.
 
 \begin{figure}[H]
-	\includegraphics[width=9cm,height=1.75cm]{./metodologia.jpg}
+	\includegraphics[width=8.2cm,height=1.75cm]{./metodologia.jpg}
 	\caption{Metodologia do projeto}
 	\label{fig:metodologia}
 \end{figure}
@@ -768,7 +556,7 @@ supervisionada.
 
 Os dados foram obtidos por meio da plataforma \textit{Kaggle}\footnote{ Disponível em: \url{https://www.kaggle.com/datasets/hassan06/nslkdd}}, utilizando a biblioteca 
 \textit{KaggleHub}. O desenvolvimento do projeto foi realizado em linguagem \textit{Python}, com 
-execução no ambiente \textit{Jupyter Notebook}\footnote{ Arquivo disponível em: \url{https://colab.research.google.com/drive/1ipTH1Lz002ih8L_m5bJHFtuqD93UC1AQ?usp=sharing}}, permitindo a organização e execução 
+execução no ambiente \textit{Jupyter Notebook}\footnote{Arquivo disponível em: \url{https://colab.research.google.com/drive/1ipTH1Lz002ih8L_m5bJHFtuqD93UC1AQ?usp=sharing}}, permitindo a organização e execução 
 sequencial das etapas do experimento. Além disso, foram utilizadas bibliotecas 
 específicas para manipulação, processamento, visualização e análise dos dados, 
 contribuindo para o desenvolvimento completo da metodologia proposta.
@@ -785,17 +573,20 @@ longo da pesquisa.
 
 \subsection{Processamento dos Dados}
 Após o carregamento da base de dados NSL-KDD, foi realizada uma etapa de 
-pré-processamento com o objetivo de preparar os dados para aplicação dos algoritmos 
-de aprendizado de máquina. Inicialmente, foram definidos manualmente os nomes dos 43 
-atributos da base, permitindo melhor interpretação das variáveis e facilitando a 
-manipulação das informações durante o desenvolvimento do projeto. Em seguida, os 
-dados foram carregados em estruturas do tipo \textit{DataFrame} utilizando a biblioteca 
-\textit{Pandas}, possibilitando operações de análise, filtragem e transformação dos registros. 
-Durante essa etapa, também foi realizada a verificação da estrutura da base, 
-incluindo quantidade de linhas, colunas, tipos de dados e identificação das classes 
-presentes no conjunto de dados. Posteriormente, a coluna denominada \textit{difficulty} foi 
-removida, por ser considerada irrelevante para o processo de classificação e não 
-contribuir significativamente para o desempenho dos modelos.
+pré-processamento com o objetivo de preparar os dados para aplicação dos 
+algoritmos de aprendizado de máquina. Inicialmente, foram definidos manualmente 
+os nomes dos 41 atributos da base, permitindo melhor interpretação das variáveis 
+e facilitando a manipulação das informações durante o desenvolvimento do projeto. 
+Em seguida, os dados foram carregados em estruturas do tipo DataFrame utilizando 
+a biblioteca Pandas, possibilitando operações de análise, filtragem e 
+transformação dos registros. Durante essa etapa, também foi realizada a 
+verificação da estrutura da base, incluindo quantidade de linhas, colunas, 
+tipos de dados e identificação das classes presentes no conjunto de dados. A 
+coluna label foi convertida em binário, classificando como 0 para tráfego normal 
+e 1 para qualquer tipo de ataque (DoS, Probe, R2L, U2R). Posteriormente, a 
+coluna denominada difficulty foi removida, por ser considerada irrelevante para 
+o processo de classificação e não contribuir significativamente para o desempenho 
+dos modelos.
 
 % Aqui é legal colocar alguma referência de texto? Tem textos que usaram a mesma base e tem essas descrições...
 
@@ -828,11 +619,228 @@ reduzir a complexidade do problema e melhorar a interpretação dos resultados
 obtidos pelos algoritmos de aprendizado de máquina.
 
 \subsection{Redução de Dimensionalidade}
+Após a etapa de pré-processamento dos dados, foi realizada uma análise exploratória 
+com o objetivo de compreender a estrutura da base NSL-KDD, identificar padrões 
+nos dados e verificar o comportamento das classes presentes no conjunto 
+utilizado. Inicialmente, foram analisadas as dimensões da base de dados, os 
+tipos de atributos existentes e a distribuição das classes de ataques. Essa 
+etapa permitiu compreender a proporção entre registros classificados como 
+tráfego normal e tráfego malicioso, além de identificar possíveis desbalanceamentos 
+entre as categorias de ataques. Também foram geradas estatísticas descritivas 
+dos atributos numéricos, permitindo observar medidas como média, desvio padrão, 
+valores mínimos e máximos das variáveis presentes na base.
+
+Além da análise estatística, foram construídas representações gráficas para 
+auxiliar na interpretação dos dados. Foram utilizados gráficos de barras para 
+visualização da distribuição das classes, possibilitando identificar quais 
+categorias possuíam maior quantidade de registros. Posteriormente, foi aplicada 
+uma análise de correlação entre os atributos numéricos da base utilizando o 
+coeficiente de correlação de Pearson. Essa análise teve como principal objetivo 
+identificar relações lineares entre as variáveis e detectar atributos altamente 
+correlacionados, que poderiam representar informações redundantes no conjunto 
+de dados. A matriz de correlação foi representada visualmente por meio de um 
+heatmap, gerado com auxílio das bibliotecas Matplotlib e Seaborn, permitindo 
+observar de forma mais intuitiva a intensidade das correlações entre os atributos.
+
+% Aqui vem a fórmula das correlações
+$$
+r = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum (x_i - \bar{x})^2 \sum (y_i - \bar{y})^2}}
+$$
+
+Com o objetivo de reduzir a dimensionalidade da base e minimizar o impacto do 
+elevado número de atributos no desempenho computacional dos modelos, foi 
+aplicada a técnica de Análise de Componentes Principais ($PCA$). Antes da 
+aplicação do PCA, os dados foram padronizados utilizando o método StandardScaler, 
+responsável por transformar os atributos para média igual a zero e desvio padrão 
+igual a um. Essa etapa foi necessária porque o PCA é sensível à escala dos dados, 
+podendo atribuir maior relevância a atributos com amplitudes maiores. Após a 
+padronização, o PCA foi aplicado para transformar os atributos originais em um 
+novo conjunto de componentes principais, preservando a maior parte da variância 
+existente nos dados. 
+
+% Aqui vem a fórmula do PCA
+$$
+X_{PCA} = W^T X
+$$
+
+Durante essa etapa, foi realizada a análise da variância explicada acumulada dos 
+componentes principais, permitindo identificar a quantidade ideal de componentes 
+necessários para representar adequadamente o conjunto de dados sem perda 
+significativa de informação. Além disso, foram geradas visualizações 
+bidimensionais utilizando os dois principais componentes obtidos pelo PCA, 
+possibilitando observar o comportamento e a separação das classes presentes na 
+base NSL-KDD em um espaço reduzido de dimensionalidade.
+
+Por fim, também foi realizada uma etapa de seleção de atributos utilizando o 
+algoritmo Decision Tree. O modelo foi empregado para calcular o grau de importância 
+de cada variável durante o processo de classificação, permitindo identificar os 
+atributos mais relevantes para o problema de detecção de intrusões. Com base nesses 
+resultados, foi possível analisar quais características da base possuíam maior 
+influência no desempenho dos modelos de aprendizado de máquina. Essa etapa 
+contribuiu para redução de redundâncias, simplificação do conjunto de dados e 
+melhoria do desempenho computacional dos algoritmos utilizados posteriormente 
+no treinamento e avaliação dos modelos.
+
 \subsection{Treinamento dos Algoritmos}
+Nessa seção, foi realizada a etapa de treinamento dos algoritmos de aprendizado 
+de máquina supervisionado. Essa fase teve como principal objetivo construir 
+modelos capazes de identificar padrões presentes nos registros da base NSL-KDD 
+e realizar a classificação do tráfego de rede entre conexões normais e 
+diferentes categorias de ataques cibernéticos.
+
+Inicialmente, os dados foram organizados em variáveis preditoras (features) e 
+variável alvo (target). Os atributos da base foram utilizados como entrada dos 
+algoritmos, enquanto as categorias correspondentes aos tipos de tráfego e 
+ataques foram utilizadas como saída esperada dos modelos. Após essa definição, 
+os dados passaram pela etapa de separação entre conjuntos de treinamento e teste 
+utilizando a função train\_test\_split da biblioteca Scikit-learn, sendo o arquivo 
+KDDTrain+.txt para treino e o KDDTest+.txt para teste, divididos na proporção 
+clássica de 70\% e 30\%.  Essa divisão permitiu utilizar parte dos registros 
+para treinamento dos algoritmos e outra parte para validação do desempenho dos 
+modelos em dados não utilizados durante o aprendizado. Essa abordagem foi 
+fundamental para avaliar a capacidade de generalização dos algoritmos e reduzir 
+problemas relacionados ao sobreajuste (overfitting).
+
+Durante os experimentos, foram realizados treinamentos utilizando tanto o 
+conjunto completo de atributos quanto versões reduzidas dos dados obtidas por 
+meio da aplicação do PCA e da seleção de atributos baseada em importância das 
+variáveis. Essa estratégia permitiu comparar o impacto da redução de 
+dimensionalidade no desempenho dos modelos, bem como analisar possíveis 
+melhorias relacionadas ao custo computacional e à eficiência das classificações. 
+Os algoritmos avaliados no treinamento foram: 
+
+\begin{table}[H]
+\centering
+\footnotesize
+\renewcommand{\arraystretch}{0.9}
+\setlength{\tabcolsep}{2pt}
+
+\begin{tabularx}{\linewidth}{
+>{\hsize=0.2\hsize}X
+>{\hsize=0.25\hsize}X
+>{\hsize=0.3\hsize}X
+>{\hsize=0.25\hsize}X
+}
+\toprule
+\textbf{Algoritmo} & 
+\textbf{Tipo} \cite{IBM2026Supervised} & 
+\textbf{Definição} \cite{IBM2026Supervised} & 
+\textbf{Motivação} \\
+\midrule
+
+Decision Tree & 
+Aprendizado Supervisionado (Classificação) & 
+Cria regras lógicas (fluxograma) para dividir os dados e decidir. & 
+Alta interpretabilidade, baixo custo computacional, bom para regras binárias. \\
+\\
+
+Random Forest & 
+Aprendizado Supervisionado (Ensemble/Bagging) & 
+Combina múltiplas árvores de decisão para previsões mais precisas. & 
+Robustez e alta acurácia, porém maior custo. \\
+\\
+
+KNN (k=5) & 
+Aprendizado Supervisionado (Proximidade) & 
+Classifica baseando-se nos vizinhos mais próximos. & 
+Simples, útil como baseline não paramétrico. \\
+\\
+
+Logistic Regression & 
+Aprendizado Supervisionado (Classificação Binária) & 
+Calcula a probabilidade de eventos (0\% a 100\%). & 
+Baseline clássico, rápido e interpretável. \\
+\\
+
+SVM (kernel linear) & 
+Aprendizado Supervisionado (Classificação) & 
+Define o hiperplano que melhor separa grupos de dados. & 
+Eficaz em alta dimensionalidade, porém mais lento. \\
+
+\bottomrule
+\end{tabularx}
+
+\caption{Comparação de Algoritmos de Aprendizado de Máquina}
+\end{table}
+
+Durante o treinamento, os algoritmos aprenderam padrões existentes nos registros 
+da base NSL-KDD, relacionando características do tráfego de rede às categorias 
+de ataques previamente definidas. Os modelos foram ajustados utilizando os dados 
+previamente padronizados e transformados, garantindo maior estabilidade durante 
+o processo de aprendizado. Além disso, foram realizados testes comparativos 
+entre os modelos treinados com os atributos originais e os modelos treinados 
+após aplicação das técnicas de redução e seleção de atributos, permitindo analisar 
+os impactos dessas abordagens no desempenho final dos classificadores.
+
+Para aumentar a confiabilidade dos resultados obtidos, também foi aplicada a 
+técnica de validação cruzada (cross-validation) utilizando a função cross\_val\_score 
+da biblioteca Scikit-learn. Essa técnica consiste em dividir os dados em 
+múltiplas partições, permitindo que o algoritmo seja treinado e avaliado 
+diversas vezes em subconjuntos diferentes da base de dados. Dessa forma, foi 
+possível obter uma avaliação mais consistente e menos dependente de uma única 
+divisão aleatória entre treino e teste.
+
+Além das métricas de classificação, também foram analisados aspectos relacionados 
+ao desempenho computacional dos modelos, como tempo de treinamento e eficiência 
+do processamento após aplicação das técnicas de redução de dimensionalidade. 
+Essa análise permitiu verificar não apenas a capacidade dos algoritmos em 
+detectar ataques, mas também sua viabilidade computacional para utilização em 
+sistemas de detecção de intrusão, nos quais rapidez e eficiência são fatores 
+relevantes para o monitoramento do tráfego de rede.
+
 \subsection{Avaliação de Desempenho}
+Após a etapa de treinamento dos algoritmos de aprendizado de máquina, foi 
+realizada a avaliação dos modelos com o objetivo de medir a eficiência dos 
+classificadores na detecção de intrusões presentes na base NSL-KDD. Durante os 
+testes, foram comparados os resultados obtidos pelos modelos treinados com os 
+atributos originais da base de dados, pelos modelos treinados após aplicação da 
+técnica de redução de dimensionalidade PCA e pelos modelos treinados utilizando 
+atributos selecionados com base na importância das variáveis calculadas pelo 
+algoritmo Decision Tree. Essa comparação permitiu analisar o impacto das técnicas 
+de redução e seleção de atributos tanto no desempenho dos classificadores 
+quanto na eficiência computacional do processamento. 
 
-%---------------------------------------------------------------------------------
+Para análise dos resultados, foram utilizadas métricas amplamente empregadas em 
+problemas de classificação supervisionada e sistemas de detecção de intrusão, 
+incluindo Accuracy, Precision, Recall e F1-Score. Essas métricas foram calculadas 
+com auxílio das funções disponibilizadas pela biblioteca Scikit-learn, 
+permitindo avaliar diferentes aspectos do desempenho dos algoritmos. 
 
+A métrica Accuracy foi utilizada para medir a proporção total de classificações 
+corretas realizadas pelos modelos em relação ao total de registros analisados. 
+
+A métrica Precision foi empregada para avaliar a proporção de classificações 
+positivas corretas em relação ao total de classificações positivas realizadas 
+pelo modelo, sendo importante para análise da ocorrência de falsos positivos. 
+
+O Recall foi utilizado para medir a capacidade dos algoritmos em identificar 
+corretamente os registros pertencentes às categorias de ataques, reduzindo a 
+ocorrência de falsos negativos.  
+
+Já o F1-Score foi empregado para representar o equilíbrio entre precisão e 
+recall, sendo especialmente relevante em problemas que apresentam desbalanceamento 
+entre classes.
+
+Durante a avaliação, também foram observados aspectos relacionados ao desempenho 
+computacional dos modelos, incluindo tempo de treinamento, tempo de execução e 
+impacto causado pela redução de dimensionalidade no processamento dos dados. 
+Essa análise permitiu verificar se a aplicação das técnicas de PCA e seleção de 
+atributos contribuiu para redução do custo computacional sem comprometer 
+significativamente o desempenho dos classificadores. 
+
+Com base nos resultados obtidos, foi realizada uma comparação entre os algoritmos 
+utilizados considerando métricas de desempenho, capacidade de generalização e 
+eficiência computacional. O algoritmo Decision Tree apresentou boa interpretabilidade 
+e capacidade de classificação, além de possibilitar a identificação dos 
+atributos mais relevantes para o problema. Entretanto, o Random Forest demonstrou maior 
+robustez e estabilidade nas previsões, devido à combinação de múltiplas 
+árvores de decisão. A seleção do modelo final considerou o equilíbrio entre as 
+métricas de Accuracy, Precision, Recall e F1-Score, além do impacto das técnicas de 
+redução de dimensionalidade no desempenho e no custo computacional dos algoritmos, 
+permitindo identificar a abordagem mais eficiente para classificação do tráfego 
+de rede e detecção de intrusões utilizando a base NSL-KDD. 
+
+\section{Resultados Preliminares}
 O algorítimo ultilizado para as análises foi o $Decision Tree$, este conta com o menor tempo de teste e melhor acurácia, estes valores são a maior métrica ultilizada pois o objetivo do sistema é ser execudato em tempo real para garantir uma resposta rápida a incidentes. \\
 % \subsection{}
 Ultilizando os testes do capítulo anterior, foi desenvolvida uma análise com os variados algorítimos mais ultilizados ($Random Forest$, $Decision Tree$, $KNN$, $SVM$, $Logistic Regression$).
@@ -926,7 +934,7 @@ Sendo elas:
 \end{enumerate}
 
 
-\section{Resultados Preliminares}
+
 \subsection{Análise de Dados e Pré-processamento}
 Para a análise de dados foi considerado a base de dados NSL-KDD com os seguintes ataques listados na tabela \ref{tab:dados_base_NSL_KDD}. alguns dos valores citados não são ataques reais, porém no contexto desta análise componentes como: $loadmodule$, $perl$ e $nmap$ foram categorizados como ataques.
 \linebreak
@@ -1027,10 +1035,166 @@ Buscando uma margem de variância a cima de 95\% foi calculado o $PCA$ para vari
 
 
 \section{Considerações Finais e Perspectivas Futuras}
-Nesta primeira etapa foi definido o algorítimo de machine learning ultilizado e feitas as analises dos componentes para definição dos componentes mais importantes
+Vai vir uma primeira parte aqui
+
+\subsection{Cronograma}
+
+\begin{enumerate}
+	\item \textbf{Levantamento Inicial da Área de Pesquisa:} Realização de estudos introdutórios sobre a área de Segurança da Informação, com foco em Intrusion Detection Systems (IDS) e aplicação de técnicas de Machine Learning na detecção de ameaças cibernéticas.
+	\item \textbf{Continuidade do Levantamento Teórico da Área:} Aprofundamento da pesquisa introdutória, visando consolidar o entendimento sobre redes de computadores, segurança cibernética e métodos de detecção de intrusões. 
+	\item \textbf{Definição do Tema de Pesquisa:} Delimitação do escopo do Trabalho de Conclusão de Curso, estabelecendo o foco na utilização de técnicas de aprendizado de máquina aplicadas à detecção de intrusões em redes computacionais.
+	\item \textbf{Entrega do Checklist do TCC:} Organização e submissão da documentação inicial exigida para formalização e acompanhamento do desenvolvimento do Trabalho de Conclusão de Curso.
+	\item \textbf{Pesquisa e Seleção de Referências Bibliográficas:} Levantamento de artigos científicos, trabalhos acadêmicos e materiais técnicos relacionados à detecção de intrusões, pré-processamento de dados e algoritmos de Machine Learning aplicados à cibersegurança.
+	\item \textbf{Levantamento e Seleção das Bases de Dados:} Análise e escolha das bases de dados utilizadas no projeto, incluindo a NSL-KDD para o desenvolvimento inicial, além das bases UNSW-NB15 e CICIDS2017 previstas para utilização em etapas futuras do MVP.
+	\item \textbf{Estudo de Técnicas de Pré-Processamento e Extração de Características:} Pesquisa sobre métodos de tratamento e redução de dimensionalidade dos dados, incluindo técnicas como PCA (Principal Component Analysis), matriz de correlação e extração de features relevantes para otimização dos modelos.
+	\item \textbf{Pesquisa sobre Algoritmos de Machine Learning:} Estudo dos principais algoritmos supervisionados e não supervisionados aplicáveis à detecção de intrusões, analisando características, vantagens e limitações de cada abordagem.
+	\item \textbf{Levantamento de Dados Analíticos para Fundamentação do Tema:} Coleta e análise de informações estatísticas e estudos recentes que evidenciam o crescimento das ameaças cibernéticas e a relevância da utilização de sistemas inteligentes de detecção de intrusão.
+	\item \textbf{Elaboração das Referências Bibliográficas:} Estruturação e organização das referências utilizadas no trabalho, seguindo as normas acadêmicas exigidas.
+	\item \textbf{Desenvolvimento Inicial Utilizando a Base NSL-KDD:} Realização de estudos práticos envolvendo pré-processamento de dados, aplicação de algoritmos supervisionados e análise de métricas de desempenho, como acurácia, precisão, recall e taxa de detecção.
+	\item \textbf{Definição do Algoritmo Supervisionado Principal:} Escolha do algoritmo supervisionado mais adequado para o desenvolvimento do MVP1, considerando desempenho, capacidade de generalização e resultados obtidos nos testes preliminares.
+	\item \textbf{Continuidade do Desenvolvimento com a Base NSL-KDD:} Aprimoramento das etapas de pré-processamento, treinamento e avaliação dos modelos supervisionados aplicados à base de dados NSL-KDD.
+	\item \textbf{Sistematização da Revisão Bibliográfica:} Organização e consolidação dos conteúdos teóricos levantados ao longo da pesquisa, estruturando a fundamentação teórica do trabalho.
+	\item \textbf{Sistematização dos Resultados do MVP1:} Documentação e análise dos resultados obtidos durante o desenvolvimento do primeiro MVP, destacando métricas de desempenho, limitações e possibilidades de melhoria.
+	\item \textbf{Elaboração da Apresentação do Trabalho de Conclusão de Curso:} Desenvolvimento do material de apresentação contendo os principais objetivos, metodologia, resultados parciais e contribuições do projeto.
+	\item \textbf{Apresentação do Trabalho de Conclusão de Curso:} Apresentação formal do projeto desenvolvido, abordando fundamentação teórica, metodologia aplicada, desenvolvimento do MVP, resultados alcançados e considerações finais do trabalho.
+\end{enumerate}
+
+\begin{table}[H]
+\centering
+\footnotesize
+\renewcommand{\arraystretch}{0.9}
+\setlength{\tabcolsep}{2pt}
+
+\begin{tabular}{|p{0.7cm}|*{12}{c|}}
+\hline
+
+\multirow{2}{*}{\textbf{Item}} 
+& \multicolumn{12}{c|}{\textbf{2026}} \\ \cline{2-13}
+
+& Jan & Fev & Mar & Abr & Mai & Jun & Jul & Ago & Set & Out & Nov & Dez \\
+\hline
+
+1 & X &  &  &  &  &  &  &  &  &  &  &  \\
+\hline
+
+2 &  & X &  &  &  &  &  &  &  &  &  &  \\
+\hline
+
+3 &  & X &  &  &  &  &  &  &  &  &  &  \\
+\hline
+
+4 &  & X &  &  &  &  &  &  &  &  &  &  \\
+\hline
+
+5 &  &  & X &  &  &  &  &  &  &  &  &  \\
+\hline
+
+6 &  &  & X &  &  &  &  &  &  &  &  &  \\
+\hline
+
+7 &  &  & X &  &  &  &  &  &  &  &  &  \\
+\hline
+
+8 &  &  & X &  &  &  &  &  &  &  &  &  \\
+\hline
+
+9 &  &  &  & X &  &  &  &  &  &  &  &  \\
+\hline
+
+10 &  &  &  & X &  &  &  &  &  &  &  &  \\
+\hline
+
+11 &  &  &  & X &  &  &  &  &  &  &  &  \\
+\hline
+
+12 &  &  &  &  & X &  &  &  &  &  &  &  \\
+\hline
+
+13 &  &  &  &  & X &  &  &  &  &  &  &  \\
+\hline
+
+14 &  &  &  &  & X &  &  &  &  &  &  &  \\
+\hline
+
+15 &  &  &  &  & X &  &  &  &  &  &  &  \\
+\hline
+
+16 &  &  &  &  & X &  &  &  &  &  &  &  \\
+\hline
+
+17 &  &  &  &  &  & X &  &  &  &  &  &  \\
+\hline
+
+\end{tabular}
+\caption{Cronograma do projeto}
+\end{table}
 
 \section{Referências}
 \printbibliography[heading=none]
+
+\section{Anexos}
+\begin{table*}[htbp]
+\centering
+\fontsize{10}{12}\selectfont
+\renewcommand{\arraystretch}{1.2}
+
+\begin{adjustbox}{width=\textwidth}
+\begin{tabular}{p{4cm} c p{3cm} c p{3cm} c c c p{4cm} c p{4cm}}
+\toprule
+Título & Citações & Autor & Ano & Tipo & HIDS/NIDS & Sig. & Técnica & Técnica Utilizada & Desempenho & Base \\
+\midrule
+
+\cite{patrick2022study} & 172 & Vanin et al. & 2022 & Revisão & Ambos & Ambos & Ambos & CNN, DNN, SVM, Ensembles & 99,24\% (Acurácia) & KDD99, NSL-KDD, UNSW-NB15, CICIDS2017 \\
+
+\cite{Thakkar2021Survey} & 459 & Thakkar \& Lohiya & 2022 & Pesquisa/Revisão & NIDS & Ambos & Ambos & ML, DL e SWEVO & 95,5\% (Acurácia) & KDD99, NSL-KDD, CICIDS2017 \\
+
+\cite{Abdulganiyu2023Systematic} & 330 & Abdulganiyu et al. & 2022 & SLR & NIDS & Ambos + Híbrido & Sup. & CNN, ANN, RF, SVM, DT & CNN+AE (~100\%) & KDD99, NSL-KDD, UNSW-NB15 \\
+
+\cite{Depren2005Intelligent} & 803 & Depren et al. & 2005 & Proposta & NIDS & Híbrido & Ambos & SOM (N. Sup.) e J.48 (Sup.) & 99,84\% (Uso Indevido) & KDD Cup 99 \\
+
+\cite{Xianwei2019Adaptive} & 696 & Gao et al. & 2019 & Proposta & NIDS & Anomalia & Supervisionada & Ensemble (DT, RF, KNN, DNN) & 85,2\% (Acurácia) & NSL-KDD \\
+
+\cite{felix2014analysis} & 293 & Iglesias \& Zseby & 2015 & Análise & NIDS & Anomalia & Supervisionada & DTC, kNN, NB, ANN, SVM & 78,68\% (Acurácia) & NSL-KDD \\
+
+\cite{zehedi2023comparative} & 319 & Azam et al. & 2023 & Revisão & NIDS & Híbrido & Supervisionada & DT (C4.5, ID3, CART) & 97,36\% (Acurácia) & NSL-KDD, ADFA, KDD99 \\
+
+\cite{diptiben2022cyber} & 253 & Ghelani et al. & 2022 & Visão Geral & NIDS/Ciberseg. & Geral & Plataforma IA & Geral ML/DL & Qualitativo & Bibliográfica \\
+
+\cite{wasyhun2023cyber} & 466 & Admass et al. & 2024 & Revisão & Geral & Geral & Ambos & ML/DL & Síntese de Estado da Arte & EHR (Tempo Real) \\
+
+\cite{Khraisat2019Hybrid} & 256 & Khraisat et al. & 2020 & Proposta & Ambos & Híbrido & Supervisionada & Stacking (C5.0 + One-Class SVM) & 97,04\% (ADFA) & NSL-KDD, ADFA \\
+
+\cite{Jabez2015Intrusion} & 365 & Jabez \& Muthukumar & 2015 & Proposta & NIDS & Anomalia & Não Sup. & NOF (Outlier Detection) & Tempo de CPU superior & KDD Cup 99 \\
+
+\cite{Othman2018Intrusion} & 305 & Othman et al. & 2018 & Proposta & NIDS & Anomalia & Supervisionada & SVMWithSGD (Spark) & 99,55\% (AUROC) & KDD Cup 99 \\
+
+\cite{Liao2013Intrusion} & 2463 & Liao et al. & 2013 & Revisão & Vários & AD, SD, SPA & Vários & Bayes, Game Theory, Data Mining & Alta Acurácia (em SVM/DM) & KDD Cup 99 \\
+
+\cite{Kazi2019network} & 327 & Taher et al. & 2019 & Estudo de Caso & NIDS & Anomalia & Supervisionada & SVM e ANN & 94,02\% (Acurácia) & NSL-KDD \\
+
+\cite{Saranya2020Performance} & 555 & Saranya et al. & 2020 & Revisão/Prop. & Ambos & Ambos + Híb. & Supervisionada & LDA, CART, RF & 99,81\% (Acurácia) & KDD-CUP \\
+
+\cite{Shah2018Performance} & 332 & Shah \& Issac & 2018 & Estudo Comp. & NIDS (Snort) & Híbrido & Supervisionada & SVM, DT, Fuzzy, Naive Bayes & SVM superior & Snort logs, DARPA, NSL-KDD \\
+
+\cite{Belavagi2016Performance} & 482 & Belavagi \& Muniyal & 2016 & Estudo de Caso & NIDS & Anomalia/Uso Ind. & Supervisionada & LR, SVM, GNB, RF & 99\% (Acurácia) & NSL-KDD \\
+
+\cite{Rathore2016RealTime} & 147 & Rathore et al. & 2017 & Proposta & NIDS & Anomalia & Supervisionada & REPTree, J48, SVM, NB & > 99\% (Taxa Ver. Pos.) & DARPA, KDD99, NSL-KDD \\
+
+\cite{Khraisat2019Survey} & 256 & Khraisat et al. & 2020 & Proposta & Ambos & Híbrido & Supervisionada & Stacking (C5.0 + One-Class SVM) & 97,04\% (ADFA) & NSL-KDD, ADFA \\
+
+\cite{solane2015using} & 175 & Duque \& Omar & 2015 & Proposta & NIDS context & Anomalia & Não Sup. & K-means (Clustering) & 81,61\% (Eficiência) & NSL-KDD \\
+
+\cite{emad2022intrusion} & 175 & Abdallah et al. & 2022 & Pesquisa & NIDS focus & Anomalia/Uso Ind. & Supervisionada & RF, SVM, LR, GNB, J48, DNN & 99,9\% (Acurácia em RF) & KDD99, NSL-KDD, CICIDS2017 \\
+
+\cite{James2023Introduction} & 1879 & James et al. & 2023 & Estudo Didático & Não se aplica & Não se aplica & Ambos & LR, DT, SVM, RF, KNN, PCA, K-means e outros & Não se aplica & Bases didáticas \\
+
+
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+
+\caption{Revisão dos trabalhos sobre IDS}
+\end{table*}
 
 \section{Agradecimentos}
 Agradecemos, primeiramente, às nossas famílias, pelo apoio incondicional,

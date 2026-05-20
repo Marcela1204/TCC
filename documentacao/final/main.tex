@@ -186,9 +186,14 @@ dos algoritmos, ajuste de hiperparâmetros à novos modelo, e evolução da sist
 \keyword{Sistemas de Detecção de Intrusões, Machine Learning, Segurança da Informação, Análise de Dados, Redução de Dimensionalidade e Cybersegurança.}
 
 \end{@twocolumnfalse}
-]
 
-\section{Lista de Abreviaturas e Siglas}
+]
+\twocolumn[
+\begin{@twocolumnfalse}
+\include{simbologia}
+\end{@twocolumnfalse}
+]
+% \section{Lista de Abreviaturas e Siglas}
 
 \section{Introdução}
 
@@ -273,10 +278,10 @@ cada vez mais hostil.
 
 As ameaças em redes de computadores apresentam diversidade e complexidade, 
 sendo classificadas em diferentes categorias conforme seu objetivo e forma de 
-atuação. Entre as principais estão os ataques de negação de serviço (DoS), 
+atuação. Entre as principais estão os ataques de negação de serviço ($DoS$), 
 que visam indisponibilizar recursos, ataques de sondagem (probing), que 
 coletam informações da rede, além de técnicas de escalonamento de privilégios 
-(U2R) e acesso remoto indevido (R2L) \cite{wasyhun2023cyber}. Além dessas categorias, destacam-se 
+($U2R$) e acesso remoto indevido ($R2L$) \cite{wasyhun2023cyber}. Além dessas categorias, destacam-se
 ameaças modernas como malware, botnets e ataques de engenharia social, que 
 exploram vulnerabilidades técnicas e humanas \cite{Thakkar2021Survey} \cite{solane2015using}. Essa variedade evidencia que os 
 sistemas precisam lidar não apenas com ataques diretos, mas também com 
@@ -296,7 +301,7 @@ anos reforça a necessidade de abordagens mais avançadas de detecção. Dessa
 forma, a evolução das ameaças exige a adoção de soluções mais inteligentes e 
 adaptativas. 
 
-Nesse contexto, os Sistemas de Detecção de Intrusão (IDS) desempenham um papel 
+Nesse contexto, os Sistemas de Detecção de Intrusão ($IDS$) desempenham um papel 
 central na proteção de redes, sendo responsáveis por monitorar atividades e 
 identificar comportamentos suspeitos. Esses sistemas permitem a detecção 
 precoce de ataques, possibilitando ações de mitigação antes que danos maiores 
@@ -305,47 +310,47 @@ de falsos positivos e dificuldade na identificação de ataques desconhecidos \c
 Tais limitações evidenciam a necessidade de evolução desses mecanismos, 
 especialmente com o uso de técnicas mais avançadas, como aprendizado de 
 máquina, capazes de analisar padrões complexos e melhorar a eficiência da 
-detecção \cite{patrick2022study}. Assim, o aprimoramento dos IDS é fundamental para enfrentar os 
+detecção \cite{patrick2022study}. Assim, o aprimoramento dos $IDS$ é fundamental para enfrentar os 
 desafios contemporâneos da segurança em redes. 
 
-Os IDS podem ser classificados de acordo com sua forma de implantação e método 
+Os $IDS$ podem ser classificados de acordo com sua forma de implantação e método 
 de detecção, o que influencia diretamente sua eficiência. Quanto à 
-implantação, destacam-se os sistemas baseados em host (HIDS), que monitoram 
-atividades locais, e os baseados em rede (NIDS), que analisam o tráfego em 
+implantação, destacam-se os sistemas baseados em host ($HIDS$), que monitoram 
+atividades locais, e os baseados em rede ($NIDS$), que analisam o tráfego em 
 pontos estratégicos da infraestrutura. Já em relação ao método de detecção, 
-os IDS podem operar por meio de assinaturas, identificando padrões conhecidos 
+os $IDS$ podem operar por meio de assinaturas, identificando padrões conhecidos 
 de ataques, ou por anomalias, detectando desvios em relação ao comportamento 
 considerado normal. Além disso, abordagens híbridas combinam essas técnicas 
 para superar limitações individuais \cite{Khraisat2019Survey} \cite{zehedi2023comparative} \cite{Thakkar2021Survey} \cite{Khraisat2019Hybrid}. Essa diversidade de classificações 
 demonstra a necessidade de adaptar os mecanismos de detecção conforme o 
-contexto e os tipos de ameaças enfrentadas. Portanto, a escolha do tipo de IDS 
+contexto e os tipos de ameaças enfrentadas. Portanto, a escolha do tipo de $IDS$ 
 deve considerar os requisitos específicos do ambiente. 
 
-Apesar de sua relevância, os IDS ainda apresentam limitações significativas 
+Apesar de sua relevância, os $IDS$ ainda apresentam limitações significativas 
 que comprometem sua eficácia. Sistemas baseados em assinatura, por exemplo, 
-são incapazes de identificar ataques desconhecidos, como os de zero-day, 
+são incapazes de identificar ataques desconhecidos, como os de $Zero-Day$, 
 enquanto sistemas baseados em anomalias podem gerar altas taxas de falsos 
 positivos ao interpretar comportamentos legítimos como ameaças \cite{Kazi2019network}. Além disso, 
-muitos IDS enfrentam desafios relacionados ao alto custo computacional, 
+muitos $IDS$ enfrentam desafios relacionados ao alto custo computacional, 
 datasets mais modernos e à dificuldade de operar em tempo real em ambientes 
 com grande volume de tráfego. Essas limitações evidenciam que, embora 
-essenciais, os IDS tradicionais ainda não são totalmente suficientes para 
+essenciais, os $IDS$ tradicionais ainda não são totalmente suficientes para 
 lidar com a complexidade das ameaças modernas \cite{emad2022intrusion} \cite{patrick2022study}. Dessa forma, torna-se 
 necessário aprimorar continuamente esses sistemas. 
 
-O uso de Machine Learning (ML) tem se consolidado como uma abordagem fundamental 
-para aprimorar os Sistemas de Detecção de Intrusão (IDS), permitindo a 
+O uso de Machine Learning ($ML$) tem se consolidado como uma abordagem fundamental 
+para aprimorar os Sistemas de Detecção de Intrusão ($IDS$), permitindo a 
 análise automatizada de grandes volumes de dados de rede. Diferentemente dos 
-métodos tradicionais, o ML possibilita a identificação de padrões complexos e 
+métodos tradicionais, o $ML$ possibilita a identificação de padrões complexos e 
 a detecção de atividades maliciosas sem a necessidade de intervenção humana 
 constante. Isso ocorre porque os modelos são capazes de aprender a partir de 
 dados históricos, tornando os sistemas mais adaptativos e eficientes na 
-identificação de ameaças \cite{zehedi2023comparative} \cite{Thakkar2021Survey}. Dessa forma, o ML amplia significativamente a 
-capacidade dos IDS em lidar com ambientes dinâmicos e com grande volume de 
+identificação de ameaças \cite{zehedi2023comparative} \cite{Thakkar2021Survey}. Dessa forma, o $ML$ amplia significativamente a 
+capacidade dos $IDS$ em lidar com ambientes dinâmicos e com grande volume de 
 tráfego. Assim, sua aplicação representa um avanço importante na evolução das 
 soluções de segurança de redes. 
 
-As técnicas de Machine Learning aplicadas aos IDS podem ser classificadas em 
+As técnicas de Machine Learning aplicadas aos $IDS$ podem ser classificadas em 
 diferentes abordagens, sendo as mais comuns o aprendizado supervisionado, não 
 supervisionado e por reforço. No aprendizado supervisionado, os modelos são 
 treinados com dados previamente rotulados, permitindo a classificação do tráfego 
@@ -353,89 +358,89 @@ como normal ou malicioso, enquanto o aprendizado não supervisionado busca
 identificar padrões ocultos sem a necessidade de rótulos. Além disso, o 
 processo de construção desses modelos envolve a divisão dos dados em conjuntos 
 de treinamento e teste, garantindo a avaliação do desempenho do sistema \cite{zehedi2023comparative} \cite{emad2022intrusion}. Essa 
-diversidade de abordagens permite que os IDS sejam adaptados a diferentes 
+diversidade de abordagens permite que os $IDS$ sejam adaptados a diferentes 
 cenários e tipos de ataque, aumentando sua flexibilidade e eficiência. 
 Portanto, a escolha da técnica de aprendizado influencia diretamente a 
 eficácia da detecção de intrusões. 
 
-Entre os principais benefícios do uso de ML em IDS está a capacidade de 
-detectar ataques desconhecidos, como os zero-day, além de lidar com relações 
+Entre os principais benefícios do uso de $ML$ em $IDS$ está a capacidade de 
+detectar ataques desconhecidos, como os $Zero-Day$, além de lidar com relações 
 complexas e não lineares presentes nos dados de rede. No entanto, essa 
 abordagem também apresenta desafios relevantes, como o alto custo 
 computacional e o tempo elevado de treinamento. Outro problema recorrente é o 
 desbalanceamento dos dados, que dificulta a detecção de ataques menos 
 frequentes, impactando negativamente o desempenho dos modelos. Essas 
-limitações evidenciam que, embora o ML traga avanços significativos, sua 
+limitações evidenciam que, embora o $ML$ traga avanços significativos, sua 
 aplicação ainda exige cuidados na preparação e tratamento dos dados \cite{zehedi2023comparative}. Dessa 
-forma, o sucesso do uso de ML em IDS depende não apenas dos algoritmos, mas 
+forma, o sucesso do uso de $ML$ em $IDS$ depende não apenas dos algoritmos, mas 
 também da qualidade dos dados utilizados. 
 
 Além disso, etapas como pré-processamento, seleção de atributos e redução de 
 dimensionalidade são essenciais para garantir o desempenho dos modelos de 
-Machine Learning em IDS. A limpeza dos dados, normalização e codificação de 
+Machine Learning em $IDS$. A limpeza dos dados, normalização e codificação de 
 variáveis contribuem para a construção de modelos mais robustos, enquanto 
-técnicas como seleção de atributos e métodos como PCA ajudam a reduzir a 
+técnicas como seleção de atributos e métodos como $PCA$ ajudam a reduzir a 
 complexidade dos dados e melhorar a acurácia. Para avaliar a eficácia dos 
 modelos, são utilizadas métricas como acurácia, precisão, recall e F1-score, 
 que permitem analisar o equilíbrio entre a detecção de ataques e a geração de 
 falsos positivos. Assim, a integração entre boas práticas de tratamento de 
-dados e algoritmos de ML é fundamental para o desenvolvimento de IDS mais 
+dados e algoritmos de $ML$ é fundamental para o desenvolvimento de $IDS$ mais 
 eficientes e confiáveis \cite{zehedi2023comparative} \cite{Thakkar2021Survey}. Portanto, o uso estruturado dessas técnicas 
 potencializa os resultados obtidos na detecção de intrusões. 
 
 A diversidade de algoritmos utilizados em sistemas de detecção de intrusão é 
 destacada no trabalho de \cite{Liao2013Intrusion}, que realiza uma revisão 
-abrangente das técnicas de IDS, incluindo métodos baseados em Bayes, teoria 
+abrangente das técnicas de $IDS$, incluindo métodos baseados em Bayes, teoria 
 dos jogos e mineração de dados. O estudo evidencia que algoritmos de 
-mineração, como árvores de decisão, e métodos como SVM apresentam altas taxas 
+mineração, como árvores de decisão, e métodos como $SVM$ apresentam altas taxas 
 de acurácia na detecção de ataques. Esses resultados indicam que não existe 
 uma abordagem única dominante, mas sim um conjunto de técnicas complementares 
 que podem ser utilizadas conforme o contexto da aplicação.	
 
 A aplicação de algoritmos supervisionados em ambientes modernos é analisada 
 por \cite{Saranya2020Performance}, que investigam o desempenho de diferentes 
-modelos em cenários como IoT e 5G. O estudo compara algoritmos como CART e 
-Random Forest, destacando que o uso de múltiplas árvores (ensemble) resulta em 
-melhor desempenho. Os resultados mostram que o Random Forest atingiu 99,65\% 
-de acurácia, superando o CART isolado (98\%). Esse achado reforça a 
+modelos em cenários como $IoT$ e $5G$. O estudo compara algoritmos como $CART$ e 
+\textit{Random Forest}, destacando que o uso de múltiplas árvores (ensemble) resulta em 
+melhor desempenho. Os resultados mostram que o \textit{Random Forest} atingiu 99,65\% 
+de acurácia, superando o $CART$ isolado (98\%). Esse achado reforça a 
 importância de abordagens híbridas e ensembles para melhorar a robustez dos 
 modelos.
 
 A integração de diferentes algoritmos também é explorada por 
 \cite{Khraisat2019Hybrid}, que propõem um modelo híbrido combinando C5.0 e 
-One-Class SVM. O estudo utiliza todos os atributos do NSL-KDD para treinamento 
+$One-Class SVM$. O estudo utiliza todos os atributos do $NSL-KDD$ para treinamento 
 e demonstra que a combinação entre detecção de assinatura e anomalia melhora a 
-capacidade do sistema. Os resultados mostram acurácia de 83,24\% no NSL-KDD e 
-97,04\% no dataset ADFA. Esses resultados evidenciam que a combinação de 
+capacidade do sistema. Os resultados mostram acurácia de 83,24\% no $NSL-KDD$ e 
+97,04\% no dataset $ADFA$. Esses resultados evidenciam que a combinação de 
 algoritmos pode superar limitações individuais de cada abordagem.
 
 A eficiência e interpretabilidade das árvores de decisão são destacadas no 
 estudo de \cite{zehedi2023comparative}, que propõe esse algoritmo como modelo central 
-para detecção de intrusão. O trabalho explora variações como ID3, C4.5 e CART, 
+para detecção de intrusão. O trabalho explora variações como $ID3$, $C4.5$ e $CART$, 
 enfatizando sua estrutura baseada em nós de decisão e ramos. Os resultados 
-mostram que o modelo CART alcançou 97,36\% de sucesso em aplicações preditivas. 
+mostram que o modelo $CART$ alcançou 97,36\% de sucesso em aplicações preditivas. 
 Esse desempenho, aliado à facilidade de interpretação, torna as árvores de 
 decisão altamente relevantes para sistemas que exigem transparência nas 
 decisões.
 
 A robustez das árvores de decisão em arquiteturas híbridas é demonstrada por 
-\cite{Depren2005Intelligent}, que combinam o algoritmo J48 com mapas auto-organizáveis 
-(SOM). O uso de técnicas de poda (pruning) é destacado como estratégia para 
-evitar o overfitting. Os resultados mostram que o sistema alcançou 99,84% de 
+\cite{Depren2005Intelligent}, que combinam o algoritmo $C4.5$ com mapas auto-organizáveis 
+($SOM$). O uso de técnicas de poda (pruning) é destacado como estratégia para 
+evitar o $overfitting$. Os resultados mostram que o sistema alcançou 99,84% de 
 precisão na detecção de ataques de uso indevido. Esse resultado evidencia que 
 árvores de decisão, quando bem ajustadas e combinadas com outras técnicas, 
 podem atingir níveis extremamente elevados de desempenho.
 
-A utilização de árvores em modelos ensemble é aprofundada por \cite{Xianwei2019Adaptive}, que propõem o algoritmo MultiTree baseado em múltiplas 
-árvores CART e votação majoritária. O estudo também aborda o problema de 
-desbalanceamento de dados, comum em IDS. Os resultados mostram que o modelo 
+A utilização de árvores em modelos ensemble é aprofundada por \cite{Xianwei2019Adaptive}, que propõem o algoritmo $MultiTree$ baseado em múltiplas 
+árvores $CART$ e votação majoritária. O estudo também aborda o problema de 
+desbalanceamento de dados, comum em $IDS$. Os resultados mostram que o modelo 
 atingiu 85,2\% de acurácia em cenários desafiadores, superando abordagens 
 isoladas. Esse achado reforça que múltiplas árvores aumentam a capacidade de 
 generalização dos modelos.
 
 A aplicabilidade das árvores de decisão em cenários de alta performance é 
-evidenciada por \cite{Rathore2016RealTime}, que utilizam algoritmos como J48 e 
-REPTree em ambientes de Big Data. Os resultados mostram taxas de verdadeiros 
+evidenciada por \cite{Rathore2016RealTime}, que utilizam algoritmos como $C4.5$ e 
+$REPTree$ em ambientes de Big Data. Os resultados mostram taxas de verdadeiros 
 positivos superiores a 99,9\%, indicando alta eficiência na detecção de 
 intrusões em tempo real. Esse resultado demonstra que árvores de decisão são 
 adequadas para sistemas que exigem rapidez e precisão simultaneamente.
@@ -449,7 +454,7 @@ combinadas com técnicas de pré-processamento e seleção de atributos.
 
 A relevância do pré-processamento e da redução de dimensionalidade em sistemas 
 de detecção de intrusão é evidenciada no estudo de \cite{patrick2022study}, que 
-revisa o estado da arte de IDS baseados em inteligência artificial e 
+revisa o estado da arte de $IDS$ baseados em inteligência artificial e 
 aprendizado de máquina. O trabalho analisa conjuntos de dados amplamente 
 utilizados, como KDDCup99 e CICIDS2017, destacando o elevado número de 
 atributos (41 e 80, respectivamente) e a necessidade de técnicas como PCA 
@@ -458,7 +463,7 @@ utilizam essas estratégias, especialmente combinados com deep learning e
 métodos de ensemble, atingem acurácias entre 94,4\% e 99,24\%. Esses achados 
 indicam que o pré-processamento não é apenas uma etapa auxiliar, mas um fator 
 determinante para viabilizar o uso de modelos mais complexos em ambientes de 
-IDS.
+$IDS$.
 
 A importância da engenharia de atributos é aprofundada no estudo de 
 \cite{Thakkar2021Survey}, que investiga técnicas de seleção de atributos e 
@@ -475,7 +480,7 @@ A eficiência da redução de atributos em cenários de alta demanda computacion
 é destacada por \cite{felix2014analysis}, que propõem uma abordagem 
 multiestágio para seleção de características em detecção de anomalias. O 
 estudo reduz progressivamente o conjunto de atributos de 41 para 30 e 
-posteriormente para 16, utilizando técnicas de filtro e regressão stepwise. Os 
+posteriormente para 16, utilizando técnicas de filtro e regressão $stepwise$. Os 
 resultados mostram que a acurácia do modelo aumentou de 75,53\% para 78,68\% 
 após a primeira redução, mantendo-se praticamente estável mesmo com menos 
 atributos. Esses achados evidenciam que é possível reduzir significativamente 
@@ -484,9 +489,9 @@ para sistemas em tempo real.
 
 A relação entre seleção de atributos e desempenho em ambientes de Big Data é 
 abordada por \cite{Othman2018Intrusion}, que investigam modelos de detecção de 
-intrusão utilizando Apache Spark. O estudo aplica o teste qui-quadrado para 
+intrusão utilizando $Apache Spark$. O estudo aplica o teste qui-quadrado para 
 selecionar 17 atributos mais relevantes a partir das 41 características do 
-KDD99. Os resultados mostram um AUROC de 99,55\%, evidenciando alto poder 
+KDD99. Os resultados mostram um $AUROC$ de 99,55\%, evidenciando alto poder 
 discriminativo mesmo com um conjunto reduzido de atributos. Esse resultado 
 demonstra que a redução de dimensionalidade é essencial não apenas para 
 eficiência computacional, mas também para manter ou até melhorar a qualidade 
@@ -496,7 +501,7 @@ A importância da seleção de atributos também é reforçada por
 \cite{Rathore2016RealTime}, que investigam sistemas de detecção de intrusão em 
 ambientes de Big Data de alta velocidade. O estudo identifica que apenas 9 
 atributos são suficientes para alcançar desempenho superior em classificação, 
-utilizando algoritmos como J48 e REPTree. Os resultados mostram taxas de 
+utilizando algoritmos como $C4.5$ e $REPTree$. Os resultados mostram taxas de 
 verdadeiros positivos superiores a 99,9\%, indicando que a redução agressiva 
 de atributos pode ser altamente eficaz quando bem direcionada. Esse achado é 
 particularmente relevante para aplicações em tempo real, onde a latência e o 
@@ -544,7 +549,7 @@ dados, processamento dos dados, aplicação de técnicas de redução de dimensi
 treinamento dos algoritmos e avaliação de desempenho.
 
 \subsection{Seleção das Bases de Dados}
-A base de dados utilizada neste trabalho foi a NSL-KDD, uma versão aprimorada da 
+A base de dados utilizada neste trabalho foi a $NSL-KDD$, uma versão aprimorada da 
 base KDD Cup 1999, desenvolvida com o objetivo de reduzir redundâncias e 
 inconsistências presentes no conjunto original. A escolha dessa base ocorreu devido 
 à sua ampla utilização na literatura científica voltada à detecção de intrusões e 
@@ -572,7 +577,7 @@ fundamentais para o processamento dos dados e análise dos resultados obtidos ao
 longo da pesquisa.
 
 \subsection{Processamento dos Dados}
-Após o carregamento da base de dados NSL-KDD, foi realizada uma etapa de 
+Após o carregamento da base de dados $NSL-KDD$, foi realizada uma etapa de 
 pré-processamento com o objetivo de preparar os dados para aplicação dos 
 algoritmos de aprendizado de máquina. Inicialmente, foram definidos manualmente 
 os nomes dos 41 atributos da base, permitindo melhor interpretação das variáveis 
@@ -583,7 +588,7 @@ transformação dos registros. Durante essa etapa, também foi realizada a
 verificação da estrutura da base, incluindo quantidade de linhas, colunas, 
 tipos de dados e identificação das classes presentes no conjunto de dados. A 
 coluna label foi convertida em binário, classificando como 0 para tráfego normal 
-e 1 para qualquer tipo de ataque (DoS, Probe, R2L, U2R). Posteriormente, a 
+e 1 para qualquer tipo de ataque ($DoS$, $Probe$, $R2L$, $U2R$). Posteriormente, a 
 coluna denominada difficulty foi removida, por ser considerada irrelevante para 
 o processo de classificação e não contribuir significativamente para o desempenho 
 dos modelos.
@@ -603,7 +608,7 @@ correspondente. Essa etapa foi fundamental para garantir a compatibilidade dos
 dados com os algoritmos utilizados posteriormente no treinamento dos modelos.
 
 Além da transformação dos atributos categóricos, também foi realizado um processo 
-de agrupamento das classes originais de ataques presentes na base NSL-KDD. 
+de agrupamento das classes originais de ataques presentes na base $NSL-KDD$. 
 Inicialmente, a base possui diversos tipos específicos de ataques, o que poderia 
 aumentar a complexidade do problema de classificação. Dessa forma, os ataques 
 foram reorganizados em categorias mais abrangentes, sendo elas \cite{Belavagi2016Performance} \cite{Jabez2015Intrusion}: 
@@ -620,7 +625,7 @@ obtidos pelos algoritmos de aprendizado de máquina.
 
 \subsection{Redução de Dimensionalidade}
 Após a etapa de pré-processamento dos dados, foi realizada uma análise exploratória 
-com o objetivo de compreender a estrutura da base NSL-KDD, identificar padrões 
+com o objetivo de compreender a estrutura da base $NSL-KDD$, identificar padrões 
 nos dados e verificar o comportamento das classes presentes no conjunto 
 utilizado. Inicialmente, foram analisadas as dimensões da base de dados, os 
 tipos de atributos existentes e a distribuição das classes de ataques. Essa 
@@ -642,7 +647,7 @@ de dados. A matriz de correlação foi representada visualmente por meio de um
 heatmap, gerado com auxílio das bibliotecas Matplotlib e Seaborn, permitindo 
 observar de forma mais intuitiva a intensidade das correlações entre os atributos.
 
-% Aqui vem a fórmula das correlações
+% fórmula das correlações
 $$
 r = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum (x_i - \bar{x})^2 \sum (y_i - \bar{y})^2}}
 $$
@@ -650,15 +655,15 @@ $$
 Com o objetivo de reduzir a dimensionalidade da base e minimizar o impacto do 
 elevado número de atributos no desempenho computacional dos modelos, foi 
 aplicada a técnica de Análise de Componentes Principais ($PCA$). Antes da 
-aplicação do PCA, os dados foram padronizados utilizando o método StandardScaler, 
+aplicação do $PCA$, os dados foram padronizados utilizando o método $StandardScaler$, 
 responsável por transformar os atributos para média igual a zero e desvio padrão 
-igual a um. Essa etapa foi necessária porque o PCA é sensível à escala dos dados, 
+igual a um. Essa etapa foi necessária porque o $PCA$ é sensível à escala dos dados, 
 podendo atribuir maior relevância a atributos com amplitudes maiores. Após a 
-padronização, o PCA foi aplicado para transformar os atributos originais em um 
+padronização, o $PCA$ foi aplicado para transformar os atributos originais em um 
 novo conjunto de componentes principais, preservando a maior parte da variância 
 existente nos dados. 
 
-% Aqui vem a fórmula do PCA
+% fórmula do PCA
 $$
 X_{PCA} = W^T X
 $$
@@ -667,12 +672,12 @@ Durante essa etapa, foi realizada a análise da variância explicada acumulada d
 componentes principais, permitindo identificar a quantidade ideal de componentes 
 necessários para representar adequadamente o conjunto de dados sem perda 
 significativa de informação. Além disso, foram geradas visualizações 
-bidimensionais utilizando os dois principais componentes obtidos pelo PCA, 
+bidimensionais utilizando os dois principais componentes obtidos pelo $PCA$, 
 possibilitando observar o comportamento e a separação das classes presentes na 
-base NSL-KDD em um espaço reduzido de dimensionalidade.
+base $NSL-KDD$ em um espaço reduzido de dimensionalidade.
 
 Por fim, também foi realizada uma etapa de seleção de atributos utilizando o 
-algoritmo Decision Tree. O modelo foi empregado para calcular o grau de importância 
+algoritmo $Decision Tree$. O modelo foi empregado para calcular o grau de importância 
 de cada variável durante o processo de classificação, permitindo identificar os 
 atributos mais relevantes para o problema de detecção de intrusões. Com base nesses 
 resultados, foi possível analisar quais características da base possuíam maior 
@@ -684,7 +689,7 @@ no treinamento e avaliação dos modelos.
 \subsection{Treinamento dos Algoritmos}
 Nessa seção, foi realizada a etapa de treinamento dos algoritmos de aprendizado 
 de máquina supervisionado. Essa fase teve como principal objetivo construir 
-modelos capazes de identificar padrões presentes nos registros da base NSL-KDD 
+modelos capazes de identificar padrões presentes nos registros da base $NSL-KDD$ 
 e realizar a classificação do tráfego de rede entre conexões normais e 
 diferentes categorias de ataques cibernéticos.
 
@@ -699,11 +704,11 @@ clássica de 70\% e 30\%.  Essa divisão permitiu utilizar parte dos registros
 para treinamento dos algoritmos e outra parte para validação do desempenho dos 
 modelos em dados não utilizados durante o aprendizado. Essa abordagem foi 
 fundamental para avaliar a capacidade de generalização dos algoritmos e reduzir 
-problemas relacionados ao sobreajuste (overfitting).
+problemas relacionados ao sobreajuste ($overfitting$).
 
 Durante os experimentos, foram realizados treinamentos utilizando tanto o 
 conjunto completo de atributos quanto versões reduzidas dos dados obtidas por 
-meio da aplicação do PCA e da seleção de atributos baseada em importância das 
+meio da aplicação do $PCA$ e da seleção de atributos baseada em importância das 
 variáveis. Essa estratégia permitiu comparar o impacto da redução de 
 dimensionalidade no desempenho dos modelos, bem como analisar possíveis 
 melhorias relacionadas ao custo computacional e à eficiência das classificações. 
@@ -728,31 +733,31 @@ Os algoritmos avaliados no treinamento foram:
 \textbf{Motivação} \\
 \midrule
 
-Decision Tree & 
+$Decision Tree$ & 
 Aprendizado Supervisionado (Classificação) & 
 Cria regras lógicas (fluxograma) para dividir os dados e decidir. & 
 Alta interpretabilidade, baixo custo computacional, bom para regras binárias. \\
 \\
 
-Random Forest & 
+$Random Forest$ & 
 Aprendizado Supervisionado (Ensemble/Bagging) & 
 Combina múltiplas árvores de decisão para previsões mais precisas. & 
 Robustez e alta acurácia, porém maior custo. \\
 \\
 
-KNN (k=5) & 
+$KNN$ (k=5) & 
 Aprendizado Supervisionado (Proximidade) & 
 Classifica baseando-se nos vizinhos mais próximos. & 
 Simples, útil como baseline não paramétrico. \\
 \\
 
-Logistic Regression & 
+$Logistic Regression$ & 
 Aprendizado Supervisionado (Classificação Binária) & 
 Calcula a probabilidade de eventos (0\% a 100\%). & 
 Baseline clássico, rápido e interpretável. \\
 \\
 
-SVM (kernel linear) & 
+$SVM$ (kernel linear) & 
 Aprendizado Supervisionado (Classificação) & 
 Define o hiperplano que melhor separa grupos de dados. & 
 Eficaz em alta dimensionalidade, porém mais lento. \\
@@ -764,7 +769,7 @@ Eficaz em alta dimensionalidade, porém mais lento. \\
 \end{table}
 
 Durante o treinamento, os algoritmos aprenderam padrões existentes nos registros 
-da base NSL-KDD, relacionando características do tráfego de rede às categorias 
+da base $NSL-KDD$, relacionando características do tráfego de rede às categorias 
 de ataques previamente definidas. Os modelos foram ajustados utilizando os dados 
 previamente padronizados e transformados, garantindo maior estabilidade durante 
 o processo de aprendizado. Além disso, foram realizados testes comparativos 
@@ -791,12 +796,12 @@ relevantes para o monitoramento do tráfego de rede.
 \subsection{Avaliação de Desempenho}
 Após a etapa de treinamento dos algoritmos de aprendizado de máquina, foi 
 realizada a avaliação dos modelos com o objetivo de medir a eficiência dos 
-classificadores na detecção de intrusões presentes na base NSL-KDD. Durante os 
+classificadores na detecção de intrusões presentes na base $NSL-KDD$. Durante os 
 testes, foram comparados os resultados obtidos pelos modelos treinados com os 
 atributos originais da base de dados, pelos modelos treinados após aplicação da 
-técnica de redução de dimensionalidade PCA e pelos modelos treinados utilizando 
+técnica de redução de dimensionalidade $PCA$ e pelos modelos treinados utilizando 
 atributos selecionados com base na importância das variáveis calculadas pelo 
-algoritmo Decision Tree. Essa comparação permitiu analisar o impacto das técnicas 
+algoritmo $Decision Tree$. Essa comparação permitiu analisar o impacto das técnicas 
 de redução e seleção de atributos tanto no desempenho dos classificadores 
 quanto na eficiência computacional do processamento. 
 
@@ -824,21 +829,21 @@ entre classes.
 Durante a avaliação, também foram observados aspectos relacionados ao desempenho 
 computacional dos modelos, incluindo tempo de treinamento, tempo de execução e 
 impacto causado pela redução de dimensionalidade no processamento dos dados. 
-Essa análise permitiu verificar se a aplicação das técnicas de PCA e seleção de 
+Essa análise permitiu verificar se a aplicação das técnicas de $PCA$ e seleção de 
 atributos contribuiu para redução do custo computacional sem comprometer 
 significativamente o desempenho dos classificadores. 
 
 Com base nos resultados obtidos, foi realizada uma comparação entre os algoritmos 
 utilizados considerando métricas de desempenho, capacidade de generalização e 
-eficiência computacional. O algoritmo Decision Tree apresentou boa interpretabilidade 
+eficiência computacional. O algoritmo $Decision Tree$ apresentou boa interpretabilidade 
 e capacidade de classificação, além de possibilitar a identificação dos 
-atributos mais relevantes para o problema. Entretanto, o Random Forest demonstrou maior 
+atributos mais relevantes para o problema. Entretanto, o $Random Forest$ demonstrou maior 
 robustez e estabilidade nas previsões, devido à combinação de múltiplas 
 árvores de decisão. A seleção do modelo final considerou o equilíbrio entre as 
 métricas de Accuracy, Precision, Recall e F1-Score, além do impacto das técnicas de 
 redução de dimensionalidade no desempenho e no custo computacional dos algoritmos, 
 permitindo identificar a abordagem mais eficiente para classificação do tráfego 
-de rede e detecção de intrusões utilizando a base NSL-KDD. 
+de rede e detecção de intrusões utilizando a base $NSL-KDD$. 
 
 \section{Resultados Preliminares}
 O algorítimo ultilizado para as análises foi o $Decision Tree$, este conta com o menor tempo de teste e melhor acurácia, estes valores são a maior métrica ultilizada pois o objetivo do sistema é ser execudato em tempo real para garantir uma resposta rápida a incidentes. \\
@@ -865,7 +870,7 @@ Ultilizando um random state de 42 para os algorítimos citados, obtiveram-se os 
 	\caption{Estátisticas de treino dos modelos}
 	\label{tab:Tempos_treino}
 \end{table}
-Dados os valores da tabela \ref{tab:Tempos_treino} o algorítimo selecionado foi o Decision Tree, dado seu baixo tempo de teste e alta acurácia.\\
+Dados os valores da tabela \ref{tab:Tempos_treino} o algorítimo selecionado foi o $Decision Tree$, dado seu baixo tempo de teste e alta acurácia.\\
 Ultilizando os valores anteriormente definidos na figura \ref{fig:pca_componentes} para uma melhor vizualização dos dados que realmente importam, o gráfico foi dividido entre ataques e tráfego normal:
 \begin{figure}[H]
 	\includegraphics[width=8.69cm,height=7cm]{./PCA_2D.png}
@@ -884,7 +889,7 @@ Afim de refinar os dados representado no $PCA$ pela imagem \ref{fig:Importancia_
 	\caption{Features variadas para o decision tree}
 	\label{fig:DecisionTree_features}
 \end{figure}
-Indicando que o número otimo de features é 18, onde a acurácia é maior. \\
+Indicando que o número ótimo de features é 18, onde a acurácia é maior. \\
 Sendo elas:
 \begin{table}[H]
 	\centering
@@ -968,7 +973,7 @@ Para a análise de dados foi considerado a base de dados NSL-KDD com os seguinte
 	spy & 2 \\
 	\hline
 \end{tabular}
-\caption{Dados presentes na base NSL-KDD}
+\caption{Dados presentes na base $NSL-KDD$}
 		\label{tab:dados_base_NSL_KDD}
 	\end{table}
 Para melhor vizualização dos dados os ataques foram separados nas seguintes categorias: $normal$, $dos$, $probe$, $r2l$, $u2r$.
@@ -1020,7 +1025,7 @@ Para validar as informações da matriz de correlação foi feita uma análise b
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=8.69cm,height=7cm]{pca_classes.png}
-	\caption{vizualização de dois componentes do PCA separado por classes}
+	\caption{vizualização de dois componentes do $PCA$ separado por classes}
 	\label{fig:pca_componentes}
 \end{figure}
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Debian) (preloaded format=pdflatex 2026.5.19)  19 MAY 2026 22:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Debian) (preloaded format=pdflatex 2026.5.19)  20 MAY 2026 13:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -908,7 +908,7 @@ Package: tabularx 2023/12/11 v2.12a `tabularx' package (DPC)
 )
 \@quotelevel=\count490
 \@quotereset=\count491
- (./main.aux)
+ (./main.aux (./simbologia.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 156.
@@ -1008,720 +1008,759 @@ Package hyperref Info: Link coloring OFF on input line 156.
 \@outlinefile=\write5
 \openout5 = `main.out'.
 
-LaTeX Font Info:    Trying to load font information for OT1+phv on input line 189.
+LaTeX Font Info:    Trying to load font information for OT1+phv on input line 190.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
 )
 LaTeX Font Info:    Font shape `OT1/phv/b/it' in size <11> not available
-(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 189.
-LaTeX Font Info:    Calculating math sizes for size <11> on input line 189.
+(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 190.
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 190.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 189.
+(Font)              size <5> substituted on input line 190.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <5.5> not available
-(Font)              size <5> substituted on input line 189.
+(Font)              size <5> substituted on input line 190.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 189.
+(Font)              size <5> substituted on input line 190.
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <11> on input line 189.
+(Font)              <11> on input line 190.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7.69997> on input line 189.
+(Font)              <7.69997> on input line 190.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5.5> on input line 189.
+(Font)              <5.5> on input line 190.
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <10> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 189.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 190.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 189.
+(Font)              <7> on input line 190.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 189.
+(Font)              <5> on input line 190.
 
-Underfull \hbox (badness 10000) in paragraph at lines 189--189
+Underfull \hbox (badness 10000) in paragraph at lines 190--190
 
  []
 
-
-Underfull \vbox (badness 1960) has occurred while \output is active []
-
-<logoinova.png, id=80, 426.84468pt x 85.82062pt>
+<logoinova.png, id=75, 426.84468pt x 85.82062pt>
 File: logoinova.png Graphic file (type png)
 <use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 241.
+Package pdftex.def Info: logoinova.png  used on input line 191.
 (pdftex.def)             Requested size: 141.4128pt x 28.45183pt.
-LaTeX Font Info:    Trying to load font information for TS1+phv on input line 241.
- (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1phv.fd
+LaTeX Font Info:    Trying to load font information for TS1+phv on input line 191.
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1phv.fd
 File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
 ) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}
 
 
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc} <./logoinova.png>]
-Underfull \vbox (badness 2503) has occurred while \output is active []
+
+ <./logoinova.png>]
+\openout2 = `simbologia.aux'.
+
+ (./simbologia.tex)
+
+LaTeX Warning: Optional argument of \twocolumn too tall on page 2.
+
+
+Overfull \vbox (30.0pt too high) has occurred while \output is active []
+
+
+
+LaTeX Warning: Text page 2 contains only floats.
+
+
+Overfull \vbox (30.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (16.0pt too high) has occurred while \output is active []
 
 File: logoinova.png Graphic file (type png)
 <use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 335.
+Package pdftex.def Info: logoinova.png  used on input line 195.
 (pdftex.def)             Requested size: 141.4128pt x 28.45183pt.
- [2]
+ [2
+
+
+\@writefile{toc}{\contentsline {section}{\numberline {I}Lista de Abreviaturas e Siglas}{2}{section.1}\protected@file@percent }
+
+
+
+]
+Underfull \vbox (badness 1057) has occurred while \output is active []
+
+File: logoinova.png Graphic file (type png)
+<use logoinova.png>
+Package pdftex.def Info: logoinova.png  used on input line 291.
+(pdftex.def)             Requested size: 141.4128pt x 28.45183pt.
+ [3{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
 Underfull \vbox (badness 2503) has occurred while \output is active []
 
 
-Underfull \hbox (badness 1466) in paragraph at lines 373--385
+Underfull \vbox (badness 1057) has occurred while \output is active []
+
+File: logoinova.png Graphic file (type png)
+<use logoinova.png>
+Package pdftex.def Info: logoinova.png  used on input line 377.
+(pdftex.def)             Requested size: 141.4128pt x 28.45183pt.
+ [4]
+Underfull \hbox (badness 1466) in paragraph at lines 378--390
 []\OT1/cmr/m/n/10 Al^^Sem disso, eta-pas como pr^^Se-processamento,
  []
 
 
 Underfull \vbox (badness 1057) has occurred while \output is active []
 
-File: logoinova.png Graphic file (type png)
-<use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 420.
-(pdftex.def)             Requested size: 141.4128pt x 28.45183pt.
- [3]
-Underfull \hbox (badness 1502) in paragraph at lines 436--442
+
+Underfull \hbox (badness 1502) in paragraph at lines 441--447
 []\OT1/cmr/m/n/10 A apli-ca-bil-i-dade das ^^Sarvores de de-cis~ao em
  []
 
-
-Underfull \vbox (badness 1057) has occurred while \output is active []
-
 File: logoinova.png Graphic file (type png)
 <use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 504.
+Package pdftex.def Info: logoinova.png  used on input line 467.
 (pdftex.def)             Requested size: 141.4128pt x 28.45183pt.
- [4]
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 514.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 514.
+[5]
+Underfull \vbox (badness 1057) has occurred while \output is active []
 
-Underfull \hbox (badness 10000) in paragraph at lines 514--514
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 519.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 519.
+
+Underfull \hbox (badness 10000) in paragraph at lines 519--519
 [][][]\OT1/cmr/m/n/8 Arquivo dispon^^S^^Pvel em: []$\OT1/cmtt/m/n/8 https : / / 1drv . ms / x / c /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 514--514
+Underfull \hbox (badness 10000) in paragraph at lines 519--519
 \OT1/cmtt/m/n/8 46f377637be54264 / IQB7NxizkmLAS7 _ X22no62qJAZll5FV9 _
  []
 
-<./metodologia.jpg, id=170, 722.7pt x 131.74219pt>
+<./metodologia.jpg, id=175, 722.7pt x 131.74219pt>
 File: ./metodologia.jpg Graphic file (type jpg)
 <use ./metodologia.jpg>
-Package pdftex.def Info: ./metodologia.jpg  used on input line 534.
+Package pdftex.def Info: ./metodologia.jpg  used on input line 539.
 (pdftex.def)             Requested size: 233.3088pt x 49.79317pt.
 
-Overfull \hbox (1.46037pt too wide) in paragraph at lines 534--535
+Overfull \hbox (1.46037pt too wide) in paragraph at lines 539--540
 [][] 
  []
 
 
-Underfull \hbox (badness 1107) in paragraph at lines 539--545
+Underfull \hbox (badness 1107) in paragraph at lines 544--550
 \OT1/cmr/m/n/10 rit-mos de clas-si-fica^^Xc~ao a par-tir da uti-liza^^Xc~ao de
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 557--557
+File: logoinova.png Graphic file (type png)
+<use logoinova.png>
+Package pdftex.def Info: logoinova.png  used on input line 551.
+(pdftex.def)             Requested size: 141.4128pt x 28.45183pt.
+[6 <./metodologia.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 562--562
 [][][]\OT1/cmr/m/n/8 Dispon^^S^^Pvel em: []$\OT1/cmtt/m/n/8 https : / / www . kaggle . com / datasets /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 559--559
+Underfull \hbox (badness 10000) in paragraph at lines 564--564
 [][][]\OT1/cmr/m/n/8 Arquivo dispon^^S^^Pvel em: []$\OT1/cmtt/m/n/8 https : / / colab . research .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 559--559
+Underfull \hbox (badness 10000) in paragraph at lines 564--564
 \OT1/cmtt/m/n/8 google . com / drive / 1ipTH1Lz002ih8L _ m5bJHFtuqD93UC1AQ ?
  []
 
 
-Underfull \hbox (badness 1314) in paragraph at lines 557--563
+Underfull \hbox (badness 1314) in paragraph at lines 562--568
 \OT1/cmr/m/n/10 pro-ces-sa-mento, vi-su-al-iza^^Xc~ao e an^^Salise dos da-dos,
  []
 
 File: logoinova.png Graphic file (type png)
 <use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 590.
+Package pdftex.def Info: logoinova.png  used on input line 637.
 (pdftex.def)             Requested size: 141.4128pt x 28.45183pt.
-[5 <./metodologia.jpg>]
-File: logoinova.png Graphic file (type png)
-<use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 673.
-(pdftex.def)             Requested size: 141.4128pt x 28.45183pt.
- [6]
-Underfull \hbox (badness 4556) in paragraph at lines 704--711
+[7]
+Underfull \hbox (badness 2875) in paragraph at lines 679--688
+[]\OT1/cmr/m/n/10 Por fim, tamb^^Sem foi re-al-izada uma etapa
+ []
+
+
+Underfull \hbox (badness 3343) in paragraph at lines 679--688
+\OT1/cmr/m/n/10 de sele^^Xc~ao de atrib-u-tos uti-lizando o al-go-ritmo
+ []
+
+
+Underfull \hbox (badness 4556) in paragraph at lines 709--716
 []\OT1/cmr/m/n/10 Durante os ex-per-i-men-tos, foram re-al-iza-dos
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 761--761
-[]|\OT1/cmr/m/n/8 Decision
+Overfull \hbox (8.73683pt too wide) in paragraph at lines 766--766
+[]|$\OML/cmm/m/it/8 DecisionTree$| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 761--761
+Underfull \hbox (badness 10000) in paragraph at lines 766--766
 []|\OT1/cmr/m/n/8 Aprendizado
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 761--761
+Underfull \hbox (badness 10000) in paragraph at lines 766--766
 \OT1/cmr/m/n/8 Su-per-vi-sion-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 761--761
+Underfull \hbox (badness 10000) in paragraph at lines 766--766
 \OT1/cmr/m/n/8 ado (Clas-si-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 761--761
+Underfull \hbox (badness 10000) in paragraph at lines 766--766
 []|\OT1/cmr/m/n/8 Cria re-gras
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 761--761
+Underfull \hbox (badness 10000) in paragraph at lines 766--766
 \OT1/cmr/m/n/8 l^^Sogicas (flux-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 761--761
+Underfull \hbox (badness 10000) in paragraph at lines 766--766
 \OT1/cmr/m/n/8 o-grama) para
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 761--761
+Underfull \hbox (badness 10000) in paragraph at lines 766--766
 []|\OT1/cmr/m/n/8 Alta in-ter-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 761--761
+Underfull \hbox (badness 10000) in paragraph at lines 766--766
 \OT1/cmr/m/n/8 pretabil-i-dade,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 761--761
+Underfull \hbox (badness 10000) in paragraph at lines 766--766
 \OT1/cmr/m/n/8 baixo custo
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 761--761
+Underfull \hbox (badness 10000) in paragraph at lines 766--766
 \OT1/cmr/m/n/8 com-puta-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 761--761
+Underfull \hbox (badness 10000) in paragraph at lines 766--766
 \OT1/cmr/m/n/8 cional, bom
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 761--761
+Underfull \hbox (badness 10000) in paragraph at lines 766--766
 \OT1/cmr/m/n/8 para re-gras
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 761--761
-[]|\OT1/cmr/m/n/8 Random
+Overfull \hbox (14.63867pt too wide) in paragraph at lines 766--766
+[]|$\OML/cmm/m/it/8 RandomForest$| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 761--761
+Underfull \hbox (badness 10000) in paragraph at lines 766--766
 []|\OT1/cmr/m/n/8 Aprendizado
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 761--761
+Underfull \hbox (badness 10000) in paragraph at lines 766--766
 \OT1/cmr/m/n/8 Su-per-vi-sion-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 761--761
+Underfull \hbox (badness 10000) in paragraph at lines 766--766
 \OT1/cmr/m/n/8 ado (En-sem-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 761--761
+Underfull \hbox (badness 10000) in paragraph at lines 766--766
 []|\OT1/cmr/m/n/8 Combina
  []
 
 
-Underfull \hbox (badness 1895) in paragraph at lines 761--761
+Underfull \hbox (badness 1895) in paragraph at lines 766--766
 \OT1/cmr/m/n/8 de de-cis~ao para
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 761--761
+Underfull \hbox (badness 10000) in paragraph at lines 766--766
 \OT1/cmr/m/n/8 pre-vis~oes mais
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 761--761
+Underfull \hbox (badness 10000) in paragraph at lines 766--766
 []|\OT1/cmr/m/n/8 Robustez e
  []
 
 
-Underfull \hbox (badness 2080) in paragraph at lines 761--761
+Underfull \hbox (badness 2080) in paragraph at lines 766--766
 \OT1/cmr/m/n/8 alta acur^^Sacia,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 761--761
+Underfull \hbox (badness 10000) in paragraph at lines 766--766
 \OT1/cmr/m/n/8 por^^Sem maior
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 761--761
-[]|\OT1/cmr/m/n/8 KNN
+Underfull \hbox (badness 10000) in paragraph at lines 766--766
+[]|$\OML/cmm/m/it/8 KNN$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 761--761
+Underfull \hbox (badness 10000) in paragraph at lines 766--766
 []|\OT1/cmr/m/n/8 Aprendizado
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 761--761
+Underfull \hbox (badness 10000) in paragraph at lines 766--766
 \OT1/cmr/m/n/8 Su-per-vi-sion-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 761--761
+Underfull \hbox (badness 10000) in paragraph at lines 766--766
 []|\OT1/cmr/m/n/8 Classifica
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 761--761
+Underfull \hbox (badness 10000) in paragraph at lines 766--766
 \OT1/cmr/m/n/8 baseando-se
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 761--761
+Underfull \hbox (badness 10000) in paragraph at lines 766--766
 []|\OT1/cmr/m/n/8 Simples,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 761--761
+Underfull \hbox (badness 10000) in paragraph at lines 766--766
 \OT1/cmr/m/n/8 ^^Sutil como
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 761--761
+Underfull \hbox (badness 10000) in paragraph at lines 766--766
 \OT1/cmr/m/n/8 base-line n~ao
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 761--761
-[]|\OT1/cmr/m/n/8 Logistic
+Overfull \hbox (30.28407pt too wide) in paragraph at lines 766--766
+[]|$\OML/cmm/m/it/8 LogisticRegression$| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 761--761
+Underfull \hbox (badness 10000) in paragraph at lines 766--766
 []|\OT1/cmr/m/n/8 Aprendizado
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 761--761
+Underfull \hbox (badness 10000) in paragraph at lines 766--766
 \OT1/cmr/m/n/8 Su-per-vi-sion-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 761--761
+Underfull \hbox (badness 10000) in paragraph at lines 766--766
 \OT1/cmr/m/n/8 ado (Clas-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 761--761
+Underfull \hbox (badness 10000) in paragraph at lines 766--766
 \OT1/cmr/m/n/8 si-fica^^Xc~ao
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 761--761
+Underfull \hbox (badness 10000) in paragraph at lines 766--766
 []|\OT1/cmr/m/n/8 Baseline
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 761--761
+Underfull \hbox (badness 10000) in paragraph at lines 766--766
 \OT1/cmr/m/n/8 cl^^Sassico,
  []
 
 
-Underfull \hbox (badness 2229) in paragraph at lines 761--761
-[]|\OT1/cmr/m/n/8 SVM (ker-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 761--761
+Underfull \hbox (badness 10000) in paragraph at lines 766--766
 []|\OT1/cmr/m/n/8 Aprendizado
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 761--761
+Underfull \hbox (badness 10000) in paragraph at lines 766--766
 \OT1/cmr/m/n/8 Su-per-vi-sion-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 761--761
+Underfull \hbox (badness 10000) in paragraph at lines 766--766
 \OT1/cmr/m/n/8 ado (Clas-si-
  []
 
 
-Underfull \hbox (badness 3623) in paragraph at lines 761--761
+Underfull \hbox (badness 3623) in paragraph at lines 766--766
 []|\OT1/cmr/m/n/8 Define o hiper-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 761--761
+Underfull \hbox (badness 10000) in paragraph at lines 766--766
 \OT1/cmr/m/n/8 di-men-sion-al-i-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 761--761
+Underfull \hbox (badness 10000) in paragraph at lines 766--766
 \OT1/cmr/m/n/8 dade, por^^Sem
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \hbox (badness 1584) in paragraph at lines 775--782
-[]\OT1/cmr/m/n/10 Para au-men-tar a con-fi-a-bil-i-dade dos re-sul-ta-
- []
-
-
-Underfull \hbox (badness 1281) in paragraph at lines 783--790
-[]\OT1/cmr/m/n/10 Al^^Sem das m^^Setricas de clas-si-fica^^Xc~ao, tamb^^Sem
- []
-
-
-Underfull \hbox (badness 1715) in paragraph at lines 783--790
-\OT1/cmr/m/n/10 penho com-puta-cional dos mod-e-los, como tempo
  []
 
 File: logoinova.png Graphic file (type png)
 <use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 790.
+Package pdftex.def Info: logoinova.png  used on input line 769.
 (pdftex.def)             Requested size: 141.4128pt x 28.45183pt.
-[7]
-Underfull \hbox (badness 1783) in paragraph at lines 812--815
+[8]
+Underfull \hbox (badness 1584) in paragraph at lines 780--787
+[]\OT1/cmr/m/n/10 Para au-men-tar a con-fi-a-bil-i-dade dos re-sul-ta-
+ []
+
+
+Underfull \hbox (badness 1281) in paragraph at lines 788--795
+[]\OT1/cmr/m/n/10 Al^^Sem das m^^Setricas de clas-si-fica^^Xc~ao, tamb^^Sem
+ []
+
+
+Underfull \hbox (badness 1715) in paragraph at lines 788--795
+\OT1/cmr/m/n/10 penho com-puta-cional dos mod-e-los, como tempo
+ []
+
+
+Underfull \hbox (badness 1783) in paragraph at lines 817--820
 \OT1/cmr/m/n/10 pelo mod-elo, sendo im-por-tante para an^^Salise da
  []
 
 
-Underfull \hbox (badness 1014) in paragraph at lines 816--819
+Underfull \hbox (badness 1014) in paragraph at lines 821--824
 []\OT1/cmr/m/n/10 O Re-call foi uti-lizado para medir a ca-paci-
  []
 
+File: logoinova.png Graphic file (type png)
+<use logoinova.png>
+Package pdftex.def Info: logoinova.png  used on input line 847.
+(pdftex.def)             Requested size: 141.4128pt x 28.45183pt.
+[9]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 853.
+(Font)              <9> on input line 858.
 
-Overfull \hbox (47.4554pt too wide) in paragraph at lines 853--865
+Overfull \hbox (47.4554pt too wide) in paragraph at lines 858--870
  [][] 
  []
 
-<./PCA_2D.png, id=230, 465.23813pt x 361.35pt>
+<./PCA_2D.png, id=239, 465.23813pt x 361.35pt>
 File: ./PCA_2D.png Graphic file (type png)
 <use ./PCA_2D.png>
-Package pdftex.def Info: ./PCA_2D.png  used on input line 871.
+Package pdftex.def Info: ./PCA_2D.png  used on input line 876.
 (pdftex.def)             Requested size: 247.24942pt x 199.16766pt.
 
-Overfull \hbox (15.40099pt too wide) in paragraph at lines 871--872
+Overfull \hbox (15.40099pt too wide) in paragraph at lines 876--877
 [][] 
  []
 
 
-Underfull \hbox (badness 1147) in paragraph at lines 868--874
+Underfull \hbox (badness 1147) in paragraph at lines 873--879
 \OT1/cmr/m/n/10 Ultilizando os val-ores an-te-ri-or-mente definidos na
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-File: logoinova.png Graphic file (type png)
-<use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 875.
-(pdftex.def)             Requested size: 141.4128pt x 28.45183pt.
- [8]
-<./Importancia_features.png, id=242, 456.20438pt x 592.46344pt>
+<./Importancia_features.png, id=240, 456.20438pt x 592.46344pt>
 File: ./Importancia_features.png Graphic file (type png)
 <use ./Importancia_features.png>
-Package pdftex.def Info: ./Importancia_features.png  used on input line 877.
+Package pdftex.def Info: ./Importancia_features.png  used on input line 882.
 (pdftex.def)             Requested size: 247.25163pt x 312.99162pt.
 
-Overfull \hbox (15.4032pt too wide) in paragraph at lines 877--878
+Overfull \hbox (15.4032pt too wide) in paragraph at lines 882--883
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 875--880
+Underfull \hbox (badness 10000) in paragraph at lines 880--885
 
  []
 
-<./decisiontree_features.png, id=244, 859.2903pt x 426.393pt>
+<./decisiontree_features.png, id=242, 859.2903pt x 426.393pt>
 File: ./decisiontree_features.png Graphic file (type png)
 <use ./decisiontree_features.png>
-Package pdftex.def Info: ./decisiontree_features.png  used on input line 883.
+Package pdftex.def Info: ./decisiontree_features.png  used on input line 888.
 (pdftex.def)             Requested size: 256.07144pt x 170.71683pt.
 
-Overfull \hbox (24.223pt too wide) in paragraph at lines 883--884
+Overfull \hbox (24.223pt too wide) in paragraph at lines 888--889
 [][] 
  []
 
 File: logoinova.png Graphic file (type png)
 <use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 923.
+Package pdftex.def Info: logoinova.png  used on input line 891.
 (pdftex.def)             Requested size: 141.4128pt x 28.45183pt.
-[9 <./PCA_2D.png (PNG copy)> <./Importancia_features.png (PNG copy)> <./decisiontree_features.png>]
-Underfull \hbox (badness 1668) in paragraph at lines 925--926
+[10 <./PCA_2D.png (PNG copy)> <./Importancia_features.png (PNG copy)>]
+Underfull \hbox (badness 1668) in paragraph at lines 930--931
 []\OT1/cmr/bx/n/10 dst[]host[]same[]srv[]rate \OT1/cmr/m/n/10 : Por-cent-agem de
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 928--929
+Underfull \hbox (badness 10000) in paragraph at lines 933--934
 []\OT1/cmr/bx/n/10 dst[]host[]rerror[]rate \OT1/cmr/m/n/10 : Por-cent-agem de
  []
 
 
-Underfull \hbox (badness 5533) in paragraph at lines 929--930
+Underfull \hbox (badness 5533) in paragraph at lines 934--935
 []\OT1/cmr/bx/n/10 dst[]host[]diff[]srv[]rate \OT1/cmr/m/n/10 : Por-cent-agem de
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 932--933
+Underfull \hbox (badness 10000) in paragraph at lines 937--938
 []\OT1/cmr/bx/n/10 dst[]host[]serror[]rate \OT1/cmr/m/n/10 : Por-cent-agem de
  []
 
 
-Underfull \hbox (badness 1960) in paragraph at lines 939--973
+Underfull \hbox (badness 1960) in paragraph at lines 944--978
 []\OT1/cmr/m/n/10 Para a an^^Salise de da-dos foi con-sid-er-ado a
  []
 
 
-Underfull \hbox (badness 2134) in paragraph at lines 939--973
+Underfull \hbox (badness 2134) in paragraph at lines 944--978
 \OT1/cmr/m/n/10 lis-ta-dos na tabela []III[]. al-guns dos val-ores cita-
  []
 
 
-Underfull \hbox (badness 2073) in paragraph at lines 939--973
+Underfull \hbox (badness 2073) in paragraph at lines 944--978
 \OT1/cmr/m/n/10 dos n~ao s~ao ataques reais, por^^Sem no con-texto
  []
 
 
-Underfull \hbox (badness 4505) in paragraph at lines 939--973
+Underfull \hbox (badness 4505) in paragraph at lines 944--978
 \OT1/cmr/m/n/10 desta an^^Salise com-po-nentes como: $\OML/cmm/m/it/10 loadmodule$\OT1/cmr/m/n/10 ,
  []
 
 
-Underfull \hbox (badness 1102) in paragraph at lines 939--973
+Underfull \hbox (badness 1102) in paragraph at lines 944--978
 \OML/cmm/m/it/10 perl$ \OT1/cmr/m/n/10 e $\OML/cmm/m/it/10 nmap$ \OT1/cmr/m/n/10 foram cat-e-go-riza-dos como ataques.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 939--973
+Underfull \hbox (badness 10000) in paragraph at lines 944--978
 
  []
 
 
 Underfull \vbox (badness 3302) has occurred while \output is active []
 
-<matriz_corr.png, id=262, 791.3565pt x 628.0263pt>
-File: matriz_corr.png Graphic file (type png)
-<use matriz_corr.png>
-Package pdftex.def Info: matriz_corr.png  used on input line 1014.
-(pdftex.def)             Requested size: 227.61586pt x 227.62256pt.
 File: logoinova.png Graphic file (type png)
 <use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 1017.
+Package pdftex.def Info: logoinova.png  used on input line 979.
 (pdftex.def)             Requested size: 141.4128pt x 28.45183pt.
- [10]
-Underfull \hbox (badness 1142) in paragraph at lines 1018--1019
+ [11 <./decisiontree_features.png>]
+<matriz_corr.png, id=284, 791.3565pt x 628.0263pt>
+File: matriz_corr.png Graphic file (type png)
+<use matriz_corr.png>
+Package pdftex.def Info: matriz_corr.png  used on input line 1019.
+(pdftex.def)             Requested size: 227.61586pt x 227.62256pt.
+
+Underfull \hbox (badness 1142) in paragraph at lines 1023--1024
 \OT1/cmr/m/n/10 rela^^Xc~ao foi feita uma an^^Salise baseada em $\OML/cmm/m/it/10 PCA$\OT1/cmr/m/n/10 ,
  []
 
-<pca_classes.png, id=283, 408.3255pt x 328.8285pt>
+<pca_classes.png, id=286, 408.3255pt x 328.8285pt>
 File: pca_classes.png Graphic file (type png)
 <use pca_classes.png>
-Package pdftex.def Info: pca_classes.png  used on input line 1022.
+Package pdftex.def Info: pca_classes.png  used on input line 1027.
 (pdftex.def)             Requested size: 247.25887pt x 199.17517pt.
 
-Overfull \hbox (15.41043pt too wide) in paragraph at lines 1022--1023
+Overfull \hbox (15.41043pt too wide) in paragraph at lines 1027--1028
  [][] 
  []
 
-<pcaXvariancia.png, id=284, 611.4042pt x 340.3917pt>
+<pcaXvariancia.png, id=287, 611.4042pt x 340.3917pt>
 File: pcaXvariancia.png Graphic file (type png)
 <use pcaXvariancia.png>
-Package pdftex.def Info: pcaXvariancia.png  used on input line 1031.
+Package pdftex.def Info: pcaXvariancia.png  used on input line 1036.
 (pdftex.def)             Requested size: 241.85185pt x 156.48859pt.
 
-Overfull \hbox (10.00342pt too wide) in paragraph at lines 1031--1032
+Overfull \hbox (10.00342pt too wide) in paragraph at lines 1036--1037
  [][] 
  []
 
-
-Underfull \hbox (badness 1377) in paragraph at lines 1044--1045
+File: logoinova.png Graphic file (type png)
+<use logoinova.png>
+Package pdftex.def Info: logoinova.png  used on input line 1040.
+(pdftex.def)             Requested size: 141.4128pt x 28.45183pt.
+[12 <./matriz_corr.png> <./pca_classes.png>]
+Underfull \hbox (badness 1377) in paragraph at lines 1049--1050
 []\OT1/cmr/bx/n/10 Continuidade do Lev-an-ta-mento Te^^Sorico
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1047--1048
+Underfull \hbox (badness 10000) in paragraph at lines 1052--1053
 \OT1/cmr/m/n/10 tra-bal-hos acad^emicos e ma-te-ri-ais t^^Secnicos
  []
 
 
-Underfull \hbox (badness 4341) in paragraph at lines 1047--1048
+Underfull \hbox (badness 4341) in paragraph at lines 1052--1053
 \OT1/cmr/m/n/10 rela-ciona-dos ^^Ra de-tec^^Xc~ao de in-trus~oes, pr^^Se-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1047--1048
+Underfull \hbox (badness 10000) in paragraph at lines 1052--1053
 \OT1/cmr/m/n/10 processamento de da-dos e al-go-rit-mos de
  []
 
-File: logoinova.png Graphic file (type png)
-<use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 1050.
-(pdftex.def)             Requested size: 141.4128pt x 28.45183pt.
-[11 <./matriz_corr.png> <./pca_classes.png> <./pcaXvariancia.png>]
-Underfull \hbox (badness 1057) in paragraph at lines 1050--1051
+
+Underfull \hbox (badness 1057) in paragraph at lines 1055--1056
 []\OT1/cmr/bx/n/10 Pesquisa so-bre Al-go-rit-mos de Ma-chine
  []
 
 
-Underfull \hbox (badness 2600) in paragraph at lines 1051--1052
+Underfull \hbox (badness 2600) in paragraph at lines 1056--1057
 \OT1/cmr/m/n/10 que ev-i-den-ciam o cresci-mento das amea^^Xcas
  []
 
 
-Underfull \hbox (badness 5637) in paragraph at lines 1052--1053
+Underfull \hbox (badness 5637) in paragraph at lines 1057--1058
 \OT1/cmr/m/n/10 Es-tru-tura^^Xc~ao e or-ga-niza^^Xc~ao das re-fer^encias
  []
 
 
-Underfull \hbox (badness 2302) in paragraph at lines 1052--1053
+Underfull \hbox (badness 2302) in paragraph at lines 1057--1058
 \OT1/cmr/m/n/10 uti-lizadas no tra-balho, seguindo as nor-mas
  []
 
 
-Underfull \hbox (badness 3417) in paragraph at lines 1053--1054
+Underfull \hbox (badness 3417) in paragraph at lines 1058--1059
 \OT1/cmr/m/n/10 de al-go-rit-mos su-per-vi-sion-a-dos e an^^Salise de
  []
 
 
-Underfull \hbox (badness 1509) in paragraph at lines 1054--1055
+Underfull \hbox (badness 1509) in paragraph at lines 1059--1060
 []\OT1/cmr/bx/n/10 Defini^^Xc~ao do Al-go-ritmo Su-per-vi-sion-ado
  []
 
 
-Underfull \hbox (badness 7433) in paragraph at lines 1056--1057
+Underfull \hbox (badness 7433) in paragraph at lines 1061--1062
 \OT1/cmr/m/n/10 Or-ga-niza^^Xc~ao e con-sol-ida^^Xc~ao dos conte^^Sudos
  []
 
-
-Overfull \hbox (11.72646pt too wide) in paragraph at lines 1068--1129
+File: logoinova.png Graphic file (type png)
+<use logoinova.png>
+Package pdftex.def Info: logoinova.png  used on input line 1065.
+(pdftex.def)             Requested size: 141.4128pt x 28.45183pt.
+[13 <./pcaXvariancia.png>]
+Overfull \hbox (11.72646pt too wide) in paragraph at lines 1073--1134
  [][] 
  []
 
 
-Underfull \hbox (badness 1215) in paragraph at lines 1133--1133
+Underfull \hbox (badness 1215) in paragraph at lines 1138--1138
 \OT1/cmr/m/n/10 Eval-u-a-tion of Su-per-vised Ma-chine Learn-ing
  []
 
 
 Package biblatex Warning: No driver for 'site'.
-(biblatex)                Using fallback driver on input line 1133.
+(biblatex)                Using fallback driver on input line 1138.
 
-File: logoinova.png Graphic file (type png)
-<use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 1133.
-(pdftex.def)             Requested size: 141.4128pt x 28.45183pt.
-[12]
-Underfull \hbox (badness 1783) in paragraph at lines 1133--1133
+
+Underfull \hbox (badness 1783) in paragraph at lines 1138--1138
 \OT1/cmr/m/n/10 view,'' 2022. \OT1/cmr/m/sc/10 doi\OT1/cmr/m/n/10 : []$\OT1/cmtt/m/n/10 10 . 11648 / j . XXXX .
  []
 
-
-Underfull \hbox (badness 1635) in paragraph at lines 1147--1147
+File: logoinova.png Graphic file (type png)
+<use logoinova.png>
+Package pdftex.def Info: logoinova.png  used on input line 1138.
+(pdftex.def)             Requested size: 141.4128pt x 28.45183pt.
+[14]
+Underfull \hbox (badness 1635) in paragraph at lines 1152--1152
 []|\OT1/cmr/m/n/10 CNN, DNN, SVM, En-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1147--1148
+Underfull \hbox (badness 10000) in paragraph at lines 1152--1153
 []|\OT1/cmr/m/n/10 KDD99, NSL-KDD,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1147--1148
+Underfull \hbox (badness 10000) in paragraph at lines 1152--1153
 \OT1/cmr/m/n/10 UNSW-NB15, CI-
  []
 
 
-Underfull \hbox (badness 1231) in paragraph at lines 1149--1150
+Underfull \hbox (badness 1231) in paragraph at lines 1154--1155
 []|\OT1/cmr/m/n/10 KDD99, NSL-KDD, CI-
  []
 
 
-Underfull \hbox (badness 1331) in paragraph at lines 1151--1151
+Underfull \hbox (badness 1331) in paragraph at lines 1156--1156
 []|\OT1/cmr/m/n/10 CNN, ANN, RF, SVM,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1151--1152
+Underfull \hbox (badness 10000) in paragraph at lines 1156--1157
 []|\OT1/cmr/m/n/10 KDD99, NSL-KDD,
  []
 
 
-Underfull \hbox (badness 1859) in paragraph at lines 1157--1157
+Underfull \hbox (badness 1859) in paragraph at lines 1162--1162
 []|\OT1/cmr/m/n/10 DTC, kNN, NB, ANN,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1159--1160
+Underfull \hbox (badness 10000) in paragraph at lines 1164--1165
 []|\OT1/cmr/m/n/10 NSL-KDD, ADFA,
  []
 
 
-Underfull \hbox (badness 2103) in paragraph at lines 1165--1165
+Underfull \hbox (badness 2103) in paragraph at lines 1170--1170
 []|\OT1/cmr/m/n/10 Stacking (C5.0 + One-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1171--1171
+Underfull \hbox (badness 10000) in paragraph at lines 1176--1176
 []|\OT1/cmr/m/n/10 Bayes, Game The-ory,
  []
 
 
-Underfull \hbox (badness 2005) in paragraph at lines 1181--1182
+Underfull \hbox (badness 2005) in paragraph at lines 1186--1187
 []|\OT1/cmr/m/n/10 DARPA, KDD99, NSL-
  []
 
 
-Underfull \hbox (badness 2103) in paragraph at lines 1183--1183
+Underfull \hbox (badness 2103) in paragraph at lines 1188--1188
 []|\OT1/cmr/m/n/10 Stacking (C5.0 + One-
  []
 
 
-Underfull \hbox (badness 1231) in paragraph at lines 1187--1188
+Underfull \hbox (badness 1231) in paragraph at lines 1192--1193
 []|\OT1/cmr/m/n/10 KDD99, NSL-KDD, CI-
  []
 
 
-Underfull \hbox (badness 3364) in paragraph at lines 1200--1204
+Underfull \hbox (badness 3364) in paragraph at lines 1205--1209
 \OT1/cmr/m/n/10 preens~ao ao longo de toda a nossa tra-jet^^Soria
  []
 
 File: logoinova.png Graphic file (type png)
 <use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 1209.
+Package pdftex.def Info: logoinova.png  used on input line 1214.
 (pdftex.def)             Requested size: 141.4128pt x 28.45183pt.
-[13]
+[15
+
+]
 File: logoinova.png Graphic file (type png)
 <use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 1209.
+Package pdftex.def Info: logoinova.png  used on input line 1214.
 (pdftex.def)             Requested size: 141.4128pt x 28.45183pt.
- [14] (./main.aux)
+ [16] (./main.aux (./simbologia.aux))
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -1738,13 +1777,13 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 33509 strings out of 467525
- 636943 string characters out of 5421661
- 1594497 words of memory out of 5000000
- 61815 multiletter control sequences out of 15000+600000
+ 33538 strings out of 467525
+ 637645 string characters out of 5421661
+ 1589994 words of memory out of 5000000
+ 61835 multiletter control sequences out of 15000+600000
  651739 words of font info for 83 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 88i,17n,94p,1181b,1516s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 88i,17n,94p,1181b,1523s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 pdfTeX warning (dest): name{Hfootnote.7} has been referenced but does not exist, replaced by a fixed one
 
@@ -1757,11 +1796,11 @@ pdfTeX warning (dest): name{Hfootnote.5} has been referenced but does not exist,
 
 pdfTeX warning (dest): name{Hfootnote.4} has been referenced but does not exist, replaced by a fixed one
 
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on main.pdf (14 pages, 735582 bytes).
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on main.pdf (16 pages, 774063 bytes).
 PDF statistics:
- 501 PDF objects out of 1000 (max. 8388607)
- 417 compressed objects within 5 object streams
- 111 named destinations out of 1000 (max. 500000)
+ 524 PDF objects out of 1000 (max. 8388607)
+ 432 compressed objects within 5 object streams
+ 113 named destinations out of 1000 (max. 500000)
  189 words of extra memory for PDF output out of 10000 (max. 10000000)
 

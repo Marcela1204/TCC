@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1779241479.28085 "main.bcf" "main.bbl" "main" 1779241487.27873 0
-  "main.bcf" 1779241487.12991 113938 36626def5c23a9a45225f923571bd2b5 "pdflatex"
+["biber main"] 1779291515.53002 "main.bcf" "main.bbl" "main" 1779293977.39953 0
+  "main.bcf" 1779293977.24692 113938 36626def5c23a9a45225f923571bd2b5 "pdflatex"
   "referencias.bib" 1779241453.09834 7763 b12b507183bce3b2a44c7fc370435bab ""
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1779241484.88876 "main.tex" "main.pdf" "main" 1779241487.2791 0
+["pdflatex"] 1779293975.07325 "main.tex" "main.pdf" "main" 1779293977.3999 0
   "/etc/texmf/web2c/texmf.cnf" 1765883605.16586 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -45,12 +45,15 @@
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb" 1248133631 30251 6afa5cb1d0204815a708a080681d4674 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1248133631 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb" 1248133631 36281 c355509802a035cadc5f15869451dcee ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1248133631 35469 70d41d2b9ea31d5d813066df7c99281c ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb" 1248133631 36094 798f80770b3b148ceedd006d487db67c ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb" 1248133631 32734 69e00a6b65cedb993666e42eedb3d48f ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1248133631 32762 224316ccc9ad3ca0423a14971cfa7fc1 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1248133631 32726 0a1aea6fcd6468ee2cf64d891f5c43c8 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb" 1248133631 33993 9b89b85fd2d9df0482bd47194d1d3bf3 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb" 1248133631 32442 c975af247b6702f7ca0c299af3616b80 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb" 1248133631 37944 359e864bd06cde3b1cf57bb20757fb06 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb" 1248133631 31099 c85edf1dd5b9e826d67c9c7293b6786c ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb" 1248133631 24287 6b803fa9eb1ddff9112e00519b09dd9e ""
@@ -232,15 +235,17 @@
   "PCA_2D.png" 1777841277.45014 93170 aa80406e05867484741c71d4eb718eeb ""
   "decisiontree_features.png" 1777842546.5494 66258 c7bd006d7a521882a915e65d9d8ef846 ""
   "logoinova.png" 1778266391.38833 14643 b20949c28b8c158dc06d05c0f983112c ""
-  "main.aux" 1779241487.11791 13267 0e68f18d2e291aead451a788ec8fd385 "pdflatex"
-  "main.bbl" 1779241480.17791 40164 1b1aa39ce068efc56e3d6ca43e4780e5 "biber main"
-  "main.out" 1779241487.12591 2962 d0b48b2ced18c3a5aff6d61205c0934a "pdflatex"
-  "main.run.xml" 1779241487.13266 2406 1b56bcb4755fab85cc41222f32da4e69 "pdflatex"
-  "main.tex" 1779241453.09434 68227 955c404d0b4c53a6a08b5a46b17afa89 ""
+  "main.aux" 1779293977.23892 13182 d3a811a326c8acb2bf7fc783c24a1433 "pdflatex"
+  "main.bbl" 1779291516.65638 40164 1b1aa39ce068efc56e3d6ca43e4780e5 "biber main"
+  "main.out" 1779293977.24292 2962 d0b48b2ced18c3a5aff6d61205c0934a "pdflatex"
+  "main.run.xml" 1779293977.25272 2406 1b56bcb4755fab85cc41222f32da4e69 "pdflatex"
+  "main.tex" 1779293973.21259 68483 6fabeb90447b342c96ffa67a9b006210 ""
   "matriz_corr.png" 1777678687.89555 156449 45a58e1a2b1d3cded6c558b8419298b6 ""
   "metodologia.jpg" 1778803281.55927 27094 96355fef3c7a516bdb3b8a580f554b56 ""
   "pcaXvariancia.png" 1777678687.89555 35151 bcc0b7e7568402afd7b57957b9fa9bc1 ""
   "pca_classes.png" 1777678687.89555 71643 b0a798c9df96fb51945893d36f1d3d4b ""
+  "simbologia.aux" 1779293976.2509 3948 88bcb3a138c3ff316b74343e6e912340 "pdflatex"
+  "simbologia.tex" 1779293757.28443 2859 1da2ab3c33ac877133c70aa986c240b4 ""
   (generated)
   "main.aux"
   "main.bcf"
@@ -248,4 +253,5 @@
   "main.out"
   "main.pdf"
   "main.run.xml"
+  "simbologia.aux"
   (rewritten before read)

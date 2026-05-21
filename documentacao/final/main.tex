@@ -1038,7 +1038,6 @@ Buscando uma margem de variância a cima de 95\% foi calculado o $PCA$ para vari
 \label{fig:pca_variancia}
 \end{figure}
 
-
 \section{Considerações Finais e Perspectivas Futuras}
 Vai vir uma primeira parte aqui
 
@@ -1133,6 +1132,15 @@ Vai vir uma primeira parte aqui
 \end{tabular}
 \caption{Cronograma do projeto}
 \end{table}
+
+\section{Conclusão}
+
+Este trabalho apresentou uma análise exploratória e experimental de técnicas de \textit{Machine Learning} aplicadas a Sistemas de Detecção de Intrusões em Redes ($NIDS$), utilizando como referência o conjunto de dados $NSL-KDD$. Diante do desafio imposto pelo crescimento expressivo do tráfego de rede e pela sofisticação das ameaças cibernéticas contemporâneas, a pesquisa atingiu seus objetivos gerais ao mapear a eficácia de tratamentos computacionais e algorítmicos voltados à segurança da informação.
+
+As etapas metodológicas executadas evidenciaram que o pré-processamento rigoroso — envolvendo desde a conversão de atributos categóricos via \textit{Label Encoding} até o agrupamento de ataques em macrocategorias — constitui um pilar fundamental para garantir a estabilidade e a interpretabilidade dos classificadores. Além disso, a aplicação combinada da Análise de Componentes Principais ($PCA$) e a seleção de características via $Decision Tree$ comprovaram que a redução de dimensionalidade é viável e necessária, mitigando o alto custo computacional sem comprometer a acurácia global da detecção. Os experimentos demonstraram, em alinhamento com a literatura estudada, que conjuntos reduzidos de atributos altamente discriminantes são capazes de otimizar a latência operacional de sistemas preditivos.
+
+% Como limitações identificadas no estágio atual do projeto, destaca-se o desbalanceamento intrínseco das classes minoritárias de ataques (como U2R e R2L) presente na base histórica utilizada, um fator que exige técnicas avançadas de reamostragem para não enviesar os modelos de aprendizado supervisionado. 
+
 
 \section{Referências}
 \printbibliography[heading=none]

@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1779291515.53002 "main.bcf" "main.bbl" "main" 1779293977.39953 0
-  "main.bcf" 1779293977.24692 113938 36626def5c23a9a45225f923571bd2b5 "pdflatex"
+["biber main"] 1779291515.53002 "main.bcf" "main.bbl" "main" 1779368160.78376 0
+  "main.bcf" 1779368160.61703 113938 36626def5c23a9a45225f923571bd2b5 "pdflatex"
   "referencias.bib" 1779241453.09834 7763 b12b507183bce3b2a44c7fc370435bab ""
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1779293975.07325 "main.tex" "main.pdf" "main" 1779293977.3999 0
+["pdflatex"] 1779368158.14782 "main.tex" "main.pdf" "main" 1779368160.78415 0
   "/etc/texmf/web2c/texmf.cnf" 1765883605.16586 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -235,16 +235,16 @@
   "PCA_2D.png" 1777841277.45014 93170 aa80406e05867484741c71d4eb718eeb ""
   "decisiontree_features.png" 1777842546.5494 66258 c7bd006d7a521882a915e65d9d8ef846 ""
   "logoinova.png" 1778266391.38833 14643 b20949c28b8c158dc06d05c0f983112c ""
-  "main.aux" 1779293977.23892 13182 d3a811a326c8acb2bf7fc783c24a1433 "pdflatex"
+  "main.aux" 1779368160.60903 13291 026f7b82ee5ddd935ace04eb446a04aa "pdflatex"
   "main.bbl" 1779291516.65638 40164 1b1aa39ce068efc56e3d6ca43e4780e5 "biber main"
-  "main.out" 1779293977.24292 2962 d0b48b2ced18c3a5aff6d61205c0934a "pdflatex"
-  "main.run.xml" 1779293977.25272 2406 1b56bcb4755fab85cc41222f32da4e69 "pdflatex"
-  "main.tex" 1779293973.21259 68483 6fabeb90447b342c96ffa67a9b006210 ""
+  "main.out" 1779368160.61303 3055 3686267ff7927cc2c67875111b833bad "pdflatex"
+  "main.run.xml" 1779368160.62086 2406 1b56bcb4755fab85cc41222f32da4e69 "pdflatex"
+  "main.tex" 1779368154.25879 70172 b67bdfffed87936fb2d6978be5dc4461 ""
   "matriz_corr.png" 1777678687.89555 156449 45a58e1a2b1d3cded6c558b8419298b6 ""
   "metodologia.jpg" 1778803281.55927 27094 96355fef3c7a516bdb3b8a580f554b56 ""
   "pcaXvariancia.png" 1777678687.89555 35151 bcc0b7e7568402afd7b57957b9fa9bc1 ""
   "pca_classes.png" 1777678687.89555 71643 b0a798c9df96fb51945893d36f1d3d4b ""
-  "simbologia.aux" 1779293976.2509 3948 88bcb3a138c3ff316b74343e6e912340 "pdflatex"
+  "simbologia.aux" 1779368159.48902 3948 88bcb3a138c3ff316b74343e6e912340 "pdflatex"
   "simbologia.tex" 1779293757.28443 2859 1da2ab3c33ac877133c70aa986c240b4 ""
   (generated)
   "main.aux"

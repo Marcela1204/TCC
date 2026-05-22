@@ -173,15 +173,18 @@
 \filiacao{Orientador: Prof. Dr. Leonardo Anjoletto Ferreira}
 \email{laferreira@fei.edu.br}
 
-\resumo{Diante da insuficiência performática em métodos tradicionais, este artigo apresenta o 
-desenvolvimento parcial de um sistema de detecção de intrusões em redes. As etapas incluem: 
-i) coleta e preparação de dados com bases de ataques; 
-ii) redução de dimensionalidade via \textit{Principal Component Analysis} (PCA) e Matriz de Correlação; 
-iii) análise exploratória para distinguir tráfego normal, ataques e falsos positivos; 
-iv) implementação e avaliação preliminar de modelos de machine learning para classificação de intrusões. 
-Resultados preliminares serão apresentados. Como contribuições futuras, prevê-se aprimoramento 
-dos algoritmos, ajuste de hiperparâmetros à novos modelo, e evolução da sistema para tempo real
- e em cenários reais.}
+\resumo{
+	Diante da insuficiência performática de métodos tradicionais, este trabalho apresenta o 
+	desenvolvimento parcial de um $IDS$ utilizando técnicas 
+	de aprendizado de máquina. A metodologia é composta pelas etapas de: i) seleção das bases de 
+	dados; ii) processamento dos dados; iii) aplicação de técnicas de redução de dimensionalidade, 
+	utilizando Principal Component Analysis ($PCA$) e Matriz de Correlação; iv) treinamento dos 
+	algoritmos de classificação; e v) avaliação de desempenho dos modelos. Como resultados preliminares, 
+	o algoritmo Decision Tree apresentou o melhor desempenho, alcançando acurácia de 99,7\%, além 
+	de baixo tempo de treinamento e teste, respectivamente 0,8541 s e 0,003 s. Como trabalhos futuros, prevê-se o aprimoramento dos 
+	algoritmos, ajuste de hiperparâmetros, avaliação de novos modelos e evolução do sistema para 
+	aplicação em tempo real e em cenários reais.
+}
 
 \keyword{Sistemas de Detecção de Intrusões, Machine Learning, Segurança da Informação, Análise de Dados, Redução de Dimensionalidade e Cybersegurança.}
 
@@ -290,7 +293,7 @@ ameaças é fundamental para orientar mecanismos de detecção e defesa mais
 eficientes. 
 
 Um dos maiores desafios atuais da segurança em redes está relacionado aos 
-ataques de dia zero, que exploram vulnerabilidades ainda desconhecidas pelos 
+ataques de $Zero-Day$, que exploram vulnerabilidades ainda desconhecidas pelos 
 sistemas de defesa. Por não possuírem assinaturas previamente registradas, 
 esses ataques são difíceis de identificar por métodos tradicionais, 
 funcionando como ameaças invisíveis até que sejam descobertas \cite{wasyhun2023cyber}. Casos reais, 
@@ -352,10 +355,7 @@ soluções de segurança de redes.
 
 As técnicas de Machine Learning aplicadas aos $IDS$ podem ser classificadas em 
 diferentes abordagens, sendo as mais comuns o aprendizado supervisionado, não 
-supervisionado e por reforço. No aprendizado supervisionado, os modelos são 
-treinados com dados previamente rotulados, permitindo a classificação do tráfego 
-como normal ou malicioso, enquanto o aprendizado não supervisionado busca 
-identificar padrões ocultos sem a necessidade de rótulos. Além disso, o 
+supervisionado e por reforço. Além disso, o 
 processo de construção desses modelos envolve a divisão dos dados em conjuntos 
 de treinamento e teste, garantindo a avaliação do desempenho do sistema \cite{zehedi2023comparative} \cite{emad2022intrusion}. Essa 
 diversidade de abordagens permite que os $IDS$ sejam adaptados a diferentes 
@@ -365,7 +365,7 @@ eficácia da detecção de intrusões.
 
 Entre os principais benefícios do uso de $ML$ em $IDS$ está a capacidade de 
 detectar ataques desconhecidos, como os $Zero-Day$, além de lidar com relações 
-complexas e não lineares presentes nos dados de rede. No entanto, essa 
+complexas e não lineares presentes nos dados de rede \cite{zehedi2023comparative} \cite{Kazi2019network}. No entanto, essa 
 abordagem também apresenta desafios relevantes, como o alto custo 
 computacional e o tempo elevado de treinamento. Outro problema recorrente é o 
 desbalanceamento dos dados, que dificulta a detecção de ataques menos 
@@ -389,7 +389,7 @@ eficientes e confiáveis \cite{zehedi2023comparative} \cite{Thakkar2021Survey}. 
 potencializa os resultados obtidos na detecção de intrusões. 
 
 A diversidade de algoritmos utilizados em sistemas de detecção de intrusão é 
-destacada no trabalho de \cite{Liao2013Intrusion}, que realiza uma revisão 
+destacada em \cite{Liao2013Intrusion}, que realiza uma revisão 
 abrangente das técnicas de $IDS$, incluindo métodos baseados em Bayes, teoria 
 dos jogos e mineração de dados. O estudo evidencia que algoritmos de 
 mineração, como árvores de decisão, e métodos como $SVM$ apresentam altas taxas 
@@ -426,7 +426,7 @@ decisões.
 A robustez das árvores de decisão em arquiteturas híbridas é demonstrada por 
 \cite{Depren2005Intelligent}, que combinam o algoritmo $C4.5$ com mapas auto-organizáveis 
 ($SOM$). O uso de técnicas de poda (pruning) é destacado como estratégia para 
-evitar o $overfitting$. Os resultados mostram que o sistema alcançou 99,84% de 
+evitar o $overfitting$. Os resultados mostram que o sistema alcançou 99,84\% de 
 precisão na detecção de ataques de uso indevido. Esse resultado evidencia que 
 árvores de decisão, quando bem ajustadas e combinadas com outras técnicas, 
 podem atingir níveis extremamente elevados de desempenho.
@@ -721,10 +721,10 @@ Os algoritmos avaliados no treinamento foram:
 \setlength{\tabcolsep}{2pt}
 
 \begin{tabularx}{\linewidth}{
->{\hsize=0.2\hsize}X
->{\hsize=0.25\hsize}X
+>{\hsize=0.45\hsize}X
 >{\hsize=0.3\hsize}X
->{\hsize=0.25\hsize}X
+>{\hsize=0.3\hsize}X
+>{\hsize=0.3\hsize}X
 }
 \toprule
 \textbf{Algoritmo} & 
@@ -1038,8 +1038,12 @@ Buscando uma margem de variância a cima de 95\% foi calculado o $PCA$ para vari
 \label{fig:pca_variancia}
 \end{figure}
 
-\section{Considerações Finais e Perspectivas Futuras}
-Vai vir uma primeira parte aqui
+\section{Conclusão}
+Este trabalho apresentou uma análise exploratória e experimental de técnicas de \textit{Machine Learning} aplicadas a Sistemas de Detecção de Intrusões em Redes ($NIDS$), utilizando como referência o conjunto de dados $NSL-KDD$. Diante do desafio imposto pelo crescimento expressivo do tráfego de rede e pela sofisticação das ameaças cibernéticas contemporâneas, a pesquisa atingiu seus objetivos gerais ao mapear a eficácia de tratamentos computacionais e algorítmicos voltados à segurança da informação.
+
+As etapas metodológicas executadas evidenciaram que o pré-processamento rigoroso — envolvendo desde a conversão de atributos categóricos via \textit{Label Encoding} até o agrupamento de ataques em macrocategorias — constitui um pilar fundamental para garantir a estabilidade e a interpretabilidade dos classificadores. Além disso, a aplicação combinada da Análise de Componentes Principais ($PCA$) e a seleção de características via $Decision Tree$ comprovaram que a redução de dimensionalidade é viável e necessária, mitigando o alto custo computacional sem comprometer a acurácia global da detecção. Os experimentos demonstraram, em alinhamento com a literatura estudada, que conjuntos reduzidos de atributos altamente discriminantes são capazes de otimizar a latência operacional de sistemas preditivos.
+
+% Como limitações identificadas no estágio atual do projeto, destaca-se o desbalanceamento intrínseco das classes minoritárias de ataques (como U2R e R2L) presente na base histórica utilizada, um fator que exige técnicas avançadas de reamostragem para não enviesar os modelos de aprendizado supervisionado. 
 
 \subsection{Cronograma}
 
@@ -1133,17 +1137,19 @@ Vai vir uma primeira parte aqui
 \caption{Cronograma do projeto}
 \end{table}
 
-\section{Conclusão}
-
-Este trabalho apresentou uma análise exploratória e experimental de técnicas de \textit{Machine Learning} aplicadas a Sistemas de Detecção de Intrusões em Redes ($NIDS$), utilizando como referência o conjunto de dados $NSL-KDD$. Diante do desafio imposto pelo crescimento expressivo do tráfego de rede e pela sofisticação das ameaças cibernéticas contemporâneas, a pesquisa atingiu seus objetivos gerais ao mapear a eficácia de tratamentos computacionais e algorítmicos voltados à segurança da informação.
-
-As etapas metodológicas executadas evidenciaram que o pré-processamento rigoroso — envolvendo desde a conversão de atributos categóricos via \textit{Label Encoding} até o agrupamento de ataques em macrocategorias — constitui um pilar fundamental para garantir a estabilidade e a interpretabilidade dos classificadores. Além disso, a aplicação combinada da Análise de Componentes Principais ($PCA$) e a seleção de características via $Decision Tree$ comprovaram que a redução de dimensionalidade é viável e necessária, mitigando o alto custo computacional sem comprometer a acurácia global da detecção. Os experimentos demonstraram, em alinhamento com a literatura estudada, que conjuntos reduzidos de atributos altamente discriminantes são capazes de otimizar a latência operacional de sistemas preditivos.
-
-% Como limitações identificadas no estágio atual do projeto, destaca-se o desbalanceamento intrínseco das classes minoritárias de ataques (como U2R e R2L) presente na base histórica utilizada, um fator que exige técnicas avançadas de reamostragem para não enviesar os modelos de aprendizado supervisionado. 
-
 
 \section{Referências}
 \printbibliography[heading=none]
+
+\section{Agradecimentos}
+Agradecemos, primeiramente, às nossas famílias, pelo apoio incondicional,
+incentivo constante e compreensão ao longo de toda a nossa trajetória 
+acadêmica. Sem esse suporte, a realização deste trabalho não seria
+possível.
+
+Como inspiração para seguir em frente diante dos desafios, destacamos 
+a frase de Walt Disney: “Todos os seus sonhos podem se tornar realidade 
+se você tiver a coragem para persegui-los”.
 
 \section{Anexos}
 \begin{table*}[htbp]
@@ -1208,15 +1214,5 @@ Título & Citações & Autor & Ano & Tipo & HIDS/NIDS & Sig. & Técnica & Técni
 
 \caption{Revisão dos trabalhos sobre IDS}
 \end{table*}
-
-\section{Agradecimentos}
-Agradecemos, primeiramente, às nossas famílias, pelo apoio incondicional,
-incentivo constante e compreensão ao longo de toda a nossa trajetória 
-acadêmica. Sem esse suporte, a realização deste trabalho não seria
-possível.
-
-Como inspiração para seguir em frente diante dos desafios, destacamos 
-a frase de Walt Disney: “Todos os seus sonhos podem se tornar realidade 
-se você tiver a coragem para persegui-los”.
 
 \end{document}

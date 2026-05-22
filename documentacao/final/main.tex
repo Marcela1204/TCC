@@ -30,6 +30,20 @@
 \usepackage{float}
 \usepackage{multirow}
 \usepackage{tabularx}  
+\usepackage{float}
+\newfloat{equacao}{htbp}{loe}
+\floatname{equacao}{Equação}
+\DeclareCaptionLabelFormat{custom}{#1 #2.}
+
+\definecolor{azulfigura}{RGB}{0, 114, 187}
+\captionsetup[equacao]{
+    labelformat=custom,
+    labelsep=space,
+    labelfont={bf,color=azulfigura},
+    textfont={normalfont},
+    justification=justified,
+    singlelinecheck=false
+}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -634,6 +648,7 @@ tráfego normal e tráfego malicioso, além de identificar possíveis desbalance
 entre as categorias de ataques. Também foram geradas estatísticas descritivas 
 dos atributos numéricos, permitindo observar medidas como média, desvio padrão, 
 valores mínimos e máximos das variáveis presentes na base.
+\newline
 
 Além da análise estatística, foram construídas representações gráficas para 
 auxiliar na interpretação dos dados. Foram utilizados gráficos de barras para 
@@ -646,11 +661,7 @@ correlacionados, que poderiam representar informações redundantes no conjunto
 de dados. A matriz de correlação foi representada visualmente por meio de um 
 heatmap, gerado com auxílio das bibliotecas Matplotlib e Seaborn, permitindo 
 observar de forma mais intuitiva a intensidade das correlações entre os atributos.
-
-% fórmula das correlações
-$$
-r = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum (x_i - \bar{x})^2 \sum (y_i - \bar{y})^2}}
-$$
+\newline
 
 Com o objetivo de reduzir a dimensionalidade da base e minimizar o impacto do 
 elevado número de atributos no desempenho computacional dos modelos, foi 
@@ -664,9 +675,13 @@ novo conjunto de componentes principais, preservando a maior parte da variância
 existente nos dados. 
 
 % fórmula do PCA
-$$
-X_{PCA} = W^T X
-$$
+% \begin{equacao}[H]
+% 	\begin{equation}
+% 		X_{PCA} = W^T X
+% 	\end{equation}
+% 	\label{eq:formula_PCA}
+% 	\caption{Equação do PCA}
+% \end{equacao}
 
 Durante essa etapa, foi realizada a análise da variância explicada acumulada dos 
 componentes principais, permitindo identificar a quantidade ideal de componentes 
@@ -698,8 +713,8 @@ variável alvo (target). Os atributos da base foram utilizados como entrada dos
 algoritmos, enquanto as categorias correspondentes aos tipos de tráfego e 
 ataques foram utilizadas como saída esperada dos modelos. Após essa definição, 
 os dados passaram pela etapa de separação entre conjuntos de treinamento e teste 
-utilizando a função train\_test\_split da biblioteca Scikit-learn, sendo o arquivo 
-KDDTrain+.txt para treino e o KDDTest+.txt para teste, divididos na proporção 
+utilizando a função \textit{train\_test\_split} da biblioteca Scikit-learn, sendo o arquivo 
+KDDTrain.txt para treino e o KDDTest.txt para teste, divididos na proporção 
 clássica de 70\% e 30\%.  Essa divisão permitiu utilizar parte dos registros 
 para treinamento dos algoritmos e outra parte para validação do desempenho dos 
 modelos em dados não utilizados durante o aprendizado. Essa abordagem foi 
@@ -739,25 +754,25 @@ Cria regras lógicas (fluxograma) para dividir os dados e decidir. &
 Alta interpretabilidade, baixo custo computacional, bom para regras binárias. \\
 \\
 
-$Random Forest$ & 
+Random Forest & 
 Aprendizado Supervisionado (Ensemble/Bagging) & 
 Combina múltiplas árvores de decisão para previsões mais precisas. & 
 Robustez e alta acurácia, porém maior custo. \\
 \\
 
-$KNN$ (k=5) & 
+KNN (k=5) & 
 Aprendizado Supervisionado (Proximidade) & 
 Classifica baseando-se nos vizinhos mais próximos. & 
 Simples, útil como baseline não paramétrico. \\
 \\
 
-$Logistic Regression$ & 
+Logistic Regression & 
 Aprendizado Supervisionado (Classificação Binária) & 
 Calcula a probabilidade de eventos (0\% a 100\%). & 
 Baseline clássico, rápido e interpretável. \\
 \\
 
-$SVM$ (kernel linear) & 
+SVM (kernel linear) & 
 Aprendizado Supervisionado (Classificação) & 
 Define o hiperplano que melhor separa grupos de dados. & 
 Eficaz em alta dimensionalidade, porém mais lento. \\
@@ -846,9 +861,11 @@ permitindo identificar a abordagem mais eficiente para classificação do tráfe
 de rede e detecção de intrusões utilizando a base $NSL-KDD$. 
 
 \section{Resultados Preliminares}
-O algorítimo ultilizado para as análises foi o $Decision Tree$, este conta com o menor tempo de teste e melhor acurácia, estes valores são a maior métrica ultilizada pois o objetivo do sistema é ser execudato em tempo real para garantir uma resposta rápida a incidentes. \\
+O algorítimo ultilizado para as análises foi o $Decision Tree$, este conta com o menor tempo de teste e melhor acurácia, estes valores são a maior métrica ultilizada pois o objetivo do sistema é ser execudato em tempo real para garantir uma resposta rápida a incidentes.
+\newline
+\\
 % \subsection{}
-Ultilizando os testes do capítulo anterior, foi desenvolvida uma análise com os variados algorítimos mais ultilizados ($Random Forest$, $Decision Tree$, $KNN$, $SVM$, $Logistic Regression$).
+Ultilizando os testes do capítulo anterior, foi desenvolvida uma análise com os variados algorítimos mais ultilizados ($Random Forest$ [$RF$], $Decision Tree$ [$DT$], $KNN$, $SVM$, $Logistic Regression$ [$LR$]).
 %FIXME: adicionar o documento de referência sobre os algoritimos ultilizados
 Ultilizando um random state de 42 para os algorítimos citados, obtiveram-se os seguintes valores:
 \begin{table}[H]
@@ -883,7 +900,7 @@ Estudando as features com o auxilio dos resutados do $PCA$ chegou-se a Conclusã
 	\caption{Representação da importância de cada feature para a acurácia}
 	\label{fig:Importancia_features}
 \end{figure}
-Afim de refinar os dados representado no $PCA$ pela imagem \ref{fig:Importancia_features} uma análise similar foi feita utilizado o algorítimo $Decision Tree$:
+Afim de refinar os dados representado no $PCA$ pela figura \ref{fig:Importancia_features} uma análise similar foi feita utilizado o algorítimo $Decision Tree$:
 \begin{figure}[H]
 	\includegraphics[width=9cm,height=6cm]{./decisiontree_features.png}
 	\caption{Features variadas para o decision tree}
@@ -891,32 +908,32 @@ Afim de refinar os dados representado no $PCA$ pela imagem \ref{fig:Importancia_
 \end{figure}
 Indicando que o número ótimo de features é 18, onde a acurácia é maior. \\
 Sendo elas:
-\begin{table}[H]
-	\centering
-	\begin{tabular}{|l l|}
-		\hline
-		1. & src\_bytes \\
-		2. & dst\_host\_srv\_count \\
-		3. & count \\
-		4. & dst\_bytes \\
-		5. & dst\_host\_srv\_rerror\_rate \\
-		6. & hot \\
-		7. & dst\_host\_same\_src\_port\_rate \\
-		8. & logged\_in \\
-		9. & srv\_count \\
-		10. & dst\_host\_same\_srv\_rate \\
-		11. & duration \\
-		12. & wrong\_fragment \\
-		13. & dst\_host\_rerror\_rate \\
-		14. & dst\_host\_diff\_srv\_rate \\
-		15. & dst\_host\_count \\
-		16. & dst\_host\_srv\_diff\_host\_rate \\
-		17. & dst\_host\_serror\_rate \\
-		18. & diff\_srv\_rate \\
-		\hline
-	\end{tabular}
-	\label{tab:top18Features}
-\end{table}
+% \begin{table}[H]
+% 	\centering
+% 	\begin{tabular}{|l l|}
+% 		\hline
+% 		1. & src\_bytes \\
+% 		2. & dst\_host\_srv\_count \\
+% 		3. & count \\
+% 		4. & dst\_bytes \\
+% 		5. & dst\_host\_srv\_rerror\_rate \\
+% 		6. & hot \\
+% 		7. & dst\_host\_same\_src\_port\_rate \\
+% 		8. & logged\_in \\
+% 		9. & srv\_count \\
+% 		10. & dst\_host\_same\_srv\_rate \\
+% 		11. & duration \\
+% 		12. & wrong\_fragment \\
+% 		13. & dst\_host\_rerror\_rate \\
+% 		14. & dst\_host\_diff\_srv\_rate \\
+% 		15. & dst\_host\_count \\
+% 		16. & dst\_host\_srv\_diff\_host\_rate \\
+% 		17. & dst\_host\_serror\_rate \\
+% 		18. & diff\_srv\_rate \\
+% 		\hline
+% 	\end{tabular}
+% 	\label{tab:top18Features}
+% \end{table}
 \begin{enumerate}
 	\item \textbf{src\_bytes}: Bytes enviados da origem para o destino.
 	\item \textbf{dst\_host\_srv\_count}: Número de conexões destinadas a mesma porta no host de destino.
@@ -1020,7 +1037,7 @@ Para melhor vizualização dos dados os ataques foram separados nas seguintes ca
 \caption{Matriz de correlação da base NSL\_KDD}
 \label{fig:matriz_corr}
 \end{figure}
-Para validar as informações da matriz de correlação foi feita uma análise baseada em $PCA$, plotando um gráfico com os dois primeiros componentes e separando os valores pelos grupos anteriormente mencionados na tabela \ref{tab:ataquesXcategoria}.
+Para validar as informações da matriz de correlação foi feita uma análise baseada em $PCA$, plotando um gráfico na figura \ref{fig:matriz_corr} com os dois primeiros componentes e separando os valores pelos grupos anteriormente mencionados na tabela \ref{tab:ataquesXcategoria}.
 
 \begin{figure}[H]
 	\centering

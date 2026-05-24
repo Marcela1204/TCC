@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.5)  23 MAY 2026 22:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.5)  23 MAY 2026 22:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1653,12 +1653,6 @@ Underfull \hbox (badness 6461) in paragraph at lines 440--447
  []
 
 
-Underfull \hbox (badness 1210) in paragraph at lines 440--447
-\OT1/cmr/m/n/10 como es-trat^^Segia para evi-tar o $\OML/cmm/m/it/10 overfittin
-g$\OT1/cmr/m/n/10 . Os
- []
-
-
 Underfull \hbox (badness 1048) in paragraph at lines 440--447
 \OT1/cmr/m/n/10 Esse re-sul-tado ev-i-den-cia que ^^Sarvores de de-cis~ao,
  []
@@ -1668,13 +1662,14 @@ LaTeX Warning: Citation 'Xianwei2019Adaptive' on page 5 undefined on input line
  448.
 
 
-Underfull \hbox (badness 1259) in paragraph at lines 448--454
-[]\OT1/cmr/m/n/10 A uti-liza^^Xc~ao de ^^Sarvores em mod-e-los en-sem-
+Underfull \hbox (badness 1163) in paragraph at lines 448--454
+[]\OT1/cmr/m/n/10 A uti-liza^^Xc~ao de ^^Sarvores em mod-e-los \OT1/cmr/m/it/10
+ en-sem-
  []
 
 
-Underfull \hbox (badness 2799) in paragraph at lines 448--454
-\OT1/cmr/m/n/10 ble ^^Se apro-fun-dada por [],
+Underfull \hbox (badness 2913) in paragraph at lines 448--454
+\OT1/cmr/m/it/10 ble \OT1/cmr/m/n/10 ^^Se apro-fun-dada por [],
  []
 
 
@@ -1951,12 +1946,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 753--753
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 753--753
-\OT1/cmr/m/n/8 Su-per-vi-sion-
+\OT1/cmr/m/n/8 Su-per-
  []
 
 
-Overfull \hbox (1.44557pt too wide) in paragraph at lines 753--753
-\OT1/cmr/m/n/8 ble/Bagging)| 
+Underfull \hbox (badness 10000) in paragraph at lines 753--753
+\OT1/cmr/m/n/8 vi-sion-ado
+ []
+
+
+Overfull \hbox (31.66737pt too wide) in paragraph at lines 753--753
+\OT1/cmr/m/n/8 ($\OML/cmm/m/it/8 Ensemble$\OT1/cmr/m/n/8 /\OT1/cmr/m/it/8 Baggi
+ng\OT1/cmr/m/n/8 )| 
  []
 
 
@@ -2086,7 +2087,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 753--753
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 753--753
-[]|\OT1/cmr/m/n/8 Baseline
+[]|\OT1/cmr/m/it/8 Baseline
  []
 
 
@@ -2208,7 +2209,7 @@ File: logoinova.png Graphic file (type png)
 Package pdftex.def Info: logoinova.png  used on input line 841.
 (pdftex.def)             Requested size: 141.4128pt x 28.45183pt.
 [9]
-<./PCA_2D.png, id=149, 465.23813pt x 361.35pt>
+<./PCA_2D.png, id=150, 465.23813pt x 361.35pt>
 File: ./PCA_2D.png Graphic file (type png)
 <use ./PCA_2D.png>
 Package pdftex.def Info: ./PCA_2D.png  used on input line 845.
@@ -2223,7 +2224,7 @@ Underfull \hbox (badness 1147) in paragraph at lines 842--848
 \OT1/cmr/m/n/10 Ultilizando os val-ores an-te-ri-or-mente definidos na
  []
 
-<./Importancia_features.png, id=150, 456.20438pt x 592.46344pt>
+<./Importancia_features.png, id=151, 456.20438pt x 592.46344pt>
 File: ./Importancia_features.png Graphic file (type png)
 <use ./Importancia_features.png>
 Package pdftex.def Info: ./Importancia_features.png  used on input line 851.
@@ -2241,7 +2242,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 849--854
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-<./decisiontree_features.png, id=152, 859.2903pt x 426.393pt>
+<./decisiontree_features.png, id=153, 859.2903pt x 426.393pt>
 File: ./decisiontree_features.png Graphic file (type png)
 <use ./decisiontree_features.png>
 Package pdftex.def Info: ./decisiontree_features.png  used on input line 857.
@@ -2316,7 +2317,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 913--947
 
  []
 
-<matriz_corr.png, id=172, 791.3565pt x 628.0263pt>
+<matriz_corr.png, id=173, 791.3565pt x 628.0263pt>
 File: matriz_corr.png Graphic file (type png)
 <use matriz_corr.png>
 Package pdftex.def Info: matriz_corr.png  used on input line 988.
@@ -2331,7 +2332,7 @@ Underfull \hbox (badness 1142) in paragraph at lines 992--993
 10 PCA$\OT1/cmr/m/n/10 ,
  []
 
-<pca_classes.png, id=200, 408.3255pt x 328.8285pt>
+<pca_classes.png, id=201, 408.3255pt x 328.8285pt>
 File: pca_classes.png Graphic file (type png)
 <use pca_classes.png>
 Package pdftex.def Info: pca_classes.png  used on input line 996.
@@ -2341,7 +2342,7 @@ Overfull \hbox (15.41043pt too wide) in paragraph at lines 996--997
  [][] 
  []
 
-<pcaXvariancia.png, id=201, 611.4042pt x 340.3917pt>
+<pcaXvariancia.png, id=202, 611.4042pt x 340.3917pt>
 File: pcaXvariancia.png Graphic file (type png)
 <use pcaXvariancia.png>
 Package pdftex.def Info: pcaXvariancia.png  used on input line 1005.
@@ -2577,17 +2578,25 @@ Overfull \hbox (3.51611pt too wide) in paragraph at lines 1136--1136
  []
 
 
+LaTeX Warning: Citation 'IBM2026Supervised' on page 13 undefined on input line 
+1138.
+
+
+LaTeX Warning: Citation 'scikit2026learn' on page 13 undefined on input line 11
+40.
+
+
 Package caption Warning: Unused \captionsetup[equacao] on input line 46.
 See the caption package documentation for explanation.
 
 File: logoinova.png Graphic file (type png)
 <use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 1146.
+Package pdftex.def Info: logoinova.png  used on input line 1150.
 (pdftex.def)             Requested size: 141.4128pt x 28.45183pt.
 [13]
 File: logoinova.png Graphic file (type png)
 <use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 1146.
+Package pdftex.def Info: logoinova.png  used on input line 1150.
 (pdftex.def)             Requested size: 141.4128pt x 28.45183pt.
  [14] (main.aux (simbologia.aux))
  ***********
@@ -2614,11 +2623,11 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 33409 strings out of 467871
- 639741 string characters out of 5417409
- 1594953 words of memory out of 5000000
- 61716 multiletter control sequences out of 15000+600000
- 651270 words of font info for 81 fonts, out of 8000000 for 9000
+ 33411 strings out of 467871
+ 639760 string characters out of 5417409
+ 1598953 words of memory out of 5000000
+ 61717 multiletter control sequences out of 15000+600000
+ 651622 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  88i,17n,94p,1183b,1146s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
@@ -2653,15 +2662,16 @@ ublic/amsfonts/cm/cmr9.pfb><C:/Users/Marcela/AppData/Local/Programs/MiKTeX/font
 s/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Marcela/AppData/Local/Programs/
 MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Users/Marcela/AppData/Local
 /Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Marcela/Ap
-pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt8.pfb><C:/Users/
-Marcela/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/U
-sers/Marcela/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvbo8a.pfb
-><C:/Users/Marcela/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvr8
-a.pfb><C:/Users/Marcela/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/
-uhvro8a.pfb>
-Output written on main.pdf (14 pages, 742627 bytes).
+pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti8.pfb><C:/Users/
+Marcela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
+<C:/Users/Marcela/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvb8a
+.pfb><C:/Users/Marcela/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/u
+hvbo8a.pfb><C:/Users/Marcela/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helv
+etic/uhvr8a.pfb><C:/Users/Marcela/AppData/Local/Programs/MiKTeX/fonts/type1/urw
+/helvetic/uhvro8a.pfb>
+Output written on main.pdf (14 pages, 754721 bytes).
 PDF statistics:
- 325 PDF objects out of 1000 (max. 8388607)
+ 330 PDF objects out of 1000 (max. 8388607)
  75 named destinations out of 1000 (max. 500000)
  189 words of extra memory for PDF output out of 10000 (max. 10000000)
 

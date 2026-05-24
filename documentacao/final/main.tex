@@ -196,7 +196,7 @@
 	algoritmos de classificação; e v) avaliação de desempenho dos modelos. Como resultados preliminares, 
 	o algoritmo Decision Tree apresentou o melhor desempenho, alcançando acurácia de 99,7\%, além 
 	de baixo tempo de treinamento e teste, respectivamente 0,8541 s e 0,003 s. Como trabalhos futuros, prevê-se o aprimoramento dos 
-	algoritmos, ajuste de hiperparâmetros, avaliação de novos modelos e evolução do sistema para 
+	algoritmos, ajuste de hiperparâmetros, avaliação por novos modelos e métricas e evolução de um protótipo de sistema de detecção para 
 	aplicação em tempo real e em cenários reais.
 }
 
@@ -280,8 +280,8 @@ para garantir a continuidade dos serviços, a confiabilidade das operações e a
 segurança da sociedade como um todo \cite{wasyhun2023cyber}.
 
 É desta forma que o foco central da área de pesquisa é proteger dados contra 
-ameaças internas e externas, assegurando a tríade da confidencialidade, 
-integridade e disponibilidade (CIA) de forma eficiente e com o menor custo 
+ameaças internas e externas, assegurando a tríade CIA (também conhecida como tríade AIC) de confidencialidade (\textit{confidentiality}), 
+integridade (\textit{integrity}) e disponibilidade (\textit{availability}) de forma eficiente e com o menor custo 
 possível \cite{diptiben2022cyber}. Nesse contexto, evidencia-se que ataques cibernéticos representam 
 riscos significativos para as organizações, podendo ocasionar perdas 
 financeiras expressivas, danos à reputação institucional e até impactos 
@@ -573,17 +573,8 @@ conexões de rede classificados entre tráfego normal (53,46\%) e diferentes cat
 de ataques (46,54\%), possibilitando a aplicação de técnicas de classificação 
 supervisionada.
 
-Os dados foram obtidos por meio da plataforma \textit{Kaggle}\footnote{ Disponível em: \url{https://www.kaggle.com/datasets/hassan06/nslkdd}}, utilizando a biblioteca 
-\textit{KaggleHub}. O desenvolvimento do projeto foi realizado em linguagem \textit{Python}, com 
-execução no ambiente \textit{Jupyter Notebook}\footnote{Arquivo disponível em: \url{https://colab.research.google.com/drive/1ipTH1Lz002ih8L_m5bJHFtuqD93UC1AQ?usp=sharing}}, permitindo a organização e execução 
-sequencial das etapas do experimento. Além disso, foram utilizadas bibliotecas 
-específicas para manipulação, processamento, visualização e análise dos dados, 
-contribuindo para o desenvolvimento completo da metodologia proposta.
-
-Entre as principais bibliotecas utilizadas estão \textit{Pandas}, responsável pela leitura e 
-organização dos dados em estruturas tabulares; \textit{NumPy}, utilizado em operações 
-matemáticas e manipulação numérica; \textit{Matplotlib} e \textit{Seaborn}, empregados na geração de 
-gráficos e visualizações estatísticas; e \textit{Scikit-learn}, utilizada na implementação 
+Os dados foram obtidos por meio da plataforma \textit{Kaggle}\footnote{Disponível em: \url{https://www.kaggle.com/datasets/hassan06/nslkdd}}, utilizando a biblioteca 
+\textit{KaggleHub}. Os métodos e técnicas testadas estão disponíveis em \cite{scikit2026learn}, pois foram utilizadas na implementação 
 das técnicas de aprendizado de máquina, incluindo codificação de atributos categóricos, 
 padronização dos dados, aplicação do $PCA$, divisão dos conjuntos de treinamento e 
 teste, treinamento dos algoritmos e validação dos modelos. Essas ferramentas foram 
@@ -648,20 +639,13 @@ tráfego normal e tráfego malicioso, além de identificar possíveis desbalance
 entre as categorias de ataques. Também foram geradas estatísticas descritivas 
 dos atributos numéricos, permitindo observar medidas como média, desvio padrão, 
 valores mínimos e máximos das variáveis presentes na base.
-\newline
 
-Além da análise estatística, foram construídas representações gráficas para 
-auxiliar na interpretação dos dados. Foram utilizados gráficos de barras para 
-visualização da distribuição das classes, possibilitando identificar quais 
-categorias possuíam maior quantidade de registros. Posteriormente, foi aplicada 
+Posteriormente, foi aplicada 
 uma análise de correlação entre os atributos numéricos da base utilizando o 
 coeficiente de correlação de Pearson. Essa análise teve como principal objetivo 
 identificar relações lineares entre as variáveis e detectar atributos altamente 
 correlacionados, que poderiam representar informações redundantes no conjunto 
-de dados. A matriz de correlação foi representada visualmente por meio de um 
-heatmap, gerado com auxílio das bibliotecas Matplotlib e Seaborn, permitindo 
-observar de forma mais intuitiva a intensidade das correlações entre os atributos.
-\newline
+de dados. 
 
 Com o objetivo de reduzir a dimensionalidade da base e minimizar o impacto do 
 elevado número de atributos no desempenho computacional dos modelos, foi 
@@ -674,22 +658,10 @@ padronização, o $PCA$ foi aplicado para transformar os atributos originais em 
 novo conjunto de componentes principais, preservando a maior parte da variância 
 existente nos dados. 
 
-% fórmula do PCA
-% \begin{equacao}[H]
-% 	\begin{equation}
-% 		X_{PCA} = W^T X
-% 	\end{equation}
-% 	\label{eq:formula_PCA}
-% 	\caption{Equação do PCA}
-% \end{equacao}
-
 Durante essa etapa, foi realizada a análise da variância explicada acumulada dos 
 componentes principais, permitindo identificar a quantidade ideal de componentes 
 necessários para representar adequadamente o conjunto de dados sem perda 
-significativa de informação. Além disso, foram geradas visualizações 
-bidimensionais utilizando os dois principais componentes obtidos pelo $PCA$, 
-possibilitando observar o comportamento e a separação das classes presentes na 
-base $NSL-KDD$ em um espaço reduzido de dimensionalidade.
+significativa de informação. 
 
 Por fim, também foi realizada uma etapa de seleção de atributos utilizando o 
 algoritmo $Decision Tree$. O modelo foi empregado para calcular o grau de importância 
@@ -713,8 +685,8 @@ variável alvo (target). Os atributos da base foram utilizados como entrada dos
 algoritmos, enquanto as categorias correspondentes aos tipos de tráfego e 
 ataques foram utilizadas como saída esperada dos modelos. Após essa definição, 
 os dados passaram pela etapa de separação entre conjuntos de treinamento e teste 
-utilizando a função \textit{train\_test\_split} da biblioteca Scikit-learn, sendo o arquivo 
-KDDTrain.txt para treino e o KDDTest.txt para teste, divididos na proporção 
+utilizando a função \textit{train\_test\_split} da biblioteca \textit{Scikit-learn}, sendo o arquivo 
+\textit{KDDTrain.txt} para treino e o \textit{KDDTest.txt} para teste, divididos na proporção 
 clássica de 70\% e 30\%.  Essa divisão permitiu utilizar parte dos registros 
 para treinamento dos algoritmos e outra parte para validação do desempenho dos 
 modelos em dados não utilizados durante o aprendizado. Essa abordagem foi 
@@ -793,10 +765,7 @@ após aplicação das técnicas de redução e seleção de atributos, permitind
 os impactos dessas abordagens no desempenho final dos classificadores.
 
 Para aumentar a confiabilidade dos resultados obtidos, também foi aplicada a 
-técnica de validação cruzada (cross-validation) utilizando a função cross\_val\_score 
-da biblioteca Scikit-learn. Essa técnica consiste em dividir os dados em 
-múltiplas partições, permitindo que o algoritmo seja treinado e avaliado 
-diversas vezes em subconjuntos diferentes da base de dados. Dessa forma, foi 
+técnica de validação cruzada (cross-validation). Dessa forma, foi 
 possível obter uma avaliação mais consistente e menos dependente de uma única 
 divisão aleatória entre treino e teste.
 
@@ -822,24 +791,7 @@ quanto na eficiência computacional do processamento.
 
 Para análise dos resultados, foram utilizadas métricas amplamente empregadas em 
 problemas de classificação supervisionada e sistemas de detecção de intrusão, 
-incluindo Accuracy, Precision, Recall e F1-Score. Essas métricas foram calculadas 
-com auxílio das funções disponibilizadas pela biblioteca Scikit-learn, 
-permitindo avaliar diferentes aspectos do desempenho dos algoritmos. 
-
-A métrica Accuracy foi utilizada para medir a proporção total de classificações 
-corretas realizadas pelos modelos em relação ao total de registros analisados. 
-
-A métrica Precision foi empregada para avaliar a proporção de classificações 
-positivas corretas em relação ao total de classificações positivas realizadas 
-pelo modelo, sendo importante para análise da ocorrência de falsos positivos. 
-
-O Recall foi utilizado para medir a capacidade dos algoritmos em identificar 
-corretamente os registros pertencentes às categorias de ataques, reduzindo a 
-ocorrência de falsos negativos.  
-
-Já o F1-Score foi empregado para representar o equilíbrio entre precisão e 
-recall, sendo especialmente relevante em problemas que apresentam desbalanceamento 
-entre classes.
+incluindo Accuracy, Precision, Recall e F1-Score. 
 
 Durante a avaliação, também foram observados aspectos relacionados ao desempenho 
 computacional dos modelos, incluindo tempo de treinamento, tempo de execução e 
@@ -1060,28 +1012,19 @@ Este trabalho apresentou uma análise exploratória e experimental de técnicas 
 
 As etapas metodológicas executadas evidenciaram que o pré-processamento rigoroso — envolvendo desde a conversão de atributos categóricos via \textit{Label Encoding} até o agrupamento de ataques em macrocategorias — constitui um pilar fundamental para garantir a estabilidade e a interpretabilidade dos classificadores. Além disso, a aplicação combinada da Análise de Componentes Principais ($PCA$) e a seleção de características via $Decision Tree$ comprovaram que a redução de dimensionalidade é viável e necessária, mitigando o alto custo computacional sem comprometer a acurácia global da detecção. Os experimentos demonstraram, em alinhamento com a literatura estudada, que conjuntos reduzidos de atributos altamente discriminantes são capazes de otimizar a latência operacional de sistemas preditivos.
 
+Por fim, os resultados obtidos demonstram o potencial da utilização de técnicas de \textit{Machine Learning} aplicadas à detecção de intrusões, especialmente quando associadas a estratégias adequadas de seleção e redução de atributos. Como trabalhos futuros, pretende-se realizar a implementação de melhorias no modelo selecionado, visando ampliar sua capacidade de generalização, eficiência e robustez frente a diferentes cenários de ataques. Além disso, busca-se aplicar as técnicas desenvolvidas na construção de um protótipo funcional de Sistema de Detecção de Intrusões em tempo real, permitindo validar, em um ambiente mais próximo do real, a viabilidade prática, o desempenho operacional e a capacidade de resposta da solução proposta diante de tráfegos e ameaças reais de rede.
+
 % Como limitações identificadas no estágio atual do projeto, destaca-se o desbalanceamento intrínseco das classes minoritárias de ataques (como U2R e R2L) presente na base histórica utilizada, um fator que exige técnicas avançadas de reamostragem para não enviesar os modelos de aprendizado supervisionado. 
 
 \subsection{Cronograma}
 
 \begin{enumerate}
-	\item \textbf{Levantamento Inicial da Área de Pesquisa:} Realização de estudos introdutórios sobre a área de Segurança da Informação, com foco em Intrusion Detection Systems (IDS) e aplicação de técnicas de Machine Learning na detecção de ameaças cibernéticas.
-	\item \textbf{Continuidade do Levantamento Teórico da Área:} Aprofundamento da pesquisa introdutória, visando consolidar o entendimento sobre redes de computadores, segurança cibernética e métodos de detecção de intrusões. 
-	\item \textbf{Definição do Tema de Pesquisa:} Delimitação do escopo do Trabalho de Conclusão de Curso, estabelecendo o foco na utilização de técnicas de aprendizado de máquina aplicadas à detecção de intrusões em redes computacionais.
-	\item \textbf{Entrega do Checklist do TCC:} Organização e submissão da documentação inicial exigida para formalização e acompanhamento do desenvolvimento do Trabalho de Conclusão de Curso.
-	\item \textbf{Pesquisa e Seleção de Referências Bibliográficas:} Levantamento de artigos científicos, trabalhos acadêmicos e materiais técnicos relacionados à detecção de intrusões, pré-processamento de dados e algoritmos de Machine Learning aplicados à cibersegurança.
-	\item \textbf{Levantamento e Seleção das Bases de Dados:} Análise e escolha das bases de dados utilizadas no projeto, incluindo a NSL-KDD para o desenvolvimento inicial, além das bases UNSW-NB15 e CICIDS2017 previstas para utilização em etapas futuras do MVP.
-	\item \textbf{Estudo de Técnicas de Pré-Processamento e Extração de Características:} Pesquisa sobre métodos de tratamento e redução de dimensionalidade dos dados, incluindo técnicas como PCA (Principal Component Analysis), matriz de correlação e extração de features relevantes para otimização dos modelos.
-	\item \textbf{Pesquisa sobre Algoritmos de Machine Learning:} Estudo dos principais algoritmos supervisionados e não supervisionados aplicáveis à detecção de intrusões, analisando características, vantagens e limitações de cada abordagem.
-	\item \textbf{Levantamento de Dados Analíticos para Fundamentação do Tema:} Coleta e análise de informações estatísticas e estudos recentes que evidenciam o crescimento das ameaças cibernéticas e a relevância da utilização de sistemas inteligentes de detecção de intrusão.
-	\item \textbf{Elaboração das Referências Bibliográficas:} Estruturação e organização das referências utilizadas no trabalho, seguindo as normas acadêmicas exigidas.
-	\item \textbf{Desenvolvimento Inicial Utilizando a Base NSL-KDD:} Realização de estudos práticos envolvendo pré-processamento de dados, aplicação de algoritmos supervisionados e análise de métricas de desempenho, como acurácia, precisão, recall e taxa de detecção.
-	\item \textbf{Definição do Algoritmo Supervisionado Principal:} Escolha do algoritmo supervisionado mais adequado para o desenvolvimento do MVP1, considerando desempenho, capacidade de generalização e resultados obtidos nos testes preliminares.
-	\item \textbf{Continuidade do Desenvolvimento com a Base NSL-KDD:} Aprimoramento das etapas de pré-processamento, treinamento e avaliação dos modelos supervisionados aplicados à base de dados NSL-KDD.
-	\item \textbf{Sistematização da Revisão Bibliográfica:} Organização e consolidação dos conteúdos teóricos levantados ao longo da pesquisa, estruturando a fundamentação teórica do trabalho.
-	\item \textbf{Sistematização dos Resultados do MVP1:} Documentação e análise dos resultados obtidos durante o desenvolvimento do primeiro MVP, destacando métricas de desempenho, limitações e possibilidades de melhoria.
-	\item \textbf{Elaboração da Apresentação do Trabalho de Conclusão de Curso:} Desenvolvimento do material de apresentação contendo os principais objetivos, metodologia, resultados parciais e contribuições do projeto.
+	\item \textbf{Definição do Tema de Pesquisa:} Realização de estudos introdutórios sobre a área de Segurança da Informação, com foco em $IDS$ e aplicação de técnicas de Machine Learning na detecção de ameaças cibernéticas.
+	\item \textbf{Levantamento de Referências Bibliográficas:} Investigação de artigos científicos, trabalhos acadêmicos e materiais técnicos relacionados à detecção de intrusões, pré-processamento de dados e algoritmos de \textit{Machine Learning} aplicados à cibersegurança.
+	\item \textbf{Desenvolvimento do MVP1:} Aplicação prática dos modelos utilizando a base NSL-KDD, envolvendo etapas de pré-processamento de dados, treinamento e avaliação de algoritmos supervisionados, com análise de métricas de desempenho para definição do modelo mais adequado, além da consolidação da fundamentação teórica e dos estudos realizados ao longo da pesquisa.
 	\item \textbf{Apresentação do Trabalho de Conclusão de Curso:} Apresentação formal do projeto desenvolvido, abordando fundamentação teórica, metodologia aplicada, desenvolvimento do MVP, resultados alcançados e considerações finais do trabalho.
+	\item \textbf{Desenvolvimento do MVP2:} Implementação de melhorias no modelo selecionado e aplicação das técnicas desenvolvidas para construção do protótipo sistema de detecção de intrusões, paralelamente à documentação dos resultados.
+	\item \textbf{Entrega do Trabalho de Conclusão de Curso:} Submissão do relatório final do projeto, contendo a descrição detalhada de todas as etapas realizadas, análises dos resultados obtidos e conclusões derivadas da pesquisa.
 \end{enumerate}
 
 \begin{table}[H]
@@ -1099,56 +1042,24 @@ As etapas metodológicas executadas evidenciaram que o pré-processamento rigoro
 & Jan & Fev & Mar & Abr & Mai & Jun & Jul & Ago & Set & Out & Nov & Dez \\
 \hline
 
-1 & X &  &  &  &  &  &  &  &  &  &  &  \\
+1 & X & X &  &  &  &  &  &  &  &  &  &  \\
 \hline
 
-2 &  & X &  &  &  &  &  &  &  &  &  &  \\
+2 &  & X & X & X &  &  &  &  &  &  &  &  \\
 \hline
 
-3 &  & X &  &  &  &  &  &  &  &  &  &  \\
+3 &  &  &  & X & X &  &  &  &  &  &  &  \\
 \hline
 
-4 &  & X &  &  &  &  &  &  &  &  &  &  \\
+4 &  &  &  &  &  & X &  &  &  &  &  &  \\
 \hline
 
-5 &  &  & X &  &  &  &  &  &  &  &  &  \\
+5 &  &  &  &  &  &  & X & X & X & X & X &  \\
 \hline
 
-6 &  &  & X &  &  &  &  &  &  &  &  &  \\
+6 &  &  &  &  &  &  &  &  &  &  &  & X \\
 \hline
 
-7 &  &  & X &  &  &  &  &  &  &  &  &  \\
-\hline
-
-8 &  &  & X &  &  &  &  &  &  &  &  &  \\
-\hline
-
-9 &  &  &  & X &  &  &  &  &  &  &  &  \\
-\hline
-
-10 &  &  &  & X &  &  &  &  &  &  &  &  \\
-\hline
-
-11 &  &  &  & X &  &  &  &  &  &  &  &  \\
-\hline
-
-12 &  &  &  &  & X &  &  &  &  &  &  &  \\
-\hline
-
-13 &  &  &  &  & X &  &  &  &  &  &  &  \\
-\hline
-
-14 &  &  &  &  & X &  &  &  &  &  &  &  \\
-\hline
-
-15 &  &  &  &  & X &  &  &  &  &  &  &  \\
-\hline
-
-16 &  &  &  &  & X &  &  &  &  &  &  &  \\
-\hline
-
-17 &  &  &  &  &  & X &  &  &  &  &  &  \\
-\hline
 
 \end{tabular}
 \caption{Cronograma do projeto}

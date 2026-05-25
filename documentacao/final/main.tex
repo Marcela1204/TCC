@@ -31,6 +31,7 @@
 \usepackage{multirow}
 \usepackage{tabularx}  
 \usepackage{float}
+\usepackage{cuted}
 \newfloat{equacao}{htbp}{loe}
 \floatname{equacao}{Equação}
 \DeclareCaptionLabelFormat{custom}{#1 #2.}
@@ -861,21 +862,19 @@ permitindo identificar a abordagem mais eficiente para classificação do tráfe
 de rede e detecção de intrusões utilizando a base $NSL-KDD$. 
 
 \section{Resultados Preliminares}
-O algorítimo ultilizado para as análises foi o $Decision Tree$, este conta com o menor tempo de teste e melhor acurácia, estes valores são a maior métrica ultilizada pois o objetivo do sistema é ser execudato em tempo real para garantir uma resposta rápida a incidentes.
+O algorítimo selecionado foi o $Decision Tree$, este conta com o menor tempo de teste e melhor acurácia, estes valores são a maior métrica ultilizada pois o objetivo do sistema é ser execudato em tempo real para garantir uma resposta rápida a incidentes.
 \newline
 \\
 % \subsection{}
 Ultilizando os testes do capítulo anterior, foi desenvolvida uma análise com os variados algorítimos mais ultilizados ($Random Forest$ [$RF$], $Decision Tree$ [$DT$], $KNN$, $SVM$, $Logistic Regression$ [$LR$]).
-%FIXME: adicionar o documento de referência sobre os algoritimos ultilizados
 Ultilizando um random state de 42 para os algorítimos citados, obtiveram-se os seguintes valores:
-\begin{table}[H]
+\begin{strip}
 	\centering
-	\small
-	\setlength{\tabcolsep}{1pt}
-	\begin{tabular}{|l c|c|c|c c c|}
+	% \small
+	% \setlength{\tabcolsep}{1pt}
+	\begin{tabular}{|l c c c c c c|}
 		\hline
-		%FIXME: as notas de rodapé não estão aparecendo
-		Modelo & Acc\footnote{Acurácia} & Prec\footnote{Precisão} & Rec\footnote{Recall} & F1\footnote{F1-score} & Tempo Treino(s) & Tempo Teste(s) \\
+		Modelo & Acurácia & Precisão & Recall & F1-score & Tempo Treino(s) & Tempo Teste(s) \\
 		\hline
 		RF & 0.9987 & 0.9992 & 0.9979 & 0.9985 & 6.3216 & 0.1268 \\
 		DT & 0.9977 & 0.9975 & 0.9975 & 0.9975 & 0.8541 & 0.0035 \\
@@ -884,30 +883,32 @@ Ultilizando um random state de 42 para os algorítimos citados, obtiveram-se os 
 		SVM & 0.9544 & 0.9594 & 0.9418 & 0.9506 & 217.7609 & 9.0564 \\
 		\hline
 	\end{tabular}
-	\caption{Estátisticas de treino dos modelos}
+	\captionof{table}{Estátisticas de treino dos modelos}
 	\label{tab:Tempos_treino}
-\end{table}
+\end{strip}
+\clearpage
+
+\raggedbottom
 Dados os valores da tabela \ref{tab:Tempos_treino} o algorítimo selecionado foi o $Decision Tree$, dado seu baixo tempo de teste e alta acurácia.\\
-Ultilizando os valores anteriormente definidos na figura \ref{fig:pca_componentes} para uma melhor vizualização dos dados que realmente importam, o gráfico foi dividido entre ataques e tráfego normal:
+Ultilizando os valores anteriormente definidos, para uma melhor vizualização dos dados que realmente importam, o gráfico foi dividido entre ataques e tráfego normal:
 \begin{figure}[H]
 	\includegraphics[width=8.69cm,height=7cm]{./PCA_2D.png}
 	\caption{PCA classificando tráfego como ataque e normal}
 	\label{fig:pca_ataqueXnormal}
 \end{figure}
-Estudando as features com o auxilio dos resutados do $PCA$ chegou-se a Conclusão que com 7 features é possível alcançar uma acurácia com valores a cima de 95\%:\\
+Estudando a importância acumulada por features \ref{fig:Importancia_features} com o auxilio dos resutados do $PCA$ \ref{fig:pca_ataqueXnormal} chegou-se a conclusão que com 16 features é possível alcançar uma acurácia com valores a cima de 95\%:\\
 \begin{figure}[H]
 	\includegraphics[width=8.69cm,height=11cm]{./Importancia_features.png}
 	\caption{Representação da importância de cada feature para a acurácia}
 	\label{fig:Importancia_features}
 \end{figure}
-Afim de refinar os dados representado no $PCA$ pela figura \ref{fig:Importancia_features} uma análise similar foi feita utilizado o algorítimo $Decision Tree$:
+Afim de refinar os dados representado no $PCA$ pela figura \ref{fig:Importancia_features} uma análise similar foi feita utilizado o algorítimo $Decision Tree$ \ref{fig:DecisionTree_features}.
+Indicando que o número ótimo de features é 18, onde a acurácia é maior. \\
 \begin{figure}[H]
 	\includegraphics[width=9cm,height=6cm]{./decisiontree_features.png}
 	\caption{Features variadas para o decision tree}
 	\label{fig:DecisionTree_features}
 \end{figure}
-Indicando que o número ótimo de features é 18, onde a acurácia é maior. \\
-Sendo elas:
 % \begin{table}[H]
 % 	\centering
 % 	\begin{tabular}{|l l|}
@@ -958,79 +959,94 @@ Sendo elas:
 
 
 \subsection{Análise de Dados e Pré-processamento}
-Para a análise de dados foi considerado a base de dados NSL-KDD com os seguintes ataques listados na tabela \ref{tab:dados_base_NSL_KDD}. alguns dos valores citados não são ataques reais, porém no contexto desta análise componentes como: $loadmodule$, $perl$ e $nmap$ foram categorizados como ataques.
-\linebreak
+Para a análise de dados foi considerado a base de dados NSL-KDD com os seguintes ataques listados na tabela \ref{tab:ataquesXcategoria}. alguns dos valores citados não são ataques reais, porém no contexto desta análise componentes como: $loadmodule$, $perl$ e $nmap$ foram categorizados como ataques.\\
 % A base de dados conta com os seguintes valores \\
-	\begin{table}[H]
-		\centering
-\begin{tabular}{|c c|}
-	\hline
-	normal & 67343 \\
-	neptune & 41214 \\
-	satan & 3633 \\
-	ipsweep & 3599 \\
-	portsweep & 2931 \\
-	smurf & 2646 \\
-	nmap & 1493 \\
-	back & 956 \\
-	teardrop & 892 \\
-	warezclient & 890 \\
-	pod & 201 \\
-	guess\_passwd  & 53 \\
-	buffer\_overflow & 30 \\
-	warezmaster & 20 \\
-	land & 18 \\
-	imap & 11 \\
-	rootkit & 10 \\
-	loadmodule & 9 \\
-	ftp\_write & 8 \\
-	multihop &  7 \\
-	phf & 4 \\
-	perl & 3 \\
-	spy & 2 \\
-	\hline
-\end{tabular}
-\caption{Dados presentes na base $NSL-KDD$}
-		\label{tab:dados_base_NSL_KDD}
-	\end{table}
+% 	\begin{table}[H]
+% 		\centering
+% \begin{tabular}{|c c|}
+% 	\hline
+% 	normal & 67343 \\
+% 	neptune & 41214 \\
+% 	satan & 3633 \\
+% 	ipsweep & 3599 \\
+% 	portsweep & 2931 \\
+% 	smurf & 2646 \\
+% 	nmap & 1493 \\
+% 	back & 956 \\
+% 	teardrop & 892 \\
+% 	warezclient & 890 \\
+% 	pod & 201 \\
+% 	guess\_passwd  & 53 \\
+% 	buffer\_overflow & 30 \\
+% 	warezmaster & 20 \\
+% 	land & 18 \\
+% 	imap & 11 \\
+% 	rootkit & 10 \\
+% 	loadmodule & 9 \\
+% 	ftp\_write & 8 \\
+% 	multihop &  7 \\
+% 	phf & 4 \\
+% 	perl & 3 \\
+% 	spy & 2 \\
+% 	\hline
+% \end{tabular}
+% \caption{Dados presentes na base $NSL-KDD$}
+% 		\label{tab:dados_base_NSL_KDD}
+% 	\end{table}
 Para melhor vizualização dos dados os ataques foram separados nas seguintes categorias: $normal$, $dos$, $probe$, $r2l$, $u2r$.
 	\begin{table}[H]
 \centering
-		\begin{tabular}{|c|c|}
+		\begin{tabular}{|c|c|c|}
 		    \hline
-		    \textbf{Categoria} & \textbf{Tipos de Ataque} \\
+		    \textbf{Categoria} & \textbf{Tipos de Ataque} & \textbf{quantidade de valores}\\
 		    \hline
-		    normal & Normal \\
+		    normal & Normal & 67343 \\
 		    \hline
-		    \multirow{5}{*}{dos} & Neptune \\
-		        & smurf \\
-		        & teardrop \\
-		        & pod \\
-		        & land \\
+		    dos &
+		    \begin{tabular}[c]{@{}c@{}}
+			Neptune \\
+		         smurf \\
+		         teardrop \\
+		         pod \\
+			 land 
+			\end{tabular}
+			& 44971\\
 		    \hline
-		    \multirow{3}{*}{probe} & nmap \\
-		          & ipsweep \\
-		          & satan \\
+		    probe &
+		    \begin{tabular}[c]{@{}c@{}}
+		    nmap \\
+		    ipsweep \\
+		    satan
+		    \end{tabular}
+			  & 8725 \\
 		    \hline
-		    \multirow{8}{*}{r2l} & warezclient \\
-		        & warezmaster \\
-		        & guess\_passwd \\
-		        & imap \\
-		        & ftp\_write \\
-		        & multihop \\
-		        & phf \\
-		        & spy \\
+		    r2l &
+		    \begin{tabular}[c]{@{}c@{}}
+			warezclient \\
+		        warezmaster \\
+		        guess\_passwd \\
+		        imap \\
+		        ftp\_write \\
+		        multihop \\
+		        phf \\
+		        spy
+		    \end{tabular}
+			& 995 \\
 		    \hline
-		    \multirow{4}{*}{u2r} & buffer\_overflow \\
-		        & rootkit \\
-		        & loadmodule \\
-		        & perl \\
+		    u2r &
+		    \begin{tabular}[c]{@{}c@{}}
+		       buffer\_overflow \\
+		       rootkit \\
+		       loadmodule \\
+		       perl
+		    \end{tabular}
+			& 52 \\
 		    \hline
 		\end{tabular}
 	\caption{Definição de tipos de ataque por grupos}
 \label{tab:ataquesXcategoria}
 	\end{table}
-	Com o objetivo de análisar os dados e diminuir o espaço dimensional, foi utilizado a matriz de correlação \ref{fig:matriz_corr} que representa que a contagem de pacotes e ocorrência de erros são os componentes com maior correlação entre si.
+	Com o objetivo de análisar os dados e diminuir o espaço dimensional, foi utilizado a matriz de correlação (figura \ref{fig:matriz_corr}) que representa que a contagem de pacotes e ocorrência de erros são os componentes com maior correlação entre si.
 \begin{figure}[H]
 \centering
 \includegraphics[width=8cm,height=8cm]{matriz_corr.png}

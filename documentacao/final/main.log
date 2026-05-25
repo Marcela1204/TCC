@@ -1,133 +1,170 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.5)  23 MAY 2026 22:58
-entering extended mode
- restricted \write18 enabled.
- %&-line parsing enabled.
-**./main.tex
-(main.tex
+This is LuaHBTeX, Version 1.24.0 (TeX Live 2026/Debian)  (format=lualatex 2026.5.19)  25 MAY 2026 10:41
+ restricted system commands enabled.
+**main.tex
+(./main.tex
 LaTeX2e <2025-11-01>
-L3 programming layer <2025-12-24>
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+L3 programming layer <2026-01-19>
+Lua module: luaotfload 2024-12-03 v3.29 Lua based OpenType font support
+Lua module: lualibs 2023-07-13 v2.76 ConTeXt Lua standard libraries.
+Lua module: lualibs-extended 2023-07-13 v2.76 ConTeXt Lua libraries -- extended 
+collection.
+luaotfload | conf : Root cache directory is "/home/adelgrin/.texlive2026/texmf-v
+ar/luatex-cache/generic/names".
+luaotfload | init : Loading fontloader "fontloader-2023-12-28.lua" from kpse-res
+olved path "/usr/share/texlive/texmf-dist/tex/luatex/luaotfload/fontloader-2023-
+12-28.lua".
+Lua-only attribute luaotfload@noligature = 1
+luaotfload | init : Context OpenType loader version 3.134
+Inserting `luaotfload.node_processor' in `pre_linebreak_filter'.
+Inserting `luaotfload.node_processor' in `hpack_filter'.
+Inserting `luaotfload.glyph_stream' in `glyph_stream_provider'.
+Inserting `luaotfload.define_font' in `define_font'.
+Lua-only attribute luaotfload_color_attribute = 2
+luaotfload | conf : Root cache directory is "/home/adelgrin/.texlive2026/texmf-v
+ar/luatex-cache/generic/names".
+Inserting `luaotfload.harf.strip_prefix' in `find_opentype_file'.
+Inserting `luaotfload.harf.strip_prefix' in `find_truetype_file'.
+Removing  `luaotfload.glyph_stream' from `glyph_stream_provider'.
+Inserting `luaotfload.harf.glyphstream' in `glyph_stream_provider'.
+Inserting `luaotfload.harf.finalize_vlist' in `post_linebreak_filter'.
+Inserting `luaotfload.harf.finalize_hlist' in `hpack_filter'.
+Inserting `luaotfload.cleanup_files' in `wrapup_run'.
+Inserting `luaotfload.harf.finalize_unicode' in `finish_pdffile'.
+Inserting `luaotfload.glyphinfo' in `glyph_info'.
+Lua-only attribute luaotfload.letterspace_done = 3
+Inserting `luaotfload.aux.set_sscale_dimens' in `luaotfload.patch_font'.
+Inserting `luaotfload.aux.set_font_index' in `luaotfload.patch_font'.
+Inserting `luaotfload.aux.patch_cambria_domh' in `luaotfload.patch_font'.
+Inserting `luaotfload.aux.fixup_fontdata' in `luaotfload.patch_font_unsafe'.
+Inserting `luaotfload.aux.set_capheight' in `luaotfload.patch_font'.
+Inserting `luaotfload.aux.set_xheight' in `luaotfload.patch_font'.
+Inserting `luaotfload.rewrite_fontname' in `luaotfload.patch_font'.
+Inserting `tracingstacklevels' in `input_level_string'. (/usr/share/texlive/tex
+mf-dist/tex/latex/base/article.cls
 Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/base\size10.clo
+(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
 File: size10.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
-)
-\c@part=\count275
-\c@section=\count276
-\c@subsection=\count277
-\c@subsubsection=\count278
-\c@paragraph=\count279
-\c@subparagraph=\count280
-\c@figure=\count281
-\c@table=\count282
+luaotfload | db : Font names database loaded from /home/adelgrin/.texlive2026/te
+xmf-var/luatex-cache/generic/names/luaotfload-names.luc.gz)
+\c@part=\count273
+\c@section=\count274
+\c@subsection=\count275
+\c@subsubsection=\count276
+\c@paragraph=\count277
+\c@subparagraph=\count278
+\c@figure=\count279
+\c@table=\count280
 \abovecaptionskip=\skip49
 \belowcaptionskip=\skip50
-\bibindent=\dimen148
+\bibindent=\dimen147
 )
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
-Package: geometry 2020/01/02 v5.9 Page Geometry
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2026/03/07 v6.0 Page Geometry
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks17
 )
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty
 Package: iftex 2024/12/12 v1.0g TeX engine tests
 ))
-\Gm@cnth=\count283
-\Gm@cntv=\count284
-\c@Gm@tempcnt=\count285
-\Gm@bindingoffset=\dimen149
-\Gm@wd@mp=\dimen150
-\Gm@odd@mp=\dimen151
-\Gm@even@mp=\dimen152
-\Gm@layoutwidth=\dimen153
-\Gm@layoutheight=\dimen154
-\Gm@layouthoffset=\dimen155
-\Gm@layoutvoffset=\dimen156
+\Gm@cnth=\count281
+\Gm@cntv=\count282
+\c@Gm@tempcnt=\count283
+\Gm@bindingoffset=\dimen148
+\Gm@wd@mp=\dimen149
+\Gm@odd@mp=\dimen150
+\Gm@even@mp=\dimen151
+\Gm@layoutwidth=\dimen152
+\Gm@layoutheight=\dimen153
+\Gm@layouthoffset=\dimen154
+\Gm@layoutvoffset=\dimen155
 \Gm@dimlist=\toks18
-
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg
-)) (C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
+)
+(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2024/02/08 v1.3d Input encoding file
 \inpenc@prehook=\toks19
 \inpenc@posthook=\toks20
-) (C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/lipsum\lipsum.sty
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/l3keys2e\l
-3keys2e.sty
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/l3kernel\expl3.sty
-Package: expl3 2025-12-24 L3 programming layer (loader) 
 
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-p
-dftex.def
-File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count286
-))
+
+Package inputenc Warning: inputenc package ignored with utf8 based engines.
+
+) (/usr/share/texlive/texmf-dist/tex/latex/lipsum/lipsum.sty
+(/usr/share/texlive/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
+(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2026-01-19 L3 programming layer (loader) 
+
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-luatex.def
+File: l3backend-luatex.def 2025-10-09 L3 backend support: PDF output (LuaTeX)
+\l__color_backend_stack_int=\count284
+Inserting `l3color' in `luaotfload.parse_color'.))
 Package: l3keys2e 2025-10-09 LaTeX2e option processing using LaTeX3 keys
 )
 Package: lipsum 2021-09-20 v2.7 150 paragraphs of Lorem Ipsum dummy text
-\g__lipsum_par_int=\count287
-\l__lipsum_a_int=\count288
-\l__lipsum_b_int=\count289
+\g__lipsum_par_int=\count285
+\l__lipsum_a_int=\count286
+\l__lipsum_b_int=\count287
 
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/lipsum\lipsum.ltd.tex
-))
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+(/usr/share/texlive/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex))
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
 
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
 )
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics
-.cfg
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: pdftex.def on input line 106.
+Package graphics Info: Driver file: luatex.def on input line 106.
 
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.d
-ef
-File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/luatex.def
+File: luatex.def 2025/09/29 v1.2f Graphics/color driver for luatex
 ))
-\Gin@req@height=\dimen157
-\Gin@req@width=\dimen158
-) (C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
+\Gin@req@height=\dimen156
+\Gin@req@width=\dimen157
+)
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count290
+\c@float@type=\count288
 \float@exts=\toks21
 \float@box=\box53
 \@float@everytoks=\toks22
 \@floatcapt=\box54
-) (C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
+)
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2023/08/05 v3.6o Customizing captions (AR)
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
-\caption@tempdima=\dimen159
-\captionmargin=\dimen160
-\caption@leftmargin=\dimen161
-\caption@rightmargin=\dimen162
-\caption@width=\dimen163
-\caption@indent=\dimen164
-\caption@parindent=\dimen165
-\caption@hangindent=\dimen166
+\caption@tempdima=\dimen158
+\captionmargin=\dimen159
+\caption@leftmargin=\dimen160
+\caption@rightmargin=\dimen161
+\caption@width=\dimen162
+\caption@indent=\dimen163
+\caption@parindent=\dimen164
+\caption@hangindent=\dimen165
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count291
-\c@continuedfloat=\count292
+\c@caption@flags=\count289
+\c@continuedfloat=\count290
 Package caption Info: float package is loaded.
-) (C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+)
+(/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
 
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cf
-g
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
-Package xcolor Info: Driver file: pdftex.def on input line 274.
+Package xcolor Info: Driver file: luatex.def on input line 274.
 
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.lt
-x)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx)
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1349.
 Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1353.
 Package xcolor Info: Model `RGB' extended on input line 1365.
@@ -138,7 +175,7 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1370.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
 )
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/fancyhdr\fancyhdr.sty
+(/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
 
 \f@nch@headwidth=\skip51
@@ -156,34 +193,35 @@ Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
 \f@nch@widthC=\skip63
 \f@nch@widthR=\skip64
 \@temptokenb=\toks23
-) (C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\helvet.sty
+)
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/helvet.sty
 Package: helvet 2020/03/25 PSNFSS-v9.3 (WaS) 
 )
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/tools\multicol.sty
+(/usr/share/texlive/texmf-dist/tex/latex/tools/multicol.sty
 Package: multicol 2025/10/21 v2.0b multicolumn formatting (FMi)
-\c@tracingmulticols=\count293
+\c@tracingmulticols=\count291
 
 
 Package multicol Warning: May not work with the twocolumn option on input line 
 145.
 
 \mult@box=\box55
-\multicol@leftmargin=\dimen167
-\c@unbalance=\count294
-\c@collectmore=\count295
-\doublecol@number=\count296
-\multicoltolerance=\count297
-\multicolpretolerance=\count298
-\full@width=\dimen168
-\page@free=\dimen169
-\premulticols=\dimen170
-\postmulticols=\dimen171
+\multicol@leftmargin=\dimen166
+\c@unbalance=\count292
+\c@collectmore=\count293
+\doublecol@number=\count294
+\multicoltolerance=\count295
+\multicolpretolerance=\count296
+\full@width=\dimen167
+\page@free=\dimen168
+\premulticols=\dimen169
+\postmulticols=\dimen170
 \multicolsep=\skip65
 \multicolbaselineskip=\skip66
 \partial@page=\box56
 \last@line=\box57
 \mc@boxedresult=\box58
-\maxbalancingoverflow=\dimen172
+\maxbalancingoverflow=\dimen171
 \mult@rightbox=\box59
 \mult@grightbox=\box60
 \mult@firstbox=\box61
@@ -224,117 +262,113 @@ Package multicol Warning: May not work with the twocolumn option on input line
 \@tempa=\box96
 \@tempa=\box97
 \@tempa=\box98
-\c@minrows=\count299
-\c@columnbadness=\count300
-\c@finalcolumnbadness=\count301
-\last@try=\dimen173
-\multicolovershoot=\dimen174
-\multicolundershoot=\dimen175
+\c@minrows=\count297
+\c@columnbadness=\count298
+\c@finalcolumnbadness=\count299
+\last@try=\dimen172
+\multicolovershoot=\dimen173
+\multicolundershoot=\dimen174
 \mult@nat@firstbox=\box99
 \colbreak@box=\box100
-\mc@col@check@num=\count302
-\g__mc_curr_col_int=\count303
-)
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/titlesec\titlesec.sty
+\mc@col@check@num=\count300
+\g__mc_curr_col_int=\count301
+) (/usr/share/texlive/texmf-dist/tex/latex/titlesec/titlesec.sty
 Package: titlesec 2025/01/04 v2.17 Sectioning titles
 \ttl@box=\box101
 \beforetitleunit=\skip67
 \aftertitleunit=\skip68
-\ttl@plus=\dimen176
-\ttl@minus=\dimen177
+\ttl@plus=\dimen175
+\ttl@minus=\dimen176
 \ttl@toksa=\toks24
-\titlewidth=\dimen178
-\titlewidthlast=\dimen179
-\titlewidthfirst=\dimen180
+\titlewidth=\dimen177
+\titlewidthlast=\dimen178
+\titlewidthfirst=\dimen179
 )
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\biblatex.sty
+(/usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex.sty
 Package: biblatex 2025/07/10 v3.21 programmable bibliographies (PK/MW)
 
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcm
-ds.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
 Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
 )
 
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr
-.sty
+(/usr/share/texlive/texmf-dist/tex/generic/infwarerr/infwarerr.sty
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 )
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+(/usr/share/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
 Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
 )
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
+\pdftexcmds@toks=\toks25
 )
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
+(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count304
+\etb@tempcnta=\count302
 )
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.s
-ty
+(/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.s
-ty
+(/usr/share/texlive/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
 Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
 ))
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/logreq\logreq.sty
+(/usr/share/texlive/texmf-dist/tex/latex/logreq/logreq.sty
 Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count305
+\lrq@indent=\count303
 
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/logreq\logreq.def
+(/usr/share/texlive/texmf-dist/tex/latex/logreq/logreq.def
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 ))
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
 )
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-\c@tabx@nest=\count306
-\c@listtotal=\count307
-\c@listcount=\count308
-\c@liststart=\count309
-\c@liststop=\count310
-\c@citecount=\count311
-\c@citetotal=\count312
-\c@multicitecount=\count313
-\c@multicitetotal=\count314
-\c@instcount=\count315
-\c@maxnames=\count316
-\c@minnames=\count317
-\c@maxitems=\count318
-\c@minitems=\count319
-\c@citecounter=\count320
-\c@maxcitecounter=\count321
-\c@savedcitecounter=\count322
-\c@uniquelist=\count323
-\c@uniquename=\count324
-\c@refsection=\count325
-\c@refsegment=\count326
-\c@maxextratitle=\count327
-\c@maxextratitleyear=\count328
-\c@maxextraname=\count329
-\c@maxextradate=\count330
-\c@maxextraalpha=\count331
-\c@abbrvpenalty=\count332
-\c@highnamepenalty=\count333
-\c@lownamepenalty=\count334
-\c@maxparens=\count335
-\c@parenlevel=\count336
-\blx@tempcnta=\count337
-\blx@tempcntb=\count338
-\blx@tempcntc=\count339
-\c@blx@maxsection=\count340
-\blx@maxsegment@0=\count341
-\blx@notetype=\count342
-\blx@parenlevel@text=\count343
-\blx@parenlevel@foot=\count344
-\blx@sectionciteorder@0=\count345
-\blx@sectionciteorderinternal@0=\count346
-\blx@entrysetcounter=\count347
-\blx@biblioinstance=\count348
+\c@tabx@nest=\count304
+\c@listtotal=\count305
+\c@listcount=\count306
+\c@liststart=\count307
+\c@liststop=\count308
+\c@citecount=\count309
+\c@citetotal=\count310
+\c@multicitecount=\count311
+\c@multicitetotal=\count312
+\c@instcount=\count313
+\c@maxnames=\count314
+\c@minnames=\count315
+\c@maxitems=\count316
+\c@minitems=\count317
+\c@citecounter=\count318
+\c@maxcitecounter=\count319
+\c@savedcitecounter=\count320
+\c@uniquelist=\count321
+\c@uniquename=\count322
+\c@refsection=\count323
+\c@refsegment=\count324
+\c@maxextratitle=\count325
+\c@maxextratitleyear=\count326
+\c@maxextraname=\count327
+\c@maxextradate=\count328
+\c@maxextraalpha=\count329
+\c@abbrvpenalty=\count330
+\c@highnamepenalty=\count331
+\c@lownamepenalty=\count332
+\c@maxparens=\count333
+\c@parenlevel=\count334
+\blx@tempcnta=\count335
+\blx@tempcntb=\count336
+\blx@tempcntc=\count337
+\c@blx@maxsection=\count338
+\blx@maxsegment@0=\count339
+\blx@notetype=\count340
+\blx@parenlevel@text=\count341
+\blx@parenlevel@foot=\count342
+\blx@sectionciteorder@0=\count343
+\blx@sectionciteorderinternal@0=\count344
+\blx@entrysetcounter=\count345
+\blx@biblioinstance=\count346
 \labelnumberwidth=\skip69
 \labelalphawidth=\skip70
 \biblabelsep=\skip71
@@ -345,88 +379,88 @@ Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 \bibhang=\skip76
 \blx@bcfin=\read2
 \blx@bcfout=\write3
-\blx@langwohyphens=\language79
-\c@mincomprange=\count349
-\c@maxcomprange=\count350
-\c@mincompwidth=\count351
+\blx@langwohyphens=\language2
+\c@mincomprange=\count347
+\c@maxcomprange=\count348
+\c@mincompwidth=\count349
 Package biblatex Info: Trying to load biblatex default data model...
 Package biblatex Info: ... file 'blx-dm.def' found.
 
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\blx-dm.def
+(/usr/share/texlive/texmf-dist/tex/latex/biblatex/blx-dm.def
 File: blx-dm.def 2025/07/10 v3.21 biblatex datamodel (PK/MW)
 )
 Package biblatex Info: Trying to load biblatex style data model...
 Package biblatex Info: ... file 'ieee.dbx' not found.
 Package biblatex Info: Trying to load biblatex custom data model...
 Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
-\c@afterword=\count352
-\c@savedafterword=\count353
-\c@annotator=\count354
-\c@savedannotator=\count355
-\c@author=\count356
-\c@savedauthor=\count357
-\c@bookauthor=\count358
-\c@savedbookauthor=\count359
-\c@commentator=\count360
-\c@savedcommentator=\count361
-\c@editor=\count362
-\c@savededitor=\count363
-\c@editora=\count364
-\c@savededitora=\count365
-\c@editorb=\count366
-\c@savededitorb=\count367
-\c@editorc=\count368
-\c@savededitorc=\count369
-\c@foreword=\count370
-\c@savedforeword=\count371
-\c@holder=\count372
-\c@savedholder=\count373
-\c@introduction=\count374
-\c@savedintroduction=\count375
-\c@namea=\count376
-\c@savednamea=\count377
-\c@nameb=\count378
-\c@savednameb=\count379
-\c@namec=\count380
-\c@savednamec=\count381
-\c@translator=\count382
-\c@savedtranslator=\count383
-\c@shortauthor=\count384
-\c@savedshortauthor=\count385
-\c@shorteditor=\count386
-\c@savedshorteditor=\count387
-\c@labelname=\count388
-\c@savedlabelname=\count389
-\c@institution=\count390
-\c@savedinstitution=\count391
-\c@lista=\count392
-\c@savedlista=\count393
-\c@listb=\count394
-\c@savedlistb=\count395
-\c@listc=\count396
-\c@savedlistc=\count397
-\c@listd=\count398
-\c@savedlistd=\count399
-\c@liste=\count400
-\c@savedliste=\count401
-\c@listf=\count402
-\c@savedlistf=\count403
-\c@location=\count404
-\c@savedlocation=\count405
-\c@organization=\count406
-\c@savedorganization=\count407
-\c@origlocation=\count408
-\c@savedoriglocation=\count409
-\c@origpublisher=\count410
-\c@savedorigpublisher=\count411
-\c@publisher=\count412
-\c@savedpublisher=\count413
-\c@language=\count414
-\c@savedlanguage=\count415
-\c@origlanguage=\count416
-\c@savedoriglanguage=\count417
-\c@pageref=\count418
-\c@savedpageref=\count419
+\c@afterword=\count350
+\c@savedafterword=\count351
+\c@annotator=\count352
+\c@savedannotator=\count353
+\c@author=\count354
+\c@savedauthor=\count355
+\c@bookauthor=\count356
+\c@savedbookauthor=\count357
+\c@commentator=\count358
+\c@savedcommentator=\count359
+\c@editor=\count360
+\c@savededitor=\count361
+\c@editora=\count362
+\c@savededitora=\count363
+\c@editorb=\count364
+\c@savededitorb=\count365
+\c@editorc=\count366
+\c@savededitorc=\count367
+\c@foreword=\count368
+\c@savedforeword=\count369
+\c@holder=\count370
+\c@savedholder=\count371
+\c@introduction=\count372
+\c@savedintroduction=\count373
+\c@namea=\count374
+\c@savednamea=\count375
+\c@nameb=\count376
+\c@savednameb=\count377
+\c@namec=\count378
+\c@savednamec=\count379
+\c@translator=\count380
+\c@savedtranslator=\count381
+\c@shortauthor=\count382
+\c@savedshortauthor=\count383
+\c@shorteditor=\count384
+\c@savedshorteditor=\count385
+\c@labelname=\count386
+\c@savedlabelname=\count387
+\c@institution=\count388
+\c@savedinstitution=\count389
+\c@lista=\count390
+\c@savedlista=\count391
+\c@listb=\count392
+\c@savedlistb=\count393
+\c@listc=\count394
+\c@savedlistc=\count395
+\c@listd=\count396
+\c@savedlistd=\count397
+\c@liste=\count398
+\c@savedliste=\count399
+\c@listf=\count400
+\c@savedlistf=\count401
+\c@location=\count402
+\c@savedlocation=\count403
+\c@organization=\count404
+\c@savedorganization=\count405
+\c@origlocation=\count406
+\c@savedoriglocation=\count407
+\c@origpublisher=\count408
+\c@savedorigpublisher=\count409
+\c@publisher=\count410
+\c@savedpublisher=\count411
+\c@language=\count412
+\c@savedlanguage=\count413
+\c@origlanguage=\count414
+\c@savedoriglanguage=\count415
+\c@pageref=\count416
+\c@savedpageref=\count417
 \shorthandwidth=\skip77
 \shortjournalwidth=\skip78
 \shortserieswidth=\skip79
@@ -441,70 +475,67 @@ Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
 \localshorttitlewidth=\skip88
 \localshortauthorwidth=\skip89
 \localshorteditorwidth=\skip90
+Package biblatex Info: Trying to load enhanced support for Unicode engines...
+Package biblatex Info: ... file 'blx-unicode.def' found.
+
+(/usr/share/texlive/texmf-dist/tex/latex/biblatex/blx-unicode.def)
 Package biblatex Info: Trying to load compatibility code...
 Package biblatex Info: ... file 'blx-compat.def' found.
 
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\blx-compat.d
-ef
+(/usr/share/texlive/texmf-dist/tex/latex/biblatex/blx-compat.def
 File: blx-compat.def 2025/07/10 v3.21 biblatex compatibility (PK/MW)
 )
 Package biblatex Info: Trying to load generic definitions...
 Package biblatex Info: ... file 'biblatex.def' found.
 
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\biblatex.def
+(/usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex.def
 File: biblatex.def 2025/07/10 v3.21 biblatex compatibility (PK/MW)
-\c@textcitecount=\count420
-\c@textcitetotal=\count421
-\c@textcitemaxnames=\count422
-\c@biburlbigbreakpenalty=\count423
-\c@biburlbreakpenalty=\count424
-\c@biburlnumpenalty=\count425
-\c@biburlucpenalty=\count426
-\c@biburllcpenalty=\count427
+\c@textcitecount=\count418
+\c@textcitetotal=\count419
+\c@textcitemaxnames=\count420
+\c@biburlbigbreakpenalty=\count421
+\c@biburlbreakpenalty=\count422
+\c@biburlnumpenalty=\count423
+\c@biburlucpenalty=\count424
+\c@biburllcpenalty=\count425
 \biburlbigskip=\muskip18
 \biburlnumskip=\muskip19
 \biburlucskip=\muskip20
 \biburllcskip=\muskip21
-\c@smartand=\count428
+\c@smartand=\count426
 )
 Package biblatex Info: Trying to load bibliography style 'ieee'...
 Package biblatex Info: ... file 'ieee.bbx' found.
 
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/biblatex-ieee\ieee.bb
-x
+(/usr/share/texlive/texmf-dist/tex/latex/biblatex-ieee/ieee.bbx
 File: ieee.bbx 2025-08-01 v1.4f biblatex bibliography style
 Package biblatex Info: Trying to load bibliography style 'numeric-comp'...
 Package biblatex Info: ... file 'numeric-comp.bbx' found.
 
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/bbx\numeric-
-comp.bbx
+(/usr/share/texlive/texmf-dist/tex/latex/biblatex/bbx/numeric-comp.bbx
 File: numeric-comp.bbx 2025/07/10 v3.21 biblatex bibliography style (PK/MW)
 Package biblatex Info: Trying to load bibliography style 'numeric'...
 Package biblatex Info: ... file 'numeric.bbx' found.
 
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/bbx\numeric.
-bbx
+(/usr/share/texlive/texmf-dist/tex/latex/biblatex/bbx/numeric.bbx
 File: numeric.bbx 2025/07/10 v3.21 biblatex bibliography style (PK/MW)
 Package biblatex Info: Trying to load bibliography style 'standard'...
 Package biblatex Info: ... file 'standard.bbx' found.
 
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/bbx\standard
-.bbx
+(/usr/share/texlive/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
 File: standard.bbx 2025/07/10 v3.21 biblatex bibliography style (PK/MW)
-\c@bbx:relatedcount=\count429
-\c@bbx:relatedtotal=\count430
+\c@bbx:relatedcount=\count427
+\c@bbx:relatedtotal=\count428
 ))))
 Package biblatex Info: Trying to load citation style 'ieee'...
 Package biblatex Info: ... file 'ieee.cbx' found.
 
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/biblatex-ieee\ieee.cb
-x
+(/usr/share/texlive/texmf-dist/tex/latex/biblatex-ieee/ieee.cbx
 File: ieee.cbx 2025-08-01 v1.4f biblatex citation style
 Package biblatex Info: Trying to load citation style 'numeric-verb'...
 Package biblatex Info: ... file 'numeric-verb.cbx' found.
 
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/cbx\numeric-
-verb.cbx
+(/usr/share/texlive/texmf-dist/tex/latex/biblatex/cbx/numeric-verb.cbx
 File: numeric-verb.cbx 2025/07/10 v3.21 biblatex citation style (PK/MW)
 Package biblatex Info: Redefining '\cite'.
 Package biblatex Info: Redefining '\parencite'.
@@ -520,41 +551,40 @@ Package biblatex Info: Redefining '\textcites'.
 Package biblatex Info: Trying to load configuration file...
 Package biblatex Info: ... file 'biblatex.cfg' found.
 
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\biblatex.cfg
+(/usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex.cfg
 File: biblatex.cfg 
 )
-Package biblatex Info: Input encoding 'utf8' detected.
+Package biblatex Info: LuaTeX detected.
+(biblatex)             Assuming input encoding 'utf8'.
 Package biblatex Info: Document encoding is UTF8 ....
 Package biblatex Info: ... and expl3
-(biblatex)             2025-12-24 L3 programming layer (loader) 
+(biblatex)             2026-01-19 L3 programming layer (loader) 
 (biblatex)             is new enough (at least 2020/04/06),
 (biblatex)             setting 'casechanger=expl3'.
 
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\blx-case-exp
-l3.sty
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/xparse\xpa
-rse.sty
+(/usr/share/texlive/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty
+(/usr/share/texlive/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
 Package: xparse 2025-10-09 L3 Experimental document command parser
 )
 Package: blx-case-expl3 2025/07/10 v3.21 expl3 case changing code for biblatex
 ))
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/paracol\paracol.sty
+(/usr/share/texlive/texmf-dist/tex/latex/paracol/paracol.sty
 Package: paracol 2025/07/14 1.37 typeset columns in parallel
-\pcol@currcol=\count431
-\pcol@nextcol=\count432
-\pcol@ncol=\count433
-\pcol@ncolleft=\count434
-\pcol@page=\count435
-\pcol@basepage=\count436
-\pcol@toppage=\count437
-\pcol@footnotebase=\count438
-\pcol@nfootnotes=\count439
-\pcol@mcid=\count440
-\pcol@prevdepth=\dimen181
-\pcol@colht=\dimen182
-\pcol@textfloatsep=\dimen183
-\pcol@lrmargin=\dimen184
-\pagerim=\dimen185
+\pcol@currcol=\count429
+\pcol@nextcol=\count430
+\pcol@ncol=\count431
+\pcol@ncolleft=\count432
+\pcol@page=\count433
+\pcol@basepage=\count434
+\pcol@toppage=\count435
+\pcol@footnotebase=\count436
+\pcol@nfootnotes=\count437
+\pcol@mcid=\count438
+\pcol@prevdepth=\dimen180
+\pcol@colht=\dimen181
+\pcol@textfloatsep=\dimen182
+\pcol@lrmargin=\dimen183
+\pagerim=\dimen184
 \pcol@topskip=\skip91
 \belowfootnoteskip=\skip92
 \pcol@topfnotes=\box102
@@ -564,12 +594,12 @@ Package: paracol 2025/07/14 1.37 typeset columns in parallel
 \pcol@tempboxa=\box106
 \pcol@tempboxb=\box107
 \pcol@colorins=\insert252
-\pcol@everyvbox=\toks25
+\pcol@everyvbox=\toks26
 )
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/tools\indentfirst.sty
+(/usr/share/texlive/texmf-dist/tex/latex/tools/indentfirst.sty
 Package: indentfirst 2023/07/02 v1.03 Indent first paragraph (DPC)
 )
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/ragged2e\ragged2e.sty
+(/usr/share/texlive/texmf-dist/tex/latex/ragged2e/ragged2e.sty
 Package: ragged2e 2023/06/22 v3.6 ragged2e Package
 \CenteringLeftskip=\skip93
 \RaggedLeftLeftskip=\skip94
@@ -586,386 +616,348 @@ Package: ragged2e 2023/06/22 v3.6 ragged2e Package
 \RaggedRightParindent=\skip105
 \JustifyingParindent=\skip106
 )
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/multirow\multirow.sty
+(/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
 Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
 \multirow@colwidth=\skip107
-\multirow@cntb=\count441
+\multirow@cntb=\count439
 \multirow@dima=\skip108
-\bigstrutjot=\dimen186
-) (C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
+\bigstrutjot=\dimen185
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
 Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
-\col@sep=\dimen187
+\col@sep=\dimen186
 \ar@mcellbox=\box108
-\extrarowheight=\dimen188
-\NC@list=\toks26
+\extrarowheight=\dimen187
+\NC@list=\toks27
 \extratabsurround=\skip109
 \backup@length=\skip110
 \ar@cellbox=\box109
 )
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty
+(/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen189
-\lightrulewidth=\dimen190
-\cmidrulewidth=\dimen191
-\belowrulesep=\dimen192
-\belowbottomsep=\dimen193
-\aboverulesep=\dimen194
-\abovetopsep=\dimen195
-\cmidrulesep=\dimen196
-\cmidrulekern=\dimen197
-\defaultaddspace=\dimen198
-\@cmidla=\count442
-\@cmidlb=\count443
-\@aboverulesep=\dimen199
-\@belowrulesep=\dimen256
-\@thisruleclass=\count444
-\@lastruleclass=\count445
-\@thisrulewidth=\dimen257
+\heavyrulewidth=\dimen188
+\lightrulewidth=\dimen189
+\cmidrulewidth=\dimen190
+\belowrulesep=\dimen191
+\belowbottomsep=\dimen192
+\aboverulesep=\dimen193
+\abovetopsep=\dimen194
+\cmidrulesep=\dimen195
+\cmidrulekern=\dimen196
+\defaultaddspace=\dimen197
+\@cmidla=\count440
+\@cmidlb=\count441
+\@aboverulesep=\dimen198
+\@belowrulesep=\dimen199
+\@thisruleclass=\count442
+\@lastruleclass=\count443
+\@thisrulewidth=\dimen256
 )
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/pgf/frontendlayer\tik
-z.sty
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgf.st
-y
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfrcs.
-sty
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfut
-il-common.tex
-\pgfutil@everybye=\toks27
-\pgfutil@tempdima=\dimen258
-\pgfutil@tempdimb=\dimen259
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
+\pgfutil@everybye=\toks28
+\pgfutil@tempdima=\dimen257
+\pgfutil@tempdimb=\dimen258
 )
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfut
-il-latex.def
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
 \pgfutil@abb=\box110
 )
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfrc
-s.code.tex
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf\pgf.revision.te
-x)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/pgf.revision.tex)
 Package: pgfrcs 2025-08-29 v3.1.11a (3.1.11a)
 ))
 Package: pgf 2025-08-29 v3.1.11a (3.1.11a)
 
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgfcor
-e.sty
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/pgf/systemlayer\pgfsy
-s.sty
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgf
-sys.code.tex
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
 Package: pgfsys 2025-08-29 v3.1.11a (3.1.11a)
 
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfke
-ys.code.tex
-\pgfkeys@pathtoks=\toks28
-\pgfkeys@temptoks=\toks29
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks29
+\pgfkeys@temptoks=\toks30
 
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfke
-yslibraryfiltered.code.tex
-\pgfkeys@tmptoks=\toks30
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered
+.code.tex
+\pgfkeys@tmptoks=\toks31
 ))
-\pgf@x=\dimen260
-\pgf@y=\dimen261
-\pgf@xa=\dimen262
-\pgf@ya=\dimen263
-\pgf@xb=\dimen264
-\pgf@yb=\dimen265
-\pgf@xc=\dimen266
-\pgf@yc=\dimen267
-\pgf@xd=\dimen268
-\pgf@yd=\dimen269
+\pgf@x=\dimen259
+\pgf@y=\dimen260
+\pgf@xa=\dimen261
+\pgf@ya=\dimen262
+\pgf@xb=\dimen263
+\pgf@yb=\dimen264
+\pgf@xc=\dimen265
+\pgf@yc=\dimen266
+\pgf@xd=\dimen267
+\pgf@yd=\dimen268
 \w@pgf@writea=\write4
 \r@pgf@reada=\read3
-\c@pgf@counta=\count446
-\c@pgf@countb=\count447
-\c@pgf@countc=\count448
-\c@pgf@countd=\count449
-\t@pgf@toka=\toks31
-\t@pgf@tokb=\toks32
-\t@pgf@tokc=\toks33
-\pgf@sys@id@count=\count450
-
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgf
-.cfg
+\c@pgf@counta=\count444
+\c@pgf@countb=\count445
+\c@pgf@countc=\count446
+\c@pgf@countd=\count447
+\t@pgf@toka=\toks32
+\t@pgf@tokb=\toks33
+\t@pgf@tokc=\toks34
+\pgf@sys@id@count=\count448
+ (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2025-08-29 v3.1.11a (3.1.11a)
 )
-Driver file for pgf: pgfsys-pdftex.def
+Driver file for pgf: pgfsys-luatex.def
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-luatex.def
+File: pgfsys-luatex.def 2025-08-29 v3.1.11a (3.1.11a)
 
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgf
-sys-pdftex.def
-File: pgfsys-pdftex.def 2025-08-29 v3.1.11a (3.1.11a)
-
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgf
-sys-common-pdf.def
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.de
+f
 File: pgfsys-common-pdf.def 2025-08-29 v3.1.11a (3.1.11a)
 )))
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgf
-syssoftpath.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.
+tex
 File: pgfsyssoftpath.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfsyssoftpath@smallbuffer@items=\count451
-\pgfsyssoftpath@bigbuffer@items=\count452
+\pgfsyssoftpath@smallbuffer@items=\count449
+\pgfsyssoftpath@bigbuffer@items=\count450
 )
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgf
-sysprotocol.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.
+tex
 File: pgfsysprotocol.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ))
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfc
-ore.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
 Package: pgfcore 2025-08-29 v3.1.11a (3.1.11a)
 
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.co
-de.tex
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathuti
-l.code.tex)
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathpar
-ser.code.tex
-\pgfmath@dimen=\dimen270
-\pgfmath@count=\count453
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+\pgfmath@dimen=\dimen269
+\pgfmath@count=\count451
 \pgfmath@box=\box111
-\pgfmath@toks=\toks34
-\pgfmath@stack@operand=\toks35
-\pgfmath@stack@operation=\toks36
+\pgfmath@toks=\toks35
+\pgfmath@stack@operand=\toks36
+\pgfmath@stack@operation=\toks37
 )
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfun
-ctions.code.tex)
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfun
-ctions.basic.code.tex)
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfun
-ctions.trigonometric.code.tex)
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfun
-ctions.random.code.tex)
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfun
-ctions.comparison.code.tex)
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfun
-ctions.base.code.tex)
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfun
-ctions.round.code.tex)
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfun
-ctions.misc.code.tex)
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfun
-ctions.integerarithmetics.code.tex)
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathcal
-c.code.tex)
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathflo
-at.code.tex
-\c@pgfmathroundto@lastzeros=\count454
-))
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfint.cod
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code
+.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonomet
+ric.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.cod
 e.tex)
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfc
-orepoints.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison
+.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code
+.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerari
+thmetics.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count452
+))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.te
+x
 File: pgfcorepoints.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@picminx=\dimen271
-\pgf@picmaxx=\dimen272
-\pgf@picminy=\dimen273
-\pgf@picmaxy=\dimen274
-\pgf@pathminx=\dimen275
-\pgf@pathmaxx=\dimen276
-\pgf@pathminy=\dimen277
-\pgf@pathmaxy=\dimen278
-\pgf@xx=\dimen279
-\pgf@xy=\dimen280
-\pgf@yx=\dimen281
-\pgf@yy=\dimen282
-\pgf@zx=\dimen283
-\pgf@zy=\dimen284
+\pgf@picminx=\dimen270
+\pgf@picmaxx=\dimen271
+\pgf@picminy=\dimen272
+\pgf@picmaxy=\dimen273
+\pgf@pathminx=\dimen274
+\pgf@pathmaxx=\dimen275
+\pgf@pathminy=\dimen276
+\pgf@pathmaxy=\dimen277
+\pgf@xx=\dimen278
+\pgf@xy=\dimen279
+\pgf@yx=\dimen280
+\pgf@yy=\dimen281
+\pgf@zx=\dimen282
+\pgf@zy=\dimen283
 )
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfc
-orepathconstruct.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.
+code.tex
 File: pgfcorepathconstruct.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@path@lastx=\dimen285
-\pgf@path@lasty=\dimen286
+\pgf@path@lastx=\dimen284
+\pgf@path@lasty=\dimen285
 )
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfc
-orepathusage.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code
+.tex
 File: pgfcorepathusage.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@shorten@end@additional=\dimen287
-\pgf@shorten@start@additional=\dimen288
+\pgf@shorten@end@additional=\dimen286
+\pgf@shorten@start@additional=\dimen287
 )
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfc
-orescopes.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.te
+x
 File: pgfcorescopes.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgfpic=\box112
 \pgf@hbox=\box113
 \pgf@layerbox@main=\box114
-\pgf@picture@serial@count=\count455
+\pgf@picture@serial@count=\count453
 )
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfc
-oregraphicstate.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.c
+ode.tex
 File: pgfcoregraphicstate.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgflinewidth=\dimen289
+\pgflinewidth=\dimen288
 )
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfc
-oretransformations.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformation
+s.code.tex
 File: pgfcoretransformations.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@pt@x=\dimen290
-\pgf@pt@y=\dimen291
-\pgf@pt@temp=\dimen292
+\pgf@pt@x=\dimen289
+\pgf@pt@y=\dimen290
+\pgf@pt@temp=\dimen291
 )
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfc
-orequick.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
 File: pgfcorequick.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 )
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfc
-oreobjects.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.t
+ex
 File: pgfcoreobjects.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 )
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfc
-orepathprocessing.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing
+.code.tex
 File: pgfcorepathprocessing.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 )
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfc
-orearrows.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.te
+x
 File: pgfcorearrows.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfarrowsep=\dimen293
+\pgfarrowsep=\dimen292
 )
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfc
-oreshade.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@max=\dimen294
-\pgf@sys@shading@range@num=\count456
-\pgf@shadingcount=\count457
+\pgf@max=\dimen293
+\pgf@sys@shading@range@num=\count454
+\pgf@shadingcount=\count455
 )
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfc
-oreimage.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 )
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfc
-oreexternal.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.
+tex
 File: pgfcoreexternal.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgfexternal@startupbox=\box115
 )
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfc
-orelayers.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.te
+x
 File: pgfcorelayers.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 )
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfc
-oretransparency.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.c
+ode.tex
 File: pgfcoretransparency.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 )
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfc
-orepatterns.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.
+tex
 File: pgfcorepatterns.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 )
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfc
-orerdf.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex
 File: pgfcorerdf.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 )))
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodu
-leshapes.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
 File: pgfmoduleshapes.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgfnodeparttextbox=\box116
-)
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodu
-leplot.code.tex
+) (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
 File: pgfmoduleplot.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 )
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgf
-comp-version-0-65.sty
-Package: pgfcomp-version-0-65 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@nodesepstart=\dimen295
-\pgf@nodesepend=\dimen296
-)
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgf
-comp-version-1-18.sty
-Package: pgfcomp-version-1-18 2025-08-29 v3.1.11a (3.1.11a)
-))
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgffor.
-sty
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfkeys
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65
 .sty
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfke
-ys.code.tex))
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/pgf/math\pgfmath.sty
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.co
-de.tex))
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgffo
-r.code.tex
+Package: pgfcomp-version-0-65 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@nodesepstart=\dimen294
+\pgf@nodesepend=\dimen295
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18
+.sty
+Package: pgfcomp-version-1-18 2025-08-29 v3.1.11a (3.1.11a)
+)) (/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex))
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/math/pgfmath.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
 Package: pgffor 2025-08-29 v3.1.11a (3.1.11a)
-\pgffor@iter=\dimen297
-\pgffor@skip=\dimen298
-\pgffor@stack=\toks37
-\pgffor@toks=\toks38
+\pgffor@iter=\dimen296
+\pgffor@skip=\dimen297
+\pgffor@stack=\toks38
+\pgffor@toks=\toks39
 ))
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/t
-ikz\tikz.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
 Package: tikz 2025-08-29 v3.1.11a (3.1.11a)
 
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgfli
-braryplothandlers.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers
+.code.tex
 File: pgflibraryplothandlers.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@plot@mark@count=\count458
-\pgfplotmarksize=\dimen299
+\pgf@plot@mark@count=\count456
+\pgfplotmarksize=\dimen298
 )
-\tikz@lastx=\dimen300
-\tikz@lasty=\dimen301
-\tikz@lastxsaved=\dimen302
-\tikz@lastysaved=\dimen303
-\tikz@lastmovetox=\dimen304
-\tikz@lastmovetoy=\dimen305
-\tikzleveldistance=\dimen306
-\tikzsiblingdistance=\dimen307
+\tikz@lastx=\dimen299
+\tikz@lasty=\dimen300
+\tikz@lastxsaved=\dimen301
+\tikz@lastysaved=\dimen302
+\tikz@lastmovetox=\dimen303
+\tikz@lastmovetoy=\dimen304
+\tikzleveldistance=\dimen305
+\tikzsiblingdistance=\dimen306
 \tikz@figbox=\box117
 \tikz@figbox@bg=\box118
 \tikz@tempbox=\box119
 \tikz@tempbox@bg=\box120
-\tikztreelevel=\count459
-\tikznumberofchildren=\count460
-\tikznumberofcurrentchild=\count461
-\tikz@fig@count=\count462
+\tikztreelevel=\count457
+\tikznumberofchildren=\count458
+\tikznumberofcurrentchild=\count459
+\tikz@fig@count=\count460
 
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodu
-lematrix.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfmatrixcurrentrow=\count463
-\pgfmatrixcurrentcolumn=\count464
-\pgf@matrix@numberofcolumns=\count465
+\pgfmatrixcurrentrow=\count461
+\pgfmatrixcurrentcolumn=\count462
+\pgf@matrix@numberofcolumns=\count463
 )
-\tikz@expandcount=\count466
+\tikz@expandcount=\count464
 
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/t
-ikz/libraries\tikzlibrarytopaths.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 )))
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/t
-ikz/libraries\tikzlibrarymatrix.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarymatrix.code.tex
 File: tikzlibrarymatrix.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 )
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/t
-ikz/libraries\tikzlibrarypositioning.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarypositioning.code.tex
 File: tikzlibrarypositioning.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 )
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgfli
-braryarrows.meta.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.
+code.tex
 File: pgflibraryarrows.meta.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfarrowinset=\dimen308
-\pgfarrowlength=\dimen309
-\pgfarrowwidth=\dimen310
-\pgfarrowlinewidth=\dimen311
-)
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
-\lst@mode=\count467
+\pgfarrowinset=\dimen307
+\pgfarrowlength=\dimen308
+\pgfarrowwidth=\dimen309
+\pgfarrowlinewidth=\dimen310
+) (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count465
 \lst@gtempboxa=\box121
-\lst@token=\toks39
-\lst@length=\count468
-\lst@currlwidth=\dimen312
-\lst@column=\count469
-\lst@pos=\count470
-\lst@lostspace=\dimen313
-\lst@width=\dimen314
-\lst@newlines=\count471
-\lst@lineno=\count472
-\lst@maxwidth=\dimen315
+\lst@token=\toks40
+\lst@length=\count466
+\lst@currlwidth=\dimen311
+\lst@column=\count467
+\lst@pos=\count468
+\lst@lostspace=\dimen312
+\lst@width=\dimen313
+\lst@newlines=\count469
+\lst@lineno=\count470
+\lst@maxwidth=\dimen314
 
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstpatch.sty
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstpatch.sty
 File: lstpatch.sty 2025/11/14 1.11b (Carsten Heinz)
 )
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2025/11/14 1.11b (Carsten Heinz)
-\c@lstnumber=\count473
-\lst@skipnumbers=\count474
+\c@lstnumber=\count471
+\lst@skipnumbers=\count472
 \lst@framebox=\box122
 )
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2025/11/14 1.11b listings configuration
 ))
 Package: listings 2025/11/14 1.11b (Carsten Heinz)
@@ -976,164 +968,150 @@ Package: listings 2025/11/14 1.11b (Carsten Heinz)
     but found:
         2025/11/14 1.11b (Carsten Heinz)
     so I'm assuming it got fixed.
-
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/adjustbox\adjustbox.s
-ty
+(/usr/share/texlive/texmf-dist/tex/latex/adjustbox/adjustbox.sty
 Package: adjustbox 2025/02/26 v1.3c Adjusting TeX boxes (trim, clip, ...)
 
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/xkeyval\xkeyval.sty
-Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
+(/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2025/11/04 v2.10 package option processing (HA)
 
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkeyval.tex
-
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkvutils.te
-x
-\XKV@toks=\toks40
-\XKV@tempa@toks=\toks41
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks41
+\XKV@tempa@toks=\toks42
+\XKV@tempb@toks=\toks43
 )
-\XKV@depth=\count475
+\XKV@depth=\count473
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/adjustbox\adjcalc.sty
+(/usr/share/texlive/texmf-dist/tex/latex/adjustbox/adjcalc.sty
 Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back
 -ends (calc, etex, pgfmath)
 )
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/adjustbox\trimclip.st
-y
+(/usr/share/texlive/texmf-dist/tex/latex/adjustbox/trimclip.sty
 Package: trimclip 2025/02/21 v1.2a Trim and clip general TeX material
 
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/collectbox\collectbox
-.sty
+(/usr/share/texlive/texmf-dist/tex/latex/collectbox/collectbox.sty
 Package: collectbox 2022/10/17 v0.4c Collect macro arguments as boxes
 \collectedbox=\box123
 )
-\tc@llx=\dimen316
-\tc@lly=\dimen317
-\tc@urx=\dimen318
-\tc@ury=\dimen319
-Package trimclip Info: Using driver 'tc-pdftex.def'.
+\tc@llx=\dimen315
+\tc@lly=\dimen316
+\tc@urx=\dimen317
+\tc@ury=\dimen318
+Package trimclip Info: Using driver 'tc-luatex.def'.
 
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/adjustbox\tc-pdftex.d
-ef
+(/usr/share/texlive/texmf-dist/tex/latex/adjustbox/tc-luatex.def
+File: tc-luatex.def 2025/02/26 v1.1 Clipping driver for luatex
+
+(/usr/share/texlive/texmf-dist/tex/latex/adjustbox/tc-pdftex.def
 File: tc-pdftex.def 2025/02/26 v2.3 Clipping driver for pdftex
-))
-\adjbox@Width=\dimen320
-\adjbox@Height=\dimen321
-\adjbox@Depth=\dimen322
-\adjbox@Totalheight=\dimen323
-\adjbox@pwidth=\dimen324
-\adjbox@pheight=\dimen325
-\adjbox@pdepth=\dimen326
-\adjbox@ptotalheight=\dimen327
+)))
+\adjbox@Width=\dimen319
+\adjbox@Height=\dimen320
+\adjbox@Depth=\dimen321
+\adjbox@Totalheight=\dimen322
+\adjbox@pwidth=\dimen323
+\adjbox@pheight=\dimen324
+\adjbox@pdepth=\dimen325
+\adjbox@ptotalheight=\dimen326
 
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/ifoddpage\ifoddpage.s
-ty
+(/usr/share/texlive/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
 Package: ifoddpage 2022/10/18 v1.2 Conditionals for odd/even page detection
-\c@checkoddpage=\count476
+\c@checkoddpage=\count474
 )
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/varwidth\varwidth.sty
+(/usr/share/texlive/texmf-dist/tex/latex/varwidth/varwidth.sty
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \@vwid@box=\box124
-\sift@deathcycles=\count477
-\@vwid@loff=\dimen328
-\@vwid@roff=\dimen329
+\sift@deathcycles=\count475
+\@vwid@loff=\dimen327
+\@vwid@roff=\dimen328
 )
 ==> First Aid for varwidth.sty applied!
-)
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
-Package: hyperref 2025-07-12 v7.01o Hypertext links for LaTeX
+) (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2026-01-29 v7.01p Hypertext links for LaTeX
 
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefi
-nekeys.sty
+(/usr/share/texlive/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
 )
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape
-.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pdfescape/pdfescape.sty
 Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
 )
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty
+(/usr/share/texlive/texmf-dist/tex/latex/hycolor/hycolor.sty
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
 )
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
-Package: nameref 2025-06-21 v2.57 Cross-referencing by name of section
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2026-01-29 v2.58 Cross-referencing by name of section
 
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty
+(/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 )
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gett
-itlestring.sty
+(/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count478
+\c@section@level=\count476
 )
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\stringenc
-.sty
+(/usr/share/texlive/texmf-dist/tex/generic/stringenc/stringenc.sty
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
 )
 )
-\@linkdim=\dimen330
-\Hy@linkcounter=\count479
-\Hy@pagecounter=\count480
+\@linkdim=\dimen329
+\Hy@linkcounter=\count477
+\Hy@pagecounter=\count478
 
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
-File: pd1enc.def 2025-07-12 v7.01o Hyperref: PDFDocEncoding definition (HO)
-Now handling font encoding PD1 ...
-... no UTF-8 mapping file for font encoding PD1
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2026-01-29 v7.01p Hyperref: PDFDocEncoding definition (HO)
 )
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
+(/usr/share/texlive/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count481
- (C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
-File: puenc.def 2025-07-12 v7.01o Hyperref: PDF Unicode definition (HO)
-Now handling font encoding PU ...
-... no UTF-8 mapping file for font encoding PU
+\Hy@SavedSpaceFactor=\count479
+
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def
+File: puenc.def 2026-01-29 v7.01p Hyperref: PDF Unicode definition (HO)
 )
-Package hyperref Info: Hyper figures OFF on input line 4195.
-Package hyperref Info: Link nesting OFF on input line 4200.
-Package hyperref Info: Hyper index ON on input line 4203.
-Package hyperref Info: Plain pages OFF on input line 4210.
-Package hyperref Info: Backreferencing OFF on input line 4215.
+Package hyperref Info: Hyper figures OFF on input line 4201.
+Package hyperref Info: Link nesting OFF on input line 4206.
+Package hyperref Info: Hyper index ON on input line 4209.
+Package hyperref Info: Plain pages OFF on input line 4216.
+Package hyperref Info: Backreferencing OFF on input line 4221.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4462.
-\c@Hy@tempcnt=\count482
-LaTeX Info: Redefining \url on input line 4801.
-\XeTeXLinkMargin=\dimen331
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
+Package hyperref Info: Bookmarks ON on input line 4468.
+\c@Hy@tempcnt=\count480
+LaTeX Info: Redefining \url on input line 4807.
+\XeTeXLinkMargin=\dimen330
+
+(/usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintca
-lc.sty
+(/usr/share/texlive/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count483
-\Field@Width=\dimen332
-\Fld@charsize=\dimen333
-Package hyperref Info: Hyper figures OFF on input line 6078.
-Package hyperref Info: Link nesting OFF on input line 6083.
-Package hyperref Info: Hyper index ON on input line 6086.
-Package hyperref Info: backreferencing OFF on input line 6093.
-Package hyperref Info: Link coloring OFF on input line 6098.
-Package hyperref Info: Link coloring with OCG OFF on input line 6103.
-Package hyperref Info: PDF/A mode OFF on input line 6108.
-\Hy@abspage=\count484
-\c@Item=\count485
-\c@Hfootnote=\count486
+\Fld@menulength=\count481
+\Field@Width=\dimen331
+\Fld@charsize=\dimen332
+Package hyperref Info: Hyper figures OFF on input line 6084.
+Package hyperref Info: Link nesting OFF on input line 6089.
+Package hyperref Info: Hyper index ON on input line 6092.
+Package hyperref Info: backreferencing OFF on input line 6099.
+Package hyperref Info: Link coloring OFF on input line 6104.
+Package hyperref Info: Link coloring with OCG OFF on input line 6109.
+Package hyperref Info: PDF/A mode OFF on input line 6114.
+\Hy@abspage=\count482
+\c@Item=\count483
+\c@Hfootnote=\count484
 )
-Package hyperref Info: Driver (autodetected): hpdftex.
+Package hyperref Info: Driver (autodetected): hluatex.
 
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
-File: hpdftex.def 2025-07-12 v7.01o Hyperref driver for pdfTeX
-\Fld@listcount=\count487
-\c@bookmark@seq@number=\count488
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hluatex.def
+File: hluatex.def 2026-01-29 v7.01p Hyperref driver for luaTeX
+\Fld@listcount=\count485
+\c@bookmark@seq@number=\count486
 
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunf
-ilecheck.sty
+(/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2025-06-21 v1.11 Rerun checks for auxiliary files (HO)
 
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\uniqu
-ecounter.sty
+(/usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
 Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
@@ -1141,47 +1119,70 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip111
 )
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/tools\tabularx.sty
+(/usr/share/texlive/texmf-dist/tex/latex/tools/tabularx.sty
 Package: tabularx 2023/12/11 v2.12a `tabularx' package (DPC)
-\TX@col@width=\dimen334
-\TX@old@table=\dimen335
-\TX@old@col=\dimen336
-\TX@target=\dimen337
-\TX@delta=\dimen338
-\TX@cols=\count489
-\TX@ftn=\toks42
+\TX@col@width=\dimen333
+\TX@old@table=\dimen334
+\TX@old@col=\dimen335
+\TX@target=\dimen336
+\TX@delta=\dimen337
+\TX@cols=\count487
+\TX@ftn=\toks44
 )
-\@float@every@equacao=\toks43
-\c@equacao=\count490
-\@quotelevel=\count491
-\@quotereset=\count492
+(/usr/share/texlive/texmf-dist/tex/latex/sttools/cuted.sty
+Package: cuted 2025/12/15 v2.10 Mixing onecolumn and twocolumn modes (ST)
+\At@ViperColsBreak=\toks45
+\preCutedStrip=\toks46
+\postCutedStrip=\toks47
+\cuted@@tempbox@a=\box125
+\cuted@@tempbox@c=\box126
+\cuted@@tempbox@var=\box127
+\hold@viper=\box128
+\@viper=\box129
+\cuted@@varbox@a=\box130
+\cuted@@varbox@c=\box131
+\cuted@@tempdim@spread=\dimen338
+\cuted@@tempdim@a=\dimen339
+\cuted@@tempdim@b=\dimen340
+\ht@hold@viper=\dimen341
+\ht@viper=\dimen342
+\var@@pagediscards@ht=\dimen343
+\stripsep=\skip112
+\viper@penalty=\count488
+\strip@page@discards=\dimen344
+)
+\@float@every@equacao=\toks48
+\c@equacao=\count489
+\@quotelevel=\count490
+\@quotereset=\count491
+ (./main.aux)
+\openout1 = main.aux
 
-(main.aux (simbologia.aux))
-\openout1 = `main.aux'.
-
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 170.
-LaTeX Font Info:    ... okay on input line 170.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 170.
-LaTeX Font Info:    ... okay on input line 170.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 170.
-LaTeX Font Info:    ... okay on input line 170.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 170.
-LaTeX Font Info:    ... okay on input line 170.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 170.
-LaTeX Font Info:    ... okay on input line 170.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 170.
-LaTeX Font Info:    ... okay on input line 170.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 170.
-LaTeX Font Info:    ... okay on input line 170.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 170.
-LaTeX Font Info:    ... okay on input line 170.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 170.
-LaTeX Font Info:    ... okay on input line 170.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 171.
+LaTeX Font Info:    ... okay on input line 171.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 171.
+LaTeX Font Info:    ... okay on input line 171.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 171.
+LaTeX Font Info:    ... okay on input line 171.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 171.
+LaTeX Font Info:    ... okay on input line 171.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 171.
+LaTeX Font Info:    ... okay on input line 171.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 171.
+LaTeX Font Info:    ... okay on input line 171.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 171.
+LaTeX Font Info:    ... okay on input line 171.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 171.
+LaTeX Font Info:    ... okay on input line 171.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 171.
+LaTeX Font Info:    ... okay on input line 171.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 171.
+LaTeX Font Info:    ... okay on input line 171.
 
 *geometry* driver: auto-detecting
-*geometry* detected driver: pdftex
+*geometry* detected driver: luatex
 *geometry* verbose mode - [ preamble ] result:
-* driver: pdftex
+* driver: luatex
 * paper: a4paper
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
@@ -1212,31 +1213,27 @@ LaTeX Font Info:    ... okay on input line 170.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.
-mkii
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count493
-\scratchdimen=\dimen339
-\scratchbox=\box125
-\nofMPsegments=\count494
-\nofMParguments=\count495
-\everyMPshowfont=\toks44
-\MPscratchCnt=\count496
-\MPscratchDim=\dimen340
-\MPnumerator=\count497
-\makeMPintoPDFobject=\count498
-\everyMPtoPDFconversion=\toks45
-)
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf
--base.sty
+\scratchcounter=\count492
+\scratchdimen=\dimen345
+\scratchbox=\box132
+\nofMPsegments=\count493
+\nofMParguments=\count494
+\everyMPshowfont=\toks49
+\MPscratchCnt=\count495
+\MPscratchDim=\dimen346
+\MPnumerator=\count496
+\makeMPintoPDFobject=\count497
+\everyMPtoPDFconversion=\toks50
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
 
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys
-.cfg
-File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
 ))
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
@@ -1245,272 +1242,86 @@ Package caption Info: End \AtBeginDocument code.
 Package biblatex Info: Trying to load language 'portuguese'...
 Package biblatex Info: ... file 'portuguese.lbx' found.
 
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/lbx\portugue
-se.lbx
+(/usr/share/texlive/texmf-dist/tex/latex/biblatex/lbx/portuguese.lbx
 File: portuguese.lbx 2025/07/10 v3.21 biblatex localization (PK/MW)
 )
-Package biblatex Info: Input encoding 'utf8' detected.
+Package biblatex Info: LuaTeX detected.
+(biblatex)             Assuming input encoding 'utf8'.
 Package biblatex Info: Automatic encoding selection.
 (biblatex)             Assuming data encoding 'utf8'.
-\openout3 = `main.bcf'.
 
+\openout3 = main.bcf
 Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file 'main.bbl' not found.
+Package biblatex Info: ... file 'main.bbl' found.
 
-No file main.bbl.
-Package biblatex Info: Reference section=0 on input line 170.
-Package biblatex Info: Reference segment=0 on input line 170.
-\c@lstlisting=\count499
-Package hyperref Info: Link coloring OFF on input line 170.
-(main.out) (main.out)
+(./main.bbl)
+Package biblatex Info: Reference section=0 on input line 171.
+Package biblatex Info: Reference segment=0 on input line 171.
+\c@lstlisting=\count498
+Package hyperref Info: Link coloring OFF on input line 171.
+ (./main.out) (./main.out)
 \@outlinefile=\write5
-\openout5 = `main.out'.
 
-LaTeX Font Info:    Trying to load font information for OT1+phv on input line 2
-07.
+\openout5 = main.out
+LaTeX Font Info:    Trying to load font information for TU+phv on input line 20
+8.
+LaTeX Font Info:    No file TUphv.fd. on input line 208.
 
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1phv.fd
-File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
-)
-LaTeX Font Info:    Font shape `OT1/phv/b/it' in size <11> not available
-(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 207.
-LaTeX Font Info:    Calculating math sizes for size <11> on input line 207.
 
+LaTeX Font Warning: Font shape `TU/phv/m/n' undefined
+(Font)              using `TU/lmr/m/n' instead on input line 208.
+
+
+LaTeX Font Warning: Font shape `TU/phv/b/n' undefined
+(Font)              using `TU/phv/m/n' instead on input line 208.
+
+
+LaTeX Font Warning: Font shape `TU/phv/b/it' undefined
+(Font)              using `TU/phv/b/n' instead on input line 208.
+
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 208.
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 207.
+(Font)              size <5> substituted on input line 208.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <5.5> not available
-(Font)              size <5> substituted on input line 207.
+(Font)              size <5> substituted on input line 208.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 207.
+(Font)              size <5> substituted on input line 208.
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <11> on input line 207.
+(Font)              <11> on input line 208.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7.69997> on input line 207.
+(Font)              <7.69997> on input line 208.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5.5> on input line 207.
-LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <10> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 207.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 207.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 207.
+(Font)              <5.5> on input line 208.
 
-Underfull \hbox (badness 10000) in paragraph at lines 207--207
+LaTeX Font Warning: Font shape `TU/phv/m/it' undefined
+(Font)              using `TU/phv/m/n' instead on input line 208.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 208.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 208.
+
+Underfull \hbox (badness 10000) in paragraph at lines 208--208
 
  []
 
-<logoinova.png, id=74, 426.84468pt x 85.82062pt>
+<logoinova.png, id=76, 426.84468pt x 85.82062pt>
 File: logoinova.png Graphic file (type png)
 <use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 208.
-(pdftex.def)             Requested size: 141.4128pt x 28.45183pt.
-LaTeX Font Info:    Trying to load font information for TS1+phv on input line 2
-08.
-(C:\Users\Marcela\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1phv.fd
-File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
-)
-[1{C:/Users/Marcela/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/
-Marcela/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}
+Package luatex.def Info: logoinova.png  used on input line 263.
+(luatex.def)             Requested size: 141.4128pt x 28.45183pt.
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
-
- <./logoinova.png>]
-\openout2 = `simbologia.aux'.
-
- (simbologia.tex)
-
-LaTeX Warning: Optional argument of \twocolumn too tall on page 2.
-
-
-Overfull \vbox (30.0pt too high) has occurred while \output is active []
-
-
-
-LaTeX Warning: Text page 2 contains only floats.
-
-
-Overfull \vbox (30.0pt too high) has occurred while \output is active []
-
-
-Overfull \vbox (16.0pt too high) has occurred while \output is active []
-
-File: logoinova.png Graphic file (type png)
-<use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 212.
-(pdftex.def)             Requested size: 141.4128pt x 28.45183pt.
- [2
-
-
-\@writefile{toc}{\contentsline {section}{\numberline {I}Lista de Abreviaturas e
- Siglas}{2}{section.1}\protected@file@percent }
-
-
-
-]
-
-LaTeX Warning: Citation 'Thakkar2021Survey' on page 3 undefined on input line 2
-23.
-
-
-LaTeX Warning: Citation 'zehedi2023comparative' on page 3 undefined on input li
-ne 229.
-
-
-LaTeX Warning: Citation 'patrick2022study' on page 3 undefined on input line 24
-2.
-
-
-LaTeX Warning: Citation 'emad2022intrusion' on page 3 undefined on input line 2
-44.
-
-
-LaTeX Warning: Citation 'Khraisat2019Survey' on page 3 undefined on input line 
-247.
-
-
-Underfull \vbox (badness 1057) has occurred while \output is active []
-
-
-
-LaTeX Warning: Citation 'wasyhun2023cyber' on page 3 undefined on input line 27
-3.
-
-
-LaTeX Warning: Citation 'Kazi2019network' on page 3 undefined on input line 274
-.
-
-
-LaTeX Warning: Citation 'wasyhun2023cyber' on page 3 undefined on input line 28
-0.
-
-
-LaTeX Warning: Citation 'diptiben2022cyber' on page 3 undefined on input line 2
-85.
-
-
-LaTeX Warning: Citation 'wasyhun2023cyber' on page 3 undefined on input line 28
-8.
-
-
-LaTeX Warning: Citation 'diptiben2022cyber' on page 3 undefined on input line 2
-91.
-
-
-Underfull \hbox (badness 1348) in paragraph at lines 282--295
-\OT1/cmr/m/n/10 (\OT1/cmr/m/it/10 avail-abil-ity\OT1/cmr/m/n/10 ) de forma efi-
-ciente e com o menor
- []
-
-File: logoinova.png Graphic file (type png)
-<use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 295.
-(pdftex.def)             Requested size: 141.4128pt x 28.45183pt.
-[3]
-
-LaTeX Warning: Citation 'wasyhun2023cyber' on page 4 undefined on input line 30
-1.
-
-
-LaTeX Warning: Citation 'Thakkar2021Survey' on page 4 undefined on input line 3
-03.
-
-
-LaTeX Warning: Citation 'solane2015using' on page 4 undefined on input line 303
-.
-
-
-LaTeX Warning: Citation 'wasyhun2023cyber' on page 4 undefined on input line 31
-3.
-
-
-LaTeX Warning: Citation 'wasyhun2023cyber' on page 4 undefined on input line 31
-6.
-
-
-Underfull \hbox (badness 1062) in paragraph at lines 309--320
-\OT1/cmr/m/n/10 stru-tivo dessas amea^^Xcas, in-cluindo roubo de da-
- []
-
-
-LaTeX Warning: Citation 'emad2022intrusion' on page 4 undefined on input line 3
-26.
-
-
-LaTeX Warning: Citation 'patrick2022study' on page 4 undefined on input line 33
-0.
-
-
-Underfull \hbox (badness 1708) in paragraph at lines 321--332
-\OT1/cmr/m/n/10 Esses sis-temas per-mitem a de-tec^^Xc~ao pre-coce de
- []
-
-
-LaTeX Warning: Citation 'Khraisat2019Survey' on page 4 undefined on input line 
-341.
-
-
-LaTeX Warning: Citation 'zehedi2023comparative' on page 4 undefined on input li
-ne 341.
-
-
-LaTeX Warning: Citation 'Thakkar2021Survey' on page 4 undefined on input line 3
-41.
-
-
-LaTeX Warning: Citation 'Khraisat2019Hybrid' on page 4 undefined on input line 
-341.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 333--345
-[] []
- []
-
-
-Underfull \vbox (badness 1057) has occurred while \output is active []
-
-
-
-LaTeX Warning: Citation 'Kazi2019network' on page 4 undefined on input line 350
-.
-
-
-LaTeX Warning: Citation 'emad2022intrusion' on page 4 undefined on input line 3
-55.
-
-
-LaTeX Warning: Citation 'patrick2022study' on page 4 undefined on input line 35
-5.
-
-
-LaTeX Warning: Citation 'zehedi2023comparative' on page 4 undefined on input li
-ne 365.
-
-
-LaTeX Warning: Citation 'Thakkar2021Survey' on page 4 undefined on input line 3
-65.
-
-
-LaTeX Warning: Citation 'zehedi2023comparative' on page 4 undefined on input li
-ne 374.
-
-
-LaTeX Warning: Citation 'emad2022intrusion' on page 4 undefined on input line 3
-74.
-
-
-Underfull \hbox (badness 2452) in paragraph at lines 370--379
-\OT1/cmr/m/n/10 per-vi-sion-ado, n~ao su-per-vi-sion-ado e por re-for^^Xco.
- []
-
-
-Underfull \hbox (badness 1874) in paragraph at lines 370--379
-\OT1/cmr/m/n/10 e-los en-volve a di-vis~ao dos da-dos em con-jun-tos
+<./logoinova.png>]
+Underfull \hbox (badness 1077) in paragraph at lines 283--296
+\TU/phv/b/n/10 pesquisa é pro-te-ger da-dos con-tra ameaças in-ter-
  []
 
 
@@ -1518,1090 +1329,766 @@ Underfull \vbox (badness 2503) has occurred while \output is active []
 
 File: logoinova.png Graphic file (type png)
 <use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 379.
-(pdftex.def)             Requested size: 141.4128pt x 28.45183pt.
+Package luatex.def Info: logoinova.png  used on input line 346.
+(luatex.def)             Requested size: 141.4128pt x 28.45183pt.
+ [2]
+Underfull \vbox (badness 1057) has occurred while \output is active []
+
+
+Underfull \vbox (badness 1057) has occurred while \output is active []
+
+File: logoinova.png Graphic file (type png)
+<use logoinova.png>
+Package luatex.def Info: logoinova.png  used on input line 431.
+(luatex.def)             Requested size: 141.4128pt x 28.45183pt.
+ [3]
+Underfull \hbox (badness 1509) in paragraph at lines 456--462
+[]\TU/phv/b/n/10 A apli-ca-bil-i-dade das ár-vores de de-cisão em
+ []
+
+
+Underfull \vbox (badness 1057) has occurred while \output is active []
+
+File: logoinova.png Graphic file (type png)
+<use logoinova.png>
+Package luatex.def Info: logoinova.png  used on input line 524.
+(luatex.def)             Requested size: 141.4128pt x 28.45183pt.
  [4]
-
-LaTeX Warning: Citation 'zehedi2023comparative' on page 5 undefined on input li
-ne 382.
-
-
-LaTeX Warning: Citation 'Kazi2019network' on page 5 undefined on input line 382
-.
-
-
-LaTeX Warning: Citation 'zehedi2023comparative' on page 5 undefined on input li
-ne 388.
-
-
-Underfull \hbox (badness 1173) in paragraph at lines 380--391
-\OT1/cmr/m/n/10 em $\OML/cmm/m/it/10 IDS$ \OT1/cmr/m/n/10 est^^Sa a ca-paci-dad
-e de de-tec-tar ataques
- []
-
-
-Underfull \hbox (badness 1292) in paragraph at lines 380--391
-\OT1/cmr/m/n/10 dar com rela^^Xc~oes com-plexas e n~ao lin-eares pre-
- []
-
-
-LaTeX Warning: Citation 'zehedi2023comparative' on page 5 undefined on input li
-ne 402.
-
-
-LaTeX Warning: Citation 'Thakkar2021Survey' on page 5 undefined on input line 4
-02.
-
-
-Underfull \hbox (badness 1466) in paragraph at lines 392--404
-[]\OT1/cmr/m/n/10 Al^^Sem disso, eta-pas como pr^^Se-processamento,
- []
-
-
-LaTeX Warning: Citation 'Liao2013Intrusion' on page 5 undefined on input line 4
-06.
-
-
-Underfull \hbox (badness 4024) in paragraph at lines 405--413
-[]\OT1/cmr/m/n/10 A di-ver-si-dade de al-go-rit-mos uti-liza-dos em
- []
-
-
-Underfull \hbox (badness 4543) in paragraph at lines 405--413
-\OT1/cmr/m/n/10 sis-temas de de-tec^^Xc~ao de in-trus~ao ^^Se desta-cada
- []
-
-
-LaTeX Warning: Citation 'Saranya2020Performance' on page 5 undefined on input l
-ine 415.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 414--422
-[]\OT1/cmr/m/n/10 A aplica^^Xc~ao de al-go-rit-mos su-per-vi-sion-a-
- []
-
-
-Underfull \hbox (badness 6078) in paragraph at lines 414--422
-\OT1/cmr/m/n/10 dos em am-bi-entes mod-er-nos ^^Se anal-isada por
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 414--422
-[]\OT1/cmr/m/n/10 , que in-ves-tigam o
- []
-
-
-Underfull \vbox (badness 1057) has occurred while \output is active []
-
-
-
-LaTeX Warning: Citation 'Khraisat2019Hybrid' on page 5 undefined on input line 
-424.
-
-
-Underfull \hbox (badness 1946) in paragraph at lines 423--430
-\OT1/cmr/m/n/10 um mod-elo h^^S^^Pbrido com-bi-nando C5.0 e $\OML/cmm/m/it/10 O
-ne \OMS/cmsy/m/n/10 ^^@
- []
-
-
-LaTeX Warning: Citation 'zehedi2023comparative' on page 5 undefined on input li
-ne 432.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 431--439
-[]\OT1/cmr/m/n/10 A efici^encia e in-ter-pretabil-i-dade das
- []
-
-
-Underfull \hbox (badness 1163) in paragraph at lines 431--439
-\OT1/cmr/m/n/10 ^^Sarvores de de-cis~ao s~ao desta-cadas no es-tudo de
- []
-
-
-Underfull \hbox (badness 5548) in paragraph at lines 431--439
-[]\OT1/cmr/m/n/10 , que prop~oe esse al-
- []
-
-
-Underfull \hbox (badness 2035) in paragraph at lines 431--439
-\OT1/cmr/m/n/10 go-ritmo como mod-elo cen-tral para de-tec^^Xc~ao de
- []
-
-
-Underfull \hbox (badness 3417) in paragraph at lines 431--439
-\OT1/cmr/m/n/10 de-cis~ao al-ta-mente rel-e-vantes para sis-temas que
- []
-
-
-LaTeX Warning: Citation 'Depren2005Intelligent' on page 5 undefined on input li
-ne 441.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 440--447
-[]\OT1/cmr/m/n/10 A ro-bustez das ^^Sarvores de de-cis~ao em
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 440--447
-\OT1/cmr/m/n/10 ar-quite-turas h^^S^^Pbridas ^^Se demon-strada por
- []
-
-
-Underfull \hbox (badness 6461) in paragraph at lines 440--447
-[]\OT1/cmr/m/n/10 , que com-bi-nam o al-
- []
-
-
-Underfull \hbox (badness 1048) in paragraph at lines 440--447
-\OT1/cmr/m/n/10 Esse re-sul-tado ev-i-den-cia que ^^Sarvores de de-cis~ao,
- []
-
-
-LaTeX Warning: Citation 'Xianwei2019Adaptive' on page 5 undefined on input line
- 448.
-
-
-Underfull \hbox (badness 1163) in paragraph at lines 448--454
-[]\OT1/cmr/m/n/10 A uti-liza^^Xc~ao de ^^Sarvores em mod-e-los \OT1/cmr/m/it/10
- en-sem-
- []
-
-
-Underfull \hbox (badness 2913) in paragraph at lines 448--454
-\OT1/cmr/m/it/10 ble \OT1/cmr/m/n/10 ^^Se apro-fun-dada por [],
- []
-
-
-LaTeX Warning: Citation 'Rathore2016RealTime' on page 5 undefined on input line
- 456.
-
-
-Underfull \hbox (badness 1502) in paragraph at lines 455--461
-[]\OT1/cmr/m/n/10 A apli-ca-bil-i-dade das ^^Sarvores de de-cis~ao em
- []
-
-
-Underfull \hbox (badness 1776) in paragraph at lines 455--461
-\OT1/cmr/m/n/10 cen^^Sarios de alta per-for-mance ^^Se ev-i-den-ci-ada por
- []
-
-File: logoinova.png Graphic file (type png)
-<use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 461.
-(pdftex.def)             Requested size: 141.4128pt x 28.45183pt.
-[5]
-
-LaTeX Warning: Citation 'Abdulganiyu2023Systematic' on page 6 undefined on inpu
-t line 462.
-
-
-LaTeX Warning: Citation 'patrick2022study' on page 6 undefined on input line 47
-0.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 469--481
-[]\OT1/cmr/m/n/10 A relev^ancia do pr^^Se-processamento e da
- []
-
-
-Underfull \hbox (badness 2005) in paragraph at lines 469--481
-\OT1/cmr/m/n/10 tec^^Xc~ao de in-trus~ao ^^Se ev-i-den-ci-ada no es-tudo de
- []
-
-
-Underfull \hbox (badness 2285) in paragraph at lines 469--481
-\OT1/cmr/m/n/10 am-pla-mente uti-liza-dos, como KD-D-Cup99 e CI-
- []
-
-
-Underfull \hbox (badness 2512) in paragraph at lines 469--481
-\OT1/cmr/m/n/10 es-trat^^Segias, es-pe-cial-mente com-bi-na-dos com deep
- []
-
-
-LaTeX Warning: Citation 'Thakkar2021Survey' on page 6 undefined on input line 4
-83.
-
-
-LaTeX Warning: Citation 'felix2014analysis' on page 6 undefined on input line 4
-94.
-
-
-Underfull \vbox (badness 1057) has occurred while \output is active []
-
-
-
-LaTeX Warning: Citation 'Othman2018Intrusion' on page 6 undefined on input line
- 505.
-
-
-LaTeX Warning: Citation 'Rathore2016RealTime' on page 6 undefined on input line
- 515.
-
-
-LaTeX Warning: Citation 'emad2022intrusion' on page 6 undefined on input line 5
-24.
-
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 533.
+(Font)              <8> on input line 534.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 533.
+(Font)              <6> on input line 534.
 
-Underfull \hbox (badness 10000) in paragraph at lines 533--533
-[][][]\OT1/cmr/m/n/8 Arquivo dispon^^S^^Pvel em: []$\OT1/cmtt/m/n/8 https : / /
- 1drv . ms / x / c /
+Underfull \hbox (badness 10000) in paragraph at lines 534--534
+[][][]\TU/lmr/m/n/8 Ar-quivo disponível em: []$\TU/lmtt/m/n/8 https://1drv.ms/x
+/c/
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 533--533
-\OT1/cmtt/m/n/8 46f377637be54264 / IQB7NxizkmLAS7 _ X22no62qJAZll5FV9 _
+Underfull \hbox (badness 10000) in paragraph at lines 534--534
+\TU/lmtt/m/n/8 46f377637be54264/IQB7NxizkmLAS7_X22no62qJAZll5FV9_
  []
 
-File: logoinova.png Graphic file (type png)
-<use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 551.
-(pdftex.def)             Requested size: 141.4128pt x 28.45183pt.
-[6]
-<./metodologia.jpg, id=121, 722.7pt x 131.74219pt>
+<./metodologia.jpg, id=172, 722.7pt x 131.74219pt>
 File: ./metodologia.jpg Graphic file (type jpg)
 <use ./metodologia.jpg>
-Package pdftex.def Info: ./metodologia.jpg  used on input line 553.
-(pdftex.def)             Requested size: 233.3088pt x 49.79317pt.
+Package luatex.def Info: ./metodologia.jpg  used on input line 554.
+(luatex.def)             Requested size: 233.3088pt x 49.79317pt.
 
-Overfull \hbox (1.46037pt too wide) in paragraph at lines 553--554
+Overfull \hbox (1.46037pt too wide) in paragraph at lines 554--555
 [][] 
  []
 
 
-Underfull \hbox (badness 1107) in paragraph at lines 558--564
-\OT1/cmr/m/n/10 rit-mos de clas-si-fica^^Xc~ao a par-tir da uti-liza^^Xc~ao de
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 576--576
-[][][]\OT1/cmr/m/n/8 Dispon^^S^^Pvel em: []$\OT1/cmtt/m/n/8 https : / / www . k
-aggle . com / datasets /
- []
-
-
-LaTeX Warning: Citation 'scikit2026learn' on page 7 undefined on input line 577
-.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 576--583
-\OT1/cmr/m/n/10 in-cluindo cod-i-fica^^Xc~ao de atrib-u-tos categ^^Soricos,
- []
-
-
-LaTeX Warning: Citation 'Belavagi2016Performance' on page 7 undefined on input 
-line 619.
-
-
-LaTeX Warning: Citation 'Jabez2015Intrusion' on page 7 undefined on input line 
-619.
-
-
-Underfull \hbox (badness 1048) in paragraph at lines 615--620
-\OML/cmm/m/it/10 NSL \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 KDD$\OT1/cmr/m/n/10 
-. Ini-cial-mente, a base pos-sui di-
+Underfull \hbox (badness 10000) in paragraph at lines 577--577
+[][][]\TU/lmr/m/n/8 Disponível em: []$\TU/lmtt/m/n/8 https://www.kaggle.com/dat
+asets/
  []
 
 File: logoinova.png Graphic file (type png)
 <use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 626.
-(pdftex.def)             Requested size: 141.4128pt x 28.45183pt.
-[7 <./metodologia.jpg>]
-Underfull \hbox (badness 1430) in paragraph at lines 643--649
-[]\OT1/cmr/m/n/10 Posteriormente, foi apli-cada uma an^^Salise de
+Package luatex.def Info: logoinova.png  used on input line 615.
+(luatex.def)             Requested size: 141.4128pt x 28.45183pt.
+[5<./metodologia.jpg>]
+Underfull \hbox (badness 2809) in paragraph at lines 667--676
+[]\TU/phv/b/n/10 Por fim, tam-bém foi re-al-izada uma etapa
  []
 
 
-Underfull \hbox (badness 1424) in paragraph at lines 643--649
-\OT1/cmr/m/n/10 cor-rela^^Xc~ao en-tre os atrib-u-tos num^^Sericos da base
- []
-
-
-Underfull \hbox (badness 2875) in paragraph at lines 666--675
-[]\OT1/cmr/m/n/10 Por fim, tamb^^Sem foi re-al-izada uma etapa
- []
-
-
-Underfull \hbox (badness 3343) in paragraph at lines 666--675
-\OT1/cmr/m/n/10 de sele^^Xc~ao de atrib-u-tos uti-lizando o al-go-ritmo
- []
-
-
-Underfull \hbox (badness 4556) in paragraph at lines 696--703
-[]\OT1/cmr/m/n/10 Durante os ex-per-i-men-tos, foram re-al-iza-dos
- []
-
-
-LaTeX Warning: Citation 'IBM2026Supervised' on page 8 undefined on input line 7
-53.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 753--753
-[]|\OT1/cmr/bx/n/8 Tipo
- []
-
-
-Overfull \hbox (39.26665pt too wide) in paragraph at lines 753--753
-[]| 
- []
-
-
-LaTeX Warning: Citation 'IBM2026Supervised' on page 8 undefined on input line 7
-53.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 753--753
-[]|\OT1/cmr/bx/n/8 Defini^^Xc~ao
- []
-
-
-Overfull \hbox (39.26665pt too wide) in paragraph at lines 753--753
-[]| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 753--753
-[]|\OT1/cmr/m/n/8 Aprendizado
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 753--753
-\OT1/cmr/m/n/8 Su-per-vi-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 753--753
-\OT1/cmr/m/n/8 sion-ado
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 753--753
-\OT1/cmr/m/n/8 (Clas-si-
- []
-
-
-Underfull \hbox (badness 7291) in paragraph at lines 753--753
-[]|\OT1/cmr/m/n/8 Cria re-gras
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 753--753
-\OT1/cmr/m/n/8 o-grama)
- []
-
-
-Underfull \hbox (badness 1348) in paragraph at lines 753--753
-\OT1/cmr/m/n/8 para di-vidir
- []
-
-
-Underfull \hbox (badness 2913) in paragraph at lines 753--753
-\OT1/cmr/m/n/8 os da-dos e
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 753--753
-[]|\OT1/cmr/m/n/8 Alta in-ter-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 753--753
-\OT1/cmr/m/n/8 pretabil-i-
- []
-
-
-Underfull \hbox (badness 1466) in paragraph at lines 753--753
-\OT1/cmr/m/n/8 dade, baixo
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 753--753
-\OT1/cmr/m/n/8 custo com-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 753--753
-\OT1/cmr/m/n/8 puta-cional,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 753--753
-\OT1/cmr/m/n/8 bom para
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 753--753
-\OT1/cmr/m/n/8 re-gras
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 753--753
-[]|\OT1/cmr/m/n/8 Aprendizado
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 753--753
-\OT1/cmr/m/n/8 Su-per-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 753--753
-\OT1/cmr/m/n/8 vi-sion-ado
- []
-
-
-Overfull \hbox (31.66737pt too wide) in paragraph at lines 753--753
-\OT1/cmr/m/n/8 ($\OML/cmm/m/it/8 Ensemble$\OT1/cmr/m/n/8 /\OT1/cmr/m/it/8 Baggi
-ng\OT1/cmr/m/n/8 )| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 753--753
-[]|\OT1/cmr/m/n/8 Combina
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 753--753
-\OT1/cmr/m/n/8 m^^Sultiplas
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 753--753
-\OT1/cmr/m/n/8 ^^Sarvores de
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 753--753
-\OT1/cmr/m/n/8 pre-vis~oes
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 753--753
-\OT1/cmr/m/n/8 mais pre-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 753--753
-[]|\OT1/cmr/m/n/8 Robustez
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 753--753
-\OT1/cmr/m/n/8 e alta
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 753--753
-\OT1/cmr/m/n/8 acur^^Sacia,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 753--753
-[]|\OT1/cmr/m/n/8 Aprendizado
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 753--753
-\OT1/cmr/m/n/8 Su-per-vi-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 753--753
-\OT1/cmr/m/n/8 sion-ado
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 753--753
-\OT1/cmr/m/n/8 (Prox-im-i-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 753--753
-[]|\OT1/cmr/m/n/8 Classifica
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 753--753
-\OT1/cmr/m/n/8 baseando-se
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 753--753
-\OT1/cmr/m/n/8 nos viz-in-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 753--753
-\OT1/cmr/m/n/8 hos mais
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 753--753
-[]|\OT1/cmr/m/n/8 Simples,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 753--753
-\OT1/cmr/m/n/8 ^^Sutil como
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 753--753
-[]|\OT1/cmr/m/n/8 Aprendizado
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 753--753
-\OT1/cmr/m/n/8 Su-per-vi-sion-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 753--753
-\OT1/cmr/m/n/8 ado (Clas-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 753--753
-\OT1/cmr/m/n/8 si-fica^^Xc~ao
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 753--753
-[]|\OT1/cmr/m/n/8 Calcula a
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 753--753
-\OT1/cmr/m/n/8 prob-a-bil-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 753--753
-\OT1/cmr/m/n/8 i-dade de
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 753--753
-[]|\OT1/cmr/m/it/8 Baseline
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 753--753
-\OT1/cmr/m/n/8 cl^^Sassico,
- []
-
-
-Underfull \hbox (badness 2495) in paragraph at lines 753--753
-[]|\OT1/cmr/m/n/8 SVM (ker-nel lin-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 753--753
-[]|\OT1/cmr/m/n/8 Aprendizado
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 753--753
-\OT1/cmr/m/n/8 Su-per-vi-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 753--753
-\OT1/cmr/m/n/8 sion-ado
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 753--753
-\OT1/cmr/m/n/8 (Clas-si-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 753--753
-[]|\OT1/cmr/m/n/8 Define o
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 753--753
-\OT1/cmr/m/n/8 hiper-plano
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 753--753
-\OT1/cmr/m/n/8 que mel-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 753--753
-\OT1/cmr/m/n/8 hor sep-ara
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 753--753
-\OT1/cmr/m/n/8 gru-pos de
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 753--753
-[]|\OT1/cmr/m/n/8 Eficaz em
- []
-
-
-Underfull \hbox (badness 3354) in paragraph at lines 753--753
-\OT1/cmr/m/n/8 alta di-men-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 753--753
-\OT1/cmr/m/n/8 sion-al-i-dade,
- []
-
-
-Underfull \hbox (badness 1939) in paragraph at lines 753--753
-\OT1/cmr/m/n/8 por^^Sem mais
- []
-
-
-Underfull \hbox (badness 10000) in alignment at lines 753--753
-[][][][] 
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-File: logoinova.png Graphic file (type png)
-<use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 757.
-(pdftex.def)             Requested size: 141.4128pt x 28.45183pt.
- [8]
-Underfull \hbox (badness 1281) in paragraph at lines 772--779
-[]\OT1/cmr/m/n/10 Al^^Sem das m^^Setricas de clas-si-fica^^Xc~ao, tamb^^Sem
- []
-
-
-Underfull \hbox (badness 1715) in paragraph at lines 772--779
-\OT1/cmr/m/n/10 penho com-puta-cional dos mod-e-los, como tempo
- []
-
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 827.
-
-Overfull \hbox (47.4554pt too wide) in paragraph at lines 827--839
- [][] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 816--841
-
- []
-
-
-Underfull \hbox (badness 4441) in paragraph at lines 816--841
-\OT1/cmr/m/n/10 Ultilizando os testes do cap^^S^^Ptulo an-te-rior, foi
+Underfull \hbox (badness 3354) in paragraph at lines 667--676
+\TU/phv/b/n/10 de se-leção de atrib-u-tos uti-lizando o al-go-ritmo
  []
 
 File: logoinova.png Graphic file (type png)
 <use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 841.
-(pdftex.def)             Requested size: 141.4128pt x 28.45183pt.
-[9]
-<./PCA_2D.png, id=150, 465.23813pt x 361.35pt>
+Package luatex.def Info: logoinova.png  used on input line 696.
+(luatex.def)             Requested size: 141.4128pt x 28.45183pt.
+[6]
+Underfull \hbox (badness 4582) in paragraph at lines 697--704
+[]\TU/phv/b/n/10 Du-rante os ex-per-i-men-tos, foram re-al-iza-dos
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 754--754
+[]|\TU/lmr/bx/n/8 Definição
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 754--754
+[]|\TU/lmr/m/n/8 Apren-dizado
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 754--754
+\TU/lmr/m/n/8 Su-per-vi-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 754--754
+\TU/lmr/m/n/8 sion-ado
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 754--754
+\TU/lmr/m/n/8 (Clas-si-fi-
+ []
+
+
+Underfull \hbox (badness 7362) in paragraph at lines 754--754
+[]|\TU/lmr/m/n/8 Cria re-gras
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 754--754
+\TU/lmr/m/n/8 o-grama)
+ []
+
+
+Underfull \hbox (badness 1371) in paragraph at lines 754--754
+\TU/lmr/m/n/8 para di-vidir
+ []
+
+
+Underfull \hbox (badness 2932) in paragraph at lines 754--754
+\TU/lmr/m/n/8 os da-dos e
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 754--754
+[]|\TU/lmr/m/n/8 Alta in-ter-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 754--754
+\TU/lmr/m/n/8 pretabil-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 754--754
+\TU/lmr/m/n/8 i-dade,
+ []
+
+
+Underfull \hbox (badness 3826) in paragraph at lines 754--754
+\TU/lmr/m/n/8 baixo custo
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 754--754
+\TU/lmr/m/n/8 com-puta-
+ []
+
+
+Underfull \hbox (badness 1052) in paragraph at lines 754--754
+\TU/lmr/m/n/8 cional, bom
+ []
+
+
+Underfull \hbox (badness 5741) in paragraph at lines 754--754
+\TU/lmr/m/n/8 para re-gras
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 754--754
+[]|\TU/lmr/m/n/8 Apren-dizado
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 754--754
+\TU/lmr/m/n/8 Su-per-vi-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 754--754
+\TU/lmr/m/n/8 sion-ado
+ []
+
+
+Overfull \hbox (15.3751pt too wide) in paragraph at lines 754--754
+\TU/lmr/m/n/8 ($\OML/cmm/m/it/8 Ensemble$\TU/lmr/m/n/8 /\TU/lmr/m/it/8 Bag-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 754--754
+[]|\TU/lmr/m/n/8 Com-bina
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 754--754
+\TU/lmr/m/n/8 múlti-plas
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 754--754
+\TU/lmr/m/n/8 ár-vores de
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 754--754
+\TU/lmr/m/n/8 pre-visões
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 754--754
+\TU/lmr/m/n/8 mais pre-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 754--754
+[]|\TU/lmr/m/n/8 Ro-bustez e
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 754--754
+\TU/lmr/m/n/8 alta acurá-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 754--754
+\TU/lmr/m/n/8 cia, porém
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 754--754
+[]|\TU/lmr/m/n/8 Apren-dizado
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 754--754
+\TU/lmr/m/n/8 Su-per-vi-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 754--754
+\TU/lmr/m/n/8 sion-ado
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 754--754
+\TU/lmr/m/n/8 (Prox-im-i-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 754--754
+[]|\TU/lmr/m/n/8 Clas-si-fica
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 754--754
+\TU/lmr/m/n/8 baseando-se
+ []
+
+
+Underfull \hbox (badness 5787) in paragraph at lines 754--754
+\TU/lmr/m/n/8 mais próx-i-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 754--754
+[]|\TU/lmr/m/n/8 Sim-ples,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 754--754
+\TU/lmr/m/n/8 útil como
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 754--754
+[]|\TU/lmr/m/n/8 Apren-dizado
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 754--754
+\TU/lmr/m/n/8 Su-per-vi-sion-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 754--754
+\TU/lmr/m/n/8 ado (Clas-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 754--754
+\TU/lmr/m/n/8 si-fi-cação
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 754--754
+[]|\TU/lmr/m/n/8 Cal-cula a
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 754--754
+\TU/lmr/m/n/8 prob-a-bil-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 754--754
+\TU/lmr/m/n/8 i-dade de
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 754--754
+[]|\TU/lmr/m/it/8 Base-line
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 754--754
+\TU/lmr/m/n/8 clás-sico,
+ []
+
+
+Underfull \hbox (badness 2521) in paragraph at lines 754--754
+[]|\TU/lmr/m/n/8 SVM (ker-nel lin-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 754--754
+[]|\TU/lmr/m/n/8 Apren-dizado
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 754--754
+\TU/lmr/m/n/8 Su-per-vi-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 754--754
+\TU/lmr/m/n/8 sion-ado
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 754--754
+\TU/lmr/m/n/8 (Clas-si-fi-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 754--754
+[]|\TU/lmr/m/n/8 De-fine o
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 754--754
+\TU/lmr/m/n/8 hiper-plano
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 754--754
+\TU/lmr/m/n/8 que mel-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 754--754
+\TU/lmr/m/n/8 hor sep-ara
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 754--754
+\TU/lmr/m/n/8 gru-pos de
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 754--754
+[]|\TU/lmr/m/n/8 Efi-caz em
+ []
+
+
+Underfull \hbox (badness 3407) in paragraph at lines 754--754
+\TU/lmr/m/n/8 alta di-men-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 754--754
+\TU/lmr/m/n/8 sion-al-i-dade,
+ []
+
+
+Underfull \hbox (badness 1968) in paragraph at lines 754--754
+\TU/lmr/m/n/8 porém mais
+ []
+
+
+Underfull \hbox (badness 10000) in alignment at lines 754--754
+[][][][]
+ []
+
+
+Underfull \hbox (badness 1242) in paragraph at lines 773--780
+[]\TU/phv/b/n/10 Além das métri-cas de clas-si-fi-cação, tam-bém
+ []
+
+File: logoinova.png Graphic file (type png)
+<use logoinova.png>
+Package luatex.def Info: logoinova.png  used on input line 815.
+(luatex.def)             Requested size: 141.4128pt x 28.45183pt.
+[7]
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 838.
+See the caption package documentation for explanation.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 817--840
+
+ []
+
+
+Underfull \hbox (badness 5133) in paragraph at lines 817--840
+\TU/phv/b/n/10 ul-tiliza-dos ($\OML/cmm/m/it/10 RandomForest$ \TU/phv/b/n/10 [$
+\OML/cmm/m/it/10 RF$\TU/phv/b/n/10 ], $\OML/cmm/m/it/10 DecisionTree$
+ []
+
+
+Underfull \hbox (badness 2221) in paragraph at lines 817--840
+\TU/phv/b/n/10 [$\OML/cmm/m/it/10 DT$\TU/phv/b/n/10 ], $\OML/cmm/m/it/10 KNN$\T
+U/phv/b/n/10 , $\OML/cmm/m/it/10 SVM$\TU/phv/b/n/10 , $\OML/cmm/m/it/10 Logistic
+Regression$ \TU/phv/b/n/10 [$\OML/cmm/m/it/10 LR$\TU/phv/b/n/10 ]).
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 817--840
+
+ []
+
+CUTED [- LAST -]
+Extra skip:10.77333pt
+Left:166.0pt/0.83333pt
+Right:154.0pt/2.06pt
+Split: 167.53pt
+Output:167.53pt
+Pageshrink: 0.0pt
+Pagestretch: 2.0pt
+@colht:702.78308pt
+CUTED [output]: 167.53pt
+CUTED [leftcolumn badness]: 10000
+CUTED [rightcolumn badness]: 10000
+File: logoinova.png Graphic file (type png)
+<use logoinova.png>
+Package luatex.def Info: logoinova.png  used on input line 841.
+(luatex.def)             Requested size: 141.4128pt x 28.45183pt.
+[8
+
+
+]
+<./PCA_2D.png, id=231, 465.23813pt x 361.35pt>
 File: ./PCA_2D.png Graphic file (type png)
 <use ./PCA_2D.png>
-Package pdftex.def Info: ./PCA_2D.png  used on input line 845.
-(pdftex.def)             Requested size: 247.24942pt x 199.16766pt.
+Package luatex.def Info: ./PCA_2D.png  used on input line 847.
+(luatex.def)             Requested size: 247.24942pt x 199.16766pt.
 
-Overfull \hbox (15.40099pt too wide) in paragraph at lines 845--846
+Overfull \hbox (15.40099pt too wide) in paragraph at lines 847--848
 [][] 
  []
 
-
-Underfull \hbox (badness 1147) in paragraph at lines 842--848
-\OT1/cmr/m/n/10 Ultilizando os val-ores an-te-ri-or-mente definidos na
- []
-
-<./Importancia_features.png, id=151, 456.20438pt x 592.46344pt>
+<./Importancia_features.png, id=234, 456.20438pt x 592.46344pt>
 File: ./Importancia_features.png Graphic file (type png)
 <use ./Importancia_features.png>
-Package pdftex.def Info: ./Importancia_features.png  used on input line 851.
-(pdftex.def)             Requested size: 247.25163pt x 312.99162pt.
+Package luatex.def Info: ./Importancia_features.png  used on input line 853.
+(luatex.def)             Requested size: 247.25163pt x 312.99162pt.
 
-Overfull \hbox (15.4032pt too wide) in paragraph at lines 851--852
+Overfull \hbox (15.4032pt too wide) in paragraph at lines 853--854
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 849--854
+Underfull \hbox (badness 10000) in paragraph at lines 851--856
 
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-<./decisiontree_features.png, id=153, 859.2903pt x 426.393pt>
+<./decisiontree_features.png, id=237, 859.2903pt x 426.393pt>
 File: ./decisiontree_features.png Graphic file (type png)
 <use ./decisiontree_features.png>
-Package pdftex.def Info: ./decisiontree_features.png  used on input line 857.
-(pdftex.def)             Requested size: 256.07144pt x 170.71683pt.
+Package luatex.def Info: ./decisiontree_features.png  used on input line 860.
+(luatex.def)             Requested size: 256.07144pt x 170.71683pt.
 
-Overfull \hbox (24.223pt too wide) in paragraph at lines 857--858
+Overfull \hbox (24.223pt too wide) in paragraph at lines 860--861
 [][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 857--863
+
  []
 
 File: logoinova.png Graphic file (type png)
 <use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 893.
-(pdftex.def)             Requested size: 141.4128pt x 28.45183pt.
-[10 <./PCA_2D.png (PNG copy)> <./Importancia_features.png (PNG copy)> <./decisi
-ontree_features.png>]
-Underfull \hbox (badness 2698) in paragraph at lines 896--897
-[]\OT1/cmr/bx/n/10 dst[]host[]same[]src[]port[]rate\OT1/cmr/m/n/10 : Por-cent-a
-gem
- []
+Package luatex.def Info: logoinova.png  used on input line 894.
+(luatex.def)             Requested size: 141.4128pt x 28.45183pt.
+[9
 
-
-Underfull \hbox (badness 7963) in paragraph at lines 899--900
-[]\OT1/cmr/bx/n/10 dst[]host[]same[]srv[]rate\OT1/cmr/m/n/10 : Por-cent-agem de
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 902--903
-[]\OT1/cmr/bx/n/10 dst[]host[]rerror[]rate\OT1/cmr/m/n/10 : Por-cent-agem de
+<./PCA_2D.png><./Importancia_features.png><./decisiontree_features.png>]
+Underfull \hbox (badness 4266) in paragraph at lines 895--896
+[]\TU/lmr/bx/n/10 dst_host_srv_rerror_rate\TU/phv/b/n/10 : Por-cent-agem
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 903--904
-[]\OT1/cmr/bx/n/10 dst[]host[]diff[]srv[]rate\OT1/cmr/m/n/10 : Por-cent-agem de
+[]\TU/lmr/bx/n/10 dst_host_rerror_rate\TU/phv/b/n/10 : Por-cent-agem de
+ []
 
+
+Underfull \hbox (badness 1389) in paragraph at lines 904--905
+[]\TU/lmr/bx/n/10 dst_host_diff_srv_rate\TU/phv/b/n/10 : Por-cent-agem de
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 906--907
-[]\OT1/cmr/bx/n/10 dst[]host[]serror[]rate\OT1/cmr/m/n/10 : Por-cent-agem de
+[]\TU/lmr/bx/n/10 dst_host_srv_diff_host_rate\TU/phv/b/n/10 : Por-cent-
  []
 
 
-Underfull \hbox (badness 1960) in paragraph at lines 913--947
-[]\OT1/cmr/m/n/10 Para a an^^Salise de da-dos foi con-sid-er-ado a
+Underfull \hbox (badness 2027) in paragraph at lines 906--907
+\TU/phv/b/n/10 agem de conexões para amesma porta que
  []
 
 
-Underfull \hbox (badness 2134) in paragraph at lines 913--947
-\OT1/cmr/m/n/10 lis-ta-dos na tabela []III[]. al-guns dos val-ores cita-
+Underfull \hbox (badness 10000) in paragraph at lines 907--908
+[]\TU/lmr/bx/n/10 dst_host_ser-ror_rate\TU/phv/b/n/10 : Por-cent-agem de
  []
 
 
-Underfull \hbox (badness 2073) in paragraph at lines 913--947
-\OT1/cmr/m/n/10 dos n~ao s~ao ataques reais, por^^Sem no con-texto
+Overfull \hbox (47.33162pt too wide) in paragraph at lines 951--998
+ [][] 
  []
 
-
-Underfull \hbox (badness 4505) in paragraph at lines 913--947
-\OT1/cmr/m/n/10 desta an^^Salise com-po-nentes como: $\OML/cmm/m/it/10 loadmodu
-le$\OT1/cmr/m/n/10 ,
- []
-
-
-Underfull \hbox (badness 1102) in paragraph at lines 913--947
-\OML/cmm/m/it/10 perl$ \OT1/cmr/m/n/10 e $\OML/cmm/m/it/10 nmap$ \OT1/cmr/m/n/1
-0 foram cat-e-go-riza-dos como ataques.
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 913--947
-
- []
-
-<matriz_corr.png, id=173, 791.3565pt x 628.0263pt>
+<matriz_corr.png, id=251, 791.3565pt x 628.0263pt>
 File: matriz_corr.png Graphic file (type png)
 <use matriz_corr.png>
-Package pdftex.def Info: matriz_corr.png  used on input line 988.
-(pdftex.def)             Requested size: 227.61586pt x 227.62256pt.
-File: logoinova.png Graphic file (type png)
-<use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 991.
-(pdftex.def)             Requested size: 141.4128pt x 28.45183pt.
-[11]
-Underfull \hbox (badness 1142) in paragraph at lines 992--993
-\OT1/cmr/m/n/10 rela^^Xc~ao foi feita uma an^^Salise baseada em $\OML/cmm/m/it/
-10 PCA$\OT1/cmr/m/n/10 ,
- []
-
-<pca_classes.png, id=201, 408.3255pt x 328.8285pt>
+Package luatex.def Info: matriz_corr.png  used on input line 1004.
+(luatex.def)             Requested size: 227.61586pt x 227.62256pt.
+<pca_classes.png, id=254, 408.3255pt x 328.8285pt>
 File: pca_classes.png Graphic file (type png)
 <use pca_classes.png>
-Package pdftex.def Info: pca_classes.png  used on input line 996.
-(pdftex.def)             Requested size: 247.25887pt x 199.17517pt.
+Package luatex.def Info: pca_classes.png  used on input line 1012.
+(luatex.def)             Requested size: 247.25887pt x 199.17517pt.
 
-Overfull \hbox (15.41043pt too wide) in paragraph at lines 996--997
+Overfull \hbox (15.41043pt too wide) in paragraph at lines 1012--1013
  [][] 
  []
 
-<pcaXvariancia.png, id=202, 611.4042pt x 340.3917pt>
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <9> on input line 1013.
+File: logoinova.png Graphic file (type png)
+<use logoinova.png>
+Package luatex.def Info: logoinova.png  used on input line 1016.
+(luatex.def)             Requested size: 141.4128pt x 28.45183pt.
+[10<./matriz_corr.png>]
+<pcaXvariancia.png, id=279, 611.4042pt x 340.3917pt>
 File: pcaXvariancia.png Graphic file (type png)
 <use pcaXvariancia.png>
-Package pdftex.def Info: pcaXvariancia.png  used on input line 1005.
-(pdftex.def)             Requested size: 241.85185pt x 156.48859pt.
+Package luatex.def Info: pcaXvariancia.png  used on input line 1021.
+(luatex.def)             Requested size: 241.85185pt x 156.48859pt.
 
-Overfull \hbox (10.00342pt too wide) in paragraph at lines 1005--1006
+Overfull \hbox (10.00342pt too wide) in paragraph at lines 1021--1022
  [][] 
+ []
+
+
+Underfull \hbox (badness 3590) in paragraph at lines 1040--1041
+[]\TU/lmr/bx/n/10 De-sen-volvi-mento do MVP1: \TU/phv/b/n/10 Apli-cação
  []
 
 File: logoinova.png Graphic file (type png)
 <use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 1019.
-(pdftex.def)             Requested size: 141.4128pt x 28.45183pt.
-[12 <./matriz_corr.png> <./pca_classes.png> <./pcaXvariancia.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1023--1024
-[]\OT1/cmr/bx/n/10 Levantamento de Re-fer^encias Bib-li-
+Package luatex.def Info: logoinova.png  used on input line 1042.
+(luatex.def)             Requested size: 141.4128pt x 28.45183pt.
+[11<./pca_classes.png><./pcaXvariancia.png>]
+Underfull \hbox (badness 1226) in paragraph at lines 1043--1044
+[]\TU/lmr/bx/n/10 En-trega do Tra-balho de Con-clusão de
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1023--1024
-\OT1/cmr/m/n/10 tra-bal-hos acad^emicos e ma-te-ri-ais t^^Secnicos
+Underfull \hbox (badness 10000) in paragraph at lines 1061--1061
+[]|\TU/lmr/m/n/8 Definição
  []
 
 
-Underfull \hbox (badness 4341) in paragraph at lines 1023--1024
-\OT1/cmr/m/n/10 rela-ciona-dos ^^Ra de-tec^^Xc~ao de in-trus~oes, pr^^Se-
+Underfull \hbox (badness 10000) in paragraph at lines 1064--1064
+[]|\TU/lmr/m/n/8 Re-visão
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1023--1024
-\OT1/cmr/m/n/10 processamento de da-dos e al-go-rit-mos de
+Underfull \hbox (badness 10000) in paragraph at lines 1064--1064
+\TU/lmr/m/n/8 bib-li-ográ-
  []
 
 
-Underfull \hbox (badness 3568) in paragraph at lines 1024--1025
-[]\OT1/cmr/bx/n/10 Desenvolvimento do MVP1: \OT1/cmr/m/n/10 Aplica^^Xc~ao
+Underfull \hbox (badness 10000) in paragraph at lines 1067--1067
+[]|\TU/lmr/m/n/8 Re-visão
  []
 
 
-Underfull \hbox (badness 1221) in paragraph at lines 1027--1028
-[]\OT1/cmr/bx/n/10 Entrega do Tra-balho de Con-clus~ao de
+Underfull \hbox (badness 10000) in paragraph at lines 1067--1067
+\TU/lmr/m/n/8 bib-li-ográ-
  []
 
 
-Overfull \hbox (11.72646pt too wide) in paragraph at lines 1036--1065
+Underfull \hbox (badness 10000) in paragraph at lines 1070--1070
+[]|\TU/lmr/m/n/8 Re-visão
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1070--1070
+\TU/lmr/m/n/8 bib-li-ográ-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1073--1073
+[]|\TU/lmr/m/n/8 Re-visão
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1073--1073
+\TU/lmr/m/n/8 bib-li-ográ-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1076--1076
+[]|\TU/lmr/m/n/8 Re-visão
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1076--1076
+\TU/lmr/m/n/8 bib-li-ográ-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1079--1079
+[]|\TU/lmr/m/n/8 Re-visão
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1079--1079
+\TU/lmr/m/n/8 bib-li-ográ-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1082--1082
+[]|\TU/lmr/m/n/8 Desenvol-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1082--1082
+\TU/lmr/m/n/8 vimento
+ []
+
+
+Overfull \hbox (34.45479pt too wide) in paragraph at lines 1052--1089
  [][] 
  []
 
 
-LaTeX Warning: Empty bibliography on input line 1070.
-
-
-Underfull \hbox (badness 3364) in paragraph at lines 1073--1077
-\OT1/cmr/m/n/10 preens~ao ao longo de toda a nossa tra-jet^^Soria
+Underfull \hbox (badness 1210) in paragraph at lines 1094--1094
+\TU/phv/b/n/10 Eval-u-a-tion of Su-per-vised Ma-chine Learn-ing
  []
 
 
-LaTeX Warning: Citation 'patrick2022study' on page 13 undefined on input line 1
-094.
+Package biblatex Warning: No driver for 'site'.
+(biblatex)                Using fallback driver on input line 1094.
 
 
-Underfull \hbox (badness 1635) in paragraph at lines 1094--1094
-[]|\OT1/cmr/m/n/10 CNN, DNN, SVM, En-
+Underfull \hbox (badness 1817) in paragraph at lines 1094--1094
+\TU/phv/b/n/10 view,'' 2022. \TU/lmr/m/sc/10 doi\TU/phv/b/n/10 : []$\TU/lmtt/m/
+n/10 10 . 11648 / j . XXXX .
+ []
+
+File: logoinova.png Graphic file (type png)
+<use logoinova.png>
+Package luatex.def Info: logoinova.png  used on input line 1094.
+(luatex.def)             Requested size: 141.4128pt x 28.45183pt.
+[12]
+
+Package biblatex Warning: No driver for 'site'.
+(biblatex)                Using fallback driver on input line 1094.
+
+
+Underfull \hbox (badness 3460) in paragraph at lines 1097--1101
+\TU/phv/b/n/10 preen-são ao longo de toda a nossa tra-jetória
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1094--1095
-[]|\OT1/cmr/m/n/10 KDD99, NSL-KDD,
+Underfull \hbox (badness 1635) in paragraph at lines 1118--1118
+[]|\TU/phv/b/n/10 CNN, DNN, SVM, En-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1094--1095
-\OT1/cmr/m/n/10 UNSW-NB15, CI-
+Underfull \hbox (badness 10000) in paragraph at lines 1118--1119
+[]|\TU/phv/b/n/10 KDD99, NSL-KDD,
  []
 
 
-LaTeX Warning: Citation 'Thakkar2021Survey' on page 13 undefined on input line 
-1096.
-
-
-Underfull \hbox (badness 1231) in paragraph at lines 1096--1097
-[]|\OT1/cmr/m/n/10 KDD99, NSL-KDD, CI-
+Underfull \hbox (badness 10000) in paragraph at lines 1118--1119
+\TU/phv/b/n/10 UNSW-NB15, CI-
  []
 
 
-LaTeX Warning: Citation 'Abdulganiyu2023Systematic' on page 13 undefined on inp
-ut line 1098.
-
-
-Overfull \hbox (28.634pt too wide) in paragraph at lines 1098--1098
-[]|[]| 
+Underfull \hbox (badness 1237) in paragraph at lines 1120--1121
+[]|\TU/phv/b/n/10 KDD99, NSL-KDD, CI-
  []
 
 
-Underfull \hbox (badness 1331) in paragraph at lines 1098--1098
-[]|\OT1/cmr/m/n/10 CNN, ANN, RF, SVM,
+Underfull \hbox (badness 1337) in paragraph at lines 1122--1122
+[]|\TU/phv/b/n/10 CNN, ANN, RF, SVM,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1098--1099
-[]|\OT1/cmr/m/n/10 KDD99, NSL-KDD,
+Underfull \hbox (badness 10000) in paragraph at lines 1122--1123
+[]|\TU/phv/b/n/10 KDD99, NSL-KDD,
  []
 
 
-LaTeX Warning: Citation 'Depren2005Intelligent' on page 13 undefined on input l
-ine 1100.
-
-
-LaTeX Warning: Citation 'Xianwei2019Adaptive' on page 13 undefined on input lin
-e 1102.
-
-
-LaTeX Warning: Citation 'felix2014analysis' on page 13 undefined on input line 
-1104.
-
-
-Underfull \hbox (badness 1859) in paragraph at lines 1104--1104
-[]|\OT1/cmr/m/n/10 DTC, kNN, NB, ANN,
+Underfull \hbox (badness 1867) in paragraph at lines 1128--1128
+[]|\TU/phv/b/n/10 DTC, kNN, NB, ANN,
  []
 
 
-LaTeX Warning: Citation 'zehedi2023comparative' on page 13 undefined on input l
-ine 1106.
-
-
-Overfull \hbox (2.25085pt too wide) in paragraph at lines 1106--1106
-[]|[]| 
+Underfull \hbox (badness 10000) in paragraph at lines 1130--1131
+[]|\TU/phv/b/n/10 NSL-KDD, ADFA,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1106--1107
-[]|\OT1/cmr/m/n/10 NSL-KDD, ADFA,
+Underfull \hbox (badness 2111) in paragraph at lines 1136--1136
+[]|\TU/phv/b/n/10 Stack-ing (C5.0 + One-
  []
 
 
-LaTeX Warning: Citation 'diptiben2022cyber' on page 13 undefined on input line 
-1108.
-
-
-LaTeX Warning: Citation 'wasyhun2023cyber' on page 13 undefined on input line 1
-110.
-
-
-LaTeX Warning: Citation 'Khraisat2019Hybrid' on page 13 undefined on input line
- 1112.
-
-
-Underfull \hbox (badness 2103) in paragraph at lines 1112--1112
-[]|\OT1/cmr/m/n/10 Stacking (C5.0 + One-
+Underfull \hbox (badness 10000) in paragraph at lines 1142--1142
+[]|\TU/phv/b/n/10 Bayes, Game The-ory,
  []
 
 
-LaTeX Warning: Citation 'Jabez2015Intrusion' on page 13 undefined on input line
- 1114.
-
-
-LaTeX Warning: Citation 'Othman2018Intrusion' on page 13 undefined on input lin
-e 1116.
-
-
-LaTeX Warning: Citation 'Liao2013Intrusion' on page 13 undefined on input line 
-1118.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1118--1118
-[]|\OT1/cmr/m/n/10 Bayes, Game The-ory,
+Underfull \hbox (badness 2005) in paragraph at lines 1152--1153
+[]|\TU/phv/b/n/10 DARPA, KDD99, NSL-
  []
 
 
-LaTeX Warning: Citation 'Kazi2019network' on page 13 undefined on input line 11
-20.
-
-
-LaTeX Warning: Citation 'Saranya2020Performance' on page 13 undefined on input 
-line 1122.
-
-
-Overfull \hbox (12.3966pt too wide) in paragraph at lines 1122--1122
-[]|[]| 
+Underfull \hbox (badness 2111) in paragraph at lines 1154--1154
+[]|\TU/phv/b/n/10 Stack-ing (C5.0 + One-
  []
 
 
-LaTeX Warning: Citation 'Shah2018Performance' on page 13 undefined on input lin
-e 1124.
-
-
-LaTeX Warning: Citation 'Belavagi2016Performance' on page 13 undefined on input
- line 1126.
-
-
-Overfull \hbox (14.56328pt too wide) in paragraph at lines 1126--1126
-[]|[]| 
+Underfull \hbox (badness 1237) in paragraph at lines 1158--1159
+[]|\TU/phv/b/n/10 KDD99, NSL-KDD, CI-
  []
 
 
-LaTeX Warning: Citation 'Rathore2016RealTime' on page 13 undefined on input lin
-e 1128.
-
-
-Underfull \hbox (badness 2005) in paragraph at lines 1128--1129
-[]|\OT1/cmr/m/n/10 DARPA, KDD99, NSL-
- []
-
-
-LaTeX Warning: Citation 'Khraisat2019Survey' on page 13 undefined on input line
- 1130.
-
-
-Underfull \hbox (badness 2103) in paragraph at lines 1130--1130
-[]|\OT1/cmr/m/n/10 Stacking (C5.0 + One-
- []
-
-
-LaTeX Warning: Citation 'solane2015using' on page 13 undefined on input line 11
-32.
-
-
-LaTeX Warning: Citation 'emad2022intrusion' on page 13 undefined on input line 
-1134.
-
-
-Underfull \hbox (badness 1231) in paragraph at lines 1134--1135
-[]|\OT1/cmr/m/n/10 KDD99, NSL-KDD, CI-
- []
-
-
-LaTeX Warning: Citation 'James2023Introduction' on page 13 undefined on input l
-ine 1136.
-
-
-Overfull \hbox (3.51611pt too wide) in paragraph at lines 1136--1136
-[]|[]| 
- []
-
-
-LaTeX Warning: Citation 'IBM2026Supervised' on page 13 undefined on input line 
-1138.
-
-
-LaTeX Warning: Citation 'scikit2026learn' on page 13 undefined on input line 11
-40.
-
-
-Package caption Warning: Unused \captionsetup[equacao] on input line 46.
+Package caption Warning: Unused \captionsetup[equacao] on input line 47.
 See the caption package documentation for explanation.
 
 File: logoinova.png Graphic file (type png)
 <use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 1150.
-(pdftex.def)             Requested size: 141.4128pt x 28.45183pt.
+Package luatex.def Info: logoinova.png  used on input line 1174.
+(luatex.def)             Requested size: 141.4128pt x 28.45183pt.
 [13]
 File: logoinova.png Graphic file (type png)
 <use logoinova.png>
-Package pdftex.def Info: logoinova.png  used on input line 1150.
-(pdftex.def)             Requested size: 141.4128pt x 28.45183pt.
- [14] (main.aux (simbologia.aux))
+Package luatex.def Info: logoinova.png  used on input line 1174.
+(luatex.def)             Requested size: 141.4128pt x 28.45183pt.
+ [14] (./main.aux)
  ***********
 LaTeX2e <2025-11-01>
-L3 programming layer <2025-12-24>
+L3 programming layer <2026-01-19>
  ***********
 
 
@@ -2609,69 +2096,48 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
 
 
-LaTeX Warning: There were undefined references.
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 6F12D71AABF65ACCC90237C88CD0685F;2777.
-
-Package biblatex Warning: Please (re)run Biber on the file:
-(biblatex)                main
-(biblatex)                and rerun LaTeX afterwards.
-
+(rerunfilecheck)             Checksum: 7E21FF16EFC801AFC11EC7B11DB32A65;2571.
 Package logreq Info: Writing requests to 'main.run.xml'.
-\openout1 = `main.run.xml'.
 
- ) 
-Here is how much of TeX's memory you used:
- 33411 strings out of 467871
- 639760 string characters out of 5417409
- 1598953 words of memory out of 5000000
- 61717 multiletter control sequences out of 15000+600000
- 651622 words of font info for 82 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 88i,17n,94p,1183b,1146s stack positions out of 10000i,1000n,20000p,200000b,200000s
+\openout1 = main.run.xml
+)
 
-pdfTeX warning (dest): name{Hfootnote.6} has been referenced but does not exist
-, replaced by a fixed one
+Here is how much of LuaTeX's memory you used:
+ 33982 strings out of 476076
+ 195516,1648299 words of node,token memory allocated
+ 799 words of node memory still in use:
+   3 hlist, 1 vlist, 1 rule, 5 glue, 3 kern, 1 penalty, 1 glyph, 23 attribute, 8
+8 glue_spec, 23 attribute_list, 2 write, 15 pdf_action nodes
+   avail lists: 1:4,2:2744,3:1107,4:124,5:724,6:417,7:17178,8:94,9:3124,10:33,11
+:1439
+ 55537 multiletter control sequences out of 65536+600000
+ 58 fonts using 4432279 bytes
+ 88i,15n,91p,1180b,1369s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texmf/fonts/opentype/public/lm/lmmono10-regular.otf></usr/share/texm
+f/fonts/opentype/public/lm/lmromancaps10-regular.otf></usr/share/texmf/fonts/ope
+ntype/public/lm/lmroman8-italic.otf></usr/share/texmf/fonts/opentype/public/lm/l
+mroman8-bold.otf></usr/share/texmf/fonts/opentype/public/lm/lmroman10-bold.otf><
+/usr/share/texmf/fonts/opentype/public/lm/lmmono8-regular.otf></usr/share/texmf/
+fonts/opentype/public/lm/lmroman6-regular.otf></usr/share/texmf/fonts/opentype/p
+ublic/lm/lmroman9-regular.otf></usr/share/texmf/fonts/opentype/public/lm/lmroman
+7-regular.otf></usr/share/texmf/fonts/opentype/public/lm/lmroman8-regular.otf></
+usr/share/texmf/fonts/opentype/public/lm/lmroman10-italic.otf></usr/share/texmf/
+fonts/opentype/public/lm/lmroman12-regular.otf></usr/share/texmf/fonts/opentype/
+public/lm/lmroman17-regular.otf></usr/share/texmf/fonts/opentype/public/lm/lmrom
+an10-regular.otf></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on main.pdf (14 pages, 622424 bytes).
 
-
-pdfTeX warning (dest): name{Hfootnote.5} has been referenced but does not exist
-, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{Hfootnote.4} has been referenced but does not exist
-, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{Hfootnote.3} has been referenced but does not exist
-, replaced by a fixed one
-
- <C:\Users\Marcela\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
-1000.pk><C:/Users/Marcela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
-onts/cm/cmbx10.pfb><C:/Users/Marcela/AppData/Local/Programs/MiKTeX/fonts/type1/
-public/amsfonts/cm/cmbx8.pfb><C:/Users/Marcela/AppData/Local/Programs/MiKTeX/fo
-nts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Marcela/AppData/Local/Program
-s/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Marcela/AppData/Loc
-al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/Marcela/A
-ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users
-/Marcela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb>
-<C:/Users/Marcela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
-cmr7.pfb><C:/Users/Marcela/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
-fonts/cm/cmr8.pfb><C:/Users/Marcela/AppData/Local/Programs/MiKTeX/fonts/type1/p
-ublic/amsfonts/cm/cmr9.pfb><C:/Users/Marcela/AppData/Local/Programs/MiKTeX/font
-s/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Marcela/AppData/Local/Programs/
-MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Users/Marcela/AppData/Local
-/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Marcela/Ap
-pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti8.pfb><C:/Users/
-Marcela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-<C:/Users/Marcela/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvb8a
-.pfb><C:/Users/Marcela/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/u
-hvbo8a.pfb><C:/Users/Marcela/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helv
-etic/uhvr8a.pfb><C:/Users/Marcela/AppData/Local/Programs/MiKTeX/fonts/type1/urw
-/helvetic/uhvro8a.pfb>
-Output written on main.pdf (14 pages, 754721 bytes).
-PDF statistics:
- 330 PDF objects out of 1000 (max. 8388607)
- 75 named destinations out of 1000 (max. 500000)
- 189 words of extra memory for PDF output out of 10000 (max. 10000000)
+PDF statistics: 496 PDF objects out of 1000 (max. 8388607)
+ 403 compressed objects within 5 object streams
+ 93 named destinations out of 1000 (max. 1048576)
+ 144 words of extra memory for PDF output out of 10000 (max. 100000000)
 

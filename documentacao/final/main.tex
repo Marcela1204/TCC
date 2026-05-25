@@ -193,11 +193,11 @@
 	desenvolvimento parcial de um $IDS$ utilizando técnicas 
 	de aprendizado de máquina. A metodologia é composta pelas etapas de: i) seleção das bases de 
 	dados; ii) processamento dos dados; iii) aplicação de técnicas de redução de dimensionalidade, 
-	utilizando Principal Component Analysis ($PCA$) e Matriz de Correlação; iv) treinamento dos 
+	utilizando \textit{Principal Component Analysis} ($PCA$) e Matriz de Correlação; iv) treinamento dos 
 	algoritmos de classificação; e v) avaliação de desempenho dos modelos. Como resultados preliminares, 
-	o algoritmo Decision Tree apresentou o melhor desempenho, alcançando acurácia de 99,7\%, além 
+	o algoritmo \textit{Decision Tree} apresentou o melhor desempenho, alcançando acurácia de 99,7\%, além 
 	de baixo tempo de treinamento e teste, respectivamente 0,8541 s e 0,003 s. Como trabalhos futuros, prevê-se o aprimoramento dos 
-	algoritmos, ajuste de hiperparâmetros, avaliação de novos modelos e evolução do sistema para 
+	algoritmos, ajuste de hiperparâmetros, avaliação por novos modelos e métricas e evolução de um protótipo de sistema de detecção para 
 	aplicação em tempo real e em cenários reais.
 }
 
@@ -231,14 +231,14 @@ telefônicos apenas no ano de 2020 \cite{zehedi2023comparative}. Diante desse co
 Informação destaca-se como fundamental para garantir a integridade, confidencialidade 
 e disponibilidade das informações.
 
-Os Sistemas de Detecção de Intrusão (IDS) são fundamentais para a segurança de 
+Os Sistemas de Detecção de Intrusão ($IDS$) são fundamentais para a segurança de 
 redes, pois monitoram atividades suspeitas e identificam possíveis ataques 
 por meio da análise de tráfego e comportamento. Esses sistemas podem ser 
-implementados em hardware ou software e realizam funções como geração de 
+implementados em \textit{hardware} ou \textit{software} e realizam funções como geração de 
 alertas e resposta a incidentes. O conceito de IDS surgiu na década de 1980, 
-inicialmente baseado na análise de logs e padrões conhecidos, o que limitava 
+inicialmente baseado na análise de \textit{logs} e padrões conhecidos, o que limitava 
 sua eficácia frente a ameaças mais complexas. Com o avanço dos ataques, os 
-IDS evoluíram para abordagens mais dinâmicas, incorporando análise comportamental 
+$IDS$ evoluíram para abordagens mais dinâmicas, incorporando análise comportamental 
 e, posteriormente, técnicas de detecção por anomalias na década de 1990, 
 permitindo a identificação de ataques desconhecidos \cite{patrick2022study}. Dessa forma, os IDS 
 consolidaram-se como mecanismos essenciais para a proteção de ativos digitais 
@@ -281,8 +281,8 @@ para garantir a continuidade dos serviços, a confiabilidade das operações e a
 segurança da sociedade como um todo \cite{wasyhun2023cyber}.
 
 É desta forma que o foco central da área de pesquisa é proteger dados contra 
-ameaças internas e externas, assegurando a tríade da confidencialidade, 
-integridade e disponibilidade (CIA) de forma eficiente e com o menor custo 
+ameaças internas e externas, assegurando a tríade CIA (também conhecida como tríade AIC) de confidencialidade (\textit{confidentiality}), 
+integridade (\textit{integrity}) e disponibilidade (\textit{availability}) de forma eficiente e com o menor custo 
 possível \cite{diptiben2022cyber}. Nesse contexto, evidencia-se que ataques cibernéticos representam 
 riscos significativos para as organizações, podendo ocasionar perdas 
 financeiras expressivas, danos à reputação institucional e até impactos 
@@ -297,7 +297,7 @@ cada vez mais hostil.
 As ameaças em redes de computadores apresentam diversidade e complexidade, 
 sendo classificadas em diferentes categorias conforme seu objetivo e forma de 
 atuação. Entre as principais estão os ataques de negação de serviço ($DoS$), 
-que visam indisponibilizar recursos, ataques de sondagem (probing), que 
+que visam indisponibilizar recursos, ataques de sondagem (\textit{probing}), que 
 coletam informações da rede, além de técnicas de escalonamento de privilégios 
 ($U2R$) e acesso remoto indevido ($R2L$) \cite{wasyhun2023cyber}. Além dessas categorias, destacam-se
 ameaças modernas como malware, botnets e ataques de engenharia social, que 
@@ -356,7 +356,7 @@ essenciais, os $IDS$ tradicionais ainda não são totalmente suficientes para
 lidar com a complexidade das ameaças modernas \cite{emad2022intrusion} \cite{patrick2022study}. Dessa forma, torna-se 
 necessário aprimorar continuamente esses sistemas. 
 
-O uso de Machine Learning ($ML$) tem se consolidado como uma abordagem fundamental 
+O uso de \textit{Machine Learning} ($ML$) tem se consolidado como uma abordagem fundamental 
 para aprimorar os Sistemas de Detecção de Intrusão ($IDS$), permitindo a 
 análise automatizada de grandes volumes de dados de rede. Diferentemente dos 
 métodos tradicionais, o $ML$ possibilita a identificação de padrões complexos e 
@@ -368,7 +368,7 @@ capacidade dos $IDS$ em lidar com ambientes dinâmicos e com grande volume de
 tráfego. Assim, sua aplicação representa um avanço importante na evolução das 
 soluções de segurança de redes. 
 
-As técnicas de Machine Learning aplicadas aos $IDS$ podem ser classificadas em 
+As técnicas de \textit{Machine Learning} aplicadas aos $IDS$ podem ser classificadas em 
 diferentes abordagens, sendo as mais comuns o aprendizado supervisionado, não 
 supervisionado e por reforço. Além disso, o 
 processo de construção desses modelos envolve a divisão dos dados em conjuntos 
@@ -392,11 +392,11 @@ também da qualidade dos dados utilizados.
 
 Além disso, etapas como pré-processamento, seleção de atributos e redução de 
 dimensionalidade são essenciais para garantir o desempenho dos modelos de 
-Machine Learning em $IDS$. A limpeza dos dados, normalização e codificação de 
+\textit{Machine Learning} em $IDS$. A limpeza dos dados, normalização e codificação de 
 variáveis contribuem para a construção de modelos mais robustos, enquanto 
 técnicas como seleção de atributos e métodos como $PCA$ ajudam a reduzir a 
 complexidade dos dados e melhorar a acurácia. Para avaliar a eficácia dos 
-modelos, são utilizadas métricas como acurácia, precisão, recall e F1-score, 
+modelos, são utilizadas métricas como acurácia, precisão, \textit{recall} e \textit{F1-score}, 
 que permitem analisar o equilíbrio entre a detecção de ataques e a geração de 
 falsos positivos. Assim, a integração entre boas práticas de tratamento de 
 dados e algoritmos de $ML$ é fundamental para o desenvolvimento de $IDS$ mais 
@@ -415,7 +415,7 @@ que podem ser utilizadas conforme o contexto da aplicação.
 A aplicação de algoritmos supervisionados em ambientes modernos é analisada 
 por \cite{Saranya2020Performance}, que investigam o desempenho de diferentes 
 modelos em cenários como $IoT$ e $5G$. O estudo compara algoritmos como $CART$ e 
-\textit{Random Forest}, destacando que o uso de múltiplas árvores (ensemble) resulta em 
+\textit{Random Forest}, destacando que o uso de múltiplas árvores (\textit{ensemble}) resulta em 
 melhor desempenho. Os resultados mostram que o \textit{Random Forest} atingiu 99,65\% 
 de acurácia, superando o $CART$ isolado (98\%). Esse achado reforça a 
 importância de abordagens híbridas e ensembles para melhorar a robustez dos 
@@ -423,7 +423,7 @@ modelos.
 
 A integração de diferentes algoritmos também é explorada por 
 \cite{Khraisat2019Hybrid}, que propõem um modelo híbrido combinando C5.0 e 
-$One-Class SVM$. O estudo utiliza todos os atributos do $NSL-KDD$ para treinamento 
+\textit{$One-Class SVM$}. O estudo utiliza todos os atributos do $NSL-KDD$ para treinamento 
 e demonstra que a combinação entre detecção de assinatura e anomalia melhora a 
 capacidade do sistema. Os resultados mostram acurácia de 83,24\% no $NSL-KDD$ e 
 97,04\% no dataset $ADFA$. Esses resultados evidenciam que a combinação de 
@@ -440,13 +440,13 @@ decisões.
 
 A robustez das árvores de decisão em arquiteturas híbridas é demonstrada por 
 \cite{Depren2005Intelligent}, que combinam o algoritmo $C4.5$ com mapas auto-organizáveis 
-($SOM$). O uso de técnicas de poda (pruning) é destacado como estratégia para 
-evitar o $overfitting$. Os resultados mostram que o sistema alcançou 99,84\% de 
+($SOM$). O uso de técnicas de poda (\textit{pruning}) é destacado como estratégia para 
+evitar o \textit{overfitting}. Os resultados mostram que o sistema alcançou 99,84\% de 
 precisão na detecção de ataques de uso indevido. Esse resultado evidencia que 
 árvores de decisão, quando bem ajustadas e combinadas com outras técnicas, 
 podem atingir níveis extremamente elevados de desempenho.
 
-A utilização de árvores em modelos ensemble é aprofundada por \cite{Xianwei2019Adaptive}, que propõem o algoritmo $MultiTree$ baseado em múltiplas 
+A utilização de árvores em modelos \textit{ensemble} é aprofundada por \cite{Xianwei2019Adaptive}, que propõem o algoritmo $MultiTree$ baseado em múltiplas 
 árvores $CART$ e votação majoritária. O estudo também aborda o problema de 
 desbalanceamento de dados, comum em $IDS$. Os resultados mostram que o modelo 
 atingiu 85,2\% de acurácia em cenários desafiadores, superando abordagens 
@@ -455,7 +455,7 @@ generalização dos modelos.
 
 A aplicabilidade das árvores de decisão em cenários de alta performance é 
 evidenciada por \cite{Rathore2016RealTime}, que utilizam algoritmos como $C4.5$ e 
-$REPTree$ em ambientes de Big Data. Os resultados mostram taxas de verdadeiros 
+$REPTree$ em ambientes de \textit{Big Data}. Os resultados mostram taxas de verdadeiros 
 positivos superiores a 99,9\%, indicando alta eficiência na detecção de 
 intrusões em tempo real. Esse resultado demonstra que árvores de decisão são 
 adequadas para sistemas que exigem rapidez e precisão simultaneamente.
@@ -472,10 +472,10 @@ de detecção de intrusão é evidenciada no estudo de \cite{patrick2022study}, 
 revisa o estado da arte de $IDS$ baseados em inteligência artificial e 
 aprendizado de máquina. O trabalho analisa conjuntos de dados amplamente 
 utilizados, como KDDCup99 e CICIDS2017, destacando o elevado número de 
-atributos (41 e 80, respectivamente) e a necessidade de técnicas como PCA 
+atributos (41 e 80, respectivamente) e a necessidade de técnicas como $PCA$ 
 para reduzir essa dimensionalidade. Os resultados mostram que modelos que 
 utilizam essas estratégias, especialmente combinados com deep learning e 
-métodos de ensemble, atingem acurácias entre 94,4\% e 99,24\%. Esses achados 
+métodos de \textit{ensemble}, atingem acurácias entre 94,4\% e 99,24\%. Esses achados 
 indicam que o pré-processamento não é apenas uma etapa auxiliar, mas um fator 
 determinante para viabilizar o uso de modelos mais complexos em ambientes de 
 $IDS$.
@@ -483,7 +483,7 @@ $IDS$.
 A importância da engenharia de atributos é aprofundada no estudo de 
 \cite{Thakkar2021Survey}, que investiga técnicas de seleção de atributos e 
 seu impacto no desempenho dos modelos. O trabalho analisa diferentes 
-abordagens, como filtros, wrappers e métodos embutidos, demonstrando que a 
+abordagens, como filtros, \textit{wrappers} e métodos embutidos, demonstrando que a 
 redução de conjuntos de dados para 5 a 20 atributos relevantes pode melhorar 
 significativamente a eficiência dos algoritmos. Os resultados indicam que, 
 utilizando técnicas como ganho de informação e qui-quadrado, modelos baseados 
@@ -495,7 +495,7 @@ A eficiência da redução de atributos em cenários de alta demanda computacion
 é destacada por \cite{felix2014analysis}, que propõem uma abordagem 
 multiestágio para seleção de características em detecção de anomalias. O 
 estudo reduz progressivamente o conjunto de atributos de 41 para 30 e 
-posteriormente para 16, utilizando técnicas de filtro e regressão $stepwise$. Os 
+posteriormente para 16, utilizando técnicas de filtro e regressão \textit{$stepwise$}. Os 
 resultados mostram que a acurácia do modelo aumentou de 75,53\% para 78,68\% 
 após a primeira redução, mantendo-se praticamente estável mesmo com menos 
 atributos. Esses achados evidenciam que é possível reduzir significativamente 
@@ -504,7 +504,7 @@ para sistemas em tempo real.
 
 A relação entre seleção de atributos e desempenho em ambientes de Big Data é 
 abordada por \cite{Othman2018Intrusion}, que investigam modelos de detecção de 
-intrusão utilizando $Apache Spark$. O estudo aplica o teste qui-quadrado para 
+intrusão utilizando \textit{$Apache Spark$}. O estudo aplica o teste qui-quadrado para 
 selecionar 17 atributos mais relevantes a partir das 41 características do 
 KDD99. Os resultados mostram um $AUROC$ de 99,55\%, evidenciando alto poder 
 discriminativo mesmo com um conjunto reduzido de atributos. Esse resultado 
@@ -514,7 +514,7 @@ das previsões em ambientes distribuídos.
 
 A importância da seleção de atributos também é reforçada por 
 \cite{Rathore2016RealTime}, que investigam sistemas de detecção de intrusão em 
-ambientes de Big Data de alta velocidade. O estudo identifica que apenas 9 
+ambientes de \textit{Big Data} de alta velocidade. O estudo identifica que apenas 9 
 atributos são suficientes para alcançar desempenho superior em classificação, 
 utilizando algoritmos como $C4.5$ e $REPTree$. Os resultados mostram taxas de 
 verdadeiros positivos superiores a 99,9\%, indicando que a redução agressiva 
@@ -526,7 +526,7 @@ Além disso, \cite{emad2022intrusion} reforçam, em sua revisão sobre técnicas
 supervisionadas para IDS, que a seleção de atributos é um dos fatores mais 
 críticos para o desempenho dos modelos. O estudo analisa múltiplos datasets e 
 demonstra que a redução para conjuntos de 10 a 19 atributos é comum em 
-abordagens eficientes. Os resultados indicam que modelos como Random Forest 
+abordagens eficientes. Os resultados indicam que modelos como \textit{$Random Forest$} 
 podem atingir até 99,9\% de acurácia quando combinados com estratégias 
 adequadas de pré-processamento. Esses achados consolidam a ideia de que a 
 qualidade dos dados é tão importante quanto a escolha do algoritmo.
@@ -574,17 +574,8 @@ conexões de rede classificados entre tráfego normal (53,46\%) e diferentes cat
 de ataques (46,54\%), possibilitando a aplicação de técnicas de classificação 
 supervisionada.
 
-Os dados foram obtidos por meio da plataforma \textit{Kaggle}\footnote{ Disponível em: \url{https://www.kaggle.com/datasets/hassan06/nslkdd}}, utilizando a biblioteca 
-\textit{KaggleHub}. O desenvolvimento do projeto foi realizado em linguagem \textit{Python}, com 
-execução no ambiente \textit{Jupyter Notebook}\footnote{Arquivo disponível em: \url{https://colab.research.google.com/drive/1ipTH1Lz002ih8L_m5bJHFtuqD93UC1AQ?usp=sharing}}, permitindo a organização e execução 
-sequencial das etapas do experimento. Além disso, foram utilizadas bibliotecas 
-específicas para manipulação, processamento, visualização e análise dos dados, 
-contribuindo para o desenvolvimento completo da metodologia proposta.
-
-Entre as principais bibliotecas utilizadas estão \textit{Pandas}, responsável pela leitura e 
-organização dos dados em estruturas tabulares; \textit{NumPy}, utilizado em operações 
-matemáticas e manipulação numérica; \textit{Matplotlib} e \textit{Seaborn}, empregados na geração de 
-gráficos e visualizações estatísticas; e \textit{Scikit-learn}, utilizada na implementação 
+Os dados foram obtidos por meio da plataforma \textit{Kaggle}\footnote{Disponível em: \url{https://www.kaggle.com/datasets/hassan06/nslkdd}}, utilizando a biblioteca 
+\textit{KaggleHub}. Os métodos e técnicas testadas estão disponíveis em \cite{scikit2026learn}, pois foram utilizadas na implementação 
 das técnicas de aprendizado de máquina, incluindo codificação de atributos categóricos, 
 padronização dos dados, aplicação do $PCA$, divisão dos conjuntos de treinamento e 
 teste, treinamento dos algoritmos e validação dos modelos. Essas ferramentas foram 
@@ -597,14 +588,14 @@ pré-processamento com o objetivo de preparar os dados para aplicação dos
 algoritmos de aprendizado de máquina. Inicialmente, foram definidos manualmente 
 os nomes dos 41 atributos da base, permitindo melhor interpretação das variáveis 
 e facilitando a manipulação das informações durante o desenvolvimento do projeto. 
-Em seguida, os dados foram carregados em estruturas do tipo DataFrame utilizando 
-a biblioteca Pandas, possibilitando operações de análise, filtragem e 
+Em seguida, os dados foram carregados em estruturas do tipo \textit{DataFrame} utilizando 
+a biblioteca \textit{Pandas}, possibilitando operações de análise, filtragem e 
 transformação dos registros. Durante essa etapa, também foi realizada a 
 verificação da estrutura da base, incluindo quantidade de linhas, colunas, 
 tipos de dados e identificação das classes presentes no conjunto de dados. A 
-coluna label foi convertida em binário, classificando como 0 para tráfego normal 
+coluna \textit{label} foi convertida em binário, classificando como 0 para tráfego normal 
 e 1 para qualquer tipo de ataque ($DoS$, $Probe$, $R2L$, $U2R$). Posteriormente, a 
-coluna denominada difficulty foi removida, por ser considerada irrelevante para 
+coluna denominada \textit{difficulty} foi removida, por ser considerada irrelevante para 
 o processo de classificação e não contribuir significativamente para o desempenho 
 dos modelos.
 
@@ -649,25 +640,18 @@ tráfego normal e tráfego malicioso, além de identificar possíveis desbalance
 entre as categorias de ataques. Também foram geradas estatísticas descritivas 
 dos atributos numéricos, permitindo observar medidas como média, desvio padrão, 
 valores mínimos e máximos das variáveis presentes na base.
-\newline
 
-Além da análise estatística, foram construídas representações gráficas para 
-auxiliar na interpretação dos dados. Foram utilizados gráficos de barras para 
-visualização da distribuição das classes, possibilitando identificar quais 
-categorias possuíam maior quantidade de registros. Posteriormente, foi aplicada 
+Posteriormente, foi aplicada 
 uma análise de correlação entre os atributos numéricos da base utilizando o 
-coeficiente de correlação de Pearson. Essa análise teve como principal objetivo 
+coeficiente de correlação de \textit{Pearson}. Essa análise teve como principal objetivo 
 identificar relações lineares entre as variáveis e detectar atributos altamente 
 correlacionados, que poderiam representar informações redundantes no conjunto 
-de dados. A matriz de correlação foi representada visualmente por meio de um 
-heatmap, gerado com auxílio das bibliotecas Matplotlib e Seaborn, permitindo 
-observar de forma mais intuitiva a intensidade das correlações entre os atributos.
-\newline
+de dados. 
 
 Com o objetivo de reduzir a dimensionalidade da base e minimizar o impacto do 
 elevado número de atributos no desempenho computacional dos modelos, foi 
 aplicada a técnica de Análise de Componentes Principais ($PCA$). Antes da 
-aplicação do $PCA$, os dados foram padronizados utilizando o método $StandardScaler$, 
+aplicação do $PCA$, os dados foram padronizados utilizando o método \textit{$StandardScaler$}, 
 responsável por transformar os atributos para média igual a zero e desvio padrão 
 igual a um. Essa etapa foi necessária porque o $PCA$ é sensível à escala dos dados, 
 podendo atribuir maior relevância a atributos com amplitudes maiores. Após a 
@@ -675,25 +659,13 @@ padronização, o $PCA$ foi aplicado para transformar os atributos originais em 
 novo conjunto de componentes principais, preservando a maior parte da variância 
 existente nos dados. 
 
-% fórmula do PCA
-% \begin{equacao}[H]
-% 	\begin{equation}
-% 		X_{PCA} = W^T X
-% 	\end{equation}
-% 	\label{eq:formula_PCA}
-% 	\caption{Equação do PCA}
-% \end{equacao}
-
 Durante essa etapa, foi realizada a análise da variância explicada acumulada dos 
 componentes principais, permitindo identificar a quantidade ideal de componentes 
 necessários para representar adequadamente o conjunto de dados sem perda 
-significativa de informação. Além disso, foram geradas visualizações 
-bidimensionais utilizando os dois principais componentes obtidos pelo $PCA$, 
-possibilitando observar o comportamento e a separação das classes presentes na 
-base $NSL-KDD$ em um espaço reduzido de dimensionalidade.
+significativa de informação. 
 
 Por fim, também foi realizada uma etapa de seleção de atributos utilizando o 
-algoritmo $Decision Tree$. O modelo foi empregado para calcular o grau de importância 
+algoritmo \textit{$Decision Tree$}. O modelo foi empregado para calcular o grau de importância 
 de cada variável durante o processo de classificação, permitindo identificar os 
 atributos mais relevantes para o problema de detecção de intrusões. Com base nesses 
 resultados, foi possível analisar quais características da base possuíam maior 
@@ -709,18 +681,18 @@ modelos capazes de identificar padrões presentes nos registros da base $NSL-KDD
 e realizar a classificação do tráfego de rede entre conexões normais e 
 diferentes categorias de ataques cibernéticos.
 
-Inicialmente, os dados foram organizados em variáveis preditoras (features) e 
-variável alvo (target). Os atributos da base foram utilizados como entrada dos 
+Inicialmente, os dados foram organizados em variáveis preditoras (\textit{features}) e 
+variável alvo (\textit{target}). Os atributos da base foram utilizados como entrada dos 
 algoritmos, enquanto as categorias correspondentes aos tipos de tráfego e 
 ataques foram utilizadas como saída esperada dos modelos. Após essa definição, 
 os dados passaram pela etapa de separação entre conjuntos de treinamento e teste 
-utilizando a função \textit{train\_test\_split} da biblioteca Scikit-learn, sendo o arquivo 
-KDDTrain.txt para treino e o KDDTest.txt para teste, divididos na proporção 
+utilizando a função \textit{train\_test\_split} da biblioteca \textit{Scikit-learn}, sendo o arquivo 
+\textit{KDDTrain.txt} para treino e o \textit{KDDTest.txt} para teste, divididos na proporção 
 clássica de 70\% e 30\%.  Essa divisão permitiu utilizar parte dos registros 
 para treinamento dos algoritmos e outra parte para validação do desempenho dos 
 modelos em dados não utilizados durante o aprendizado. Essa abordagem foi 
 fundamental para avaliar a capacidade de generalização dos algoritmos e reduzir 
-problemas relacionados ao sobreajuste ($overfitting$).
+problemas relacionados ao sobreajuste (\textit{$overfitting$}).
 
 Durante os experimentos, foram realizados treinamentos utilizando tanto o 
 conjunto completo de atributos quanto versões reduzidas dos dados obtidas por 
@@ -756,7 +728,7 @@ Alta interpretabilidade, baixo custo computacional, bom para regras binárias. \
 \\
 
 Random Forest & 
-Aprendizado Supervisionado (Ensemble/Bagging) & 
+Aprendizado Supervisionado (\textit{$Ensemble$}/\textit{Bagging}) & 
 Combina múltiplas árvores de decisão para previsões mais precisas. & 
 Robustez e alta acurácia, porém maior custo. \\
 \\
@@ -770,7 +742,7 @@ Simples, útil como baseline não paramétrico. \\
 Logistic Regression & 
 Aprendizado Supervisionado (Classificação Binária) & 
 Calcula a probabilidade de eventos (0\% a 100\%). & 
-Baseline clássico, rápido e interpretável. \\
+\textit{Baseline} clássico, rápido e interpretável. \\
 \\
 
 SVM (kernel linear) & 
@@ -794,10 +766,7 @@ após aplicação das técnicas de redução e seleção de atributos, permitind
 os impactos dessas abordagens no desempenho final dos classificadores.
 
 Para aumentar a confiabilidade dos resultados obtidos, também foi aplicada a 
-técnica de validação cruzada (cross-validation) utilizando a função cross\_val\_score 
-da biblioteca Scikit-learn. Essa técnica consiste em dividir os dados em 
-múltiplas partições, permitindo que o algoritmo seja treinado e avaliado 
-diversas vezes em subconjuntos diferentes da base de dados. Dessa forma, foi 
+técnica de validação cruzada (\textit{cross-validation}). Dessa forma, foi 
 possível obter uma avaliação mais consistente e menos dependente de uma única 
 divisão aleatória entre treino e teste.
 
@@ -817,30 +786,13 @@ testes, foram comparados os resultados obtidos pelos modelos treinados com os
 atributos originais da base de dados, pelos modelos treinados após aplicação da 
 técnica de redução de dimensionalidade $PCA$ e pelos modelos treinados utilizando 
 atributos selecionados com base na importância das variáveis calculadas pelo 
-algoritmo $Decision Tree$. Essa comparação permitiu analisar o impacto das técnicas 
+algoritmo \textit{$Decision Tree$}. Essa comparação permitiu analisar o impacto das técnicas 
 de redução e seleção de atributos tanto no desempenho dos classificadores 
 quanto na eficiência computacional do processamento. 
 
 Para análise dos resultados, foram utilizadas métricas amplamente empregadas em 
 problemas de classificação supervisionada e sistemas de detecção de intrusão, 
-incluindo Accuracy, Precision, Recall e F1-Score. Essas métricas foram calculadas 
-com auxílio das funções disponibilizadas pela biblioteca Scikit-learn, 
-permitindo avaliar diferentes aspectos do desempenho dos algoritmos. 
-
-A métrica Accuracy foi utilizada para medir a proporção total de classificações 
-corretas realizadas pelos modelos em relação ao total de registros analisados. 
-
-A métrica Precision foi empregada para avaliar a proporção de classificações 
-positivas corretas em relação ao total de classificações positivas realizadas 
-pelo modelo, sendo importante para análise da ocorrência de falsos positivos. 
-
-O Recall foi utilizado para medir a capacidade dos algoritmos em identificar 
-corretamente os registros pertencentes às categorias de ataques, reduzindo a 
-ocorrência de falsos negativos.  
-
-Já o F1-Score foi empregado para representar o equilíbrio entre precisão e 
-recall, sendo especialmente relevante em problemas que apresentam desbalanceamento 
-entre classes.
+incluindo \textit{Accuracy}, \textit{Precision}, \textit{Recall} e \textit{F1-Score}. 
 
 Durante a avaliação, também foram observados aspectos relacionados ao desempenho 
 computacional dos modelos, incluindo tempo de treinamento, tempo de execução e 
@@ -851,12 +803,12 @@ significativamente o desempenho dos classificadores.
 
 Com base nos resultados obtidos, foi realizada uma comparação entre os algoritmos 
 utilizados considerando métricas de desempenho, capacidade de generalização e 
-eficiência computacional. O algoritmo $Decision Tree$ apresentou boa interpretabilidade 
+eficiência computacional. O algoritmo \textit{$Decision Tree$} apresentou boa interpretabilidade 
 e capacidade de classificação, além de possibilitar a identificação dos 
-atributos mais relevantes para o problema. Entretanto, o $Random Forest$ demonstrou maior 
+atributos mais relevantes para o problema. Entretanto, o \textit{$Random Forest$} demonstrou maior 
 robustez e estabilidade nas previsões, devido à combinação de múltiplas 
 árvores de decisão. A seleção do modelo final considerou o equilíbrio entre as 
-métricas de Accuracy, Precision, Recall e F1-Score, além do impacto das técnicas de 
+métricas de \textit{Accuracy}, \textit{Precision}, \textit{Recall} e \textit{F1-Score}, além do impacto das técnicas de 
 redução de dimensionalidade no desempenho e no custo computacional dos algoritmos, 
 permitindo identificar a abordagem mais eficiente para classificação do tráfego 
 de rede e detecção de intrusões utilizando a base $NSL-KDD$. 
@@ -1076,28 +1028,19 @@ Este trabalho apresentou uma análise exploratória e experimental de técnicas 
 
 As etapas metodológicas executadas evidenciaram que o pré-processamento rigoroso — envolvendo desde a conversão de atributos categóricos via \textit{Label Encoding} até o agrupamento de ataques em macrocategorias — constitui um pilar fundamental para garantir a estabilidade e a interpretabilidade dos classificadores. Além disso, a aplicação combinada da Análise de Componentes Principais ($PCA$) e a seleção de características via $Decision Tree$ comprovaram que a redução de dimensionalidade é viável e necessária, mitigando o alto custo computacional sem comprometer a acurácia global da detecção. Os experimentos demonstraram, em alinhamento com a literatura estudada, que conjuntos reduzidos de atributos altamente discriminantes são capazes de otimizar a latência operacional de sistemas preditivos.
 
+Por fim, os resultados obtidos demonstram o potencial da utilização de técnicas de \textit{Machine Learning} aplicadas à detecção de intrusões, especialmente quando associadas a estratégias adequadas de seleção e redução de atributos. Como trabalhos futuros, pretende-se realizar a implementação de melhorias no modelo selecionado, visando ampliar sua capacidade de generalização, eficiência e robustez frente a diferentes cenários de ataques. Além disso, busca-se aplicar as técnicas desenvolvidas na construção de um protótipo funcional de Sistema de Detecção de Intrusões em tempo real, permitindo validar, em um ambiente mais próximo do real, a viabilidade prática, o desempenho operacional e a capacidade de resposta da solução proposta diante de tráfegos e ameaças reais de rede.
+
 % Como limitações identificadas no estágio atual do projeto, destaca-se o desbalanceamento intrínseco das classes minoritárias de ataques (como U2R e R2L) presente na base histórica utilizada, um fator que exige técnicas avançadas de reamostragem para não enviesar os modelos de aprendizado supervisionado. 
 
 \subsection{Cronograma}
 
 \begin{enumerate}
-	\item \textbf{Levantamento Inicial da Área de Pesquisa:} Realização de estudos introdutórios sobre a área de Segurança da Informação, com foco em Intrusion Detection Systems (IDS) e aplicação de técnicas de Machine Learning na detecção de ameaças cibernéticas.
-	\item \textbf{Continuidade do Levantamento Teórico da Área:} Aprofundamento da pesquisa introdutória, visando consolidar o entendimento sobre redes de computadores, segurança cibernética e métodos de detecção de intrusões. 
-	\item \textbf{Definição do Tema de Pesquisa:} Delimitação do escopo do Trabalho de Conclusão de Curso, estabelecendo o foco na utilização de técnicas de aprendizado de máquina aplicadas à detecção de intrusões em redes computacionais.
-	\item \textbf{Entrega do Checklist do TCC:} Organização e submissão da documentação inicial exigida para formalização e acompanhamento do desenvolvimento do Trabalho de Conclusão de Curso.
-	\item \textbf{Pesquisa e Seleção de Referências Bibliográficas:} Levantamento de artigos científicos, trabalhos acadêmicos e materiais técnicos relacionados à detecção de intrusões, pré-processamento de dados e algoritmos de Machine Learning aplicados à cibersegurança.
-	\item \textbf{Levantamento e Seleção das Bases de Dados:} Análise e escolha das bases de dados utilizadas no projeto, incluindo a NSL-KDD para o desenvolvimento inicial, além das bases UNSW-NB15 e CICIDS2017 previstas para utilização em etapas futuras do MVP.
-	\item \textbf{Estudo de Técnicas de Pré-Processamento e Extração de Características:} Pesquisa sobre métodos de tratamento e redução de dimensionalidade dos dados, incluindo técnicas como PCA (Principal Component Analysis), matriz de correlação e extração de features relevantes para otimização dos modelos.
-	\item \textbf{Pesquisa sobre Algoritmos de Machine Learning:} Estudo dos principais algoritmos supervisionados e não supervisionados aplicáveis à detecção de intrusões, analisando características, vantagens e limitações de cada abordagem.
-	\item \textbf{Levantamento de Dados Analíticos para Fundamentação do Tema:} Coleta e análise de informações estatísticas e estudos recentes que evidenciam o crescimento das ameaças cibernéticas e a relevância da utilização de sistemas inteligentes de detecção de intrusão.
-	\item \textbf{Elaboração das Referências Bibliográficas:} Estruturação e organização das referências utilizadas no trabalho, seguindo as normas acadêmicas exigidas.
-	\item \textbf{Desenvolvimento Inicial Utilizando a Base NSL-KDD:} Realização de estudos práticos envolvendo pré-processamento de dados, aplicação de algoritmos supervisionados e análise de métricas de desempenho, como acurácia, precisão, recall e taxa de detecção.
-	\item \textbf{Definição do Algoritmo Supervisionado Principal:} Escolha do algoritmo supervisionado mais adequado para o desenvolvimento do MVP1, considerando desempenho, capacidade de generalização e resultados obtidos nos testes preliminares.
-	\item \textbf{Continuidade do Desenvolvimento com a Base NSL-KDD:} Aprimoramento das etapas de pré-processamento, treinamento e avaliação dos modelos supervisionados aplicados à base de dados NSL-KDD.
-	\item \textbf{Sistematização da Revisão Bibliográfica:} Organização e consolidação dos conteúdos teóricos levantados ao longo da pesquisa, estruturando a fundamentação teórica do trabalho.
-	\item \textbf{Sistematização dos Resultados do MVP1:} Documentação e análise dos resultados obtidos durante o desenvolvimento do primeiro MVP, destacando métricas de desempenho, limitações e possibilidades de melhoria.
-	\item \textbf{Elaboração da Apresentação do Trabalho de Conclusão de Curso:} Desenvolvimento do material de apresentação contendo os principais objetivos, metodologia, resultados parciais e contribuições do projeto.
+	\item \textbf{Definição do Tema de Pesquisa:} Realização de estudos introdutórios sobre a área de Segurança da Informação, com foco em $IDS$ e aplicação de técnicas de Machine Learning na detecção de ameaças cibernéticas.
+	\item \textbf{Levantamento de Referências Bibliográficas:} Investigação de artigos científicos, trabalhos acadêmicos e materiais técnicos relacionados à detecção de intrusões, pré-processamento de dados e algoritmos de \textit{Machine Learning} aplicados à cibersegurança.
+	\item \textbf{Desenvolvimento do MVP1:} Aplicação prática dos modelos utilizando a base NSL-KDD, envolvendo etapas de pré-processamento de dados, treinamento e avaliação de algoritmos supervisionados, com análise de métricas de desempenho para definição do modelo mais adequado, além da consolidação da fundamentação teórica e dos estudos realizados ao longo da pesquisa.
 	\item \textbf{Apresentação do Trabalho de Conclusão de Curso:} Apresentação formal do projeto desenvolvido, abordando fundamentação teórica, metodologia aplicada, desenvolvimento do MVP, resultados alcançados e considerações finais do trabalho.
+	\item \textbf{Desenvolvimento do MVP2:} Implementação de melhorias no modelo selecionado e aplicação das técnicas desenvolvidas para construção do protótipo sistema de detecção de intrusões, paralelamente à documentação dos resultados.
+	\item \textbf{Entrega do Trabalho de Conclusão de Curso:} Submissão do relatório final do projeto, contendo a descrição detalhada de todas as etapas realizadas, análises dos resultados obtidos e conclusões derivadas da pesquisa.
 \end{enumerate}
 
 \begin{table}[H]
@@ -1115,56 +1058,24 @@ As etapas metodológicas executadas evidenciaram que o pré-processamento rigoro
 & Jan & Fev & Mar & Abr & Mai & Jun & Jul & Ago & Set & Out & Nov & Dez \\
 \hline
 
-1 & X &  &  &  &  &  &  &  &  &  &  &  \\
+1 & X & X &  &  &  &  &  &  &  &  &  &  \\
 \hline
 
-2 &  & X &  &  &  &  &  &  &  &  &  &  \\
+2 &  & X & X & X &  &  &  &  &  &  &  &  \\
 \hline
 
-3 &  & X &  &  &  &  &  &  &  &  &  &  \\
+3 &  &  &  & X & X &  &  &  &  &  &  &  \\
 \hline
 
-4 &  & X &  &  &  &  &  &  &  &  &  &  \\
+4 &  &  &  &  &  & X &  &  &  &  &  &  \\
 \hline
 
-5 &  &  & X &  &  &  &  &  &  &  &  &  \\
+5 &  &  &  &  &  &  & X & X & X & X & X &  \\
 \hline
 
-6 &  &  & X &  &  &  &  &  &  &  &  &  \\
+6 &  &  &  &  &  &  &  &  &  &  &  & X \\
 \hline
 
-7 &  &  & X &  &  &  &  &  &  &  &  &  \\
-\hline
-
-8 &  &  & X &  &  &  &  &  &  &  &  &  \\
-\hline
-
-9 &  &  &  & X &  &  &  &  &  &  &  &  \\
-\hline
-
-10 &  &  &  & X &  &  &  &  &  &  &  &  \\
-\hline
-
-11 &  &  &  & X &  &  &  &  &  &  &  &  \\
-\hline
-
-12 &  &  &  &  & X &  &  &  &  &  &  &  \\
-\hline
-
-13 &  &  &  &  & X &  &  &  &  &  &  &  \\
-\hline
-
-14 &  &  &  &  & X &  &  &  &  &  &  &  \\
-\hline
-
-15 &  &  &  &  & X &  &  &  &  &  &  &  \\
-\hline
-
-16 &  &  &  &  & X &  &  &  &  &  &  &  \\
-\hline
-
-17 &  &  &  &  &  & X &  &  &  &  &  &  \\
-\hline
 
 \end{tabular}
 \caption{Cronograma do projeto}
@@ -1239,6 +1150,10 @@ Título & Citações & Autor & Ano & Tipo & HIDS/NIDS & Sig. & Técnica & Técni
 \cite{emad2022intrusion} & 175 & Abdallah et al. & 2022 & Pesquisa & NIDS focus & Anomalia/Uso Ind. & Supervisionada & RF, SVM, LR, GNB, J48, DNN & 99,9\% (Acurácia em RF) & KDD99, NSL-KDD, CICIDS2017 \\
 
 \cite{James2023Introduction} & 1879 & James et al. & 2023 & Estudo Didático & Não se aplica & Não se aplica & Ambos & LR, DT, SVM, RF, KNN, PCA, K-means e outros & Não se aplica & Bases didáticas \\
+
+\cite{IBM2026Supervised} & Não se aplica & Belcic et al. & 2026 & Estudo Didático & Não se aplica & Não se aplica & Ambos & LR, DT, SVM, RF, KNN e outros & Não se aplica & Bases didáticas \\
+
+\cite{scikit2026learn} & Não se aplica & Belcic et al. & 2026 & Estudo Didático & Não se aplica & Não se aplica & Ambos & LR, DT, SVM, RF, KNN e outros & Não se aplica & Bases didáticas \\
 
 
 \bottomrule

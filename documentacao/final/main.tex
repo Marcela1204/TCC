@@ -838,9 +838,9 @@ Ultilizando um random state de 42 para os algorítimos citados, obtiveram-se os 
 	\captionof{table}{Estátisticas de treino dos modelos}
 	\label{tab:Tempos_treino}
 \end{strip}
-\clearpage
-
-\raggedbottom
+% \clearpage
+%
+% \raggedbottom
 Dados os valores da tabela \ref{tab:Tempos_treino} o algorítimo selecionado foi o $Decision Tree$, dado seu baixo tempo de teste e alta acurácia.\\
 Ultilizando os valores anteriormente definidos, para uma melhor vizualização dos dados que realmente importam, o gráfico foi dividido entre ataques e tráfego normal:
 \begin{figure}[H]
@@ -950,7 +950,7 @@ Para melhor vizualização dos dados os ataques foram separados nas seguintes ca
 \centering
 		\begin{tabular}{|c|c|c|}
 		    \hline
-		    \textbf{Categoria} & \textbf{Tipos de Ataque} & \textbf{quantidade de valores}\\
+		    \textbf{Categoria} & \textbf{Tipos de Ataque} & \textbf{Quantidade de Valores}\\
 		    \hline
 		    normal & Normal & 67343 \\
 		    \hline
@@ -1043,13 +1043,13 @@ Por fim, os resultados obtidos demonstram o potencial da utilização de técnic
 	\item \textbf{Entrega do Trabalho de Conclusão de Curso:} Submissão do relatório final do projeto, contendo a descrição detalhada de todas as etapas realizadas, análises dos resultados obtidos e conclusões derivadas da pesquisa.
 \end{enumerate}
 
-\begin{table}[H]
+\begin{strip}
 \centering
 \footnotesize
 \renewcommand{\arraystretch}{0.9}
 \setlength{\tabcolsep}{2pt}
 
-\begin{tabular}{|p{1.5cm}|*{12}{c|}}
+\begin{tabular}{|p{2.5cm}|*{12}{c|}}
 \hline
 
 \multirow{2}{*}{\textbf{Item}} 
@@ -1058,36 +1058,27 @@ Por fim, os resultados obtidos demonstram o potencial da utilização de técnic
 & Jan & Fev & Mar & Abr & Mai & Jun & Jul & Ago & Set & Out & Nov & Dez \\
 \hline
 
-Definição do tema & X &   &  &  &  &  &  &  &  &  &  &  \\
+Definição do tema & X & X &  &  &  &  &  &  &  &  &  &  \\
 \hline
 
-Revisão bibliográfica &  &  & X &  &  &  &  &  &  &  &  &  \\
+Revisão bibliográfica &  & X & X & X &  &  &  &  &  &  &  &  \\
 \hline
 
-Revisão bibliográfica &  &  & X &  &  &  &  &  &  &  &  &  \\
+Desenvolvimento MVP1 &  &  &  & X & X &  &  &  &  &  &  &  \\
 \hline
 
-Revisão bibliográfica &  &  & X &  &  &  &  &  &  &  &  &  \\
+Apresentação do TCC &  &  &  &   &   & X &  &  &  &  &  &  \\
 \hline
 
-Revisão bibliográfica &  &  & X &  &  &  &  &  &  &  &  &  \\
+Desenvolvimento MVP2 &  &  &  &   &   &  & X & X & X & X & X &  \\
 \hline
 
-Revisão bibliográfica &  &  &  & X &  &  &  &  &  &  &  &  \\
-\hline
-
-Revisão bibliográfica &  &  &  & X &  &  &  &  &  &  &  &  \\
-\hline
-
-Desenvol-vimento MVP1 &  &  &  & X &  &  &  &  &  &  &  &  \\
-\hline
-
-17 &  &  &  &  &  & X &  &  &  &  &  &  \\
+Entrega do TCC &  &  &  &   &   &  &  &  &  &  &  & X \\
 \hline
 
 \end{tabular}
-\caption{Cronograma do projeto}
-\end{table}
+\captionof{table}{Cronograma do projeto}
+\end{strip}
 
 
 \section{Referências}

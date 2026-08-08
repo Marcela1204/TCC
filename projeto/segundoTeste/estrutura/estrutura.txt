@@ -1,0 +1,116 @@
+┌─────────────────────────────────────────────────────────────────────┐
+│                    ARQUITETURA IDS EM TEMPO REAL                    │
+├─────────────────────────────────────────────────────────────────────┤
+│                                                                     │
+│  ┌──────────┐                                                      │
+│  │   VM1    │  Tráfego Real (tcpdump/pcap)                        │
+│  │(Atacante) │ ──────────────────────────────────────────────┐    │
+│  └──────────┘                                               │    │
+│                                                             ▼    │
+│  ┌──────────┐                                       ┌────────────┐│
+│  │   VM2    │  NetFlow/sFlow (opcional)             │   REDE     ││
+│  │(Servidor)│ ──────────────────────────────────►   │  (Mirror)  ││
+│  └──────────┘                                       └─────┬──────┘│
+│                                                             │      │
+│                                                             │      │
+│                    ┌────────────────────────────────────┐   │      │
+│                    │     VM DEDICADA (TCC - CasaOS)    │   │      │
+│                    │                                    │   │      │
+│                    │  ┌─────────────────────────────┐  │   │      │
+│                    │  │  1. CAPTURA DE PACOTES      │◄─┘      │
+│                    │  │  (Scapy + tcpdump wrapper)  │  │        │
+│                    │  └────────────┬────────────────┘  │        │
+│                    │               │                    │        │
+│                    │               ▼                    │        │
+│                    │  ┌─────────────────────────────┐  │        │
+│                    │  │  2. CONSTRUTOR DE FLUXOS    │  │        │
+│                    │  │  (Agrega pacotes em fluxos) │  │        │
+│                    │  └────────────┬────────────────┘  │        │
+│                    │               │                    │        │
+│                    │               ▼                    │        │
+│                    │  ┌─────────────────────────────┐  │        │
+│                    │  │  3. EXTRATOR DE FEATURES    │  │        │
+│                    │  │  (NSL-KDD padrão)           │  │        │
+│                    │  └────────────┬────────────────┘  │        │
+│                    │               │                    │        │
+│                    │               ▼                    │        │
+│                    │  ┌─────────────────────────────┐  │        │
+│                    │  │  4. MODELO PREDICTOR (DT)   │  │        │
+│                    │  │  Decision Tree em tempo real│  │        │
+│                    │  └────────────┬────────────────┘  │        │
+│                    │               │                    │        │
+│                    │               ▼                    │        │
+│                    │  ┌─────────────────────────────┐  │        │
+│                    │  │  5. EXPORTAÇÃO DE MÉTRICAS  │  │        │
+│                    │  │  (Prometheus + JSON)        │  │        │
+│                    │  └────────────┬────────────────┘  │        │
+│                    │               │                    │        │
+│                    └───────────────┼────────────────────┘        │
+│                                    │                              │
+│                                    │                              │
+│                  ┌─────────────────┼─────────────────┐           │
+│                  │                 │                 │           │
+│                  ▼                 ▼                 ▼           │
+│          ┌──────────────┐  ┌──────────────┐  ┌──────────────┐   │
+│          │  PROMETHEUS  │  │    INFLUXDB  │  │   ELASTIC    │   │
+│          │ (Métricas)   │  │ (Time Series)│  │   (Logs)     │   │
+│          └──────┬───────┘  └──────┬───────┘  └──────┬───────┘   │
+│                 │                 │                 │           │
+│                 └─────────────────┼─────────────────┘           │
+│                                   │                              │
+│                                   ▼                              │
+│                        ┌──────────────────────┐                  │
+│                        │    GRAFANA           │                  │
+│                        │    Dashboard IDS     │                  │
+│                        │  (Tempo real)        │                  │
+│                        └──────────────────────┘                  │
+│                                                                     │
+│  ┌──────────────┐                                                  │
+│  │  ALERTAS     │  Discord/Telegram/Email                         │
+│  │  (Alertas)   │                                                  │
+│  └──────────────┘                                                  │
+└─────────────────────────────────────────────────────────────────────┘
+
+
+---
+
+
+tcc_ids/
+├── docker-compose.yml              # Orquestração completa
+├── .env
+├── requirements.txt
+│
+├── src/
+│   ├── core/
+│   │   ├── feature_extractor.py   # (já temos)
+│   │   ├── packet_capture.py      # Captura com Scapy + tcpdump
+│   │   ├── flow_builder.py        # Constrói fluxos NSL-KDD
+│   │   ├── flow_state.py          # Estado das conexões
+│   │   ├── ids_predictor.py       # Predictor principal
+│   │   └── nsl_kdd_mapper.py      # Mapeia pacotes para NSL-KDD
+│   │
+│   ├── exporters/
+│   │   ├── prometheus_exporter.py # Exporta métricas para Prometheus
+│   │   ├── influxdb_exporter.py   # Exporta para InfluxDB
+│   │   └── json_exporter.py       # Exporta JSON (para testes)
+│   │
+│   └── alerts/
+│       ├── alert_manager.py       # Gerencia alertas
+│       └── notifiers.py           # Discord/Telegram/Email
+│
+├── grafana/
+│   ├── dashboards/
+│   │   └── ids_dashboard.json     # Dashboard pré-configurado
+│   └── datasources/
+│       └── datasources.yaml
+│
+├── prometheus/
+│   └── prometheus.yml
+│
+├── tests/
+│   └── test_flow_builder.py
+│
+└── scripts/
+    ├── simulate_attack.py
+    ├── save_artifacts.py
+    └── test_capture.py

@@ -1,0 +1,31 @@
+# prometheus/alerts.yml
+groups:
+  - name: ids_alerts
+    interval: 10s
+    rules:
+      - alert: HighAttackRate
+        expr: rate(ids_attacks_total[1m]) > 5
+        for: 30s
+        labels:
+          severity: critical
+        annotations:
+          summary: "Alta taxa de ataques detectada"
+          description: "Mais de 5 ataques por minuto nos últimos 30s"
+
+      - alert: HighPredictionLatency
+        expr: histogram_quantile(0.95, rate(ids_prediction_latency_seconds_bucket[5m])) > 0.1
+        for: 1m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Latência de predição alta"
+          description: "P95 da latência > 100ms"
+
+      - alert: ModelConfidenceLow
+        expr: ids_confidence_score < 0.7
+        for: 2m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Confiança do modelo baixa"
+          description: "Confiança média < 70%"

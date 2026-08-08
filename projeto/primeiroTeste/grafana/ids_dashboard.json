@@ -1,0 +1,88 @@
+{
+  "title": "IDS - Network Intrusion Detection System",
+  "uid": "ids-dashboard",
+  "panels": [
+    {
+      "title": "Tráfego IN x OUT",
+      "type": "graph",
+      "gridPos": {"h": 8, "w": 12, "x": 0, "y": 0},
+      "targets": [
+        {
+          "expr": "rate(ids_packets_total[1m])",
+          "legendFormat": "Pacotes/s IN"
+        },
+        {
+          "expr": "rate(ids_flows_total[1m])",
+          "legendFormat": "Fluxos/s OUT"
+        }
+      ]
+    },
+    {
+      "title": "Alertas por Minuto",
+      "type": "graph",
+      "gridPos": {"h": 8, "w": 12, "x": 12, "y": 0},
+      "targets": [
+        {
+          "expr": "rate(ids_alerts_total[1m])",
+          "legendFormat": "Alertas/min"
+        }
+      ]
+    },
+    {
+      "title": "Top 10 IPs Atacantes",
+      "type": "table",
+      "gridPos": {"h": 8, "w": 8, "x": 0, "y": 8},
+      "targets": [
+        {
+          "expr": "topk(10, ids_attacks_total)",
+          "format": "table"
+        }
+      ]
+    },
+    {
+      "title": "Top 10 IPs Alvo",
+      "type": "table",
+      "gridPos": {"h": 8, "w": 8, "x": 8, "y": 8},
+      "targets": [
+        {
+          "expr": "topk(10, ids_flows_active)",
+          "format": "table"
+        }
+      ]
+    },
+    {
+      "title": "Confiança do Modelo",
+      "type": "stat",
+      "gridPos": {"h": 8, "w": 4, "x": 16, "y": 8},
+      "targets": [
+        {
+          "expr": "ids_confidence_score"
+        }
+      ]
+    },
+    {
+      "title": "Últimos Alertas",
+      "type": "logs",
+      "gridPos": {"h": 8, "w": 8, "x": 0, "y": 16},
+      "targets": [
+        {
+          "expr": "{job=\"ids_core\"} |= \"ATAQUE\""
+        }
+      ]
+    },
+    {
+      "title": "Distribuição dos Ataques",
+      "type": "piechart",
+      "gridPos": {"h": 8, "w": 8, "x": 8, "y": 16},
+      "targets": [
+        {
+          "expr": "sum by (attack_type) (ids_attacks_total)"
+        }
+      ]
+    }
+  ],
+  "time": {
+    "from": "now-1h",
+    "to": "now"
+  }
+}

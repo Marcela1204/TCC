@@ -1,0 +1,1 @@
+["src_bytes", "dst_host_srv_count", "count", "dst_bytes", "dst_host_srv_terror_rate", "hot", "dst_host_same_src_port_rate", "logged_in", "srv_count", "dst_host_same_srv_rate", "duration", "wrong_fragment", "dst_host_terror_rate", "dst_host_diff_srv_rate", "dst_host_count", "dst_host_srv_diff_host_rate", "dst_host_serror_rate", "diff_srv_rate"]

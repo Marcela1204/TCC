@@ -1,0 +1,206 @@
+<!-- dashboard.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IDS Dashboard</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            padding: 20px;
+            margin: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #333;
+            padding-bottom: 20px;
+        }
+        .status-badge {
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        .status-running { background: #00ff00; color: #000; }
+        .status-stopped { background: #ff0000; color: #fff; }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .card {
+            background: #1a1a1a;
+            border-radius: 10px;
+            padding: 20px;
+            border: 1px solid #333;
+        }
+        .card h3 {
+            color: #888;
+            margin: 0 0 10px 0;
+        }
+        .value {
+            font-size: 2em;
+            font-weight: bold;
+        }
+        .value.green { color: #00ff00; }
+        .value.red { color: #ff4444; }
+        .value.yellow { color: #ffaa00; }
+        .controls {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        .btn {
+            padding: 10px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .btn-start { background: #00ff00; color: #000; }
+        .btn-stop { background: #ff4444; color: #fff; }
+        .btn-refresh { background: #444; color: #fff; }
+        .alert-list {
+            margin-top: 20px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .alert-item {
+            padding: 10px;
+            margin: 5px 0;
+            background: #2a1a1a;
+            border-left: 4px solid #ff4444;
+            border-radius: 3px;
+        }
+        .alert-item.normal {
+            background: #1a2a1a;
+            border-left-color: #00ff00;
+        }
+        pre {
+            background: #111;
+            padding: 10px;
+            border-radius: 5px;
+            overflow: auto;
+            max-height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🛡️ IDS - Sistema de Detecção de Intrusões</h1>
+            <div>
+                <span class="status-badge status-stopped" id="statusBadge">⏹️ PARADO</span>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button class="btn btn-start" onclick="startSystem()">▶️ Iniciar</button>
+            <button class="btn btn-stop" onclick="stopSystem()">⏹️ Parar</button>
+            <button class="btn btn-refresh" onclick="loadStatus()">🔄 Atualizar</button>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <h3>📊 Fluxos Processados</h3>
+                <div class="value green" id="totalFlows">0</div>
+            </div>
+            <div class="card">
+                <h3>🚨 Alertas</h3>
+                <div class="value red" id="totalAlerts">0</div>
+            </div>
+            <div class="card">
+                <h3>📈 Taxa de Ataque</h3>
+                <div class="value yellow" id="attackRate">0%</div>
+            </div>
+        </div>
+
+        <div class="card" style="margin-top: 20px;">
+            <h3>📋 Status do Sistema</h3>
+            <pre id="statusJson">Carregando...</pre>
+        </div>
+
+        <div class="card" style="margin-top: 20px;">
+            <h3>🚨 Últimos Alertas</h3>
+            <div class="alert-list" id="alertList">
+                <div style="color: #666;">Nenhum alerta ainda</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_URL = 'http://192.168.15.5:5000';
+
+        async function loadStatus() {
+            try {
+                const response = await fetch(`${API_URL}/api/status`);
+                const data = await response.json();
+                
+                document.getElementById('totalFlows').textContent = data.stats.total_flows || 0;
+                document.getElementById('totalAlerts').textContent = data.stats.total_attacks || 0;
+                document.getElementById('attackRate').textContent = (data.stats.attack_rate * 100).toFixed(1) + '%';
+                
+                const statusBadge = document.getElementById('statusBadge');
+                if (data.status === 'running') {
+                    statusBadge.className = 'status-badge status-running';
+                    statusBadge.textContent = '▶️ RODANDO';
+                } else {
+                    statusBadge.className = 'status-badge status-stopped';
+                    statusBadge.textContent = '⏹️ PARADO';
+                }
+                
+                document.getElementById('statusJson').textContent = JSON.stringify(data, null, 2);
+                
+                // Carregar alertas
+                const alertsResponse = await fetch(`${API_URL}/api/alerts`);
+                const alerts = await alertsResponse.json();
+                
+                const alertList = document.getElementById('alertList');
+                if (alerts.length === 0) {
+                    alertList.innerHTML = '<div style="color: #666;">Nenhum alerta ainda</div>';
+                } else {
+                    alertList.innerHTML = alerts.slice(-10).reverse().map(a => 
+                        `<div class="alert-item">
+                            🚨 <strong>${a.src_ip}</strong> -> <strong>${a.dst_ip}</strong>
+                            (${a.service}) | Conf: ${(a.confidence * 100).toFixed(1)}%
+                            <br><small>${a.timestamp}</small>
+                        </div>`
+                    ).join('');
+                }
+            } catch (error) {
+                document.getElementById('statusJson').textContent = 'Erro ao carregar: ' + error.message;
+            }
+        }
+
+        async function startSystem() {
+            try {
+                await fetch(`${API_URL}/api/start`, { method: 'POST' });
+                loadStatus();
+            } catch (error) {
+                alert('Erro ao iniciar: ' + error.message);
+            }
+        }
+
+        async function stopSystem() {
+            try {
+                await fetch(`${API_URL}/api/stop`, { method: 'POST' });
+                loadStatus();
+            } catch (error) {
+                alert('Erro ao parar: ' + error.message);
+            }
+        }
+
+        // Carregar a cada 5 segundos
+        loadStatus();
+        setInterval(loadStatus, 5000);
+    </script>
+</body>
+</html>

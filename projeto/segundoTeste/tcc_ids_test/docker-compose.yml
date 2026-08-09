@@ -1,0 +1,55 @@
+# docker-compose.yml
+version: '3.8'
+
+services:
+  # 1. IDS Core
+  ids-core:
+    build: .
+    container_name: ids-core
+    network_mode: host
+    privileged: true
+    volumes:
+      - ./models:/app/models
+      - ./src:/app/src
+      - /var/log:/var/log
+    environment:
+      - INTERFACE=eth0
+    ports:
+      - "5000:5000"  # API
+      - "8000:8000"  # Prometheus
+    depends_on:
+      - prometheus
+      - grafana
+    restart: unless-stopped
+
+  # 2. Prometheus
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    ports:
+      - "9090:9090"
+    restart: unless-stopped
+
+  # 3. Grafana
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_INSTALL_PLUGINS=grafana-piechart-panel
+    volumes:
+      - ./grafana/dashboards:/etc/grafana/provisioning/dashboards
+      - ./grafana/datasources:/etc/grafana/provisioning/datasources
+      - grafana_data:/var/lib/grafana
+    ports:
+      - "3000:3000"
+    depends_on:
+      - prometheus
+    restart: unless-stopped
+
+volumes:
+  prometheus_data:
+  grafana_data:

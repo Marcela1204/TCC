@@ -19,3 +19,6 @@ documentacao/final/main.bbl
 *.bcf
 *.log
 *.bbl
+
+__pycache__/
+*.joblib

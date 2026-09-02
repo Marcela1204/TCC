@@ -25,6 +25,10 @@ from collections import defaultdict
 import numpy as np
 import pandas as pd
 from sklearn.ensemble import IsolationForest
+from sklearn.metrics import (accuracy_score, average_precision_score,
+                             confusion_matrix, f1_score, precision_score,
+                             recall_score, roc_auc_score)
+from sklearn.model_selection import cross_val_score, train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.tree import DecisionTreeClassifier, export_text
 
@@ -134,6 +138,7 @@ def build_flows(records):
 
         rows.append({
             "src": ipA, "dst": ipB, "portA": portA, "portB": portB, "proto": proto,
+            "t0": float(ts[0]),
             "n_packets": n,
             "n_bytes": float(lengths.sum()),
             "duration": duration,
@@ -189,6 +194,7 @@ def build_host_profiles(records):
         dur = (ts[-1] - ts[0]) if len(ts) > 1 else 0.0
         rows.append({
             "src": ip,
+            "t0": float(ts[0]) if ts else 0.0,
             "h_packets": n,
             "h_bytes": float(h["bytes"]),
             "n_dst": len(h["dsts"]),
@@ -298,7 +304,7 @@ def aggregate_streaming(record_iter, host_max_ports=100_000):
         n = fl["n"]; dur = fl["tN"] - fl["t0"]
         frows.append({
             "src": fl["ipA"], "dst": fl["ipB"], "portA": fl["portA"],
-            "portB": fl["portB"], "proto": 0,
+            "portB": fl["portB"], "proto": 0, "t0": fl["t0"],
             "n_packets": n, "n_bytes": fl["sum"], "duration": dur,
             "bytes_per_sec": fl["sum"] / dur if dur > 0 else fl["sum"],
             "pkts_per_sec": n / dur if dur > 0 else float(n),
@@ -316,7 +322,7 @@ def aggregate_streaming(record_iter, host_max_ports=100_000):
     for ip, h in hosts.items():
         n = h["n"]; dur = h["tN"] - h["t0"]; nd = max(1, len(h["dsts"]))
         hrows.append({
-            "src": ip, "h_packets": n, "h_bytes": h["bytes"],
+            "src": ip, "t0": h["t0"], "h_packets": n, "h_bytes": h["bytes"],
             "n_dst": len(h["dsts"]), "n_dports": len(h["dports"]),
             "dports_per_dst": len(h["dports"]) / nd,
             "h_syn_ratio": h["syn"] / n, "h_ack_ratio": h["ack"] / n,
@@ -359,6 +365,7 @@ def from_nfstream(path, idle_timeout=15, active_timeout=120):
     df_flow = pd.DataFrame({
         "src": raw["src_ip"], "dst": raw["dst_ip"],
         "portA": raw["src_port"], "portB": raw["dst_port"], "proto": raw["protocol"],
+        "t0": raw["bidirectional_first_seen_ms"].astype(float) / 1000.0,
         "n_packets": raw["bidirectional_packets"].astype(float),
         "n_bytes": b,
         "duration": dur,
@@ -400,6 +407,7 @@ def from_nfstream(path, idle_timeout=15, active_timeout=120):
     hdur = (host["_last"] - host["_first"]).astype(float) / 1000.0
     df_host = pd.DataFrame({
         "src": host["src"],
+        "t0": host["_first"].astype(float) / 1000.0,
         "h_packets": host["h_packets"].astype(float),
         "h_bytes": host["h_bytes"],
         "n_dst": host["n_dst"].astype(float),
@@ -419,8 +427,183 @@ def from_nfstream(path, idle_timeout=15, active_timeout=120):
 # 3. ISOLATION FOREST (não supervisionado) + 4. DECISION TREE (explicabilidade)
 # ----------------------------------------------------------------------------
 
+def metricas_score(scores, rotulo_if, threshold):
+    """Diagnostico do detector nao supervisionado, sem precisar de verdade.
+
+    Nao ha rotulo real aqui, entao nao ha acuracia a medir. O que se pode
+    medir e se o limiar separa duas populacoes distintas de score ou se ele
+    corta no meio de uma nuvem continua -- no segundo caso a escolha de
+    `contamination` esta arbitraria e o numero de alertas e um artefato do
+    parametro, nao uma propriedade do trafego.
+    """
+    normais = scores[rotulo_if == 0]
+    anomalos = scores[rotulo_if == 1]
+    m = {
+        'threshold': float(threshold),
+        'n': int(len(scores)),
+        'n_anomalos': int(rotulo_if.sum()),
+        'score_p50': float(np.quantile(scores, 0.50)),
+        'score_p95': float(np.quantile(scores, 0.95)),
+        'score_max': float(scores.max()),
+    }
+    if len(normais) and len(anomalos):
+        m['media_normal'] = float(normais.mean())
+        m['media_anomalo'] = float(anomalos.mean())
+        # Separacao em desvios-padrao da populacao normal (efeito tipo Cohen).
+        desvio = float(normais.std())
+        m['separacao'] = ((anomalos.mean() - normais.mean()) / desvio
+                          if desvio > 0 else float('inf'))
+    return m
+
+
+def metricas_arvore(X, rotulo_if, feature_cols, random_state=42, max_depth=4,
+                    cv=5):
+    """Fidelidade da arvore surrogate em relacao ao Isolation Forest.
+
+    ATENCAO ao interpretar: acuracia e F1 aqui NAO medem deteccao de ataque.
+    O `y` e o rotulo que o proprio Isolation Forest atribuiu, entao o que se
+    mede e o quanto a arvore de profundidade 4 reproduz as decisoes da
+    floresta -- ou seja, se as regras impressas sao uma explicacao fiel ou
+    uma simplificacao que perde o comportamento do detector.
+
+    Fidelidade alta valida as regras como explicacao. Fidelidade baixa
+    significa que a floresta usa estrutura que a arvore nao captura, e as
+    regras nao devem ser apresentadas como o criterio de deteccao.
+
+    A medicao usa particao 70/30: a arvore que vai para o artefato e treinada
+    em tudo, mas avaliar nos mesmos dados do treino daria fidelidade inflada.
+    """
+    if len(np.unique(rotulo_if)) < 2:
+        return None
+    # Com poucos registros a classe minoritaria pode ter 1 unico membro, e a
+    # particao estratificada e impossivel. Nesse caso mede-se nos proprios
+    # dados de treino e marca-se o regime, porque o numero fica otimista.
+    minoritaria = int(np.bincount(rotulo_if).min())
+    if minoritaria >= 4:
+        X_tr, X_te, y_tr, y_te = train_test_split(
+            X, rotulo_if, test_size=0.30, random_state=random_state,
+            stratify=rotulo_if)
+        regime = 'particao 70/30'
+    else:
+        X_tr = X_te = X
+        y_tr = y_te = rotulo_if
+        regime = 'in-sample (poucos anomalos p/ particionar)'
+    arv = DecisionTreeClassifier(max_depth=max_depth,
+                                 random_state=random_state).fit(X_tr, y_tr)
+    pred = arv.predict(X_te)
+    tn, fp, fn, tp = confusion_matrix(y_te, pred, labels=[0, 1]).ravel()
+    m = {
+        'acuracia': accuracy_score(y_te, pred),
+        'precisao': precision_score(y_te, pred, zero_division=0),
+        'recall': recall_score(y_te, pred, zero_division=0),
+        'f1': f1_score(y_te, pred, zero_division=0),
+        'tn': int(tn), 'fp': int(fp), 'fn': int(fn), 'tp': int(tp),
+        'n_teste': int(len(y_te)),
+        'regime': regime,
+    }
+    # Estabilidade da fidelidade: se o desvio for alto, a explicacao muda
+    # conforme a amostra e nao deve ser tratada como definitiva.
+    if cv and min(np.bincount(rotulo_if)) >= cv:
+        escores = cross_val_score(
+            DecisionTreeClassifier(max_depth=max_depth,
+                                   random_state=random_state),
+            X, rotulo_if, cv=cv, scoring='f1', n_jobs=-1)
+        m['f1_cv_media'] = float(escores.mean())
+        m['f1_cv_desvio'] = float(escores.std())
+    return m
+
+
+def metricas_deteccao(scores, rotulo_if, y_true):
+    """Metricas REAIS de deteccao, quando ha verdade de referencia.
+
+    Aqui acuracia, precisao, recall e F1 tem o sentido usual: comparam o
+    alerta do Isolation Forest contra o rotulo verdadeiro. ROC-AUC e a
+    precisao media usam o score continuo e por isso independem do limiar --
+    sao a leitura mais justa de um detector nao supervisionado, cujo limiar
+    foi escolhido por `contamination` e nao aprendido dos dados.
+    """
+    y_true = np.asarray(y_true).astype(int)
+    tn, fp, fn, tp = confusion_matrix(y_true, rotulo_if, labels=[0, 1]).ravel()
+    m = {
+        'n': int(len(y_true)),
+        'n_ataque_real': int(y_true.sum()),
+        'acuracia': accuracy_score(y_true, rotulo_if),
+        'precisao': precision_score(y_true, rotulo_if, zero_division=0),
+        'recall': recall_score(y_true, rotulo_if, zero_division=0),
+        'f1': f1_score(y_true, rotulo_if, zero_division=0),
+        'tn': int(tn), 'fp': int(fp), 'fn': int(fn), 'tp': int(tp),
+        'taxa_falso_positivo': fp / max(fp + tn, 1),
+    }
+    if len(np.unique(y_true)) == 2:
+        m['roc_auc'] = float(roc_auc_score(y_true, scores))
+        m['precisao_media'] = float(average_precision_score(y_true, scores))
+    return m
+
+
+def imprimir_metricas(met):
+    """Imprime o bloco de metricas de um treino."""
+    esc = met.get('score')
+    if esc:
+        print('\n-- Diagnostico do detector (nao supervisionado) --')
+        print('  limiar de score      %.4f  (contaminacao alvo)'
+              % esc['threshold'])
+        print('  score p50 / p95 / max  %.4f / %.4f / %.4f'
+              % (esc['score_p50'], esc['score_p95'], esc['score_max']))
+        if 'separacao' in esc:
+            print('  media normal / anomalo %.4f / %.4f'
+                  % (esc['media_normal'], esc['media_anomalo']))
+            print('  separacao            %.2f desvios da populacao normal'
+                  % esc['separacao'])
+            if esc['separacao'] < 1.0:
+                print('    [!] separacao baixa: o limiar corta uma nuvem '
+                      'continua de scores.')
+                print('        O numero de alertas reflete --contamination, '
+                      'nao uma quebra no trafego.')
+
+    arv = met.get('arvore')
+    if arv:
+        print('\n-- Fidelidade da arvore surrogate ao Isolation Forest --')
+        print('  (mede se as REGRAS explicam a floresta; NAO e acuracia '
+              'de deteccao)')
+        print('  %-10s %-10s %-10s %-10s' % ('acuracia', 'precisao',
+                                             'recall', 'f1'))
+        print('  %-10.4f %-10.4f %-10.4f %-10.4f'
+              % (arv['acuracia'], arv['precisao'], arv['recall'], arv['f1']))
+        if 'f1_cv_media' in arv:
+            print('  f1 validacao cruzada  %.4f +/- %.4f'
+                  % (arv['f1_cv_media'], arv['f1_cv_desvio']))
+        print('  regime: %s' % arv['regime'])
+        print('  matriz (n=%d)  normal->normal %d  normal->anomalo %d'
+              % (arv['n_teste'], arv['tn'], arv['fp']))
+        print('                anomalo->normal %d  anomalo->anomalo %d'
+              % (arv['fn'], arv['tp']))
+        if arv['f1'] < 0.9:
+            print('    [!] fidelidade abaixo de 0.90: as regras impressas '
+                  'simplificam demais')
+            print('        a floresta. Aumente --tree-depth antes de citar '
+                  'as regras como criterio.')
+
+    det = met.get('deteccao')
+    if det:
+        print('\n-- Deteccao contra verdade de referencia --')
+        print('  (aqui acuracia e F1 tem o sentido usual)')
+        print('  %-10s %-10s %-10s %-10s' % ('acuracia', 'precisao',
+                                             'recall', 'f1'))
+        print('  %-10.4f %-10.4f %-10.4f %-10.4f'
+              % (det['acuracia'], det['precisao'], det['recall'], det['f1']))
+        if 'roc_auc' in det:
+            print('  roc-auc %.4f | precisao media %.4f  '
+                  '(independentes do limiar)'
+                  % (det['roc_auc'], det['precisao_media']))
+        print('  taxa de falso positivo %.2f%%'
+              % (100 * det['taxa_falso_positivo']))
+        print('  registros %d | ataque real %d | tp %d fp %d fn %d tn %d'
+              % (det['n'], det['n_ataque_real'], det['tp'], det['fp'],
+                 det['fn'], det['tn']))
+
+
 def detect(df, feature_cols=FEATURE_COLS, contamination=0.03, random_state=42,
-           kind="flow", n_jobs=-1):
+           kind="flow", n_jobs=-1, tree_depth=4, y_true=None):
     X = df[feature_cols].fillna(0.0).replace([np.inf, -np.inf], 0.0).values
     scaler = StandardScaler()
     Xs = scaler.fit_transform(X)            # scaler AJUSTADO no treino -> precisa ser salvo
@@ -441,18 +624,31 @@ def detect(df, feature_cols=FEATURE_COLS, contamination=0.03, random_state=42,
     threshold = float(np.quantile(scores, 1.0 - contamination))
     df["anomaly"] = (scores >= threshold).astype(int)
 
+    rotulo_if = df["anomaly"].values
+
+    metricas = {"score": metricas_score(scores, rotulo_if, threshold)}
+
     tree = None
     tree_rules = None
     importances = None
     # A árvore só faz sentido se houver as duas classes
     if df["anomaly"].nunique() == 2:
-        tree = DecisionTreeClassifier(max_depth=4, random_state=random_state)
-        tree.fit(X, df["anomaly"].values)
+        # Fidelidade medida em partição retida ANTES de treinar a árvore
+        # final, que usa todos os dados para dar a melhor explicação.
+        metricas["arvore"] = metricas_arvore(
+            X, rotulo_if, feature_cols, random_state=random_state,
+            max_depth=tree_depth)
+        tree = DecisionTreeClassifier(max_depth=tree_depth,
+                                      random_state=random_state)
+        tree.fit(X, rotulo_if)
         tree_rules = export_text(tree, feature_names=list(feature_cols))
         importances = sorted(
             zip(feature_cols, tree.feature_importances_),
             key=lambda t: t[1], reverse=True,
         )
+
+    if y_true is not None:
+        metricas["deteccao"] = metricas_deteccao(scores, rotulo_if, y_true)
 
     # "artifacts" = tudo que o analisador em tempo real precisa pra reproduzir a decisão
     artifacts = {
@@ -463,8 +659,10 @@ def detect(df, feature_cols=FEATURE_COLS, contamination=0.03, random_state=42,
         "feature_cols": list(feature_cols),
         "threshold": threshold,
         "contamination": contamination,
+        "tree_depth": tree_depth,
+        "metricas": metricas,
     }
-    return df, tree_rules, importances, artifacts
+    return df, tree_rules, importances, artifacts, metricas
 
 
 def save_model(artifacts, path):
@@ -477,6 +675,119 @@ def save_model(artifacts, path):
     print(f"[+] modelo '{artifacts['kind']}' salvo em: {path} "
           f"(threshold={artifacts['threshold']:.4f}, "
           f"{len(artifacts['feature_cols'])} features)")
+
+
+# ----------------------------------------------------------------------------
+# 5. VERDADE DE REFERÊNCIA DO CIC-IDS-2017 (opcional, p/ --rotulos-cicids)
+# ----------------------------------------------------------------------------
+# Os CSV do CIC-IDS-2017 em datasets/CIC-IDS-2017/CSV/ são exportações de
+# pacotes do Wireshark e não têm coluna de rótulo. A verdade usada aqui é o
+# cronograma oficial de ataques publicado pelo CIC/UNB: um fluxo é ataque
+# quando cai na janela de tempo de um ataque E o par de endereços bate com o
+# par atacante/vítima daquele ataque.
+#
+# NAT: a captura é do lado interno do firewall, e o atacante Kali aparece com
+# DUAS identidades conforme o sentido da conexão:
+#   172.16.0.1      -- ataques de entrada, após o NAT (patator, DoS, ataques
+#                      web, port scan, DDoS);
+#   205.174.165.73  -- conexões iniciadas de dentro para fora, que não passam
+#                      pelo NAT de entrada: bot falando com o C&C na sexta e
+#                      download do payload de infiltração na quinta.
+# Rotular só pelo IP público listado no site do CIC produz zero ataques;
+# rotular só pelo endereço pós-NAT perde botnet e infiltração inteiras.
+
+FUSO_CICIDS = -3            # laboratório do CIC/UNB em julho: ADT = UTC-3
+_ATACANTE = ['172.16.0.1', '205.174.165.73']
+_WEB = '192.168.10.50'
+_UBUNTU12 = '192.168.10.51'
+_VISTA = '192.168.10.8'
+_MAC = '192.168.10.25'
+_CLIENTES = ['192.168.10.5', '192.168.10.8', '192.168.10.9', '192.168.10.12',
+             '192.168.10.14', '192.168.10.15', '192.168.10.16',
+             '192.168.10.17', '192.168.10.19', '192.168.10.25',
+             '192.168.10.51']
+
+# (data, início, fim, nome, atacantes, vítimas). Vítimas vazias = qualquer host.
+CRONOGRAMA_CICIDS = [
+    # Segunda 03/07 é integralmente benigna: nenhuma entrada.
+    ('2017-07-04', '09:20', '10:20', 'FTP-Patator', _ATACANTE, [_WEB]),
+    ('2017-07-04', '14:00', '15:00', 'SSH-Patator', _ATACANTE, [_WEB]),
+
+    ('2017-07-05', '09:47', '10:10', 'DoS-Slowloris', _ATACANTE, [_WEB]),
+    ('2017-07-05', '10:14', '10:35', 'DoS-Slowhttptest', _ATACANTE, [_WEB]),
+    ('2017-07-05', '10:43', '11:00', 'DoS-Hulk', _ATACANTE, [_WEB]),
+    ('2017-07-05', '11:10', '11:23', 'DoS-GoldenEye', _ATACANTE, [_WEB]),
+    ('2017-07-05', '15:12', '15:32', 'Heartbleed', _ATACANTE, [_UBUNTU12]),
+
+    ('2017-07-06', '09:20', '10:00', 'Web-BruteForce', _ATACANTE, [_WEB]),
+    ('2017-07-06', '10:15', '10:35', 'Web-XSS', _ATACANTE, [_WEB]),
+    ('2017-07-06', '10:40', '10:42', 'Web-SQLInjection', _ATACANTE, [_WEB]),
+    ('2017-07-06', '14:19', '14:35', 'Infiltration-Metasploit', _ATACANTE, [_VISTA]),
+    ('2017-07-06', '14:53', '15:00', 'Infiltration-CoolDisk', _ATACANTE, [_MAC]),
+    ('2017-07-06', '15:04', '15:45', 'Infiltration-Dropbox', _ATACANTE, [_VISTA]),
+    # Após a infiltração, a própria vítima varre a rede interna.
+    ('2017-07-06', '15:04', '15:45', 'Infiltration-PortScan', [_VISTA], _CLIENTES),
+
+    ('2017-07-07', '10:02', '11:02', 'Botnet-ARES', _ATACANTE,
+     ['192.168.10.15', '192.168.10.9', '192.168.10.14', '192.168.10.5',
+      '192.168.10.8']),
+    ('2017-07-07', '13:55', '15:27', 'PortScan', _ATACANTE, [_WEB]),
+    ('2017-07-07', '15:56', '16:16', 'DDoS-LOIT', _ATACANTE, [_WEB]),
+]
+
+
+def compilar_cronograma(fuso=FUSO_CICIDS, margem=0):
+    """Pré-calcula as janelas do cronograma em epoch UTC."""
+    import calendar
+    janelas = []
+    for data, ini, fim, nome, atacantes, vitimas in CRONOGRAMA_CICIDS:
+        def _epoch(hora):
+            ano, mes, dia = (int(x) for x in data.split('-'))
+            h, m = (int(x) for x in hora.split(':'))
+            return calendar.timegm((ano, mes, dia, h - fuso, m, 0, 0, 0, 0))
+        janelas.append({
+            "inicio": _epoch(ini) - margem, "fim": _epoch(fim) + margem,
+            "nome": nome, "atacantes": set(atacantes), "vitimas": set(vitimas),
+        })
+    janelas.sort(key=lambda j: j["inicio"])
+    return janelas
+
+
+def rotular_fluxo(ts, ip_a, ip_b, janelas):
+    """Nome do ataque, ou None se benigno.
+
+    O par de endereços é comparado sem ordem: a agregação orienta o fluxo pela
+    chave canônica, então quem é origem e quem é destino pode estar invertido.
+    """
+    for j in janelas:
+        if not (j["inicio"] <= ts <= j["fim"]):
+            continue
+        if ip_a in j["atacantes"] and (not j["vitimas"] or ip_b in j["vitimas"]):
+            return j["nome"]
+        if ip_b in j["atacantes"] and (not j["vitimas"] or ip_a in j["vitimas"]):
+            return j["nome"]
+    return None
+
+
+def ips_envolvidos(janelas, inicio=None, fim=None):
+    """IPs que participam de algum ataque, como atacante ou vítima.
+
+    Usado no perfil por host, em que cada linha agrega a captura inteira e
+    portanto não há instante único a casar com uma janela.
+
+    `inicio`/`fim` restringem às janelas que se sobrepõem ao intervalo da
+    captura. Sem esse recorte um host seria marcado como ataque por
+    participar de um ataque em OUTRO horário do dia -- num pcap que cobre
+    só a manhã, os IPs do ataque da tarde entrariam como falso rótulo.
+    """
+    ips = set()
+    for j in janelas:
+        if inicio is not None and j["fim"] < inicio:
+            continue
+        if fim is not None and j["inicio"] > fim:
+            continue
+        ips |= j["atacantes"] | j["vitimas"]
+    return ips
 
 
 # ----------------------------------------------------------------------------
@@ -555,6 +866,17 @@ def main():
     ap.add_argument("--n-jobs", type=int, default=-1,
                     help="cores para o Isolation Forest. -1=todos (padrão), "
                          "1=single-thread. A Decision Tree é sempre single-thread.")
+    ap.add_argument("--tree-depth", type=int, default=4,
+                    help="profundidade da árvore surrogate. Aumente se a "
+                         "fidelidade reportada ficar baixa. Padrão 4")
+    ap.add_argument("--sem-regras", action="store_true",
+                    help="omite o despejo textual das regras da árvore, "
+                         "mantendo as métricas e as importâncias")
+    ap.add_argument("--rotulos-cicids", action="store_true",
+                    help="rotula os fluxos com o cronograma oficial do "
+                         "CIC-IDS-2017 e reporta métricas REAIS de detecção "
+                         "(acurácia, F1, ROC-AUC) além da fidelidade. Só faz "
+                         "sentido se o pcap for daquele dataset")
     ap.add_argument("--save-model", metavar="PREFIXO",
                     help="salva os modelos treinados. Gera PREFIXO_flow.joblib e "
                          "PREFIXO_host.joblib para uso no analisador em tempo real")
@@ -597,6 +919,50 @@ def main():
         df_flow = build_flows(records)
         df_host = build_host_profiles(records)
 
+    if args.rotulos_cicids:
+        janelas = compilar_cronograma()
+
+        def resumo(df, nome):
+            n = int(df["label"].sum())
+            print(f"    {nome}: {n}/{len(df)} rotulados como ataque "
+                  f"({100 * n / max(len(df), 1):.2f}%)")
+
+        print("[+] aplicando rótulos do cronograma CIC-IDS-2017")
+
+        # Fluxo: par origem/destino dentro da janela de tempo. É o casamento
+        # exato que rotular_cicids.py faz.
+        if len(df_flow) and "t0" in df_flow.columns:
+            df_flow = df_flow.copy()
+            df_flow["label"] = [
+                1 if rotular_fluxo(t, a, b, janelas) else 0
+                for t, a, b in zip(df_flow["t0"], df_flow["src"], df_flow["dst"])
+            ]
+            resumo(df_flow, "fluxos")
+
+        # Host: cada linha agrega a captura INTEIRA, então não há instante a
+        # casar com uma janela -- o t0 de um host ativo todo o dia fica no
+        # início da captura e nenhuma janela da tarde bateria. O rótulo aqui
+        # é necessariamente mais grosseiro: o IP participou de algum ataque
+        # naquele dia, como atacante ou como vítima. Serve para ordenar
+        # alertas, não como medida fina de detecção.
+        if len(df_host):
+            # Recorta as janelas ao intervalo coberto pela captura, senão um
+            # host entraria como ataque por agir em outro horário do dia.
+            t_ini = float(df_host["t0"].min()) if "t0" in df_host else None
+            t_fim = float(df_flow["t0"].max()) if len(df_flow) else t_ini
+            envolvidos = ips_envolvidos(janelas, t_ini, t_fim)
+            df_host = df_host.copy()
+            df_host["label"] = df_host["src"].isin(envolvidos).astype(int)
+            resumo(df_host, "hosts")
+            if envolvidos:
+                print("    [!] o rótulo por host não tem resolução temporal: "
+                      "vale para a captura")
+                print("        inteira, então trate estas métricas como "
+                      "indicativas, não exatas.")
+            else:
+                print("    nenhuma janela de ataque se sobrepõe a esta "
+                      "captura: só tráfego benigno.")
+
     def maybe_sample(df):
         if args.sample_flows and len(df) > args.sample_flows:
             print(f"    (treinando em amostra de {args.sample_flows}/{len(df)})")
@@ -608,9 +974,10 @@ def main():
         if len(df) < 5:
             print(f"\n### {titulo}: poucos registros ({len(df)}) para análise confiável.")
             return
-        df, rules, importances, artifacts = detect(
+        y_true = df["label"].values if "label" in df.columns else None
+        df, rules, importances, artifacts, metricas = detect(
             df, feature_cols, contamination=args.contamination, kind=kind,
-            n_jobs=args.n_jobs)
+            n_jobs=args.n_jobs, tree_depth=args.tree_depth, y_true=y_true)
         n_anom = int(df["anomaly"].sum())
         print(f"\n{'='*70}\n### {titulo}")
         print(f"{'='*70}")
@@ -618,13 +985,15 @@ def main():
         top = df.sort_values("score", ascending=False).head(args.top)
         with pd.option_context("display.width", 200, "display.max_columns", None):
             print(top[show_cols].to_string(index=False))
+        imprimir_metricas(metricas)
         if importances:
             print("\n-- Features que mais explicam (Decision Tree) --")
             for name, imp in importances[:6]:
                 if imp > 0:
                     print(f"  {name:16s} {imp:.3f}")
-            print("\n-- Regras da árvore de decisão --")
-            print(rules)
+            if not args.sem_regras:
+                print("\n-- Regras da árvore de decisão --")
+                print(rules)
         if args.save_model:
             save_model(artifacts, f"{args.save_model}_{kind}.joblib")
 

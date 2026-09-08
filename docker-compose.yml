@@ -1,0 +1,201 @@
+# Sistema de deteccao -- todos os papeis em container.
+#
+# CAPTURA DE TRAFEGO: LEIA ANTES DE ESCOLHER A REDE
+# -------------------------------------------------
+# Um container so consegue farejar trafego que chega ao namespace de rede
+# dele. Isso descarta a opcao mais obvia:
+#
+#   macvlan em modo BRIDGE (o padrao)  NAO SERVE. Da ao container MAC e IP
+#       proprios na LAN -- "interface paralela a fisica" -- mas o kernel
+#       entrega a ele so o trafego destinado ao seu MAC, mais broadcast e
+#       multicast. Um IDS precisa do trafego dos OUTROS. Serve para um
+#       servico exposto na LAN, nunca para um sensor.
+#
+# As duas que funcionam:
+#
+#   perfil `sensor`  (recomendado)  network_mode: host + NET_RAW/NET_ADMIN.
+#       O container compartilha o namespace do host e ve TODAS as interfaces,
+#       inclusive uma em modo promiscuo ligada a porta espelho (SPAN) ou a um
+#       tap. E como Suricata e Zeek em container fazem. Custo: sem isolamento
+#       de rede -- as portas do container sao as do host.
+#
+#   perfil `sensor-isolado`  macvlan em modo PASSTHRU na interface de captura.
+#       Entrega a NIC inteira ao container, que passa a poder colocá-la em
+#       promiscuo. Mantem o isolamento (o detector fica tambem na rede interna
+#       para falar com o banco). Custo: exige uma NIC DEDICADA -- o host perde
+#       o acesso a ela, e so um container pode usa-la.
+#
+# Na maquina dedicada a IDS, o desenho classico e duas NICs: uma de gerencia
+# (SSH, Grafana, banco) e uma de captura, sem IP, ligada ao espelho do switch.
+# Aponte CAPTURA_IFACE para a segunda.
+#
+#   perfil `replay`  nenhuma captura: le um pcap. E o caminho de teste.
+
+x-app: &app
+  image: netanomaly:dev
+  build: .
+  restart: unless-stopped
+  # Sem root. UID_APP deve ser o dono de POOL_HOST no host, senao o pool
+  # fica ilegivel para o container -- `id -u` diz o seu.
+  user: "${UID_APP:-1000}:${GID_APP:-1000}"
+  volumes:
+    - ${POOL_HOST:-./dados}:/var/lib/netanomaly
+  environment: &app-env
+    NETANOMALY_DSN: postgresql://netanomaly:${SENHA_BANCO:-netanomaly}@banco:5432/netanomaly
+    NETANOMALY_POOL: /var/lib/netanomaly
+    TZ: ${TZ:-UTC}
+
+services:
+  # --------------------------------------------------------------------------
+  banco:
+    image: timescale/timescaledb:latest-pg17
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: netanomaly
+      POSTGRES_USER: netanomaly
+      POSTGRES_PASSWORD: ${SENHA_BANCO:-netanomaly}
+      POSTGRES_INITDB_ARGS: "--data-checksums"
+      # O search_path=na e definido pela migracao, com ALTER ROLE -- nao aqui.
+      # Sem ele o Grafana conecta, autentica e nao lista tabela nenhuma.
+    command: >
+      postgres
+      -c shared_preload_libraries=timescaledb
+      -c max_connections=100
+    volumes:
+      - banco_dados:/var/lib/postgresql/data
+    ports:
+      # Publicada porque o perfil `sensor` roda em network_mode: host e
+      # alcanca o banco por 127.0.0.1. Restrinja a loopback.
+      - "127.0.0.1:${PORTA_BANCO:-5432}:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U netanomaly -d netanomaly"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 30s
+    networks: [interna]
+
+  # --------------------------------------------------------------------------
+  # Relogio diario: treina candidato e mede. NUNCA promove -- ver o entrypoint.
+  treinador:
+    <<: *app
+    entrypoint: ["/usr/local/bin/entrypoint-treinador"]
+    environment:
+      <<: *app-env
+      TREINADOR_INTERVALO: ${TREINADOR_INTERVALO:-86400}
+      TREINADOR_VISOES: ${TREINADOR_VISOES:-flow}
+      TREINADOR_CONTAMINATION: ${TREINADOR_CONTAMINATION:-0.01}
+    depends_on:
+      banco: {condition: service_healthy}
+    networks: [interna]
+
+  # --------------------------------------------------------------------------
+  # perfil sensor: captura real, ve todas as interfaces do host.
+  detector:
+    <<: *app
+    profiles: [sensor]
+    network_mode: host
+    environment:
+      <<: *app-env
+      # host mode: o banco esta na loopback do host, nao em `banco`.
+      NETANOMALY_DSN: postgresql://netanomaly:${SENHA_BANCO:-netanomaly}@127.0.0.1:${PORTA_BANCO:-5432}/netanomaly
+    # Duas capacidades, medidas e nao adivinhadas. Elas entram no bounding
+    # set; quem as torna efetivas e a file capability do /usr/bin/tcpdump
+    # posta no Dockerfile -- por isso o processo nao precisa ser root.
+    cap_drop: [ALL]
+    cap_add: [NET_RAW, NET_ADMIN]
+    depends_on:
+      banco: {condition: service_healthy}
+    command:
+      - python3
+      - netanomaly_live.py
+      - --iface=${CAPTURA_IFACE:-eth0}
+      - --model=/var/lib/netanomaly/models/current_flow.joblib
+      - --view=${DETECTOR_VISAO:-flow}
+      - --window=${DETECTOR_JANELA:-10}
+      - --sink
+      - --sensor=${NOME_SENSOR:-sensor-01}
+
+  # --------------------------------------------------------------------------
+  # perfil sensor-isolado: NIC dedicada via macvlan passthru + rede interna.
+  detector-isolado:
+    <<: *app
+    profiles: [sensor-isolado]
+    cap_drop: [ALL]
+    cap_add: [NET_RAW, NET_ADMIN]                   # ver nota em `detector`
+    depends_on:
+      banco: {condition: service_healthy}
+    networks: [interna, captura]
+    command:
+      - python3
+      - netanomaly_live.py
+      - --iface=${CAPTURA_IFACE:-eth1}
+      - --model=/var/lib/netanomaly/models/current_flow.joblib
+      - --view=${DETECTOR_VISAO:-flow}
+      - --window=${DETECTOR_JANELA:-10}
+      - --sink
+      - --sensor=${NOME_SENSOR:-sensor-01}
+
+  # --------------------------------------------------------------------------
+  # perfil replay: teste sem captura. Monte o pcap em /pcaps.
+  replay:
+    <<: *app
+    profiles: [replay]
+    restart: "no"
+    volumes:
+      - ${POOL_HOST:-./dados}:/var/lib/netanomaly
+      - ${PCAP_HOST:-./pcaps}:/pcaps:ro
+    depends_on:
+      banco: {condition: service_healthy}
+    networks: [interna]
+    command:
+      - python3
+      - netanomaly_live.py
+      - --pcap=/pcaps/${PCAP:-atual.pcap}
+      - --model=/var/lib/netanomaly/models/current_flow.joblib
+      - --view=${DETECTOR_VISAO:-flow}
+      - --window=${DETECTOR_JANELA:-10}
+      - --sink
+      - --sensor=${NOME_SENSOR:-replay}
+
+  # --------------------------------------------------------------------------
+  grafana:
+    image: grafana/grafana:latest
+    profiles: [painel]
+    restart: unless-stopped
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: ${SENHA_GRAFANA:-admin}
+      # O Business Forms panel e como o analista mexe nos parametros.
+      GF_INSTALL_PLUGINS: volkovlabs-form-panel
+      GF_USERS_DEFAULT_THEME: dark
+    volumes:
+      - grafana_dados:/var/lib/grafana
+      - ./docker/grafana:/etc/grafana/provisioning:ro
+    ports:
+      - "${PORTA_GRAFANA:-3000}:3000"
+    depends_on:
+      banco: {condition: service_healthy}
+    networks: [interna]
+
+volumes:
+  banco_dados:
+  grafana_dados:
+
+networks:
+  interna:
+    driver: bridge
+
+  # Perfil sensor-isolado. EXTERNA de proposito: entregar uma NIC inteira a um
+  # container tira a interface do host, e isso nao deve acontecer como efeito
+  # colateral de um `up`. Crie uma vez, na maquina de IDS:
+  #
+  #   docker network create -d macvlan \
+  #       -o parent=eth1 -o macvlan_mode=passthru \
+  #       netanomaly-captura
+  #
+  # PASSTHRU, nao bridge -- em bridge o container nao fareja o trafego alheio.
+  # A interface precisa existir, estar UP, e NAO ser aquela por onde voce
+  # acessa a maquina.
+  captura:
+    external: true
+    name: ${REDE_CAPTURA:-netanomaly-captura}

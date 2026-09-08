@@ -21,3 +21,9 @@ documentacao/final/main.bbl
 *.bbl
 
 __pycache__/
+
+# container: .env carrega senha do banco e do Grafana
+.env
+# pool de parquets e artefatos de modelo (bind mount do container)
+dados/
+pcaps/

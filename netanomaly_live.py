@@ -30,6 +30,7 @@ Requisitos: pip install scapy scikit-learn pandas numpy joblib
 """
 
 import argparse
+import os
 import subprocess
 import sys
 import time
@@ -164,7 +165,7 @@ def packets_from_pcap_replay(path, speed=0.0):
 # Loop principal: janela deslizante (tumbling window) por tempo de pacote
 # ----------------------------------------------------------------------------
 
-def run(source, bundle, window=10.0, view="flow", show_cols=None):
+def run(source, bundle, window=10.0, view="flow", show_cols=None, sink=None):
     builder = build_flows if view == "flow" else build_host_profiles
     id_cols = (["src", "dst", "portB"] if view == "flow" else ["src", "n_dst", "n_dports"])
 
@@ -182,6 +183,10 @@ def run(source, bundle, window=10.0, view="flow", show_cols=None):
             buf = []
             return
         df = classify(df, bundle)
+        if sink is not None:
+            # persiste ANTES de imprimir: se algo estourar na formatacao do
+            # alerta, o dado de treino ja esta salvo.
+            sink.adicionar(df)
         anoms = df[df["anomaly"] == 1].sort_values("score", ascending=False)
         n_win += 1
         stamp = time.strftime("%H:%M:%S")
@@ -222,7 +227,23 @@ def main():
                     help="tamanho da janela em segundos (padrão 10)")
     ap.add_argument("--replay-speed", type=float, default=0.0,
                     help="com --pcap: 0=máx velocidade, 1=tempo real")
+
+    # --- persistência (opcional): sem estes, o comportamento é o de antes ---
+    ap.add_argument("--sink", action="store_true",
+                    help="grava as janelas no pool de treino e os alertas no "
+                         "banco (exige --sensor; usa NETANOMALY_DSN/POOL)")
+    ap.add_argument("--sensor",
+                    help="nome do sensor, p/ identificar a origem das janelas")
+    ap.add_argument("--dsn", default=os.environ.get("NETANOMALY_DSN",
+                                                    "postgresql:///netanomaly"))
+    ap.add_argument("--pool", default=os.environ.get("NETANOMALY_POOL",
+                                                     "/var/lib/netanomaly"))
     args = ap.parse_args()
+
+    if args.sink and not args.sensor:
+        ap.error("--sink exige --sensor: sem ele não há como saber de qual "
+                 "ponto da rede a janela veio, e janelas de sensores "
+                 "diferentes não podem ser misturadas no mesmo treino")
 
     bundle = load_model(args.model)
     if bundle["kind"] != args.view:
@@ -237,12 +258,29 @@ def main():
     else:
         source = packets_from_pcap_replay(args.pcap, speed=args.replay_speed)
 
-    # Ctrl+C limpo
-    signal.signal(signal.SIGINT, lambda *_: (print("\n[+] encerrando."), sys.exit(0)))
+    sink = None
+    if args.sink:
+        from sink import PoolSink
+        sink = PoolSink(args.dsn, args.pool, args.sensor, bundle,
+                        args.model, args.view)
+        print(f"[+] sink ativo: pool={args.pool} janela de pool="
+              f"{sink.janela_s:.0f}s piso={sink.piso}", file=sys.stderr)
+
+    # Ctrl+C precisa fechar o sink, senão a última janela de pool é perdida.
+    def _encerrar(*_):
+        print("\n[+] encerrando.", file=sys.stderr)
+        if sink is not None:
+            sink.fechar()
+        sys.exit(0)
+    signal.signal(signal.SIGINT, _encerrar)
 
     print(f"[+] janela={args.window}s, view={args.view}. Aguardando tráfego...\n",
           file=sys.stderr)
-    run(source, bundle, window=args.window, view=args.view)
+    try:
+        run(source, bundle, window=args.window, view=args.view, sink=sink)
+    finally:
+        if sink is not None:
+            sink.fechar()
 
 
 if __name__ == "__main__":

@@ -1,0 +1,20 @@
+# Datasource provisionado. O `search_path` e o detalhe que quebra na mao:
+# sem ele o Grafana conecta, autentica e nao lista tabela nenhuma, porque
+# tudo vive no schema `na`.
+apiVersion: 1
+datasources:
+  - name: netanomaly
+    type: postgres
+    uid: netanomaly
+    access: proxy
+    url: banco:5432
+    database: netanomaly
+    user: netanomaly
+    isDefault: true
+    jsonData:
+      sslmode: disable
+      postgresVersion: 1700
+      timescaledb: true
+      connMaxLifetime: 14400
+    secureJsonData:
+      password: ${SENHA_BANCO}

@@ -12,9 +12,9 @@ interface para analistas.
 
 | estágio | função | situação |
 |---|---|---|
-| **1 — detector** | classifica tráfego em tempo real: "possível ataque" ou não | implementado e exercitado |
+| **1 detector** | classifica tráfego em tempo real: "possível ataque" ou não | implementado e exercitado |
 | **surrogate** | traduz as decisões do estágio 1 em regras legíveis | implementado, embarcado no artefato do detector |
-| **2 — refinador** | clusteriza os possíveis ataques e traça o hiperplano que separa ataque real de normal | esquema pronto, sem código |
+| **2 refinador** | clusteriza os possíveis ataques e traça o hiperplano que separa ataque real de normal | esquema pronto, sem código |
 | **frontend** | painel do analista: acompanhar, exportar gráficos, reajustar parâmetros | não iniciado |
 
 O estágio 1 é não supervisionado porque não há rótulo disponível no tráfego de

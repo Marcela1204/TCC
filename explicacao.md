@@ -482,6 +482,41 @@ positivo, 0.01 passa, 0.005 reprova porque o recall dos beacons desaba.
 
 ## 8. Estado da implementação
 
+### Partida a frio, resolvida por adoção
+
+Uma instalação nova tem um impasse circular: o detector precisa de modelo
+promovido, a promoção precisa de candidato, o candidato precisa de pool, e o
+pool é alimentado pelo sink do detector. Verificado: uma instância limpa rodou
+90 s sozinha, o treinador completou duas voltas do relógio e nada avançou —
+`feature_windows=0 models=0 alerts=0`.
+
+`lifecycle.py adopt` rompe o círculo. Recebe um `.joblib` treinado fora do ciclo
+(`netanomaly.py --save-model`) mais a captura usada no treino, e faz quatro
+coisas:
+
+1. **valida** o bundle contra o contrato de features vigente e avisa se a
+   versão do scikit-learn divergir;
+2. **gera a grade de referência** (`score_quantis`) que o bundle antigo não
+   tem. Sem ela o sink alimenta o pool mas não grava alerta nenhum, porque o
+   percentil perde significado estável. Checagem de consistência: o `p99` da
+   grade bate com o `threshold` do bundle, já que `threshold = quantil(1 −
+   contamination)`;
+3. **semeia o pool** com a captura do treino, registrando a procedência em
+   `model_training_windows`. O pool passa a conter o dado que o modelo vigente
+   de fato viu — que é o que o próximo `candidate` precisa;
+4. **registra como promovido**, com `decisao='adotado'` em `na.promotions` —
+   nem aprovado nem sobreposto. Um modelo semente não passou por portão
+   nenhum, e o histórico não deve fingir que passou.
+
+Verificado de ponta a ponta: adoção de um modelo treinado sobre 23.829 fluxos,
+detector assumindo em segundos com `restarts=0`, e **2.791 alertas** gravados
+com percentil entre 0.9639 e 1.0000 — o que só é possível porque a grade foi
+gerada na adoção.
+
+`lifecycle.py evaluate` fecha o fluxo quando o golden set chega depois da
+adoção: sem avaliações da produção, `v_gate_check` deixa `recall_producao`
+nulo, a checagem de queda relativa nunca dispara e só o piso absoluto sobra.
+
 ### Implementado e verificado
 
 - extração de features (`scapy`, streaming, `nfstream`) nas duas visões
@@ -496,6 +531,8 @@ positivo, 0.01 passa, 0.005 reprova porque o recall dos beacons desaba.
 - promoção com troca atômica de artefato e registro da decisão
 - sink: janelas para o pool e alertas para o banco, em duas cadências
 - fila de retreino manual do analista
+- adoção de modelo externo como semente, com grade de referência e procedência
+- reavaliação de modelo já registrado contra o golden set atual
 - containerização completa, sem root, com as três opções de captura
 - Grafana com datasource provisionado
 
@@ -505,10 +542,10 @@ positivo, 0.01 passa, 0.005 reprova porque o recall dos beacons desaba.
 |---|---|
 | **golden set real além de `brute_force`** | o portão só vê o que foi capturado, e a cobertura efetiva hoje é zero — o único cenário real está com recall 0.00 |
 | **features de horizonte longo** | agregadas por par origem/destino ao longo de dias (regularidade de intervalo, jitter, razão up/down). É a causa do recall 0.00 e do beacon de 6h invisível |
-| **marca de bootstrap** | quando a primeira janela de captura própria sair da quarentena, as janelas de 2017 somem do pool de uma vez, porque estão a ~3.400 dias de distância. Demonstrado |
 | **estágio 2** | clusterização + hiperplano, alimentado por `verdicts` |
 | **frontend** | painel do analista |
 | **detector de deriva** | gatilho legítimo de retreino, para reduzir falso positivo |
+| **promoção automática** | decisão, não código: vale exatamente o que vale a cobertura do golden set. Com um cenário só, um portão que aprova sozinho é carimbo — pior que não ter portão, porque dá aparência de verificação ao que não foi verificado. Deve ser parâmetro, desligado por padrão |
 | **visão `host` de ponta a ponta** | nunca testada; é provavelmente onde `brute_force` aparece |
 
 ### Ordem sugerida
@@ -517,9 +554,12 @@ positivo, 0.01 passa, 0.005 reprova porque o recall dos beacons desaba.
    negativo não é mensurável.
 2. Visão `host` de ponta a ponta — barata, e pode resolver o `brute_force`.
 3. Features de horizonte longo — maior retorno em falso negativo.
-4. Marca de bootstrap — antes de colocar em produção.
-5. Frontend.
-6. Estágio 2.
+4. Frontend.
+5. Estágio 2.
+
+A **marca de bootstrap** saiu da lista: com instalações independentes semeadas
+por `adopt` a partir de captura da própria rede, não existe mistura de épocas
+no pool, e o penhasco de peso que motivava a marca não acontece.
 
 ---
 

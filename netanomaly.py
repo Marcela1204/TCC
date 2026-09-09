@@ -344,14 +344,38 @@ def from_nfstream(path, idle_timeout=15, active_timeout=120):
 
     Requer: pip install nfstream
     """
+    import contextlib
+    import os
+    import tempfile
+
     from nfstream import NFStreamer
 
-    raw = NFStreamer(
-        source=path,
-        statistical_analysis=True,       # habilita min/mean/std de tamanho e IAT
-        idle_timeout=idle_timeout,
-        active_timeout=active_timeout,
-    ).to_pandas()
+    @contextlib.contextmanager
+    def _cwd_temporario():
+        """to_pandas() do nfstream grava um CSV intermediario no diretorio
+        CORRENTE, com nome relativo. Isso quebra em container (o /app pertence
+        ao root e o processo roda como uid 1000) e, no host, deixa arquivos
+        nfstream-*.csv espalhados por onde o comando foi chamado. Rodar dentro
+        de um diretorio temporario resolve os dois casos, e o `finally`
+        garante a volta mesmo se a extracao estourar."""
+        anterior = os.getcwd()
+        with tempfile.TemporaryDirectory(prefix="nfstream-") as tmp:
+            try:
+                os.chdir(tmp)
+                yield
+            finally:
+                os.chdir(anterior)
+
+    # `path` precisa ser absoluto: o chdir abaixo invalida caminho relativo.
+    path = os.path.abspath(path)
+
+    with _cwd_temporario():
+        raw = NFStreamer(
+            source=path,
+            statistical_analysis=True,   # habilita min/mean/std de tamanho e IAT
+            idle_timeout=idle_timeout,
+            active_timeout=active_timeout,
+        ).to_pandas()
 
     if len(raw) == 0:
         return pd.DataFrame(), pd.DataFrame()

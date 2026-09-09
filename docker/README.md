@@ -65,6 +65,81 @@ docker compose down                             # deixa o detector rodando!
 Vale para `logs`, `restart`, `stop`, `down`, `ps`. Definir `COMPOSE_PROFILES`
 no `.env` elimina essa classe inteira de erro.
 
+## Partida a frio: adotando um modelo treinado fora
+
+A instalação nova tem um impasse circular: o detector precisa de modelo
+promovido, a promoção precisa de candidato, o candidato precisa de pool, e o
+pool é alimentado pelo sink do detector. `lifecycle.py adopt` rompe o círculo
+semeando o sistema com um modelo já pronto.
+
+### 1. Treine fora do ciclo, como sempre
+
+```bash
+tcpdump -i eth0 -w treino.pcap -c 800000            # ou um dia inteiro
+python3 netanomaly.py treino.pcap --nfstream --contamination 0.01 \
+        --save-model meumodelo
+```
+
+### 2. Ponha o `.joblib` e o pcap onde o container vê
+
+Ambos vão em `PCAP_HOST` (montado como `/pcaps`, somente leitura):
+
+```bash
+cp meumodelo_flow.joblib treino.pcap pcaps/
+```
+
+### 3. Adote
+
+```bash
+docker compose run --rm --entrypoint python3 treinador \
+    lifecycle.py adopt --model /pcaps/meumodelo_flow.joblib \
+                       --pcap  /pcaps/treino.pcap \
+                       --sensor sensor-01 --by seu-nome
+```
+
+O `--pcap` não é opcional por acaso — a captura do treino faz duas coisas que a
+adoção exige:
+
+- **gera a grade de referência de percentil** (`score_quantis`), que o bundle
+  de `netanomaly.py --save-model` não tem. Sem ela o sink alimenta o pool mas
+  **não grava alerta nenhum**, porque o percentil perde significado estável;
+- **semeia o pool** com o dado que o modelo vigente de fato viu, que é
+  exatamente o que o próximo `candidate` precisa.
+
+Confirmação de que a grade saiu certa: o `p99` dela deve bater com o
+`threshold` do bundle, já que `threshold = quantil(1 − contamination)`.
+
+O modelo entra como `promoted`, e o registro em `na.promotions` fica com
+`decisao='adotado'` — nem aprovado nem sobreposto. Um modelo semente não passou
+por portão nenhum, e o histórico não deve fingir que passou.
+
+O detector assume em segundos, sem restart. Daí em diante o sink alimenta o
+pool e o ciclo se sustenta.
+
+### 4. Golden set e linha de base do portão
+
+Adotar sem golden set deixa o portão **meio cego**: `v_gate_check` compara o
+candidato contra as avaliações da *produção*, e sem elas a checagem de queda
+relativa nunca dispara — só o piso absoluto sobra.
+
+Se você não tinha golden set na hora de adotar, registre depois e reavalie:
+
+```bash
+docker compose run --rm --entrypoint python3 treinador \
+    lifecycle.py golden --pcap /pcaps/ataque.pcap --cicids --scenario brute_force
+docker compose run --rm --entrypoint python3 treinador \
+    lifecycle.py evaluate --model <uuid-do-adotado>
+```
+
+A partir daí o `candidate` diário passa a ser comparado contra a produção.
+
+### O que continua manual
+
+A **promoção** dos candidatos seguintes. É deliberado, e vale mais do que
+parece: promoção automática vale exatamente o que vale a cobertura do golden
+set. Com um cenário só, um portão que aprova sozinho é carimbo — pior que não
+ter portão, porque dá aparência de verificação ao que não foi verificado.
+
 ## Instância nova: o detector espera, não quebra
 
 Numa instalação limpa não existe modelo promovido — ninguém treinou nada ainda.

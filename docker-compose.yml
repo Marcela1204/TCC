@@ -40,6 +40,9 @@ x-app: &app
   user: "${UID_APP:-1000}:${GID_APP:-1000}"
   volumes:
     - ${POOL_HOST:-./dados}:/var/lib/netanomaly
+    # Tudo que entra de fora -- pcaps para extract/golden/adopt e o .joblib
+    # semente -- vem por aqui. Somente leitura: nada do sistema escreve nele.
+    - ${PCAP_HOST:-./pcaps}:/pcaps:ro
   environment: &app-env
     NETANOMALY_DSN: postgresql://netanomaly:${SENHA_BANCO:-netanomaly}@banco:5432/netanomaly
     NETANOMALY_POOL: /var/lib/netanomaly
@@ -148,9 +151,6 @@ services:
     <<: *app
     profiles: [replay]
     restart: "no"
-    volumes:
-      - ${POOL_HOST:-./dados}:/var/lib/netanomaly
-      - ${PCAP_HOST:-./pcaps}:/pcaps:ro
     depends_on:
       banco: {condition: service_healthy}
     networks: [interna]

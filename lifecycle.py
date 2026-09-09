@@ -568,61 +568,320 @@ def cmd_pool(conn, args):
         print(f"  ({n_desp} janela(s) despejada(s), fora do pool)")
 
 
+def gravar_janelas(cur, df, cols, sensor, visao, feature_set, janela_s,
+                   extractor="nfstream"):
+    """Fatia um dataframe em janelas de pool e registra cada uma.
+
+    Fatia por TEMPO DE PACOTE, nao por contagem: a janela precisa ter
+    significado temporal para a quarentena e o despejo por incidente poderem
+    se referir a ela. O balde e `t0 // window_seconds`, o MESMO que o sink usa
+    ao vivo -- assim janela vinda de pcap e janela vinda de captura sao a
+    mesma coisa.
+
+    Devolve a lista de window_id gravados (as ja existentes sao puladas).
+    """
+    destino = POOL_PADRAO / "pool" / sensor / visao
+    destino.mkdir(parents=True, exist_ok=True)
+    balde = (df["t0"] // janela_s).astype("int64")
+    gravadas = []
+
+    for b, parte in df.groupby(balde):
+        ini, fim = float(b) * janela_s, (float(b) + 1) * janela_s
+        marca = time.strftime("%Y%m%dT%H%M%SZ", time.gmtime(ini))
+        window_id = f"{marca}-{sensor}-{visao}"
+        caminho = destino / f"{marca}.parquet"
+
+        cur.execute("SELECT 1 FROM na.feature_windows WHERE window_id=%s",
+                    (window_id,))
+        if cur.fetchone():
+            print(f"    {window_id}: ja registrada, pulando")
+            continue
+
+        parte.to_parquet(caminho, index=False)
+        cur.execute(
+            """
+            INSERT INTO na.feature_windows
+                (window_id, visao, sensor, t_start, t_end, path, sha256,
+                 n_rows, bytes_on_disk, feature_set, feature_cols, extractor)
+            VALUES (%s,%s,%s, to_timestamp(%s), to_timestamp(%s), %s,%s,
+                    %s,%s,%s,%s,%s)
+            """,
+            (window_id, visao, sensor, ini, fim, str(caminho),
+             sha256(caminho), len(parte), caminho.stat().st_size,
+             feature_set, list(cols), extractor),
+        )
+        gravadas.append(window_id)
+    return gravadas
+
+
+def extrair(pcap, visao):
+    """pcap -> (dataframe da visao pedida, colunas de feature dessa visao)."""
+    import netanomaly as na
+    t0 = time.time()
+    print(f"[+] extraindo {pcap} via nfstream...")
+    df_flow, df_host = na.from_nfstream(pcap)
+    df = df_flow if visao == "flow" else df_host
+    cols = na.FEATURE_COLS if visao == "flow" else na.HOST_FEATURE_COLS
+    print(f"[+] {len(df)} linhas em {time.time()-t0:.1f}s")
+    if len(df) == 0 or "t0" not in df.columns:
+        raise SystemExit("[!] extracao nao produziu linhas com coluna t0")
+    return df, cols
+
+
 def cmd_extract(conn, args):
     """pcap -> janelas parquet no pool -> linhas em na.feature_windows."""
+    with conn.cursor() as cur:
+        janela_s = parametro(cur, "window_seconds")
+        df, cols = extrair(args.pcap, args.view)
+        gravadas = gravar_janelas(cur, df, cols, args.sensor, args.view,
+                                  args.feature_set, janela_s)
+    conn.commit()
+    print(f"[+] {len(gravadas)} janela(s) gravada(s)")
+
+
+def cmd_adopt(conn, args):
+    """Adota um modelo treinado FORA do ciclo como ponto de partida.
+
+    Resolve a partida a frio de uma instalacao nova. O impasse e circular: o
+    detector precisa de modelo promovido, a promocao precisa de candidato, o
+    candidato precisa de pool, e o pool e alimentado pelo sink do detector.
+    Semear o sistema com um modelo pronto rompe o circulo -- dai em diante o
+    ciclo se sustenta.
+
+    Recebe o .joblib de `netanomaly.py --save-model` e a captura usada no
+    treino. Faz quatro coisas que a adocao exige:
+
+      1. valida o bundle contra o contrato de features vigente;
+      2. gera a GRADE DE REFERENCIA (score_quantis) que o bundle antigo nao
+         tem -- sem ela o sink alimenta o pool mas nao grava alerta nenhum,
+         porque o percentil perde significado estavel;
+      3. semeia o pool com a captura do treino, registrando a procedencia.
+         O pool passa a conter o dado que o modelo vigente de fato viu, que e
+         exatamente o que o proximo `candidate` precisa;
+      4. registra como promovido, com a decisao marcada 'adotado' -- nem
+         aprovado nem sobreposto: um modelo semente nao passou por portao
+         nenhum, e o registro nao deve fingir que passou.
+    """
+    import joblib
     import netanomaly as na
+
+    caminho_origem = Path(args.model)
+    if not caminho_origem.exists():
+        raise SystemExit(f"[!] nao encontrei {caminho_origem}")
+
+    bundle = joblib.load(caminho_origem)
+
+    # --- 1. validacao ------------------------------------------------------
+    faltando = [k for k in ("kind", "scaler", "iso", "feature_cols", "threshold")
+                if k not in bundle]
+    if faltando:
+        raise SystemExit(f"[!] bundle sem as chaves {faltando}; nao parece um "
+                         f"artefato de netanomaly.py --save-model")
+
+    visao = bundle["kind"]
+    if visao not in ("flow", "host"):
+        raise SystemExit(f"[!] kind='{visao}' desconhecido")
+
+    esperadas = na.FEATURE_COLS if visao == "flow" else na.HOST_FEATURE_COLS
+    if list(bundle["feature_cols"]) != list(esperadas):
+        raise SystemExit(
+            "[!] o bundle foi treinado com outro conjunto de features.\n"
+            f"    bundle: {list(bundle['feature_cols'])}\n"
+            f"    atual:  {list(esperadas)}\n"
+            "    Um modelo cujo vetor de entrada nao existe mais nao pode "
+            "ser adotado -- retreine.")
+
+    import sklearn
+    if bundle.get("sklearn_version") != sklearn.__version__:
+        print(f"[!] bundle treinado com scikit-learn "
+              f"{bundle.get('sklearn_version')}, rodando {sklearn.__version__}. "
+              f"A desserializacao pode divergir silenciosamente.",
+              file=sys.stderr)
+
+    print(f"[+] bundle valido: visao={visao} "
+          f"threshold={bundle['threshold']:.4f} "
+          f"{len(bundle['feature_cols'])} features")
+
+    antigo = None
+    avaliacoes = []
 
     with conn.cursor() as cur:
         janela_s = parametro(cur, "window_seconds")
 
-    t0 = time.time()
-    print(f"[+] extraindo {args.pcap} via nfstream...")
-    df_flow, df_host = na.from_nfstream(args.pcap)
-    df = df_flow if args.view == "flow" else df_host
-    cols = na.FEATURE_COLS if args.view == "flow" else na.HOST_FEATURE_COLS
-    print(f"[+] {len(df)} linhas em {time.time()-t0:.1f}s")
+        # --- 2 e 3. a captura do treino da a grade e semeia o pool ---------
+        df, cols = extrair(args.pcap, visao)
 
-    if len(df) == 0 or "t0" not in df.columns:
-        raise SystemExit("[!] extracao nao produziu linhas com coluna t0")
+        X = (df[cols].fillna(0.0).replace([np.inf, -np.inf], 0.0)
+             .values.astype(float))
+        scores = -bundle["iso"].score_samples(bundle["scaler"].transform(X))
 
-    destino = POOL_PADRAO / "pool" / args.sensor / args.view
-    destino.mkdir(parents=True, exist_ok=True)
+        # Peso uniforme: um modelo semente nao tem historico de recencia, e
+        # inventar um seria fingir informacao que nao existe.
+        bundle["score_quantis"] = grade_de_referencia(
+            scores, np.ones(len(scores)))
+        print(f"[+] grade de referencia de {len(scores):,} fluxos "
+              f"(p50={np.median(scores):.4f} "
+              f"p99={np.quantile(scores, 0.99):.4f})")
 
-    # Fatia por tempo de pacote, nao por contagem: a janela precisa ter
-    # significado temporal para a quarentena e o despejo por incidente
-    # poderem se referir a ela.
-    balde = (df["t0"] // janela_s).astype("int64")
-    gravadas = 0
+        gravadas = []
+        if not args.sem_pool:
+            gravadas = gravar_janelas(cur, df, cols, args.sensor, visao,
+                                      args.feature_set, janela_s)
+            print(f"[+] pool semeado com {len(gravadas)} janela(s)")
 
-    with conn.cursor() as cur:
-        for b, parte in df.groupby(balde):
-            ini, fim = float(b) * janela_s, (float(b) + 1) * janela_s
-            marca = time.strftime("%Y%m%dT%H%M%SZ", time.gmtime(ini))
-            window_id = f"{marca}-{args.sensor}-{args.view}"
-            caminho = destino / f"{marca}.parquet"
+        # --- artefato no pool, agora com a grade ---------------------------
+        destino = POOL_PADRAO / "models"
+        destino.mkdir(parents=True, exist_ok=True)
+        nome = (f"{time.strftime('%Y%m%dT%H%M%SZ', time.gmtime())}"
+                f"_{visao}_adotado.joblib")
+        alvo_art = destino / nome
+        joblib.dump(bundle, alvo_art)
 
-            cur.execute("SELECT 1 FROM na.feature_windows WHERE window_id=%s",
-                        (window_id,))
-            if cur.fetchone():
-                print(f"    {window_id}: ja registrada, pulando")
-                continue
+        # --- 4. registro ---------------------------------------------------
+        cur.execute(
+            """
+            INSERT INTO na.models
+                (stage, kind, visao, artifact_path, artifact_sha256,
+                 sklearn_version, feature_set, feature_cols, hyperparams,
+                 threshold, contamination, status, promoted_at, promoted_by,
+                 notes)
+            VALUES (1,'isolation_forest',%s,%s,%s,%s,%s,%s,%s,%s,%s,
+                    'promoted', now(), %s, %s)
+            RETURNING model_id
+            """,
+            (visao, str(alvo_art), sha256(alvo_art),
+             bundle.get("sklearn_version"), args.feature_set,
+             list(bundle["feature_cols"]),
+             json.dumps({"adotado_de": str(caminho_origem),
+                         "tree_depth": bundle.get("tree_depth")}),
+             bundle["threshold"], bundle.get("contamination"),
+             args.by, args.notes or f"adotado de {caminho_origem}"),
+        )
+        model_id = cur.fetchone()["model_id"]
 
-            parte.to_parquet(caminho, index=False)
+        if gravadas:
+            cur.executemany(
+                "INSERT INTO na.model_training_windows "
+                "(model_id, window_id, weight) VALUES (%s,%s,1.0)",
+                [(model_id, w) for w in gravadas])
+
+        # --- aposenta o antigo, se havia ----------------------------------
+        cur.execute(
+            """
+            UPDATE na.models SET status='retired', retired_at=now()
+            WHERE status='promoted' AND stage=1 AND model_id <> %s
+              AND visao IS NOT DISTINCT FROM %s
+              AND kind <> 'decision_tree_surrogate'
+            RETURNING model_id
+            """,
+            (model_id, visao),
+        )
+        antigo = cur.fetchone()
+
+        # --- avaliacao no golden set, se houver ---------------------------
+        # Importa mais do que parece: v_gate_check compara o candidato contra
+        # as avaliacoes da PRODUCAO. Sem elas `recall_producao` e NULL, a
+        # checagem de queda relativa nunca dispara, e so o piso absoluto
+        # sobra. Adotar sem avaliar deixa o portao meio cego.
+        bundle["_feature_set"] = args.feature_set
+        avaliacoes = avaliar_golden(cur, bundle, visao)
+        for a in avaliacoes:
             cur.execute(
                 """
-                INSERT INTO na.feature_windows
-                    (window_id, visao, sensor, t_start, t_end, path, sha256,
-                     n_rows, bytes_on_disk, feature_set, feature_cols, extractor)
-                VALUES (%s,%s,%s, to_timestamp(%s), to_timestamp(%s), %s,%s,
-                        %s,%s,%s,%s,'nfstream')
+                INSERT INTO na.model_evaluations
+                    (model_id, scope, scenario, capture_id, threshold,
+                     n, n_ataque_real, tp, fp, fn, tn)
+                VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
                 """,
-                (window_id, args.view, args.sensor, ini, fim, str(caminho),
-                 sha256(caminho), len(parte), caminho.stat().st_size,
-                 args.feature_set, list(cols)),
-            )
-            gravadas += 1
+                (model_id, a["_scope"], a.get("scenario"), a.get("capture_id"),
+                 bundle["threshold"], a["n"], a["n_ataque_real"],
+                 a["tp"], a["fp"], a["fn"], a["tn"]))
+
+        cur.execute(
+            """
+            INSERT INTO na.promotions
+                (candidate_model_id, incumbent_model_id, decisao, gate_report,
+                 motivo, decided_by)
+            VALUES (%s,%s,'adotado','{}'::jsonb,%s,%s)
+            """,
+            (model_id, antigo["model_id"] if antigo else None,
+             args.notes or f"modelo semente, adotado de {caminho_origem}",
+             args.by),
+        )
+
+        # --- symlink que o detector carrega -------------------------------
+        alvo = POOL_PADRAO / "models" / f"current_{visao}.joblib"
+        temp = alvo.with_suffix(".joblib.novo")
+        if temp.is_symlink() or temp.exists():
+            temp.unlink()
+        temp.symlink_to(alvo_art.name)   # relativo: resolve no host e no container
+        os.replace(temp, alvo)
+
     conn.commit()
-    print(f"[+] {gravadas} janela(s) gravada(s) em {destino}")
+
+    print(f"\n[+] adotado: {model_id}")
+    print(f"    artefato: {alvo_art}")
+    print(f"    {alvo} -> {alvo_art.name}")
+    if antigo:
+        print(f"    aposentado: {antigo['model_id']}")
+    if not avaliacoes:
+        print("\n[!] golden set VAZIO: este modelo entrou em producao sem "
+              "medicao nenhuma.")
+        print("    Registre capturas com `lifecycle.py golden` e depois rode")
+        print(f"    `lifecycle.py evaluate --model {model_id}`, senao o portao")
+        print("    nao tem linha de base para comparar o proximo candidato.")
+    print("\n    O detector assume em segundos. Dai em diante o sink alimenta")
+    print("    o pool e o ciclo se sustenta.")
+
+
+def cmd_evaluate(conn, args):
+    """(Re)avalia um modelo ja registrado contra o golden set atual.
+
+    Serve ao caso comum de adotar antes de ter golden set: adota agora,
+    registra as capturas depois, e roda isto para dar ao portao a linha de
+    base que faltava.
+    """
+    import joblib
+
+    with conn.cursor() as cur:
+        cur.execute("SELECT * FROM na.models WHERE model_id=%s", (args.model,))
+        m = cur.fetchone()
+        if not m:
+            raise SystemExit(f"[!] modelo {args.model} nao existe")
+
+        bundle = joblib.load(m["artifact_path"])
+        bundle["_feature_set"] = m["feature_set"]
+        avaliacoes = avaliar_golden(cur, bundle, m["visao"])
+        if not avaliacoes:
+            raise SystemExit("[!] golden set vazio para esta visao; "
+                             "nada a medir")
+
+        cur.execute("DELETE FROM na.model_evaluations WHERE model_id=%s",
+                    (args.model,))
+        for a in avaliacoes:
+            cur.execute(
+                """
+                INSERT INTO na.model_evaluations
+                    (model_id, scope, scenario, capture_id, threshold,
+                     n, n_ataque_real, tp, fp, fn, tn)
+                VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+                """,
+                (args.model, a["_scope"], a.get("scenario"),
+                 a.get("capture_id"), m["threshold"], a["n"],
+                 a["n_ataque_real"], a["tp"], a["fp"], a["fn"], a["tn"]))
+    conn.commit()
+
+    with conn.cursor() as cur:
+        cur.execute(
+            """SELECT scenario, recall, taxa_falso_positivo
+               FROM na.model_evaluations
+               WHERE model_id=%s AND scope='scenario' ORDER BY scenario""",
+            (args.model,))
+        print(f"  {'cenario':<14}{'recall':>8}{'fpr':>8}")
+        for r in cur.fetchall():
+            f = lambda v: "     -" if v is None else format(v, ".3f")
+            print(f"  {r['scenario']:<14}{f(r['recall']):>8}"
+                  f"{f(r['taxa_falso_positivo']):>8}")
 
 
 def cmd_golden(conn, args):
@@ -1017,6 +1276,29 @@ def main():
 
     p = sub.add_parser("golden-list", help="cobertura do golden set por cenario")
     p.set_defaults(fn=cmd_golden_list)
+
+    p = sub.add_parser("adopt",
+                       help="adota um .joblib treinado fora do ciclo como "
+                            "ponto de partida (resolve a partida a frio)")
+    p.add_argument("--model", required=True,
+                   help=".joblib de netanomaly.py --save-model")
+    p.add_argument("--pcap", required=True,
+                   help="a captura usada no treino: da a grade de referencia "
+                        "de percentil e semeia o pool")
+    p.add_argument("--sensor", required=True)
+    p.add_argument("--by", required=True, help="quem esta adotando")
+    p.add_argument("--feature-set", default="flow-v1", dest="feature_set")
+    p.add_argument("--sem-pool", action="store_true", dest="sem_pool",
+                   help="so registra o modelo; nao semeia o pool. O proximo "
+                        "candidate ficara sem dado para treinar")
+    p.add_argument("--notes")
+    p.set_defaults(fn=cmd_adopt)
+
+    p = sub.add_parser("evaluate",
+                       help="(re)avalia um modelo registrado contra o golden "
+                            "set atual")
+    p.add_argument("--model", required=True)
+    p.set_defaults(fn=cmd_evaluate)
 
     p = sub.add_parser("candidate", help="treina candidato e mede. NAO promove.")
     comuns(p, treino=True)

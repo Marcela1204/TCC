@@ -93,12 +93,14 @@ services:
   # perfil sensor: captura real, ve todas as interfaces do host.
   detector:
     <<: *app
+    entrypoint: ["/usr/local/bin/entrypoint-detector"]
     profiles: [sensor]
     network_mode: host
     environment:
       <<: *app-env
       # host mode: o banco esta na loopback do host, nao em `banco`.
       NETANOMALY_DSN: postgresql://netanomaly:${SENHA_BANCO:-netanomaly}@127.0.0.1:${PORTA_BANCO:-5432}/netanomaly
+      DETECTOR_ESPERA: ${DETECTOR_ESPERA:-15}
     # Duas capacidades, medidas e nao adivinhadas. Elas entram no bounding
     # set; quem as torna efetivas e a file capability do /usr/bin/tcpdump
     # posta no Dockerfile -- por isso o processo nao precisa ser root.
@@ -120,7 +122,11 @@ services:
   # perfil sensor-isolado: NIC dedicada via macvlan passthru + rede interna.
   detector-isolado:
     <<: *app
+    entrypoint: ["/usr/local/bin/entrypoint-detector"]
     profiles: [sensor-isolado]
+    environment:
+      <<: *app-env
+      DETECTOR_ESPERA: ${DETECTOR_ESPERA:-15}
     cap_drop: [ALL]
     cap_add: [NET_RAW, NET_ADMIN]                   # ver nota em `detector`
     depends_on:

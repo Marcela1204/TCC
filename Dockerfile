@@ -36,8 +36,11 @@ COPY netanomaly.py netanomaly_live.py lifecycle.py sink.py ./
 COPY scripts/ ./scripts/
 COPY migrations/ ./migrations/
 COPY docker/entrypoint-treinador.sh /usr/local/bin/entrypoint-treinador
+COPY docker/entrypoint-detector.sh /usr/local/bin/entrypoint-detector
 COPY docker/migrar.py /usr/local/bin/migrar
-RUN chmod +x /usr/local/bin/entrypoint-treinador /usr/local/bin/migrar
+RUN chmod +x /usr/local/bin/entrypoint-treinador \
+             /usr/local/bin/entrypoint-detector \
+             /usr/local/bin/migrar
 
 # Onde o pool de parquets e os artefatos de modelo vivem. Precisa ser volume:
 # detector e treinador compartilham este diretorio, e perder o pool significa

@@ -65,6 +65,44 @@ docker compose down                             # deixa o detector rodando!
 Vale para `logs`, `restart`, `stop`, `down`, `ps`. Definir `COMPOSE_PROFILES`
 no `.env` elimina essa classe inteira de erro.
 
+## Instância nova: o detector espera, não quebra
+
+Numa instalação limpa não existe modelo promovido — ninguém treinou nada ainda.
+O detector **não** morre nem entra em laço de reinício: ele espera, explica o
+que falta, e começa a capturar sozinho no instante em que houver promoção
+(reconfere a cada `DETECTOR_ESPERA`, 15 s por padrão).
+
+```
+[detector] aguardando modelo promovido -- o artefato ainda nao existe
+[detector]   arquivo esperado: /var/lib/netanomaly/models/current_flow.joblib
+[detector] Numa instancia nova isto e esperado. Faca o bootstrap:
+[detector]   ...
+[detector] Assim que houver promocao, comeco a capturar sozinho.
+```
+
+Ele reconhece três situações distintas e diz qual é: o artefato não existe, o
+artefato existe mas não está registrado em `na.models`, ou está registrado com
+status diferente de `promoted`.
+
+**Ele não treina sozinho, e isso é deliberado.** Treinar o detector no tráfego
+que por acaso estiver passando é exatamente o caminho do envenenamento: se
+houver ataque em curso, o ataque entra no baseline como normal. O modelo tem de
+nascer de uma promoção que passou pelo portão.
+
+Sequência numa instância nova:
+
+```bash
+git clone <repo> && cd TCC
+cp .env.example .env
+$EDITOR .env                        # senha, CAPTURA_IFACE, COMPOSE_PROFILES
+echo "UID_APP=$(id -u)" >> .env
+echo "GID_APP=$(id -g)" >> .env
+mkdir -p dados pcaps                # ANTES do up, senão o Compose cria como root
+
+docker compose up -d                # detector sobe e espera
+# ... bootstrap ...                 # detector começa a capturar sozinho
+```
+
 ## "Não encontra o .joblib"
 
 O detector procura `/var/lib/netanomaly/models/current_flow.joblib`, que é um

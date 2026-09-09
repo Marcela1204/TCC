@@ -49,6 +49,14 @@ from netanomaly import build_flows, build_host_profiles
 # ----------------------------------------------------------------------------
 
 def load_model(path):
+    if not os.path.exists(path):
+        # Numa instalação nova o artefato não existe porque ninguém promoveu
+        # nada ainda. Traceback de joblib não diz isso; esta mensagem diz.
+        raise SystemExit(
+            f"[!] modelo não encontrado: {path}\n"
+            f"    O artefato nasce de `lifecycle.py promote`, não é copiado.\n"
+            f"    Se este é um ambiente novo, faça o bootstrap: extract -> "
+            f"golden -> candidate -> promote.")
     bundle = joblib.load(path)
     import sklearn
     if bundle.get("sklearn_version") != sklearn.__version__:

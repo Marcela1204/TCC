@@ -1,0 +1,472 @@
+{
+  "uid": "netanomaly-visao-geral",
+  "title": "netanomaly - visao geral",
+  "description": "Painel inicial. Os alertas usam `ts`, que e o tempo do FLUXO -- ao reproduzir pcap historico ajuste o intervalo de tempo do dashboard para a epoca da captura.",
+  "tags": [
+    "netanomaly",
+    "ids"
+  ],
+  "timezone": "browser",
+  "schemaVersion": 39,
+  "version": 1,
+  "refresh": "1m",
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "editable": true,
+  "panels": [
+    {
+      "id": 1,
+      "type": "stat",
+      "title": "Acima do corte (24h)",
+      "description": "Alertas que passaram de analyst_cut_percentile. O corte e aplicado na consulta, entao mudar o parametro muda este numero retroativamente.",
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "netanomaly"
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 0,
+        "y": 0
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "netanomaly"
+          },
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT count(*) AS valor FROM na.v_alertas_correntes\nWHERE ts > now() - interval '24 hours'",
+          "editorMode": "code"
+        }
+      ],
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto",
+        "colorMode": "none",
+        "graphMode": "none",
+        "justifyMode": "auto"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "decimals": 0
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 2,
+      "type": "stat",
+      "title": "Quase-acertos (7d)",
+      "description": "Alertas que o analista confirmou como ataque real mas que ficaram ABAIXO do corte -- o operador nunca os teria visto. E a medida operacional de falso negativo do estagio 1, e o numero que deve estar por tras do botao de retreino.",
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "netanomaly"
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 6,
+        "y": 0
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "netanomaly"
+          },
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT count(*) AS valor FROM na.v_stage1_near_misses\nWHERE ts > now() - interval '7 days'",
+          "editorMode": "code"
+        }
+      ],
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto",
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "decimals": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#eda100",
+                "value": 5
+              },
+              {
+                "color": "#e34948",
+                "value": 20
+              }
+            ]
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 3,
+      "type": "stat",
+      "title": "Janelas no pool",
+      "description": "Janelas elegiveis para treino agora: fora da quarentena e nao despejadas.",
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "netanomaly"
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 12,
+        "y": 0
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "netanomaly"
+          },
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT count(*) AS valor FROM na.v_training_pool",
+          "editorMode": "code"
+        }
+      ],
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto",
+        "colorMode": "none",
+        "graphMode": "none",
+        "justifyMode": "auto"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "decimals": 0
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 4,
+      "type": "stat",
+      "title": "Modelo em producao",
+      "description": "Quando o modelo vigente foi promovido.",
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "netanomaly"
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 18,
+        "y": 0
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "netanomaly"
+          },
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT to_char(promoted_at, 'YYYY-MM-DD HH24:MI') AS valor\nFROM na.models WHERE status = 'promoted' AND stage = 1\nORDER BY promoted_at DESC LIMIT 1",
+          "editorMode": "code"
+        }
+      ],
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto",
+        "colorMode": "none",
+        "graphMode": "none",
+        "justifyMode": "auto"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "decimals": 0
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 5,
+      "type": "timeseries",
+      "title": "Alertas ao longo do tempo",
+      "description": "Duas series de propositos diferentes: o que o analista ve, e o que ficou gravado abaixo do corte. A segunda existe porque o piso de ingestao e generoso -- e ela que permite baixar o corte com efeito retroativo.",
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "netanomaly"
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 16,
+        "x": 0,
+        "y": 4
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "netanomaly"
+          },
+          "format": "time_series",
+          "rawQuery": true,
+          "editorMode": "code",
+          "rawSql": "SELECT\n  $__timeGroupAlias(ts, $__interval),\n  count(*) FILTER (\n    WHERE percentile >= na.param_num('analyst_cut_percentile')\n  ) AS \"acima do corte\",\n  count(*) FILTER (\n    WHERE percentile <  na.param_num('analyst_cut_percentile')\n  ) AS \"abaixo (gravado)\"\nFROM na.alerts\nWHERE $__timeFilter(ts)\nGROUP BY 1\nORDER BY 1"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "decimals": 0,
+          "custom": {
+            "drawStyle": "line",
+            "lineWidth": 2,
+            "fillOpacity": 12,
+            "showPoints": "auto",
+            "pointSize": 8,
+            "spanNulls": false,
+            "lineInterpolation": "linear",
+            "axisSoftMin": 0,
+            "axisPlacement": "auto"
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "acima do corte"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "#3987e5"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "abaixo (gravado)"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "#d95926"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "options": {
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true,
+          "calcs": []
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      }
+    },
+    {
+      "id": 6,
+      "type": "table",
+      "title": "Origens mais alertadas",
+      "description": "Magnitude por entidade. A barra usa um matiz unico, claro para escuro -- nao e escala categorica.",
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "netanomaly"
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 16,
+        "y": 4
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "netanomaly"
+          },
+          "format": "table",
+          "rawQuery": true,
+          "editorMode": "code",
+          "rawSql": "SELECT\n  host(src_ip) AS origem,\n  count(*)     AS alertas,\n  round(max(percentile)::numeric, 4) AS \"pior percentil\"\nFROM na.alerts\nWHERE $__timeFilter(ts)\nGROUP BY 1\nORDER BY 2 DESC\nLIMIT 10"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            }
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "alertas"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "gauge",
+                  "mode": "gradient"
+                }
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "continuous-BlPu"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "options": {
+        "showHeader": true,
+        "footer": {
+          "show": false
+        }
+      }
+    },
+    {
+      "id": 7,
+      "type": "table",
+      "title": "Portao do ultimo candidato",
+      "description": "Por CENARIO, nunca agregado: o recall medio pode ficar em 0.91 enquanto um cenario despenca de 0.80 para 0.20 -- essa e a assinatura do envenenamento lento, e a media a esconde. 'REPROVA' aparece como texto, nao so como cor.",
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "netanomaly"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 13
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "netanomaly"
+          },
+          "format": "table",
+          "rawQuery": true,
+          "editorMode": "code",
+          "rawSql": "SELECT\n  g.scenario                            AS cenario,\n  round(g.recall_candidato::numeric, 3) AS candidato,\n  round(g.recall_producao::numeric, 3)  AS producao,\n  round(g.delta::numeric, 3)            AS delta,\n  g.recall_minimo                       AS piso,\n  round(g.taxa_falso_positivo::numeric, 4) AS fpr,\n  CASE WHEN g.reprova THEN 'REPROVA' ELSE 'ok' END AS veredito\nFROM na.v_gate_check g\nWHERE g.candidate_model_id = (\n  SELECT model_id FROM na.models\n  WHERE status IN ('candidate','shadow')\n  ORDER BY trained_at DESC LIMIT 1)\nORDER BY g.scenario"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            }
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "veredito"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "type": "value",
+                    "options": {
+                      "REPROVA": {
+                        "color": "#e34948",
+                        "index": 0,
+                        "text": "REPROVA"
+                      },
+                      "ok": {
+                        "color": "green",
+                        "index": 1,
+                        "text": "ok"
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "options": {
+        "showHeader": true,
+        "footer": {
+          "show": false
+        }
+      }
+    }
+  ]
+}

@@ -1,10 +1,30 @@
-# Datasource provisionado. O `search_path` e o detalhe que quebra na mao:
-# sem ele o Grafana conecta, autentica e nao lista tabela nenhuma, porque
-# tudo vive no schema `na`.
+# Datasource provisionado.
+#
+# DUAS COISAS AQUI QUEBRAM DE FORMA CONFUSA SE ERRADAS
+#
+# 1. `type` PRECISA ser 'grafana-postgresql-datasource'. Com o alias legado
+#    'postgres' o Grafana aceita, migra o tipo, e a API passa a mostrar o tipo
+#    canonico -- entao os dois parecem iguais quando inspecionados. Mas no
+#    frontend o seletor "Dataset" fica VAZIO e a consulta falha com "You do not
+#    currently have a default database configured for this data source",
+#    embora "Save & test" responda "Database Connection OK". Verificado lado a
+#    lado: mesmo arquivo, so o `type` diferente, um funciona e o outro nao.
+#
+# 2. A senha vem de ${SENHA_BANCO}, interpolada pelo GRAFANA a partir do
+#    ambiente DO GRAFANA -- nao pelo Compose a partir do .env. O servico
+#    `grafana` no docker-compose.yml precisa receber essa variavel, senao a
+#    senha vira string vazia e nada conecta.
+#
+# O `database` vai nos dois lugares de proposito: no topo (forma antiga) e em
+# jsonData (forma atual). Testei as duas isoladamente e ambas funcionam com o
+# type canonico; manter as duas evita surpresa ao trocar de versao.
+#
+# O search_path=na e definido pela migracao 001 com ALTER ROLE. Sem ele o
+# seletor de tabela nao lista nada, porque tudo vive no schema `na`.
 apiVersion: 1
 datasources:
   - name: netanomaly
-    type: postgres
+    type: grafana-postgresql-datasource
     uid: netanomaly
     access: proxy
     url: banco:5432
@@ -12,8 +32,8 @@ datasources:
     user: netanomaly
     isDefault: true
     jsonData:
+      database: netanomaly
       sslmode: disable
-      postgresVersion: 1700
       timescaledb: true
       connMaxLifetime: 14400
     secureJsonData:

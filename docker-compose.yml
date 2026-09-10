@@ -44,7 +44,7 @@ x-app: &app
     # semente -- vem por aqui. Somente leitura: nada do sistema escreve nele.
     - ${PCAP_HOST:-./pcaps}:/pcaps:ro
   environment: &app-env
-    NETANOMALY_DSN: postgresql://netanomaly:${SENHA_BANCO:-netanomaly}@banco:5432/netanomaly
+    NETANOMALY_DSN: postgresql://netanomaly:${SENHA_BANCO:?defina SENHA_BANCO no .env (cp .env.example .env). Sem ela o Compose usaria um default que NAO bate com a senha gravada no volume do banco}@banco:5432/netanomaly
     NETANOMALY_POOL: /var/lib/netanomaly
     TZ: ${TZ:-UTC}
 
@@ -56,7 +56,7 @@ services:
     environment:
       POSTGRES_DB: netanomaly
       POSTGRES_USER: netanomaly
-      POSTGRES_PASSWORD: ${SENHA_BANCO:-netanomaly}
+      POSTGRES_PASSWORD: ${SENHA_BANCO:?defina SENHA_BANCO no .env (cp .env.example .env). Sem ela o Compose usaria um default que NAO bate com a senha gravada no volume do banco}
       POSTGRES_INITDB_ARGS: "--data-checksums"
       # O search_path=na e definido pela migracao, com ALTER ROLE -- nao aqui.
       # Sem ele o Grafana conecta, autentica e nao lista tabela nenhuma.
@@ -102,7 +102,7 @@ services:
     environment:
       <<: *app-env
       # host mode: o banco esta na loopback do host, nao em `banco`.
-      NETANOMALY_DSN: postgresql://netanomaly:${SENHA_BANCO:-netanomaly}@127.0.0.1:${PORTA_BANCO:-5432}/netanomaly
+      NETANOMALY_DSN: postgresql://netanomaly:${SENHA_BANCO:?defina SENHA_BANCO no .env (cp .env.example .env). Sem ela o Compose usaria um default que NAO bate com a senha gravada no volume do banco}@127.0.0.1:${PORTA_BANCO:-5432}/netanomaly
       DETECTOR_ESPERA: ${DETECTOR_ESPERA:-15}
     # Duas capacidades, medidas e nao adivinhadas. Elas entram no bounding
     # set; quem as torna efetivas e a file capability do /usr/bin/tcpdump
@@ -174,6 +174,13 @@ services:
       # O Business Forms panel e como o analista mexe nos parametros.
       GF_INSTALL_PLUGINS: volkovlabs-form-panel
       GF_USERS_DEFAULT_THEME: dark
+      # PRECISA estar aqui. O ${SENHA_BANCO} do arquivo de provisionamento em
+      # docker/grafana/datasources/ e interpolado pelo GRAFANA, a partir do
+      # ambiente DO GRAFANA -- nao pelo Compose a partir do .env. Sem esta
+      # linha a senha vira string vazia, o datasource aparece na interface mas
+      # nenhuma consulta funciona, e o construtor nao lista tabela nenhuma
+      # porque nao consegue conectar.
+      SENHA_BANCO: ${SENHA_BANCO:?defina SENHA_BANCO no .env (cp .env.example .env). Sem ela o Compose usaria um default que NAO bate com a senha gravada no volume do banco}
     volumes:
       - grafana_dados:/var/lib/grafana
       - ./docker/grafana:/etc/grafana/provisioning:ro

@@ -312,6 +312,85 @@ docker compose --profile painel up -d grafana   # :3000, admin/$SENHA_GRAFANA
 Datasource já provisionado. O `search_path=na` é definido pela migração com
 `ALTER ROLE` — sem ele o Grafana conecta, autentica e não lista tabela nenhuma.
 
+## O `type` do datasource: `postgres` não serve
+
+No provisionamento do datasource, `type` **precisa** ser
+`grafana-postgresql-datasource`. Com o alias legado `postgres` o Grafana
+aceita o arquivo, e o sintoma é enganoso:
+
+- "Save & test" responde **`Database Connection OK`**
+- o seletor **Dataset** fica **vazio**
+- a consulta falha com *"You do not currently have a default database
+  configured for this data source"*
+
+E a `/api/datasources` mostra `grafana-postgresql-datasource` nos dois casos,
+porque a API normaliza o tipo na leitura. Só a coluna crua do banco interno
+revela a diferença:
+
+```bash
+docker run --rm -v tcc_grafana_dados:/g alpine sh -c \
+  'apk add -q sqlite; sqlite3 /g/grafana.db "select name,type from data_source"'
+```
+
+Verificado lado a lado, mesmo arquivo com só o `type` diferente: um lista as
+tabelas, o outro não. `postgresVersion` e `timescaledb` não têm efeito nisso —
+testei ambos isoladamente.
+
+Corrigindo o arquivo, um `docker compose restart grafana` reaplica o
+provisionamento e a coluna passa a `grafana-postgresql-datasource`.
+
+## A senha do Grafana também fica no volume
+
+`GF_SECURITY_ADMIN_PASSWORD` só vale na **primeira** subida — o volume
+`grafana_dados` guarda a tabela de usuários. Trocando a senha na interface, a
+variável deixa de valer, exatamente como acontece com `POSTGRES_PASSWORD`.
+Para redefinir:
+
+```bash
+docker compose exec grafana grafana cli admin reset-admin-password NOVA
+```
+
+## A senha do banco fica gravada no volume
+
+`POSTGRES_PASSWORD` só tem efeito no `initdb`, na **primeira** vez que o volume
+é criado. Depois disso, mudar `SENHA_BANCO` no `.env` muda apenas o que os
+clientes *enviam* — não o que o servidor *aceita*. O resultado é
+`password authentication failed`, sem nenhuma pista de que a causa está num
+volume criado semanas antes.
+
+Por isso `SENHA_BANCO` é **obrigatória** no compose (`${SENHA_BANCO:?...}`): sem
+`.env` o Compose para com mensagem explícita, em vez de cair num default que
+não bate com o volume.
+
+**Trate o `.env` como dado, não como configuração descartável.** Ele guarda a
+única cópia da senha que o volume aceita, e está no `.gitignore` — apagá-lo
+deixa o banco inacessível. Faça backup dele junto com o volume.
+
+### Se a senha já não bate
+
+Descubra qual senha o volume tem:
+
+```bash
+docker compose up -d banco
+for s in senha-candidata-1 senha-candidata-2; do
+    PGPASSWORD="$s" psql -h 127.0.0.1 -p ${PORTA_BANCO:-5432} \
+        -U netanomaly -d netanomaly -tAc "select 'OK'" && echo "  ^ esta"
+done
+```
+
+Achando, ponha no `.env` e pronto — nada se perde. Se preferir outra senha,
+troque no servidor e sincronize o `.env`:
+
+```bash
+docker compose exec banco psql -U netanomaly -d netanomaly \
+    -c "ALTER USER netanomaly PASSWORD 'nova-senha'"
+```
+
+Último recurso, e destrutivo: `docker compose down -v` recria o volume do zero
+— **perde o índice do pool, os alertas, os modelos e o golden set**. O pool em
+disco (`POOL_HOST`) sobrevive, mas sem as linhas de `feature_windows` ele não é
+mais um pool curado: sem quarentena, sem procedência, sem despejo.
+
 ## Cuidados
 
 - **`POOL_HOST` é o histórico curado de treino.** Perdê-lo é perder a

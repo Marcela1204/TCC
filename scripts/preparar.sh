@@ -10,9 +10,13 @@
 #   4. ESTAGIO 2: treina o SVM (bootstrap pelo golden) e o promove
 #   5. sobe o restante dos containers (detector, grafana...) ja com modelo
 #
+# Os pcaps ja devem estar em PCAP_HOST (montado como /pcaps). Passe o caminho
+# RELATIVO a esse diretorio -- so o nome do arquivo, ou um subcaminho. Aceita
+# tambem com o prefixo /pcaps/ ou ./pcaps/, que e removido.
+#
 # Opcoes:
-#   --treino  PCAP   captura de trafego NORMAL da rede, p/ o baseline (obrigatorio)
-#   --ataque  PCAP   captura com ataque, p/ o golden set (opcional, recomendado)
+#   --treino  PCAP   captura de trafego NORMAL, dentro de /pcaps (obrigatorio)
+#   --ataque  PCAP   captura com ataque, dentro de /pcaps (opcional, recomendado)
 #   --cenario NOME   cenario do golden p/ --ataque (padrao: recon)
 #   --cicids         rotula --ataque pelo cronograma oficial do CIC-IDS-2017
 #   --sensor  NOME   nome do sensor (padrao: do .env ou sensor-01)
@@ -42,7 +46,6 @@ done
 
 [[ -f .env ]]      || { echo "[!] falta .env (cp .env.example .env e ajuste)" >&2; exit 1; }
 [[ -n "$TREINO" ]] || { echo "[!] --treino e obrigatorio" >&2; exit 1; }
-[[ -f "$TREINO" ]] || { echo "[!] pcap de treino nao existe: $TREINO" >&2; exit 1; }
 docker image inspect netanomaly:dev >/dev/null 2>&1 || { echo "[!] imagem nao construida: docker compose build" >&2; exit 1; }
 
 set -a; . ./.env; set +a
@@ -53,10 +56,28 @@ RUN="$DC run --rm --entrypoint python3 treinador"
 
 titulo() { printf '\n\033[1m== %s ==\033[0m\n' "$*"; }
 
-# pcaps precisam estar em PCAP_HOST p/ o container ver em /pcaps (somente leitura)
-mkdir -p "$PCAP_DIR"
-cp -f "$TREINO" "$PCAP_DIR/treino.pcap"
-[[ -n "$ATAQUE" ]] && { [[ -f "$ATAQUE" ]] || { echo "[!] pcap de ataque nao existe: $ATAQUE" >&2; exit 1; }; cp -f "$ATAQUE" "$PCAP_DIR/ataque.pcap"; }
+# Normaliza um caminho para ser relativo a /pcaps: tira prefixo /pcaps/,
+# ./pcaps/ ou $PCAP_DIR/, e confirma que o arquivo existe no host (em PCAP_DIR).
+# Ecoa o caminho DENTRO do container (/pcaps/...).
+resolver_pcap() {
+    local rel="$1"
+    rel="${rel#/pcaps/}"; rel="${rel#./pcaps/}"; rel="${rel#pcaps/}"
+    rel="${rel#"$PCAP_DIR"/}"
+    if [[ ! -f "$PCAP_DIR/$rel" ]]; then
+        echo "[!] pcap nao encontrado em $PCAP_DIR/$rel" >&2
+        echo "    (passe o caminho RELATIVO a $PCAP_DIR, ex.: --treino dia.pcap)" >&2
+        echo "    disponiveis:" >&2
+        ls -1 "$PCAP_DIR"/*.pcap 2>/dev/null | sed "s|^$PCAP_DIR/|      |" >&2             || echo "      (nenhum .pcap em $PCAP_DIR)" >&2
+        return 1
+    fi
+    echo "/pcaps/$rel"
+}
+
+# `|| exit`: resolver_pcap sinaliza erro com return no subshell; o chamador
+# encerra o script aqui (mais seguro que depender de set -e em fim de lista &&).
+TREINO_C="$(resolver_pcap "$TREINO")" || exit 1
+ATAQUE_C=""
+[[ -n "$ATAQUE" ]] && { ATAQUE_C="$(resolver_pcap "$ATAQUE")" || exit 1; }
 
 titulo "1. banco + migracoes"
 $DC up -d banco
@@ -74,9 +95,9 @@ $RUN /usr/local/bin/migrar /app/migrations
 if [[ -n "$ATAQUE" ]]; then
     titulo "2. golden set: registrar a captura de ataque"
     if [[ -n "$CICIDS" ]]; then
-        $RUN lifecycle.py golden --pcap /pcaps/ataque.pcap --cicids --scenario "$CENARIO"
+        $RUN lifecycle.py golden --pcap "$ATAQUE_C" --cicids --scenario "$CENARIO"
     else
-        $RUN lifecycle.py golden --pcap /pcaps/ataque.pcap --scenario "$CENARIO" --label 1
+        $RUN lifecycle.py golden --pcap "$ATAQUE_C" --scenario "$CENARIO" --label 1
     fi
 else
     echo
@@ -86,10 +107,10 @@ fi
 
 titulo "3. estagio 1: treinar Isolation Forest e adotar (mede no golden)"
 # treina no pcap e salva no POOL (rw). /pcaps e somente leitura, nao serve p/ salvar.
-$RUN netanomaly.py /pcaps/treino.pcap --nfstream --contamination "$CONT" \
+$RUN netanomaly.py "$TREINO_C" --nfstream --contamination "$CONT" \
     --save-model /var/lib/netanomaly/bootstrap
 $RUN lifecycle.py adopt --model /var/lib/netanomaly/bootstrap_flow.joblib \
-    --pcap /pcaps/treino.pcap --sensor "$SENSOR" --by preparar
+    --pcap "$TREINO_C" --sensor "$SENSOR" --by preparar
 
 titulo "4. estagio 2: treinar o SVM e promover"
 if $RUN netclassify.py train --view flow 2>/tmp/nc_train.log; then

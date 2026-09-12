@@ -183,8 +183,8 @@
     {
       "id": 4,
       "type": "stat",
-      "title": "Modelo em producao",
-      "description": "Quando o modelo vigente foi promovido.",
+      "title": "Modelo (h desde promoção)",
+      "description": "Horas desde a promoção do modelo vigente. 'No data' = nenhum modelo promovido ainda.",
       "datasource": {
         "type": "grafana-postgresql-datasource",
         "uid": "netanomaly"
@@ -204,7 +204,7 @@
           },
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT to_char(promoted_at, 'YYYY-MM-DD HH24:MI') AS valor\nFROM na.models WHERE status = 'promoted' AND stage = 1\nORDER BY promoted_at DESC LIMIT 1",
+          "rawSql": "SELECT round(EXTRACT(EPOCH FROM (now()-promoted_at))/3600) AS v FROM na.models WHERE status='promoted' AND stage=1 ORDER BY promoted_at DESC LIMIT 1",
           "editorMode": "code"
         }
       ],
@@ -223,7 +223,7 @@
       },
       "fieldConfig": {
         "defaults": {
-          "unit": "short",
+          "unit": "h",
           "decimals": 0
         },
         "overrides": []
@@ -466,6 +466,248 @@
         "footer": {
           "show": false
         }
+      }
+    },
+    {
+      "id": 20,
+      "type": "text",
+      "title": "",
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 21
+      },
+      "options": {
+        "mode": "markdown",
+        "content": "### Estágio 2 — refinador supervisionado (SVM)"
+      }
+    },
+    {
+      "id": 21,
+      "type": "stat",
+      "title": "Est.2: preditos ataque",
+      "description": "Entre os alertas do estagio 1, quantos o SVM julgou ataque real. Anota, nao suprime.",
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "netanomaly"
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 0,
+        "y": 22
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "netanomaly"
+          },
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT count(*) AS v FROM na.stage2_assignments WHERE predicted='ataque'",
+          "editorMode": "code"
+        }
+      ],
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto",
+        "graphMode": "none",
+        "colorMode": "none"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "decimals": 0
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 22,
+      "type": "stat",
+      "title": "Est.2: fila de revisao",
+      "description": "Aguardando veredito do analista, priorizados por margem.",
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "netanomaly"
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 6,
+        "y": 22
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "netanomaly"
+          },
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT count(*) AS v FROM na.stage2_assignments WHERE state='pending'",
+          "editorMode": "code"
+        }
+      ],
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto",
+        "graphMode": "none",
+        "colorMode": "value"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "decimals": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#eda100",
+                "value": 50
+              },
+              {
+                "color": "#e34948",
+                "value": 200
+              }
+            ]
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 23,
+      "type": "stat",
+      "title": "Est.2: recall (retido)",
+      "description": "Recall do ultimo SVM em particao retida. Ver o dashboard 'estagio 2' para o detalhe.",
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "netanomaly"
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 12,
+        "y": 22
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "netanomaly"
+          },
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT round(recall::numeric,3) AS v FROM na.model_evaluations WHERE scope='aggregate' AND model_id=(SELECT model_id FROM na.models WHERE stage=2 ORDER BY trained_at DESC LIMIT 1)",
+          "editorMode": "code"
+        }
+      ],
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto",
+        "graphMode": "none",
+        "colorMode": "value"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "decimals": 3,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#e34948",
+                "value": null
+              },
+              {
+                "color": "#eda100",
+                "value": 0.5
+              },
+              {
+                "color": "green",
+                "value": 0.8
+              }
+            ]
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 24,
+      "type": "stat",
+      "title": "Est.2: SVM (h desde promoção)",
+      "description": "Quando o SVM vigente foi promovido. Vazio = estagio 2 ainda nao em producao.",
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "netanomaly"
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 18,
+        "y": 22
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "netanomaly"
+          },
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT round(EXTRACT(EPOCH FROM (now()-promoted_at))/3600) AS v FROM na.models WHERE stage=2 AND status='promoted' ORDER BY promoted_at DESC LIMIT 1",
+          "editorMode": "code"
+        }
+      ],
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto",
+        "graphMode": "none",
+        "colorMode": "none"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "h",
+          "decimals": 0
+        },
+        "overrides": []
       }
     }
   ]

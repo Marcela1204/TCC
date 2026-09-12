@@ -32,7 +32,7 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY netanomaly.py netanomaly_live.py lifecycle.py sink.py ./
+COPY netanomaly.py netanomaly_live.py lifecycle.py sink.py netclassify.py ./
 COPY scripts/ ./scripts/
 COPY migrations/ ./migrations/
 COPY docker/entrypoint-treinador.sh /usr/local/bin/entrypoint-treinador

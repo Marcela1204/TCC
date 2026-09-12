@@ -35,7 +35,10 @@ subir() {
 case "${1:-up}" in
     up|reset)
         subir
-        "${PSQL[@]}" -q -v ON_ERROR_STOP=1 --single-transaction -f "$RAIZ/migrations/001_init.sql"
+        for m in "$RAIZ"/migrations/*.sql; do
+            "${PSQL[@]}" -q -v ON_ERROR_STOP=1 --single-transaction -f "$m" \
+                && echo "    aplicada: $(basename "$m")"
+        done
         echo "[+] schema aplicado em postgresql://postgres:teste@127.0.0.1:$PORTA/netanomaly"
         echo "    export NETANOMALY_DSN=postgresql://postgres:teste@127.0.0.1:$PORTA/netanomaly"
         ;;

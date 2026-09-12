@@ -59,6 +59,14 @@ while true; do
             || echo "[treinador] requests falhou (segue)"
         python3 /app/lifecycle.py candidate --view "$v" --contamination "$CONT" \
             || echo "[treinador] candidate falhou (segue) -- pool vazio ou em quarentena?"
+
+        # ESTAGIO 2: anota os alertas novos com a predicao do SVM promovido.
+        # Se nao houver SVM estagio 2 promovido, predict sai avisando e o laco
+        # segue -- por isso o `|| echo`. NAO treina nem promove estagio 2 aqui:
+        # o treino depende de rotulo (golden/vereditos) e a promocao e manual,
+        # mesmo principio do estagio 1.
+        python3 /app/netclassify.py predict --view "$v" \
+            || echo "[treinador] netclassify predict: sem SVM estagio 2 promovido ainda (ok)"
     done
     echo "[treinador] dormindo ${INTERVALO}s"
     sleep "$INTERVALO"

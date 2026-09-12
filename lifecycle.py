@@ -738,6 +738,22 @@ def cmd_adopt(conn, args):
         joblib.dump(bundle, alvo_art)
 
         # --- 4. registro ---------------------------------------------------
+        # Aposenta o incumbente ANTES de inserir o novo: o indice
+        # models_um_promovido so permite UM promovido por (stage, visao), entao
+        # inserir 'promoted' com o antigo ainda promovido viola a constraint.
+        # (Sem `model_id <>` porque o novo ainda nao existe.)
+        cur.execute(
+            """
+            UPDATE na.models SET status='retired', retired_at=now()
+            WHERE status='promoted' AND stage=1
+              AND visao IS NOT DISTINCT FROM %s
+              AND kind <> 'decision_tree_surrogate'
+            RETURNING model_id
+            """,
+            (visao,),
+        )
+        antigo = cur.fetchone()
+
         cur.execute(
             """
             INSERT INTO na.models
@@ -764,19 +780,6 @@ def cmd_adopt(conn, args):
                 "INSERT INTO na.model_training_windows "
                 "(model_id, window_id, weight) VALUES (%s,%s,1.0)",
                 [(model_id, w) for w in gravadas])
-
-        # --- aposenta o antigo, se havia ----------------------------------
-        cur.execute(
-            """
-            UPDATE na.models SET status='retired', retired_at=now()
-            WHERE status='promoted' AND stage=1 AND model_id <> %s
-              AND visao IS NOT DISTINCT FROM %s
-              AND kind <> 'decision_tree_surrogate'
-            RETURNING model_id
-            """,
-            (model_id, visao),
-        )
-        antigo = cur.fetchone()
 
         # --- avaliacao no golden set, se houver ---------------------------
         # Importa mais do que parece: v_gate_check compara o candidato contra

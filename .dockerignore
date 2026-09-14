@@ -1,6 +1,7 @@
 # datasets e artefatos pesados nunca entram na imagem
 datasets/
 dados/
+pcaps/
 *.pcap
 *.joblib
 *.parquet
@@ -14,3 +15,4 @@ captura.txt
 __pycache__/
 *.pyc
 .git/
+**/*.pcap

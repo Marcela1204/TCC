@@ -108,7 +108,7 @@ services:
     # set; quem as torna efetivas e a file capability do /usr/bin/tcpdump
     # posta no Dockerfile -- por isso o processo nao precisa ser root.
     cap_drop: [ALL]
-    cap_add: [NET_RAW, NET_ADMIN]
+    cap_add: [NET_RAW, NET_ADMIN, SETUID, SETGID]
     depends_on:
       banco: {condition: service_healthy}
     command:
@@ -131,7 +131,7 @@ services:
       <<: *app-env
       DETECTOR_ESPERA: ${DETECTOR_ESPERA:-15}
     cap_drop: [ALL]
-    cap_add: [NET_RAW, NET_ADMIN]                   # ver nota em `detector`
+    cap_add: [NET_RAW, NET_ADMIN, SETUID, SETGID]                   # ver nota em `detector`
     depends_on:
       banco: {condition: service_healthy}
     networks: [interna, captura]

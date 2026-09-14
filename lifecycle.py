@@ -241,8 +241,18 @@ def montar_matriz(janelas, feature_cols, max_rows, semente=42):
     fator = min(1.0, max_rows / total_disponivel)
     blocos, pesos, procedencia = [], [], []
 
+    n_ausentes = 0
     for j in janelas:
         n_take = max(1, int(round(int(j["n_rows"]) * fator)))
+        # Parquet pode ter sumido do disco (pool limpo/dessincronizado) enquanto
+        # a linha continua em na.feature_windows. Pular com aviso em vez de
+        # quebrar o candidate inteiro por causa de uma janela.
+        if not os.path.exists(j["path"]):
+            n_ausentes += 1
+            if n_ausentes <= 5:
+                print(f"[!] parquet ausente, pulando janela {j['window_id']}: "
+                      f"{j['path']}", file=sys.stderr)
+            continue
         df = _ler_amostra(j["path"], feature_cols, n_take, semente)
         if df is None or len(df) == 0:
             print(f"[!] janela {j['window_id']} nao rendeu linhas; pulando",
@@ -257,8 +267,13 @@ def montar_matriz(janelas, feature_cols, max_rows, semente=42):
         pesos.append(np.full(len(df), float(j["peso_recencia"])))
         procedencia.append((j["window_id"], len(df), float(j["peso_recencia"])))
 
+    if n_ausentes:
+        print(f"[!] {n_ausentes} janela(s) com parquet ausente foram puladas. "
+              f"Reconcilie o pool (evict das janelas orfas) quando puder.",
+              file=sys.stderr)
     if not blocos:
-        raise SystemExit("[!] nenhuma janela do pool pode ser lida")
+        raise SystemExit("[!] nenhuma janela do pool pode ser lida "
+                         "(todas com parquet ausente?)")
 
     X = pd.concat(blocos, ignore_index=True)
     X = X.fillna(0.0).replace([np.inf, -np.inf], 0.0).values.astype(float)
@@ -1178,6 +1193,57 @@ def cmd_evict(conn, args):
         print("\n    Retreine: ./lifecycle.py candidate --view <flow|host>")
 
 
+def cmd_reconcile(conn, args):
+    """Reconcilia o indice do pool com o disco.
+
+    O banco (na.feature_windows) e um INDICE dos parquets. Se um parquet some do
+    disco (pool limpo, dessincronia apos crash), a linha vira orfa e o candidate
+    a pula com aviso. Este comando remove essas linhas orfas do indice.
+
+    NAO e o mesmo que evict: evict marca 'evicted' (incidente/IOC) e faz o
+    modelo aparecer como contaminado. Aqui o arquivo simplesmente nao existe --
+    a linha e removida de vez, junto com sua procedencia em
+    model_training_windows (que e ON DELETE RESTRICT, por isso vai antes).
+
+    Dry-run por padrao: so lista. Use --apply para remover.
+    """
+    with conn.cursor() as cur:
+        cur.execute("SELECT window_id, path, visao FROM na.feature_windows "
+                    "WHERE pool_state = 'active' ORDER BY window_id")
+        ativas = cur.fetchall()
+    orfas = [w for w in ativas if not os.path.exists(w["path"])]
+
+    print(f"[+] {len(ativas)} janela(s) ativa(s); {len(orfas)} com parquet "
+          f"ausente no disco")
+    for w in orfas[:10]:
+        print(f"    orfa: {w['window_id']}  ({w['path']})")
+    if len(orfas) > 10:
+        print(f"    ... e mais {len(orfas) - 10}")
+
+    if not orfas:
+        print("[+] nada a reconciliar")
+        return
+    if not args.apply:
+        print("\n    (dry-run) para remover essas linhas do indice: "
+              "reconcile --apply")
+        return
+
+    ids = [w["window_id"] for w in orfas]
+    with conn.cursor() as cur:
+        # procedencia primeiro (FK ON DELETE RESTRICT)
+        cur.execute("DELETE FROM na.model_training_windows "
+                    "WHERE window_id = ANY(%s)", (ids,))
+        n_proc = cur.rowcount
+        cur.execute("DELETE FROM na.feature_windows WHERE window_id = ANY(%s)",
+                    (ids,))
+        n_win = cur.rowcount
+    conn.commit()
+    print(f"[+] removidas {n_win} janela(s) orfa(s) do indice "
+          f"({n_proc} vinculo(s) de procedencia).")
+    print("    O pool agora reflete o disco. Se ficou vazio, repovoe com "
+          "extract ou deixe o sink ao vivo acumular.")
+
+
 def cmd_requests(conn, args):
     """Consome o botao de retreino manual do analista."""
     with conn.cursor() as cur:
@@ -1324,6 +1390,12 @@ def main():
     p.add_argument("--reason", required=True)
     p.add_argument("--by", default=os.environ.get("USER", "desconhecido"))
     p.set_defaults(fn=cmd_evict)
+
+    p = sub.add_parser("reconcile",
+                       help="remove do indice janelas cujo parquet sumiu do disco")
+    p.add_argument("--apply", action="store_true",
+                   help="executa a remocao (sem isto e so dry-run)")
+    p.set_defaults(fn=cmd_reconcile)
 
     p = sub.add_parser("requests", help="consome a fila de retreino do analista")
     comuns(p, treino=True)

@@ -21,6 +21,10 @@
 #   --cicids         rotula --ataque pelo cronograma oficial do CIC-IDS-2017
 #   --sensor  NOME   nome do sensor (padrao: do .env ou sensor-01)
 #   --contamination  fracao de anomalia no treino do estagio 1 (padrao 0.01)
+#   --max-pacotes N  fatia os pcaps a N pacotes antes de extrair (demo rapido
+#                    numa VM pequena; a fatia do ataque deve conter o ataque)
+#   --re-adotar      re-semeia o estagio 1 mesmo com um modelo ja promovido
+#                    (DESCARTA o historico do pool; use so p/ recomecar do zero)
 #   --pular-subir    faz o treino mas NAO sobe os containers no fim
 #
 # Requer .env preparado (cp .env.example .env) e a imagem construida.
@@ -30,7 +34,7 @@ RAIZ="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$RAIZ"
 
 TREINO="" ATAQUE="" CENARIO="recon" CICIDS="" CONT="0.01" PULAR_SUBIR=""
-SENSOR_CLI=""
+SENSOR_CLI="" RE_ADOTAR="" MAX_PACOTES=""
 while [[ $# -gt 0 ]]; do
     case "$1" in
         --treino) TREINO="$2"; shift 2;;
@@ -39,6 +43,8 @@ while [[ $# -gt 0 ]]; do
         --cicids) CICIDS=1; shift;;
         --sensor) SENSOR_CLI="$2"; shift 2;;
         --contamination) CONT="$2"; shift 2;;
+        --re-adotar) RE_ADOTAR=1; shift;;
+        --max-pacotes) MAX_PACOTES="$2"; shift 2;;
         --pular-subir) PULAR_SUBIR=1; shift;;
         *) echo "[!] opcao desconhecida: $1" >&2; exit 2;;
     esac
@@ -51,7 +57,16 @@ docker image inspect netanomaly:dev >/dev/null 2>&1 || { echo "[!] imagem nao co
 set -a; . ./.env; set +a
 SENSOR="${SENSOR_CLI:-${NOME_SENSOR:-sensor-01}}"
 PCAP_DIR="${PCAP_HOST:-./pcaps}"
-DC="docker compose"
+# auto-detecta o compose: plugin novo (docker compose) ou standalone antigo
+# (docker-compose v1). O mesmo script roda no servidor (so v1) e aqui.
+if docker compose version >/dev/null 2>&1; then
+    DC="docker compose"
+elif command -v docker-compose >/dev/null 2>&1; then
+    DC="docker-compose"
+else
+    echo "[!] nem 'docker compose' nem 'docker-compose' encontrado" >&2; exit 1
+fi
+echo "[i] usando: $DC"
 RUN="$DC run --rm --entrypoint python3 treinador"
 
 titulo() { printf '\n\033[1m== %s ==\033[0m\n' "$*"; }
@@ -79,6 +94,23 @@ TREINO_C="$(resolver_pcap "$TREINO")" || exit 1
 ATAQUE_C=""
 [[ -n "$ATAQUE" ]] && { ATAQUE_C="$(resolver_pcap "$ATAQUE")" || exit 1; }
 
+# --max-pacotes: fatia os pcaps a N pacotes ANTES de extrair. Essencial para
+# demo numa VM pequena -- extrair um pcap de dezenas de GB via nfstream trava
+# ou estoura a RAM. A fatia do ataque precisa CONTER a janela do ataque (no
+# CIC o FTP-Patator e cedo, entao os primeiros ~1M pacotes bastam).
+if [[ -n "$MAX_PACOTES" ]]; then
+    command -v tcpdump >/dev/null || { echo "[!] --max-pacotes precisa de tcpdump no host" >&2; exit 1; }
+    fatiar() {                       # $1 = caminho no container (/pcaps/..)
+        local rel="${1#/pcaps/}" base
+        base="_demo_$(basename "$rel")"
+        echo "[i] fatiando $rel -> $base ($MAX_PACOTES pacotes)" >&2
+        tcpdump -r "$PCAP_DIR/$rel" -w "$PCAP_DIR/$base" -c "$MAX_PACOTES" 2>/dev/null
+        echo "/pcaps/$base"
+    }
+    TREINO_C="$(fatiar "$TREINO_C")"
+    [[ -n "$ATAQUE_C" ]] && ATAQUE_C="$(fatiar "$ATAQUE_C")"
+fi
+
 titulo "1. banco + migracoes"
 $DC up -d banco
 echo -n "   aguardando o banco"
@@ -89,8 +121,31 @@ for _ in $(seq 1 60); do
     fi
     echo -n "."; sleep 1
 done
-[[ -n "$pronto" ]] || { echo; echo "[!] o banco nao ficou pronto em 60s. Veja: docker compose logs banco" >&2; exit 1; }
+[[ -n "$pronto" ]] || { echo; echo "[!] o banco nao ficou pronto em 60s. Veja: $DC logs banco" >&2; exit 1; }
 $RUN /usr/local/bin/migrar /app/migrations
+
+# GUARDA: preparar.sh e para a PARTIDA A FRIO. Se ja existe modelo estagio 1
+# promovido, o sistema ja foi inicializado -- re-adotar planta um modelo
+# semente e DESCARTA o historico curado do pool (quarentena, procedencia).
+# Para re-treinar com o que o sistema acumulou, use candidate -> gate ->
+# promote. Reexecutar aqui sem querer foi o que causou o UniqueViolation.
+JA_PROMOVIDO=$($DC exec -T banco psql -U netanomaly -d netanomaly -tAc \
+    "SELECT count(*) FROM na.models WHERE stage=1 AND status='promoted'" 2>/dev/null | tr -d '[:space:]')
+if [[ "${JA_PROMOVIDO:-0}" != "0" && -z "$RE_ADOTAR" ]]; then
+    echo >&2
+    echo "[!] este sistema JA tem modelo estagio 1 promovido -- ja foi inicializado." >&2
+    echo "    preparar.sh e para a partida a frio. Re-adotar descarta o historico" >&2
+    echo "    curado do pool (quarentena, procedencia)." >&2
+    echo >&2
+    echo "    Para RE-TREINAR com o trafego ja acumulado (recomendado):" >&2
+    echo "      $DC run --rm --entrypoint python3 treinador \\" >&2
+    echo "          lifecycle.py candidate --view flow --contamination $CONT" >&2
+    echo "      $DC run --rm --entrypoint python3 treinador \\" >&2
+    echo "          lifecycle.py promote --model <uuid> --by SEU_NOME" >&2
+    echo >&2
+    echo "    Se REALMENTE quer re-semear do zero, repita com --re-adotar." >&2
+    exit 1
+fi
 
 if [[ -n "$ATAQUE" ]]; then
     titulo "2. golden set: registrar a captura de ataque"
@@ -125,7 +180,7 @@ fi
 
 if [[ -n "$PULAR_SUBIR" ]]; then
     titulo "pronto (--pular-subir: NAO subi os containers)"
-    echo "   para subir:  docker compose up -d"
+    echo "   para subir:  $DC up -d"
     exit 0
 fi
 
@@ -135,4 +190,4 @@ echo
 echo "[+] pronto. Estagio 1 adotado, estagio 2 promovido (se houve rotulo)."
 echo "    O treinador ja roda o predict do estagio 2 a cada ciclo."
 echo "    Grafana: dashboards 'visao geral' e 'estagio 2'."
-echo "    Confira:  docker compose ps"
+echo "    Confira:  $DC ps"

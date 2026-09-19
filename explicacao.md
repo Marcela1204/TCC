@@ -20,13 +20,6 @@ interface para analistas.
 O estágio 1 é não supervisionado porque não há rótulo disponível no tráfego de
 produção. O estágio 2 é onde o rótulo entra: ele consome os **vereditos do
 analista** e refina o hiperplano continuamente.
-
-### Prioridade das três frentes
-
-1. Estágio 1 — **mais importante**
-2. Frontend — **mais importante**
-3. Estágio 2
-
 ---
 
 ## 2. Arquitetura
@@ -62,7 +55,6 @@ analista** e refina o hiperplano continuamente.
 | `migrations/001_init.sql` | esquema Postgres/TimescaleDB (13 tabelas, 9 views) |
 | `docker/migrar.py` | controlador de migração (aplica uma vez cada) |
 
-Cerca de 3.900 linhas no total.
 
 ### Duas visões de agregação
 
@@ -184,8 +176,6 @@ e fica fora do laço automático.
    `model_training_windows` — é isso que torna o despejo auditável: sem ela,
    saber que uma janela estava contaminada não diz *quais* modelos a
    absorveram.
-
-Nunca promove.
 
 ### O portão
 
@@ -376,7 +366,6 @@ escalação óbvio.
 
 ## 7. O que foi medido
 
-Todos os números abaixo vêm de execução, não de estimativa.
 
 ### A explicabilidade não serve como gatilho de retreino
 
@@ -535,33 +524,6 @@ nulo, a checagem de queda relativa nunca dispara e só o piso absoluto sobra.
 - reavaliação de modelo já registrado contra o golden set atual
 - containerização completa, sem root, com as três opções de captura
 - Grafana com datasource provisionado
-
-### Não implementado
-
-| item | por que importa |
-|---|---|
-| **golden set real além de `brute_force`** | o portão só vê o que foi capturado, e a cobertura efetiva hoje é zero — o único cenário real está com recall 0.00 |
-| **features de horizonte longo** | agregadas por par origem/destino ao longo de dias (regularidade de intervalo, jitter, razão up/down). É a causa do recall 0.00 e do beacon de 6h invisível |
-| **estágio 2** | clusterização + hiperplano, alimentado por `verdicts` |
-| **frontend** | painel do analista |
-| **detector de deriva** | gatilho legítimo de retreino, para reduzir falso positivo |
-| **promoção automática** | decisão, não código: vale exatamente o que vale a cobertura do golden set. Com um cenário só, um portão que aprova sozinho é carimbo — pior que não ter portão, porque dá aparência de verificação ao que não foi verificado. Deve ser parâmetro, desligado por padrão |
-| **visão `host` de ponta a ponta** | nunca testada; é provavelmente onde `brute_force` aparece |
-
-### Ordem sugerida
-
-1. Golden set real — pré-requisito de tudo o mais; sem rótulo positivo o falso
-   negativo não é mensurável.
-2. Visão `host` de ponta a ponta — barata, e pode resolver o `brute_force`.
-3. Features de horizonte longo — maior retorno em falso negativo.
-4. Frontend.
-5. Estágio 2.
-
-A **marca de bootstrap** saiu da lista: com instalações independentes semeadas
-por `adopt` a partir de captura da própria rede, não existe mistura de épocas
-no pool, e o penhasco de peso que motivava a marca não acontece.
-
----
 
 ## 9. Referências de operação
 

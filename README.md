@@ -13,7 +13,7 @@ docker compose up -d banco treinador
 docker compose logs -f treinador
 ```
 
-## Treinamento fora do ciclo
+### 1. Treinamento fora do ciclo
 
 ```bash
 tcpdump -i eth0 -w treino.pcap -c 800000            # ou um dia inteiro
@@ -40,6 +40,23 @@ docker compose run --rm --entrypoint python3 treinador \
 
 O `--pcap` não é opcional por acaso — a captura do treino faz duas coisas que a
 adoção exige:
+
+- **gera a grade de referência de percentil** (`score_quantis`), que o bundle
+  de `netanomaly.py --save-model` não tem. Sem ela o sink alimenta o pool mas
+  **não grava alerta nenhum**, porque o percentil perde significado estável;
+- **semeia o pool** com o dado que o modelo vigente de fato viu, que é
+  exatamente o que o próximo `candidate` precisa.
+
+Confirmação de que a grade saiu certa: o `p99` dela deve bater com o
+`threshold` do bundle, já que `threshold = quantil(1 − contamination)`.
+
+O modelo entra como `promoted`, e o registro em `na.promotions` fica com
+`decisao='adotado'` — nem aprovado nem sobreposto. Um modelo semente não passou
+por portão nenhum, e o histórico não deve fingir que passou.
+
+O detector assume em segundos, sem restart. Daí em diante o sink alimenta o
+pool e o ciclo se sustenta.
+
 
 ## Definição do goldenset
 

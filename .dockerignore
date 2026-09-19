@@ -1,0 +1,18 @@
+# datasets e artefatos pesados nunca entram na imagem
+datasets/
+dados/
+pcaps/
+*.pcap
+*.joblib
+*.parquet
+*.pdf
+documentacao/
+mvp1/
+captura.txt
+
+.venv/
+.virtualenv/
+__pycache__/
+*.pyc
+.git/
+**/*.pcap

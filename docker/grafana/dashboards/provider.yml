@@ -1,0 +1,17 @@
+# Provedor de dashboards. O diretorio inteiro docker/grafana/ e montado em
+# /etc/grafana/provisioning, entao o path abaixo aponta para o subdiretorio
+# com os JSON. Grafana le apenas *.yml daqui como provedor; os JSON ficam num
+# subdiretorio para nao serem confundidos com configuracao.
+apiVersion: 1
+providers:
+  - name: netanomaly
+    orgId: 1
+    folder: netanomaly
+    type: file
+    disableDeletion: false
+    # Permite editar no navegador; a edicao NAO volta para o arquivo, entao
+    # trate o JSON versionado como a fonte da verdade e reexporte quando
+    # quiser guardar uma mudanca feita na interface.
+    allowUiUpdates: true
+    options:
+      path: /etc/grafana/provisioning/dashboards/json

@@ -8,10 +8,12 @@
 set -uo pipefail
 
 INTERVALO="${TREINADOR_INTERVALO:-86400}"
+INTERVALO_CLASS="${TREINADOR_INTERVALO_CLASSIFICACAO:-30}"
 VISOES="${TREINADOR_VISOES:-flow}"
 CONT="${TREINADOR_CONTAMINATION:-0.01}"
 
-echo "[treinador] intervalo=${INTERVALO}s visoes='${VISOES}' contamination=${CONT}"
+echo "[treinador] treino=${INTERVALO}s classificacao=${INTERVALO_CLASS}s" \
+     "visoes='${VISOES}' contamination=${CONT}"
 
 # O bind mount tem de ser ESCRIVEL pelo uid do container. Quando POOL_HOST
 # nao existe no host, o Compose cria o diretorio como root:root -- e ai o
@@ -51,23 +53,35 @@ if ! python3 /usr/local/bin/migrar /app/migrations; then
     exit 1
 fi
 
+# Dois relogios num laco so. A cadencia do laco e a CLASSIFICACAO (curta): a
+# cada volta o estagio 2 anota os alertas pendentes. O TREINO do estagio 1
+# (requests + candidate) e caro e so faz sentido sobre trafego acumulado,
+# entao roda apenas quando passou INTERVALO desde o ultimo -- nao a cada volta.
+# ultimo_treino=0 forca o treino na primeira volta (comportamento de partida).
+ultimo_treino=0
 while true; do
-    for v in $VISOES; do
-        echo "[treinador] --- $(date -u +%FT%TZ) candidato view=$v ---"
-        # Pedido manual do analista tem prioridade: consome a fila primeiro.
-        python3 /app/lifecycle.py requests --view "$v" --contamination "$CONT" \
-            || echo "[treinador] requests falhou (segue)"
-        python3 /app/lifecycle.py candidate --view "$v" --contamination "$CONT" \
-            || echo "[treinador] candidate falhou (segue) -- pool vazio ou em quarentena?"
+    agora=$(date +%s)
+    if (( agora - ultimo_treino >= INTERVALO )); then
+        for v in $VISOES; do
+            echo "[treinador] --- $(date -u +%FT%TZ) candidato view=$v ---"
+            # Pedido manual do analista tem prioridade: consome a fila primeiro.
+            python3 /app/lifecycle.py requests --view "$v" --contamination "$CONT" \
+                || echo "[treinador] requests falhou (segue)"
+            python3 /app/lifecycle.py candidate --view "$v" --contamination "$CONT" \
+                || echo "[treinador] candidate falhou (segue) -- pool vazio ou em quarentena?"
+        done
+        ultimo_treino=$agora
+    fi
 
-        # ESTAGIO 2: anota os alertas novos com a predicao do SVM promovido.
-        # Se nao houver SVM estagio 2 promovido, predict sai avisando e o laco
-        # segue -- por isso o `|| echo`. NAO treina nem promove estagio 2 aqui:
-        # o treino depende de rotulo (golden/vereditos) e a promocao e manual,
-        # mesmo principio do estagio 1.
+    # ESTAGIO 2: anota os alertas novos com a predicao do SVM promovido, a cada
+    # volta (intervalo curto). Se nao houver SVM estagio 2 promovido, predict
+    # sai avisando e o laco segue -- por isso o `|| echo`. NAO treina nem
+    # promove estagio 2 aqui: o treino depende de rotulo (golden/vereditos) e a
+    # promocao e manual, mesmo principio do estagio 1.
+    for v in $VISOES; do
         python3 /app/netclassify.py predict --view "$v" \
             || echo "[treinador] netclassify predict: sem SVM estagio 2 promovido ainda (ok)"
     done
-    echo "[treinador] dormindo ${INTERVALO}s"
-    sleep "$INTERVALO"
+
+    sleep "$INTERVALO_CLASS"
 done

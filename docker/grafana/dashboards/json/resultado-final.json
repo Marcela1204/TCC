@@ -92,7 +92,7 @@
         ]
       },
       "options": { "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }, "pieType": "donut", "legend": { "displayMode": "list", "placement": "right", "values": ["value"] } },
-      "targets": [ { "refId": "A", "format": "table", "rawSql": "SELECT classificacao, count(*) AS n FROM na.v_resultado_final WHERE $__timeFilter(ts) GROUP BY classificacao", "datasource": { "type": "grafana-postgresql-datasource", "uid": "netanomaly" } } ]
+      "targets": [ { "refId": "A", "format": "table", "rawSql": "SELECT count(*) FILTER (WHERE classificacao='ataque') AS ataque, count(*) FILTER (WHERE classificacao='benigno') AS benigno, count(*) FILTER (WHERE classificacao='pendente') AS pendente FROM na.v_resultado_final WHERE $__timeFilter(ts)", "datasource": { "type": "grafana-postgresql-datasource", "uid": "netanomaly" } } ]
     },
     {
       "id": 10, "type": "table", "title": "Alertas classificados (estágio 1 → estágio 2 → veredito)",

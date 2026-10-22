@@ -1,0 +1,127 @@
+{
+  "uid": "resultado-final",
+  "title": "Resultado final",
+  "tags": ["netanomaly"],
+  "timezone": "browser",
+  "schemaVersion": 39,
+  "refresh": "30s",
+  "time": { "from": "now-24h", "to": "now" },
+  "panels": [
+    {
+      "id": 1,
+      "type": "text",
+      "gridPos": { "h": 3, "w": 24, "x": 0, "y": 0 },
+      "options": {
+        "mode": "markdown",
+        "content": "## Resultado final do stack\n**Estágio 1** (detector não supervisionado) marca a janela como anômala — peneira de recall alto. **Estágio 2** (SVM supervisionado) classifica cada alerta em **ataque**/**benigno** — corta o falso positivo. O **veredito** do analista, quando existe, é a palavra final. A *classificação* de cada alerta segue essa precedência: veredito → estágio 2 → (ainda só estágio 1 = *pendente*)."
+      }
+    },
+    {
+      "id": 2, "type": "stat", "title": "Alertas (estágio 1)",
+      "gridPos": { "h": 4, "w": 4, "x": 0, "y": 3 },
+      "datasource": { "type": "grafana-postgresql-datasource", "uid": "netanomaly" },
+      "fieldConfig": { "defaults": { "unit": "short", "color": { "mode": "fixed", "fixedColor": "blue" } }, "overrides": [] },
+      "options": { "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }, "colorMode": "value", "graphMode": "none", "textMode": "value" },
+      "targets": [ { "refId": "A", "format": "table", "rawSql": "SELECT count(*) AS n FROM na.v_resultado_final WHERE $__timeFilter(ts)", "datasource": { "type": "grafana-postgresql-datasource", "uid": "netanomaly" } } ]
+    },
+    {
+      "id": 3, "type": "stat", "title": "Classificados (estágio 2)",
+      "gridPos": { "h": 4, "w": 4, "x": 4, "y": 3 },
+      "datasource": { "type": "grafana-postgresql-datasource", "uid": "netanomaly" },
+      "fieldConfig": { "defaults": { "unit": "short", "color": { "mode": "fixed", "fixedColor": "purple" } }, "overrides": [] },
+      "options": { "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }, "colorMode": "value", "graphMode": "none", "textMode": "value" },
+      "targets": [ { "refId": "A", "format": "table", "rawSql": "SELECT count(*) AS n FROM na.v_resultado_final WHERE e2_predito IS NOT NULL AND $__timeFilter(ts)", "datasource": { "type": "grafana-postgresql-datasource", "uid": "netanomaly" } } ]
+    },
+    {
+      "id": 4, "type": "stat", "title": "Ataques (final)",
+      "gridPos": { "h": 4, "w": 4, "x": 8, "y": 3 },
+      "datasource": { "type": "grafana-postgresql-datasource", "uid": "netanomaly" },
+      "fieldConfig": { "defaults": { "unit": "short", "color": { "mode": "fixed", "fixedColor": "red" } }, "overrides": [] },
+      "options": { "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }, "colorMode": "background", "graphMode": "none", "textMode": "value" },
+      "targets": [ { "refId": "A", "format": "table", "rawSql": "SELECT count(*) AS n FROM na.v_resultado_final WHERE classificacao = 'ataque' AND $__timeFilter(ts)", "datasource": { "type": "grafana-postgresql-datasource", "uid": "netanomaly" } } ]
+    },
+    {
+      "id": 5, "type": "stat", "title": "Benignos (final)",
+      "gridPos": { "h": 4, "w": 4, "x": 12, "y": 3 },
+      "datasource": { "type": "grafana-postgresql-datasource", "uid": "netanomaly" },
+      "fieldConfig": { "defaults": { "unit": "short", "color": { "mode": "fixed", "fixedColor": "green" } }, "overrides": [] },
+      "options": { "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }, "colorMode": "value", "graphMode": "none", "textMode": "value" },
+      "targets": [ { "refId": "A", "format": "table", "rawSql": "SELECT count(*) AS n FROM na.v_resultado_final WHERE classificacao = 'benigno' AND $__timeFilter(ts)", "datasource": { "type": "grafana-postgresql-datasource", "uid": "netanomaly" } } ]
+    },
+    {
+      "id": 6, "type": "stat", "title": "Pendentes (só estágio 1)",
+      "gridPos": { "h": 4, "w": 4, "x": 16, "y": 3 },
+      "datasource": { "type": "grafana-postgresql-datasource", "uid": "netanomaly" },
+      "fieldConfig": { "defaults": { "unit": "short", "color": { "mode": "fixed", "fixedColor": "orange" } }, "overrides": [] },
+      "options": { "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }, "colorMode": "value", "graphMode": "none", "textMode": "value" },
+      "targets": [ { "refId": "A", "format": "table", "rawSql": "SELECT count(*) AS n FROM na.v_resultado_final WHERE decidido_por = 'estagio1' AND $__timeFilter(ts)", "datasource": { "type": "grafana-postgresql-datasource", "uid": "netanomaly" } } ]
+    },
+    {
+      "id": 7, "type": "stat", "title": "Acerto vs. rótulo real",
+      "gridPos": { "h": 4, "w": 4, "x": 20, "y": 3 },
+      "datasource": { "type": "grafana-postgresql-datasource", "uid": "netanomaly" },
+      "fieldConfig": { "defaults": { "unit": "percent", "min": 0, "max": 100, "decimals": 1, "color": { "mode": "thresholds" }, "thresholds": { "mode": "absolute", "steps": [ { "color": "red", "value": null }, { "color": "orange", "value": 70 }, { "color": "green", "value": 90 } ] }, "noValue": "sem rótulo" }, "overrides": [] },
+      "options": { "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }, "colorMode": "value", "graphMode": "none", "textMode": "value" },
+      "targets": [ { "refId": "A", "format": "table", "rawSql": "SELECT round(100.0 * avg( (((classificacao = 'ataque'))::int = label_cic)::int ), 1) AS pct FROM na.v_resultado_final WHERE label_cic IS NOT NULL AND classificacao IN ('ataque','benigno') AND $__timeFilter(ts)", "datasource": { "type": "grafana-postgresql-datasource", "uid": "netanomaly" } } ]
+    },
+    {
+      "id": 8, "type": "timeseries", "title": "Classificação ao longo do tempo",
+      "gridPos": { "h": 9, "w": 16, "x": 0, "y": 7 },
+      "datasource": { "type": "grafana-postgresql-datasource", "uid": "netanomaly" },
+      "fieldConfig": {
+        "defaults": { "custom": { "drawStyle": "bars", "stacking": { "mode": "normal" }, "fillOpacity": 70, "lineWidth": 1 }, "unit": "short" },
+        "overrides": [
+          { "matcher": { "id": "byName", "options": "ataque" }, "properties": [ { "id": "color", "value": { "mode": "fixed", "fixedColor": "red" } } ] },
+          { "matcher": { "id": "byName", "options": "benigno" }, "properties": [ { "id": "color", "value": { "mode": "fixed", "fixedColor": "green" } } ] },
+          { "matcher": { "id": "byName", "options": "pendente" }, "properties": [ { "id": "color", "value": { "mode": "fixed", "fixedColor": "orange" } } ] }
+        ]
+      },
+      "options": { "legend": { "displayMode": "list", "placement": "bottom", "showLegend": true }, "tooltip": { "mode": "multi", "sort": "none" } },
+      "targets": [ { "refId": "A", "format": "time_series", "rawSql": "SELECT $__timeGroupAlias(ts, $__interval, 0), count(*) FILTER (WHERE classificacao='ataque') AS ataque, count(*) FILTER (WHERE classificacao='benigno') AS benigno, count(*) FILTER (WHERE classificacao='pendente') AS pendente FROM na.v_resultado_final WHERE $__timeFilter(ts) GROUP BY 1 ORDER BY 1", "datasource": { "type": "grafana-postgresql-datasource", "uid": "netanomaly" } } ]
+    },
+    {
+      "id": 9, "type": "piechart", "title": "Distribuição da classificação final",
+      "gridPos": { "h": 9, "w": 8, "x": 16, "y": 7 },
+      "datasource": { "type": "grafana-postgresql-datasource", "uid": "netanomaly" },
+      "fieldConfig": {
+        "defaults": { "unit": "short", "color": { "mode": "fixed" } },
+        "overrides": [
+          { "matcher": { "id": "byName", "options": "ataque" }, "properties": [ { "id": "color", "value": { "mode": "fixed", "fixedColor": "red" } } ] },
+          { "matcher": { "id": "byName", "options": "benigno" }, "properties": [ { "id": "color", "value": { "mode": "fixed", "fixedColor": "green" } } ] },
+          { "matcher": { "id": "byName", "options": "pendente" }, "properties": [ { "id": "color", "value": { "mode": "fixed", "fixedColor": "orange" } } ] }
+        ]
+      },
+      "options": { "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }, "pieType": "donut", "legend": { "displayMode": "list", "placement": "right", "values": ["value"] } },
+      "targets": [ { "refId": "A", "format": "table", "rawSql": "SELECT count(*) FILTER (WHERE classificacao='ataque') AS ataque, count(*) FILTER (WHERE classificacao='benigno') AS benigno, count(*) FILTER (WHERE classificacao='pendente') AS pendente FROM na.v_resultado_final WHERE $__timeFilter(ts)", "datasource": { "type": "grafana-postgresql-datasource", "uid": "netanomaly" } } ]
+    },
+    {
+      "id": 10, "type": "table", "title": "Alertas classificados (estágio 1 → estágio 2 → veredito)",
+      "gridPos": { "h": 13, "w": 24, "x": 0, "y": 16 },
+      "datasource": { "type": "grafana-postgresql-datasource", "uid": "netanomaly" },
+      "options": { "showHeader": true, "cellHeight": "sm", "footer": { "show": false } },
+      "fieldConfig": {
+        "defaults": { "custom": { "align": "auto", "filterable": true } },
+        "overrides": [
+          {
+            "matcher": { "id": "byName", "options": "Classificação final" },
+            "properties": [
+              { "id": "custom.cellOptions", "value": { "type": "color-background", "mode": "gradient" } },
+              { "id": "mappings", "value": [
+                { "type": "value", "options": { "ataque": { "color": "red", "index": 0 }, "benigno": { "color": "green", "index": 1 }, "pendente": { "color": "orange", "index": 2 } } }
+              ] }
+            ]
+          },
+          {
+            "matcher": { "id": "byName", "options": "Rótulo real" },
+            "properties": [ { "id": "mappings", "value": [ { "type": "value", "options": { "0": { "text": "benigno", "index": 0 }, "1": { "text": "ataque", "index": 1 } } } ] } ]
+          },
+          {
+            "matcher": { "id": "byName", "options": "Proto" },
+            "properties": [ { "id": "mappings", "value": [ { "type": "value", "options": { "1": { "text": "ICMP", "index": 0 }, "6": { "text": "TCP", "index": 1 }, "17": { "text": "UDP", "index": 2 } } } ] } ]
+          }
+        ]
+      },
+      "targets": [ { "refId": "A", "format": "table", "rawSql": "SELECT ts AS \"Hora\", host(src_ip) || ' → ' || host(dst_ip) || ':' || dst_port AS \"Origem → Destino\", proto AS \"Proto\", round(e1_percentil::numeric, 3) AS \"E1 percentil\", round(e2_margem::numeric, 3) AS \"E2 margem\", e2_predito AS \"E2 predição\", classificacao AS \"Classificação final\", decidido_por AS \"Decidido por\", veredito_classe AS \"Classe (veredito)\", e1_regra AS \"Regra (estágio 1)\", label_cic AS \"Rótulo real\" FROM na.v_resultado_final WHERE $__timeFilter(ts) ORDER BY ts DESC", "datasource": { "type": "grafana-postgresql-datasource", "uid": "netanomaly" } } ]
+    }
+  ]
+}

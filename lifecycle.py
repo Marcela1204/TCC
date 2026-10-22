@@ -48,6 +48,9 @@ Uso:
     # relogio diario: treina candidato e mede. NAO promove.
     ./lifecycle.py candidate --view flow
 
+    # listar modelos recentes com metricas (recall/fpr/auc) e veredito do portao
+    ./lifecycle.py models --stage 1
+
     # ler o portao antes de decidir
     ./lifecycle.py gate --model <uuid>
 
@@ -555,6 +558,67 @@ def imprimir_portao(detalhe, veredito):
 # ----------------------------------------------------------------------------
 # 8. Comandos
 # ----------------------------------------------------------------------------
+
+def cmd_models(conn, args):
+    """Lista os modelos mais recentes com as metricas que importam para
+    decidir uma promocao -- recall/precisao/fpr/auc da avaliacao agregada e o
+    veredito do portao -- para nao ter de consultar o banco na mao. O modelo
+    em producao vem marcado com '*'. Surrogates ficam fora por padrao."""
+    with conn.cursor() as cur:
+        cur.execute(
+            """
+            SELECT m.model_id, m.stage, m.visao, m.kind, m.status,
+                   m.trained_at, m.promoted_at,
+                   e.recall, e.precisao, e.taxa_falso_positivo, e.roc_auc, e.n,
+                   gv.aprovado, gv.cenarios_reprovados, gv.cenarios_avaliados
+            FROM na.models m
+            LEFT JOIN LATERAL (
+                SELECT recall, precisao, taxa_falso_positivo, roc_auc, n
+                FROM na.model_evaluations
+                WHERE model_id = m.model_id AND scope = 'aggregate'
+                ORDER BY evaluated_at DESC LIMIT 1
+            ) e ON true
+            LEFT JOIN na.v_gate_verdict gv ON gv.candidate_model_id = m.model_id
+            WHERE (%(stage)s::int IS NULL OR m.stage = %(stage)s::int)
+              AND (%(view)s::text IS NULL OR m.visao = %(view)s::text)
+              AND (%(surrogates)s::boolean OR m.kind <> 'decision_tree_surrogate')
+            ORDER BY m.trained_at DESC
+            LIMIT %(limite)s
+            """,
+            {"stage": args.stage, "view": args.view,
+             "surrogates": args.surrogates, "limite": args.limite},
+        )
+        linhas = cur.fetchall()
+
+    if not linhas:
+        print("nenhum modelo encontrado para o filtro")
+        return
+
+    f = lambda v, p=".3f": "    -" if v is None else format(v, p)
+    cab = (f"  {'model_id':<38}{'st':>2} {'visao':<6}{'algoritmo':<19}"
+           f"{'status':<11}{'treinado':<18}"
+           f"{'recall':>7}{'prec':>7}{'fpr':>7}{'auc':>6}  portao")
+    print(cab)
+    print("  " + "-" * (len(cab) - 2))
+    for r in linhas:
+        marca = "*" if r["status"] == "promoted" else " "
+        if r["aprovado"] is None:
+            portao = "-"
+        else:
+            portao = "APROVADO" if r["aprovado"] else (
+                f"REPROVADO ({r['cenarios_reprovados']}/"
+                f"{r['cenarios_avaliados']})")
+        treinado = r["trained_at"].strftime("%Y-%m-%d %H:%M")
+        print(f"  {str(r['model_id']):<38}{r['stage']:>2} "
+              f"{(r['visao'] or '-'):<6}{r['kind']:<19}"
+              f"{r['status']+marca:<11}{treinado:<18}"
+              f"{f(r['recall']):>7}{f(r['precisao']):>7}"
+              f"{f(r['taxa_falso_positivo']):>7}{f(r['roc_auc'],'.2f'):>6}"
+              f"  {portao}")
+    print("\n  * = em producao. 'portao' so se aplica a candidato avaliado; "
+          "'-' = sem avaliacao de golden.\n"
+          "  promover:  ./lifecycle.py promote --model <model_id> --by SEU_NOME")
+
 
 def cmd_pool(conn, args):
     with conn.cursor() as cur:
@@ -1400,6 +1464,18 @@ def main():
     p = sub.add_parser("requests", help="consome a fila de retreino do analista")
     comuns(p, treino=True)
     p.set_defaults(fn=cmd_requests)
+
+    p = sub.add_parser("models",
+                       help="lista os modelos mais recentes e suas metricas")
+    p.add_argument("--stage", type=int, choices=[1, 2],
+                   help="filtra por estagio (padrao: ambos)")
+    p.add_argument("--view", choices=["flow", "host"],
+                   help="filtra por visao (padrao: todas)")
+    p.add_argument("--limite", type=int, default=10,
+                   help="quantos modelos listar (padrao: 10)")
+    p.add_argument("--surrogates", action="store_true",
+                   help="inclui as arvores surrogate (ocultas por padrao)")
+    p.set_defaults(fn=cmd_models)
 
     args = ap.parse_args()
     if args.cmd == "promote" and args.force and not args.reason:

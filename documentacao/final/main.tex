@@ -189,16 +189,20 @@
 \email{laferreira@fei.edu.br}
 
 \resumo{
-	Diante da insuficiência performática de métodos tradicionais, este trabalho apresenta o 
-	desenvolvimento parcial de um $IDS$ utilizando técnicas 
-	de aprendizado de máquina. A metodologia é composta pelas etapas de: i) seleção das bases de 
-	dados; ii) processamento dos dados; iii) aplicação de técnicas de redução de dimensionalidade, 
-	utilizando \textit{Principal Component Analysis} ($PCA$) e Matriz de Correlação; iv) treinamento dos 
-	algoritmos de classificação; e v) avaliação de desempenho dos modelos. Como resultados preliminares, 
-	o algoritmo \textit{Decision Tree} apresentou o melhor desempenho, alcançando acurácia de 99,7\%, além 
-	de baixo tempo de treinamento e teste, respectivamente 0,8541 s e 0,003 s. Como trabalhos futuros, prevê-se o aprimoramento dos 
-	algoritmos, ajuste de hiperparâmetros, avaliação por novos modelos e métricas e evolução de um protótipo de sistema de detecção para 
-	aplicação em tempo real e em cenários reais.
+	Diante da insuficiência performática dos métodos tradicionais de detecção, 
+	este trabalho apresenta o desenvolvimento de um Sistema de Detecção de Intrusão 
+	em Redes (NIDS) baseado em Aprendizado de Máquina. Na primeira etapa, 
+	realizou-se uma pesquisa exploratória em lote no conjunto de dados NSL-KDD com 
+	redução de dimensionalidade (PCA e matriz de correlação de \textit{Pearson}), na qual o 
+	algoritmo \textit{Decision Tree} alcançou 99,7\% de acurácia. Em seguida, desenvolveu-se 
+	uma arquitetura operacional em tempo real conteinerizada (\textit{Docker} sob Proxmox 
+	com \textit{bridge} em \textit{ageing time} zero e interface em modo promíscuo), estruturada em 
+	dois estágios de classificação: \textit{Isolation Forest} para detecção de anomalias 
+	(integrado a uma \textit{Decision Tree surrogate} para explicabilidade) e SVM Linear 
+	para a classificação refinada de ameaças. Como resultados do protótipo, 
+	obteve-se um sistema funcional e resiliente ao envenenamento de modelos, capaz 
+	de operar de forma contínua, mantendo a taxa de falsos positivos (FPR) $\leq 2\%$ no 
+	controle benigno e garantindo a preservação do \textit{recall} por cenário de ataque.
 }
 
 \keyword{Sistemas de Detecção de Intrusões, Machine Learning, Segurança da Informação, Análise de Dados, Redução de Dimensionalidade e Cybersegurança.}

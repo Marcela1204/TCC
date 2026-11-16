@@ -248,7 +248,7 @@ permitindo a identificação de ataques desconhecidos \cite{patrick2022study}. D
 consolidaram-se como mecanismos essenciais para a proteção de ativos digitais 
 e mitigação de ameaças em redes \cite{emad2022intrusion}. 
 
-Nesse sentido, o uso de técnicas de \textit{Machine Learning} tem se consolidado como uma 
+Nesse sentido, o uso de técnicas de Aprendizado de Máquina tem se consolidado como uma 
 alternativa promissora \cite{Khraisat2019Survey}. Esses métodos permitem a identificação de padrões complexos 
 nos dados, possibilitando a detecção de comportamentos anômalos sem depender 
 exclusivamente de regras pré-definidas. No entanto, a eficácia desses modelos 
@@ -257,20 +257,28 @@ atributos e da capacidade de lidar com a alta dimensionalidade das bases. Assim,
 compreender a influência dessas variáveis torna-se essencial para o 
 desenvolvimento de soluções mais eficientes.
 
-Dessa forma, este trabalho tem como objetivo geral analisar e avaliar técnicas de 
-\textit{Machine Learning} aplicadas à detecção de intrusões, identificando atributos 
-relevantes e comparando o desempenho de algoritmos de classificação. 
-Especificamente, propõe-se:
+Dessa forma, este trabalho tem como objetivo geral projetar, implementar e avaliar 
+um Sistema de Detecção de Intrusão em Redes (NIDS) baseado em Aprendizado de Máquina, 
+evoluindo de um estudo exploratório experimental em lote (MVP1) para uma arquitetura 
+operacional conteinerizada em tempo real, apta a monitorar o tráfego continuo e 
+dotada de mecanismos de defesa contra o envenenamento de modelos (MVP2). Para 
+alcançar o objetivo geral, definem-se os seguintes objetivos específicos:
 
 \begin{itemize}
-    \item Realizar a análise exploratória na base NSL-KDD, para compreender sua estrutura, identificar características gerais dos dados e verificar a presença de inconsistências, valores ausentes ou desbalanceamento entre classes.
-    \item Investigar a distribuição das classes e identificar padrões nos dados, buscando compreender o comportamento do tráfego de rede e possíveis distinções entre atividades normais e diferentes tipos de ataques.
-    \item Treinar modelos de classificação baseados em \textit{Machine Learning}, aplicando diferentes algoritmos com o objetivo de identificar padrões de intrusão e classificar o tráfego de rede.
+    \item Construir e implantar a infraestrutura de monitoramento em tempo real (MVP2): estruturar uma arquitetura conteinerizada via \textit{Docker Compose} em ambiente virtualizado Proxmox, configurando a interface da máquina virtual em modo promíscuo e a ponte virtual (\textit{bridge}) com tempo de envelhecimento (\textit{ageing time}) ajustado para zero, garantindo a captura não destrutiva e a análise integral do tráfego em trânsito.
+    \item Implementar a arquitetura de classificação em dois estágios encadeados: desenvolver o Estágio 1 empregando o algoritmo não supervisionado \textit{Isolation Forest} para filtragem de anomalias em tempo real — acompanhado por uma árvore de decisão substituta \textit{Decision Tree} surrogate para a geração de regras explicativas de alerta — e o Estágio 2 empregando um SVM Linear supervisionado para a classificação detalhada de ameaças conhecidas a partir de vereditos do analista \textit{active learning}.
+    \item Estabelecer mecanismos de resiliência ao envenenamento de modelos (\textit{model poisoning}): estruturar um ciclo de vida de treinamento sustentado por um \textit{data pool} curado, aplicando regras operacionais de quarentena de 7 dias, recência temporal com meia-vida de 14 dias e descarte automatizado de janelas identificadas como contaminadas.
+	\item Validar a performance e a segurança da esteira de promoção: submeter os modelos candidatos ao teste automatizado frente a um conjunto \textit{benchmark} rotulado (\textit{Golden Set}), utilizando um portão de validação (\textit{validation gate}) que exige a preservação do \textit{recall} por cenário de ataque e impõe o limite de taxa de falsos positivos (FPR $\leq 2\%$) no controle benigno para a efetivação da promoção em produção.
 \end{itemize}
 
-Os resultados obtidos servirão como base para o desenvolvimento de um protótipo 
-de sistema de detecção de intrusão, contribuindo para o avanço de soluções mais 
-eficazes na área.
+Este trabalho está estruturado em cinco capítulos principais. Além desta Introdução, 
+o Capítulo 2 apresenta a Fundamentação Teórica sobre arquiteturas de rede, 
+sistemas IDS e algoritmos de aprendizado de máquina através de trabalhos relacionados, 
+mapeando o estado da arte na literatura. O Capítulo 3 detalha a Metodologia e 
+Arquitetura do Sistema, contemplando as fases experimental (MVP1) e operacional em 
+tempo real (MVP2). O Capítulo 4 apresenta os Resultados e Discussão, comparando os 
+desempenhos em lote e contínuo. Por fim, o Capítulo 5 sintetiza as Conclusões e 
+indica diretrizes para trabalhos futuros.
 
 \section{Fundamentação Teórica}
 A segurança da informação tornou-se um elemento central na sociedade 

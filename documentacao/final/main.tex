@@ -829,7 +829,6 @@ de rede e detecção de intrusões utilizando a base $NSL-KDD$.
 O algorítimo selecionado foi o $Decision Tree$, este conta com o menor tempo de teste e melhor acurácia, estes valores são a maior métrica ultilizada pois o objetivo do sistema é ser execudato em tempo real para garantir uma resposta rápida a incidentes.
 \newline
 \\
-% \subsection{}
 Ultilizando os testes do capítulo anterior, foi desenvolvida uma análise com os variados algorítimos mais ultilizados ($Random Forest$ [$RF$], $Decision Tree$ [$DT$], $KNN$, $SVM$, $Logistic Regression$ [$LR$]).
 Ultilizando um random state de 42 para os algorítimos citados, obtiveram-se os seguintes valores:
 \begin{strip}
@@ -856,7 +855,7 @@ Ultilizando um random state de 42 para os algorítimos citados, obtiveram-se os 
 Dados os valores da tabela \ref{tab:Tempos_treino} o algorítimo selecionado foi o $Decision Tree$, dado seu baixo tempo de teste e alta acurácia.\\
 Ultilizando os valores anteriormente definidos, para uma melhor vizualização dos dados que realmente importam, o gráfico foi dividido entre ataques e tráfego normal:
 \begin{figure}[H]
-	\includegraphics[width=8.69cm,height=7cm]{./PCA_2D.png}
+	\includegraphics[width=6.69cm,height=4.8cm]{./PCA_2D.png}
 	\caption{PCA classificando tráfego como ataque e normal}
 	\label{fig:pca_ataqueXnormal}
 \end{figure}
@@ -869,7 +868,7 @@ Estudando a importância acumulada por features \ref{fig:Importancia_features} c
 Afim de refinar os dados representado no $PCA$ pela figura \ref{fig:Importancia_features} uma análise similar foi feita utilizado o algorítimo $Decision Tree$ \ref{fig:DecisionTree_features}.
 Indicando que o número ótimo de features é 18, onde a acurácia é maior. \\
 \begin{figure}[H]
-	\includegraphics[width=9cm,height=6cm]{./decisiontree_features.png}
+	\includegraphics[width=8.8cm,height=6cm]{./decisiontree_features.png}
 	\caption{Features variadas para o decision tree}
 	\label{fig:DecisionTree_features}
 \end{figure}
@@ -962,7 +961,7 @@ Para melhor vizualização dos dados os ataques foram separados nas seguintes ca
 \centering
 		\begin{tabular}{|c|c|c|}
 		    \hline
-		    \textbf{Categoria} & \textbf{Tipos de Ataque} & \textbf{Quantidade de Valores}\\
+		    \textbf{Categoria} & \textbf{Tipos de Ataque} & \textbf{Qtd de Valores}\\
 		    \hline
 		    normal & Normal & 67343 \\
 		    \hline

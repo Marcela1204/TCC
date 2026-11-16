@@ -1,0 +1,33 @@
+name: Notificar commits no Discord
+
+on:
+  push:
+    branches:
+      - '**'
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Enviar commits para o Discord
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          REPO: ${{ github.repository }}
+          BRANCH: ${{ github.ref_name }}
+        run: |
+          # Um embed por commit; o Discord aceita no máximo 10 embeds por mensagem
+          jq -c --arg repo "$REPO" --arg branch "$BRANCH" '
+            [.commits[] | {
+              title: ("[\($repo):\($branch)] " + (.message | split("\n")[0]))[0:256],
+              url: .url,
+              description: (.message | split("\n")[1:] | join("\n") | ltrimstr("\n"))[0:4000],
+              author: {name: (.author.username // .author.name)},
+              footer: {text: .id[0:7]},
+              timestamp: .timestamp,
+              color: 5793266
+            } | with_entries(select(.value != ""))]
+            | range(0; length; 10) as $i
+            | {embeds: .[$i:$i+10]}
+          ' "$GITHUB_EVENT_PATH" | while read -r payload; do
+            curl -fsS -H "Content-Type: application/json" -d "$payload" "$DISCORD_WEBHOOK"
+          done

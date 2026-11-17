@@ -1,0 +1,32 @@
+\resizebox{\columnwidth}{!}{%
+\begin{tikzpicture}[
+	node distance=0.8cm and 1.2cm,
+	every node/.style={font=\scriptsize},
+	block/.style={rectangle, draw, text width=1.8cm, text centered, minimum height=0.9cm, inner sep=2pt},
+	decision/.style={diamond, draw, text width=2cm, text centered, inner sep=0pt, aspect=2},
+	arrow/.style={->, >=stealth}
+	]
+	\node (selecao) [block] {Seleção de Bases};
+	\node (processamento) [decision, right=of selecao] {Processamento};
+
+	\node (pca) [block, above right=0.7cm and 1cm of processamento] {PCA: Análise de Componentes Principais};
+	\node (matriz) [block, below right=0.7cm and 1cm of processamento] {Matriz de Correlação};
+
+	\node (calcular) [block, right=of pca] {Calcular Componentes Necessários};
+
+	\coordinate (meio) at ($(pca.east)!0.5!(matriz.east)$);
+	\node (treinamento) [block, right=3cm of meio] {Treinamento de Algoritmos};
+
+	\node (avaliacao) [block, right=of treinamento] {Avaliação com Métricas de Tempo e Performance};
+	\node (resultado) [block, right=of avaliacao] {Seleção do Algoritmo};
+
+	\draw [arrow] (selecao) -- (processamento);
+	\draw [arrow] (processamento.north) -| ([xshift=-1.6cm]pca.west) -- (pca);
+	\draw [arrow] (processamento.south) -| ([xshift=-1.6cm]matriz.west) -- (matriz);
+	\draw [arrow] (pca) -- (calcular);
+	\draw [arrow] (calcular) -| ([yshift=3pt]treinamento.north) -- (treinamento.north);
+	\draw [arrow] (matriz) -| ([yshift=-3pt]treinamento.south) -- (treinamento.south);
+	\draw [arrow] (treinamento) -- (avaliacao);
+	\draw [arrow] (avaliacao) -- (resultado);
+\end{tikzpicture}%
+}

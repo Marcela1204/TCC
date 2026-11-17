@@ -439,7 +439,7 @@ decisões.
 A robustez das árvores de decisão em arquiteturas híbridas é demonstrada por 
 \cite{Depren2005Intelligent}, que combinam o algoritmo $C4.5$ com mapas auto-organizáveis 
 ($SOM$). O uso de técnicas de poda (\textit{pruning}) é destacado como estratégia para 
-evitar o \textit{overfitting}. Os resultados mostram que o sistema alcançou 99,84\% de 
+evitar o $overfitting$. Os resultados mostram que o sistema alcançou 99,84\% de 
 precisão na detecção de ataques de uso indevido. Esse resultado evidencia que 
 árvores de decisão, quando bem ajustadas e combinadas com outras técnicas, 
 podem atingir níveis extremamente elevados de desempenho.
@@ -543,17 +543,16 @@ estudos mais relevantes identificados na literatura.
 \section{Metodologia}
 
 Este trabalho propõe uma abordagem voltada na avaliação do desempenho de algoritmos 
-de aprendizado de máquina supervisionado aplicados à detecção de intrusões em redes 
+de aprendizado de máquina não supervisionados aplicados à detecção de intrusões em redes 
 de computadores. A metodologia adotada foi estruturada em etapas sequenciais, 
 contemplando desde a seleção das bases de dados até a avaliação dos algoritmos 
-utilizados, conforme ilustrado na Figura 1.
-
-\begin{figure*}[htbp]
-	% \includegraphics[width=8.2cm,height=1.75cm]{./metodologia.jpg}
+utilizados, conforme ilustrado na Figura \ref{fig:metodologia}.
+\begin{figure}[H]
+	\centering
 	\input{metodologia.tex}
 	\caption{Metodologia do projeto}
 	\label{fig:metodologia}
-\end{figure*}
+\end{figure}
 
 A pesquisa possui caráter aplicado, com abordagem quantitativa e objetivo 
 experimental, buscando comparar o desempenho de diferentes algoritmos de 
@@ -853,20 +852,19 @@ Ultilizando um random state de 42 para os algorítimos citados, obtiveram-se os 
 	\label{tab:Tempos_treino}
 \end{table}
 Dados os valores da tabela \ref{tab:Tempos_treino} o algorítimo selecionado foi o $Decision Tree$, dado seu baixo tempo de teste e alta acurácia.\\
-Ultilizando os valores anteriormente definidos, para uma melhor vizualização dos dados que realmente importam, o gráfico foi dividido entre ataques e tráfego normal:
+Ultilizando os valores anteriormente definidos na figura \ref{fig:pca_componentes} para uma melhor vizualização dos dados que realmente importam, o gráfico foi dividido entre ataques e tráfego normal:
 \begin{figure}[H]
 	\includegraphics[width=8.69cm,height=7cm]{./PCA_2D.png}
 	\caption{PCA classificando tráfego como ataque e normal}
 	\label{fig:pca_ataqueXnormal}
 \end{figure}
-Estudando a importância acumulada por features \ref{fig:Importancia_features} com o auxilio dos resutados do $PCA$ \ref{fig:pca_ataqueXnormal} chegou-se a conclusão que com 16 features é possível alcançar uma acurácia com valores a cima de 95\%:\\
+Estudando as features com o auxilio dos resutados do $PCA$ chegou-se a Conclusão que com 7 features é possível alcançar uma acurácia com valores a cima de 95\%:\\
 \begin{figure}[H]
 	\includegraphics[width=8.69cm,height=11cm]{./Importancia_features.png}
 	\caption{Representação da importância de cada feature para a acurácia}
 	\label{fig:Importancia_features}
 \end{figure}
-Afim de refinar os dados representado no $PCA$ pela figura \ref{fig:Importancia_features} uma análise similar foi feita utilizado o algorítimo $Decision Tree$ \ref{fig:DecisionTree_features}.
-Indicando que o número ótimo de features é 18, onde a acurácia é maior. \\
+Afim de refinar os dados representado no $PCA$ pela imagem \ref{fig:Importancia_features} uma análise similar foi feita utilizado o algorítimo $Decision Tree$:
 \begin{figure}[H]
 	\includegraphics[width=9cm,height=6cm]{./decisiontree_features.png}
 	\caption{Features variadas para o decision tree}

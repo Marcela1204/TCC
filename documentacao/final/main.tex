@@ -22,7 +22,8 @@
 \usepackage{array}
 \usepackage{booktabs}
 \usepackage{tikz}
-\usetikzlibrary{matrix, positioning, arrows.meta}
+\usepackage{cuted}
+\usetikzlibrary{matrix, positioning, arrows.meta, chains, shapes.geometric, calc}
 \usepackage{listings}
 \usepackage{adjustbox}
 \usepackage{hyperref}
@@ -30,21 +31,6 @@
 \usepackage{float}
 \usepackage{multirow}
 \usepackage{tabularx}  
-\usepackage{float}
-\usepackage{cuted}
-\newfloat{equacao}{htbp}{loe}
-\floatname{equacao}{Equação}
-\DeclareCaptionLabelFormat{custom}{#1 #2.}
-
-\definecolor{azulfigura}{RGB}{0, 114, 187}
-\captionsetup[equacao]{
-    labelformat=custom,
-    labelsep=space,
-    labelfont={bf,color=azulfigura},
-    textfont={normalfont},
-    justification=justified,
-    singlelinecheck=false
-}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -562,11 +548,12 @@ de computadores. A metodologia adotada foi estruturada em etapas sequenciais,
 contemplando desde a seleção das bases de dados até a avaliação dos algoritmos 
 utilizados, conforme ilustrado na Figura 1.
 
-\begin{figure}[H]
-	\includegraphics[width=8.2cm,height=1.75cm]{./metodologia.jpg}
+\begin{figure*}[htbp]
+	% \includegraphics[width=8.2cm,height=1.75cm]{./metodologia.jpg}
+	\input{metodologia.tex}
 	\caption{Metodologia do projeto}
 	\label{fig:metodologia}
-\end{figure}
+\end{figure*}
 
 A pesquisa possui caráter aplicado, com abordagem quantitativa e objetivo 
 experimental, buscando comparar o desempenho de diferentes algoritmos de 
@@ -829,15 +816,31 @@ de rede e detecção de intrusões utilizando a base $NSL-KDD$.
 O algorítimo selecionado foi o $Decision Tree$, este conta com o menor tempo de teste e melhor acurácia, estes valores são a maior métrica ultilizada pois o objetivo do sistema é ser execudato em tempo real para garantir uma resposta rápida a incidentes.
 \newline
 \\
+% \subsection{}
 Ultilizando os testes do capítulo anterior, foi desenvolvida uma análise com os variados algorítimos mais ultilizados ($Random Forest$ [$RF$], $Decision Tree$ [$DT$], $KNN$, $SVM$, $Logistic Regression$ [$LR$]).
 Ultilizando um random state de 42 para os algorítimos citados, obtiveram-se os seguintes valores:
-\begin{strip}
+robustez e estabilidade nas previsões, devido à combinação de múltiplas 
+árvores de decisão. A seleção do modelo final considerou o equilíbrio entre as 
+métricas de Accuracy, Precision, Recall e F1-Score, além do impacto das técnicas de 
+redução de dimensionalidade no desempenho e no custo computacional dos algoritmos, 
+permitindo identificar a abordagem mais eficiente para classificação do tráfego 
+de rede e detecção de intrusões utilizando a base $NSL-KDD$. 
+
+\section{Resultados Preliminares}
+O algorítimo ultilizado para as análises foi o $Decision Tree$, este conta com o menor tempo de teste e melhor acurácia, estes valores são a maior métrica ultilizada pois o objetivo do sistema é ser execudato em tempo real para garantir uma resposta rápida a incidentes.
+\newline
+% \subsection{}
+Ultilizando os testes do capítulo anterior, foi desenvolvida uma análise com os variados algorítimos mais ultilizados ($Random Forest$, $Decision Tree$, $KNN$, $SVM$, $Logistic Regression$).
+%FIXME: adicionar o documento de referência sobre os algoritimos ultilizados
+Ultilizando um random state de 42 para os algorítimos citados, obtiveram-se os seguintes valores:
+\begin{table}[H]
 	\centering
-	% \small
-	% \setlength{\tabcolsep}{1pt}
-	\begin{tabular}{|l c c c c c c|}
+	\small
+	\setlength{\tabcolsep}{1pt}
+	\begin{tabular}{|l c|c|c|c c c|}
 		\hline
-		Modelo & Acurácia & Precisão & Recall & F1-score & Tempo Treino(s) & Tempo Teste(s) \\
+		%FIXME: as notas de rodapé não estão aparecendo
+		Modelo & Acc\footnote{Acurácia} & Prec\footnote{Precisão} & Rec\footnote{Recall} & F1\footnote{F1-score} & Tempo Treino(s) & Tempo Teste(s) \\
 		\hline
 		RF & 0.9987 & 0.9992 & 0.9979 & 0.9985 & 6.3216 & 0.1268 \\
 		DT & 0.9977 & 0.9975 & 0.9975 & 0.9975 & 0.8541 & 0.0035 \\
@@ -846,16 +849,13 @@ Ultilizando um random state de 42 para os algorítimos citados, obtiveram-se os 
 		SVM & 0.9544 & 0.9594 & 0.9418 & 0.9506 & 217.7609 & 9.0564 \\
 		\hline
 	\end{tabular}
-	\captionof{table}{Estátisticas de treino dos modelos}
+	\caption{Estátisticas de treino dos modelos}
 	\label{tab:Tempos_treino}
-\end{strip}
-% \clearpage
-%
-% \raggedbottom
+\end{table}
 Dados os valores da tabela \ref{tab:Tempos_treino} o algorítimo selecionado foi o $Decision Tree$, dado seu baixo tempo de teste e alta acurácia.\\
 Ultilizando os valores anteriormente definidos, para uma melhor vizualização dos dados que realmente importam, o gráfico foi dividido entre ataques e tráfego normal:
 \begin{figure}[H]
-	\includegraphics[width=6.69cm,height=4.8cm]{./PCA_2D.png}
+	\includegraphics[width=8.69cm,height=7cm]{./PCA_2D.png}
 	\caption{PCA classificando tráfego como ataque e normal}
 	\label{fig:pca_ataqueXnormal}
 \end{figure}
@@ -868,47 +868,35 @@ Estudando a importância acumulada por features \ref{fig:Importancia_features} c
 Afim de refinar os dados representado no $PCA$ pela figura \ref{fig:Importancia_features} uma análise similar foi feita utilizado o algorítimo $Decision Tree$ \ref{fig:DecisionTree_features}.
 Indicando que o número ótimo de features é 18, onde a acurácia é maior. \\
 \begin{figure}[H]
-	\includegraphics[width=8.8cm,height=6cm]{./decisiontree_features.png}
+	\includegraphics[width=9cm,height=6cm]{./decisiontree_features.png}
 	\caption{Features variadas para o decision tree}
 	\label{fig:DecisionTree_features}
 \end{figure}
-% \begin{table}[H]
-% 	\centering
-% 	\begin{tabular}{|l l|}
-% 		\hline
-% 		1. & src\_bytes \\
-% 		2. & dst\_host\_srv\_count \\
-% 		3. & count \\
-% 		4. & dst\_bytes \\
-% 		5. & dst\_host\_srv\_rerror\_rate \\
-% 		6. & hot \\
-% 		7. & dst\_host\_same\_src\_port\_rate \\
-% 		8. & logged\_in \\
-% 		9. & srv\_count \\
-% 		10. & dst\_host\_same\_srv\_rate \\
-% 		11. & duration \\
-% 		12. & wrong\_fragment \\
-% 		13. & dst\_host\_rerror\_rate \\
-% 		14. & dst\_host\_diff\_srv\_rate \\
-% 		15. & dst\_host\_count \\
-% 		16. & dst\_host\_srv\_diff\_host\_rate \\
-% 		17. & dst\_host\_serror\_rate \\
-% 		18. & diff\_srv\_rate \\
-% 		\hline
-% 	\end{tabular}
-% 	\label{tab:top18Features}
-% \end{table}
+Indicando que o número ótimo de features é 18, onde a acurácia é maior. \\
+Sendo elas:
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l l|}
+		\hline
+		1. & src\_bytes \\
+		2. & dst\_host\_srv\_count \\
+		3. & count \\
+		4. & dst\_bytes \\
+		5. & dst\_host\_srv\_rerror\_rate \\
+		6. & hot \\
+		7. & dst\_host\_same\_src\_port\_rate \\
+		8. & logged\_in \\
+		9. & srv\_count \\
+		10. & dst\_host\_same\_srv\_rate \\
+		11. & duration \\
+		12. & wrong\_fragment \\
+		13. & dst\_host\_rerror\_rate \\
+		14. & dst\_host\_diff\_srv\_rate \\
+		15. & dst\_host\_count \\
+\hline
+\end{tabular}
+\end{table}
 \begin{enumerate}
-	\item \textbf{src\_bytes}: Bytes enviados da origem para o destino.
-	\item \textbf{dst\_host\_srv\_count}: Número de conexões destinadas a mesma porta no host de destino.
-	\item \textbf{count}: Número de conexões feitas ao mesmo host de destino.
-	\item \textbf{dst\_bytes}: Bytes enviados do destino de volta ao host de origem.
-	\item \textbf{dst\_host\_srv\_rerror\_rate}: Porcentagem de pacotes recusados tentando acessar a mesma porta do destino.
-	\item \textbf{hot}: Número de operações suspeitas detectadas na conexão.
-	\item \textbf{dst\_host\_same\_src\_port\_rate}: Porcentagem de conexões para o destino que ultilizaram a mesma porta de origem.
-	\item \textbf{logged\_in}: Flag booleana que informa se o usuário autenticou no serviço ou não.
-	\item \textbf{srv\_count}: Número de conexões feitas para a mesma porta que a conexão atual.
-	\item \textbf{dst\_host\_same\_srv\_rate}: Porcentagem de conexões que foram para a mesma porta do destino.
 	\item \textbf{duration}: Tempo de duração da conexão em segundos.
 	\item \textbf{wrong\_fragment}: Número de fragmentos corrompidos na conexão.
 	\item \textbf{dst\_host\_rerror\_rate}: Porcentagem de conexões que foram recusadas.
@@ -961,7 +949,7 @@ Para melhor vizualização dos dados os ataques foram separados nas seguintes ca
 \centering
 		\begin{tabular}{|c|c|c|}
 		    \hline
-		    \textbf{Categoria} & \textbf{Tipos de Ataque} & \textbf{Qtd de Valores}\\
+		    \textbf{Categoria} & \textbf{Tipos de Ataque} & \textbf{Quantidade de Valores}\\
 		    \hline
 		    normal & Normal & 67343 \\
 		    \hline
@@ -1172,5 +1160,50 @@ Título & Citações & Autor & Ano & Tipo & HIDS/NIDS & Sig. & Técnica & Técni
 
 \caption{Revisão dos trabalhos sobre IDS}
 \end{table*}
+
+\end{document}
+\documentclass[a4paper,10pt, twocolumn]{article}
+\usepackage[a4paper,top=2cm,bottom=3cm,left=2cm,right=2cm,footskip=0.8cm]{geometry}
+\cite{Jabez2015Intrusion} & 365 & Jabez \& Muthukumar & 2015 & Proposta & NIDS & Anomalia & Não Sup. & NOF (Outlier Detection) & Tempo de CPU superior & KDD Cup 99 \\
+
+\cite{Othman2018Intrusion} & 305 & Othman et al. & 2018 & Proposta & NIDS & Anomalia & Supervisionada & SVMWithSGD (Spark) & 99,55\% (AUROC) & KDD Cup 99 \\
+
+\cite{Liao2013Intrusion} & 2463 & Liao et al. & 2013 & Revisão & Vários & AD, SD, SPA & Vários & Bayes, Game Theory, Data Mining & Alta Acurácia (em SVM/DM) & KDD Cup 99 \\
+
+\cite{Kazi2019network} & 327 & Taher et al. & 2019 & Estudo de Caso & NIDS & Anomalia & Supervisionada & SVM e ANN & 94,02\% (Acurácia) & NSL-KDD \\
+
+\cite{Saranya2020Performance} & 555 & Saranya et al. & 2020 & Revisão/Prop. & Ambos & Ambos + Híb. & Supervisionada & LDA, CART, RF & 99,81\% (Acurácia) & KDD-CUP \\
+
+\cite{Shah2018Performance} & 332 & Shah \& Issac & 2018 & Estudo Comp. & NIDS (Snort) & Híbrido & Supervisionada & SVM, DT, Fuzzy, Naive Bayes & SVM superior & Snort logs, DARPA, NSL-KDD \\
+
+\cite{Belavagi2016Performance} & 482 & Belavagi \& Muniyal & 2016 & Estudo de Caso & NIDS & Anomalia/Uso Ind. & Supervisionada & LR, SVM, GNB, RF & 99\% (Acurácia) & NSL-KDD \\
+
+\cite{Rathore2016RealTime} & 147 & Rathore et al. & 2017 & Proposta & NIDS & Anomalia & Supervisionada & REPTree, J48, SVM, NB & > 99\% (Taxa Ver. Pos.) & DARPA, KDD99, NSL-KDD \\
+
+\cite{Khraisat2019Survey} & 256 & Khraisat et al. & 2020 & Proposta & Ambos & Híbrido & Supervisionada & Stacking (C5.0 + One-Class SVM) & 97,04\% (ADFA) & NSL-KDD, ADFA \\
+
+\cite{solane2015using} & 175 & Duque \& Omar & 2015 & Proposta & NIDS context & Anomalia & Não Sup. & K-means (Clustering) & 81,61\% (Eficiência) & NSL-KDD \\
+
+\cite{emad2022intrusion} & 175 & Abdallah et al. & 2022 & Pesquisa & NIDS focus & Anomalia/Uso Ind. & Supervisionada & RF, SVM, LR, GNB, J48, DNN & 99,9\% (Acurácia em RF) & KDD99, NSL-KDD, CICIDS2017 \\
+
+\cite{James2023Introduction} & 1879 & James et al. & 2023 & Estudo Didático & Não se aplica & Não se aplica & Ambos & LR, DT, SVM, RF, KNN, PCA, K-means e outros & Não se aplica & Bases didáticas \\
+
+
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+
+\caption{Revisão dos trabalhos sobre IDS}
+\end{table*}
+
+\section{Agradecimentos}
+Agradecemos, primeiramente, às nossas famílias, pelo apoio incondicional,
+incentivo constante e compreensão ao longo de toda a nossa trajetória 
+acadêmica. Sem esse suporte, a realização deste trabalho não seria
+possível.
+
+Como inspiração para seguir em frente diante dos desafios, destacamos 
+a frase de Walt Disney: “Todos os seus sonhos podem se tornar realidade 
+se você tiver a coragem para persegui-los”.
 
 \end{document}

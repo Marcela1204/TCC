@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1795221089.114 "main.bcf" "main.bbl" "main" 1795222624.49027 0
-  "main.bcf" 1795222624.33574 114301 ce2a44bd9c50d52a1b74f66d85d52788 "pdflatex"
+["biber main"] 1795221089.114 "main.bcf" "main.bbl" "main" 1795223707.90178 0
+  "main.bcf" 1795223707.72533 114301 ce2a44bd9c50d52a1b74f66d85d52788 "pdflatex"
   "referencias.bib" 1787006418.00794 7763 b12b507183bce3b2a44c7fc370435bab ""
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1795222621.75509 "main.tex" "main.pdf" "main" 1795222624.49059 0
+["pdflatex"] 1795223705.12385 "main.tex" "main.pdf" "main" 1795223707.90224 0
   "/etc/texmf/web2c/texmf.cnf" 1793810066.62254 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -239,11 +239,11 @@
   "PCA_2D.png" 1787006417.99194 93170 aa80406e05867484741c71d4eb718eeb ""
   "decisiontree_features.png" 1787006417.99194 66258 c7bd006d7a521882a915e65d9d8ef846 ""
   "logoinovatcc2.png" 1787006417.99194 8563 2bdf1bdf926197f2974618836c072c1d ""
-  "main.aux" 1795222624.33105 13646 20f6f798aa5ebd5f41c483a3242b93a8 "pdflatex"
+  "main.aux" 1795223707.71655 13646 733d0644377819e2fca4be4962cbbfa8 "pdflatex"
   "main.bbl" 1795221090.09338 41316 f042b00c4ce0d120e26deaa03d86e404 "biber main"
-  "main.out" 1795222624.33105 2928 e138d618e6853f7743223ad6180b3b60 "pdflatex"
-  "main.run.xml" 1795222624.34093 2406 1b56bcb4755fab85cc41222f32da4e69 "pdflatex"
-  "main.tex" 1795222616.53457 72565 c68f3f7a235d1c99a85a4bcaade228b4 ""
+  "main.out" 1795223707.72133 2928 e138d618e6853f7743223ad6180b3b60 "pdflatex"
+  "main.run.xml" 1795223707.73081 2406 1b56bcb4755fab85cc41222f32da4e69 "pdflatex"
+  "main.tex" 1795223704.01903 72653 46602630513023e9fadd3f3076f03fac ""
   "matriz_corr.png" 1787006418.00394 156449 45a58e1a2b1d3cded6c558b8419298b6 ""
   "metodologia.tex" 1794964015.60974 1573 47aed56e370330b3a4fed8c3e542144d ""
   "pcaXvariancia.png" 1787006418.00794 35151 bcc0b7e7568402afd7b57957b9fa9bc1 ""

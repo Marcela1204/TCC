@@ -820,9 +820,10 @@ permitindo identificar a abordagem mais eficiente para classificação do tráfe
 de rede e detecção de intrusões utilizando a base $NSL-KDD$. 
 
 \subsection{Pipeline de classificação}
-Inicialmente uma base é construida extraindo um arquivo .pcap do tráfego usual da rede que está sendo implementado o $IDS$, esta base então é reduzida às 18 $Features$ mencionadas, esta base então é inserida na $Decision Tree$ para ser classificada. Após a etapa de classificação a nova base é inserida no Estágio 1 ($Decision Tree$) para treinar o algorítimo que classificará todo o trafego em tempo real que será fornecido. \\
-Com o modelo definido, então é iniciado o $LifeCycle$ que recebe uma janela de 10 pacotes por vez e classifica a informação com o modelo do estágio 1, esta classificação é preliminar e propositalmente grosseira.\\
-O estágio 2 então é treinado com um $Golden\ set$ com uma base de ataques conhecidos, o objetivo deste estágio é refinar as informações que o estágio anterior classificou, sendo um algorítimo de $clustering$ ele é treinado com uma frequência menor que o estágio 1.
+Inicialmente uma base é construida extraindo um arquivo .pcap do tráfego usual da rede que está sendo implementado o $IDS$, esta base então é reduzida às 18 $Features$ mencionadas, a mesma é inserida na $Isolation Forest$ para ser classificada. Após a etapa de classificação a nova base é inserida no Estágio 1 ($Decision Tree$) para treinar o algorítimo que classificará todo o trafego em tempo real que será fornecido. \\
+\newline
+Com o modelo definido, então é iniciado o $LifeCycle$ que recebe uma janela de 10 pacotes por vez e classifica a informação com base no modelo do estágio 1, esta classificação é preliminar e propositalmente grosseira.\\
+O estágio 2 então é treinado com um $Golden\ set$ de uma base de ataques conhecidos (como o $NSL-KDD$) em conjunto com as informações classificadas pelo estágio anterior, o objetivo deste estágio é refinar as informações que o anterior classificou, sendo um algorítimo de $clustering$ ele é treinado com uma frequência menor que o estágio 1.
 
 \section{Resultados Preliminares}
 O algorítimo selecionado foi o $Decision Tree$, este conta com o menor tempo de teste e melhor acurácia, estes valores são a maior métrica ultilizada pois o objetivo do sistema é ser execudato em tempo real para garantir uma resposta rápida a incidentes.
@@ -839,7 +840,7 @@ permitindo identificar a abordagem mais eficiente para classificação do tráfe
 de rede e detecção de intrusões utilizando a base $NSL-KDD$. 
 
 \section{Resultados Preliminares}
-O algorítimo ultilizado para as análises foi o $Decision Tree$, este conta com o menor tempo de teste e melhor acurácia, estes valores são a maior métrica ultilizada pois o objetivo do sistema é ser execudato em tempo real para garantir uma resposta rápida a incidentes.
+O algorítimo ultilizado para as análises foi o $Decision Tree$, este conta com o menor tempo de teste e melhor acurácia, estes valores são a maior métrica ultilizada pois o objetivo do sistema é ser executato em tempo real para garantir uma resposta rápida a incidentes.
 \newline
 % \subsection{}
 Ultilizando os testes do capítulo anterior, foi desenvolvida uma análise com os variados algorítimos mais ultilizados ($Random Forest$, $Decision Tree$, $KNN$, $SVM$, $Logistic Regression$).

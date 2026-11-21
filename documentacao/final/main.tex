@@ -838,8 +838,10 @@ métricas de Accuracy, Precision, Recall e F1-Score, além do impacto das técni
 redução de dimensionalidade no desempenho e no custo computacional dos algoritmos, 
 permitindo identificar a abordagem mais eficiente para classificação do tráfego 
 de rede e detecção de intrusões utilizando a base $NSL-KDD$. 
+\newline
 
-\section{Resultados Preliminares}
+\section{Resultados}
+\subsection{MVP1}
 O algorítimo ultilizado para as análises foi o $Decision Tree$, este conta com o menor tempo de teste e melhor acurácia, estes valores são a maior métrica ultilizada pois o objetivo do sistema é ser executato em tempo real para garantir uma resposta rápida a incidentes.
 \newline
 % \subsection{}
@@ -850,10 +852,9 @@ Ultilizando um random state de 42 para os algorítimos citados, obtiveram-se os 
 	\centering
 	\small
 	\setlength{\tabcolsep}{1pt}
-	\begin{tabular}{|l c|c|c|c c c|}
+	\begin{tabular}{|l|c|c|c|c c c|}
 		\hline
-		%FIXME: as notas de rodapé não estão aparecendo
-		Modelo & Acc\footnote{Acurácia} & Prec\footnote{Precisão} & Rec\footnote{Recall} & F1\footnote{F1-score} & Tempo Treino(s) & Tempo Teste(s) \\
+		Modelo & Acc\footnotemark & Prec\footnotemark & Rec\footnotemark & F1\footnotemark & T Train(s)\footnotemark & T Teste(s)\footnotemark \\
 		\hline
 		RF & 0.9987 & 0.9992 & 0.9979 & 0.9985 & 6.3216 & 0.1268 \\
 		DT & 0.9977 & 0.9975 & 0.9975 & 0.9975 & 0.8541 & 0.0035 \\
@@ -865,14 +866,20 @@ Ultilizando um random state de 42 para os algorítimos citados, obtiveram-se os 
 	\caption{Estátisticas de treino dos modelos}
 	\label{tab:Tempos_treino}
 \end{table}
-Dados os valores da tabela \ref{tab:Tempos_treino} o algorítimo selecionado foi o $Decision Tree$, dado seu baixo tempo de teste e alta acurácia.\\
-Ultilizando os valores anteriormente definidos na figura \ref{fig:pca_componentes} para uma melhor vizualização dos dados que realmente importam, o gráfico foi dividido entre ataques e tráfego normal:
+\addtocounter{footnote}{-5}\footnotetext{Acurácia}%
+\stepcounter{footnote}\footnotetext{Precisão}%
+\stepcounter{footnote}\footnotetext{Recall}%
+\stepcounter{footnote}\footnotetext{F1-score}%
+\stepcounter{footnote}\footnotetext{Tempo de treino}%
+\stepcounter{footnote}\footnotetext{Tempo de teste}%
+Com os valores da tabela \ref{tab:Tempos_treino} o algorítimo selecionado foi o $Decision Tree$, dado seu baixo tempo de teste e alta acurácia.\\
+Afim de simplificar a análise dos dados, foi plotado o gráfico \ref{fig:pca_ataqueXnormal} que demonstra a distribuição de dados classificados como ataque e tráfego comum/normal
 \begin{figure}[H]
 	\includegraphics[width=8.69cm,height=7cm]{./PCA_2D.png}
 	\caption{PCA classificando tráfego como ataque e normal}
 	\label{fig:pca_ataqueXnormal}
 \end{figure}
-Estudando as features com o auxilio dos resutados do $PCA$ chegou-se a Conclusão que com 7 features é possível alcançar uma acurácia com valores a cima de 95\%:\\
+Estudando as features com o auxilio dos resutados do $PCA$ chegou-se a Conclusão que com 18 features é possível alcançar uma acurácia com valores a cima de 95\%:\\
 \begin{figure}[H]
 	\includegraphics[width=8.69cm,height=11cm]{./Importancia_features.png}
 	\caption{Representação da importância de cada feature para a acurácia}
@@ -901,62 +908,42 @@ Sendo elas:
 		9. & srv\_count \\
 		10. & dst\_host\_same\_srv\_rate \\
 		11. & duration \\
-		12. & wrong\_fragment \\
+		12. & dst\_host\_count \\
 		13. & dst\_host\_rerror\_rate \\
 		14. & dst\_host\_diff\_srv\_rate \\
 		15. & dst\_host\_count \\
+		16. & dst\_host\_rerror\_rate \\
+		17. & wrong\_fragment \\
+		18. & dst\_host\_diff\_srv\_rate \\
 \hline
 \end{tabular}
 \end{table}
 \begin{enumerate}
+	\item \textbf{src\_bytes}: Número de bytes de dados enviados da origem para o destino.
+	\item \textbf{dst\_host\_srv\_count}: Quantidade de conexões destinadas para o mesmo host (dentre as ultimas 100).
+	\item \textbf{count}: Número de conexões para o mesmo host de destino nos ultimos 2 segundos.
+	\item \textbf{dst\_bytes}: Número de bytes de dados enviados do destino para a origem.
+	\item \textbf{dst\_host\_srv\_rerror\_rate}: Percentual de conexões recusadas vindas de \textbf{dst\_host\_srv\_count}.
+	\item \textbf{hot}: Número de indicadores que identificam o acesso a diretórios do sistema ou escrita e execução de programas.
+	\item \textbf{dst\_host\_same\_src\_port\_rate}: Percentual de conexões que utiliza a mesma porta de origem da conexão atual.
+	\item \textbf{logged\_in}: Indicador binário que informa se houve autenticação bem sucedida.
+	\item \textbf{srv\_count}: Número de conexões para a mesma porta da conexão atual, nos ultimos 2 segundos.
+	\item \textbf{dst\_host\_same\_srv\_rate}: Percentual de conexões ao mesmo host de destino que usam a mesma porta.
 	\item \textbf{duration}: Tempo de duração da conexão em segundos.
-	\item \textbf{wrong\_fragment}: Número de fragmentos corrompidos na conexão.
 	\item \textbf{dst\_host\_rerror\_rate}: Porcentagem de conexões que foram recusadas.
 	\item \textbf{dst\_host\_diff\_srv\_rate}: Porcentagem de conexões que foram para portas diferentes do destino.
 	\item \textbf{dst\_host\_count}: Número de conexões direcinadas para o mesmo ip de destino.
+	\item \textbf{dst\_host\_rerror\_rate}: Porcentagem de conexões que receberam erro do tipo $SYN$.
+	\item \textbf{wrong\_fragment}: Número de fragmentos corrompidos na conexão.
 	\item \textbf{dst\_host\_srv\_diff\_host\_rate}: Porcentagem de conexões para  amesma porta que vieram de varidas origens.
-	\item \textbf{dst\_host\_serror\_rate}: Porcentagem de conexões que receberam erro do tipo $SYN$.
 	\item \textbf{diff\_srv\_rate}: Porcentagem de conexões que foram para portas diferentes.
 \end{enumerate}
 
 
 
-\subsection{Análise de Dados e Pré-processamento}
+\subsubsection{Análise de Dados e Pré-processamento}
 Para a análise de dados foi considerado a base de dados NSL-KDD com os seguintes ataques listados na tabela \ref{tab:ataquesXcategoria}. alguns dos valores citados não são ataques reais, porém no contexto desta análise componentes como: $loadmodule$, $perl$ e $nmap$ foram categorizados como ataques.\\
-% A base de dados conta com os seguintes valores \\
-% 	\begin{table}[H]
-% 		\centering
-% \begin{tabular}{|c c|}
-% 	\hline
-% 	normal & 67343 \\
-% 	neptune & 41214 \\
-% 	satan & 3633 \\
-% 	ipsweep & 3599 \\
-% 	portsweep & 2931 \\
-% 	smurf & 2646 \\
-% 	nmap & 1493 \\
-% 	back & 956 \\
-% 	teardrop & 892 \\
-% 	warezclient & 890 \\
-% 	pod & 201 \\
-% 	guess\_passwd  & 53 \\
-% 	buffer\_overflow & 30 \\
-% 	warezmaster & 20 \\
-% 	land & 18 \\
-% 	imap & 11 \\
-% 	rootkit & 10 \\
-% 	loadmodule & 9 \\
-% 	ftp\_write & 8 \\
-% 	multihop &  7 \\
-% 	phf & 4 \\
-% 	perl & 3 \\
-% 	spy & 2 \\
-% 	\hline
-% \end{tabular}
-% \caption{Dados presentes na base $NSL-KDD$}
-% 		\label{tab:dados_base_NSL_KDD}
-% 	\end{table}
-Para melhor vizualização dos dados os ataques foram separados nas seguintes categorias: $normal$, $dos$, $probe$, $r2l$, $u2r$.
+Para melhor vizualização dos dados os ataques foram separados nas seguintes categorias: $normal$, $DoS$, $probe$, $r2l$, $u2r$.
 	\begin{table}[H]
 \centering
 		\begin{tabular}{|c|c|c|}
@@ -965,7 +952,7 @@ Para melhor vizualização dos dados os ataques foram separados nas seguintes ca
 		    \hline
 		    normal & Normal & 67343 \\
 		    \hline
-		    dos &
+		    DoS &
 		    \begin{tabular}[c]{@{}c@{}}
 			Neptune \\
 		         smurf \\
@@ -1025,7 +1012,7 @@ Para validar as informações da matriz de correlação foi feita uma análise b
 	\label{fig:pca_componentes}
 \end{figure}
 
-\subsection{Redução de Dimensionalidade e Seleção de Atri-butos}
+\subsubsection{Redução de Dimensionalidade e Seleção de Atributos}
 Buscando uma margem de variância a cima de 95\% foi calculado o $PCA$ para variados números de componentes, para descobrir a melhor variância, com o menor número de componentes. Definido 23 de todos os 43 componentes como a melhor média amostral
 \begin{figure}[H]
 \centering
@@ -1034,6 +1021,8 @@ Buscando uma margem de variância a cima de 95\% foi calculado o $PCA$ para vari
 \label{fig:pca_variancia}
 \end{figure}
 
+\subsection{MVP2}
+Este será o mvp 2
 \section{Conclusão}
 Este trabalho apresentou uma análise exploratória e experimental de técnicas de \textit{Machine Learning} aplicadas a Sistemas de Detecção de Intrusões em Redes ($NIDS$), utilizando como referência o conjunto de dados $NSL-KDD$. Diante do desafio imposto pelo crescimento expressivo do tráfego de rede e pela sofisticação das ameaças cibernéticas contemporâneas, a pesquisa atingiu seus objetivos gerais ao mapear a eficácia de tratamentos computacionais e algorítmicos voltados à segurança da informação.
 

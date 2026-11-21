@@ -1,0 +1,981 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global/global}
+    \entry{emad2022intrusion}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=688edddd1d45251286573c7bd64460fa}{%
+           family={Abdallah},
+           familyi={A\bibinitperiod},
+           given={Emad\bibnamedelima E.},
+           giveni={E\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=2ba42b42f227bf01b2b537ffee52d5e0}{%
+           family={Eleisah},
+           familyi={E\bibinitperiod},
+           given={Wafa’},
+           giveni={W\bibinitperiod}}}%
+        {{hash=49888f7fb478038a4eb561b0d8cbe3af}{%
+           family={Otoom},
+           familyi={O\bibinitperiod},
+           given={Ahmed\bibnamedelima Fawzi},
+           giveni={A\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+      }
+      \strng{namehash}{46f231e6d47fd8c91fcf4c347efc090d}
+      \strng{fullhash}{b2e82091224232f5d74bc7c6c7a5e085}
+      \strng{fullhashraw}{b2e82091224232f5d74bc7c6c7a5e085}
+      \strng{bibnamehash}{b2e82091224232f5d74bc7c6c7a5e085}
+      \strng{authorbibnamehash}{b2e82091224232f5d74bc7c6c7a5e085}
+      \strng{authornamehash}{46f231e6d47fd8c91fcf4c347efc090d}
+      \strng{authorfullhash}{b2e82091224232f5d74bc7c6c7a5e085}
+      \strng{authorfullhashraw}{b2e82091224232f5d74bc7c6c7a5e085}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Intrusion Detection Systems using Supervised Machine Learning Techniques: A survey}
+      \field{year}{2022}
+      \verb{doi}
+      \verb 10.1016/2022.03.029
+      \endverb
+    \endentry
+    \entry{Abdulganiyu2023Systematic}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=ef034e1710d8fcbeaddbcae7698b6ee0}{%
+           family={Abdulganiyu},
+           familyi={A\bibinitperiod},
+           given={Oluwadamilare\bibnamedelima Harazeem},
+           giveni={O\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=476c589b2d3d6b1ca67f2cd0a316df0e}{%
+           family={Tchakoucht},
+           familyi={T\bibinitperiod},
+           given={Taha\bibnamedelima Ait},
+           giveni={T\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=166affe840995ca1e3a5f95f3b4d3f56}{%
+           family={Saheed},
+           familyi={S\bibinitperiod},
+           given={Yakub\bibnamedelima Kayode},
+           giveni={Y\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+      }
+      \strng{namehash}{3c79618394d7ab50c4f055eb931931e5}
+      \strng{fullhash}{5b0bcef6a31c64708a8cef76bf12ef01}
+      \strng{fullhashraw}{5b0bcef6a31c64708a8cef76bf12ef01}
+      \strng{bibnamehash}{5b0bcef6a31c64708a8cef76bf12ef01}
+      \strng{authorbibnamehash}{5b0bcef6a31c64708a8cef76bf12ef01}
+      \strng{authornamehash}{3c79618394d7ab50c4f055eb931931e5}
+      \strng{authorfullhash}{5b0bcef6a31c64708a8cef76bf12ef01}
+      \strng{authorfullhashraw}{5b0bcef6a31c64708a8cef76bf12ef01}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Journal of Information Security}
+      \field{title}{A systematic literature review for network intrusion detection system (IDS)}
+      \field{volume}{22}
+      \field{year}{2023}
+      \field{pages}{1233\bibrangedash 1262}
+      \range{pages}{30}
+      \verb{doi}
+      \verb 10.1007/s10207-023-00682-2
+      \endverb
+      \keyw{Network intrusion detection,Signature-based,Anomaly-based}
+    \endentry
+    \entry{wasyhun2023cyber}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=c1fb64a3a6fd293d90286be7f6d4f8d4}{%
+           family={Admass},
+           familyi={A\bibinitperiod},
+           given={Wasyihun\bibnamedelima Sema},
+           giveni={W\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=097f77b187df8f172b887994dd2d13ab}{%
+           family={Munaye},
+           familyi={M\bibinitperiod},
+           given={Yirga\bibnamedelima Yayeh},
+           giveni={Y\bibinitperiod\bibinitdelim Y\bibinitperiod}}}%
+        {{hash=fdf59ff2b4c091eb94e7796204529241}{%
+           family={Diro},
+           familyi={D\bibinitperiod},
+           given={Abebe\bibnamedelima Abeshu},
+           giveni={A\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{10833e5d4e5416b5cb95ed5a929bd3a2}
+      \strng{fullhash}{a305fd86cc8e5367dcfb3f6811392df1}
+      \strng{fullhashraw}{a305fd86cc8e5367dcfb3f6811392df1}
+      \strng{bibnamehash}{a305fd86cc8e5367dcfb3f6811392df1}
+      \strng{authorbibnamehash}{a305fd86cc8e5367dcfb3f6811392df1}
+      \strng{authornamehash}{10833e5d4e5416b5cb95ed5a929bd3a2}
+      \strng{authorfullhash}{a305fd86cc8e5367dcfb3f6811392df1}
+      \strng{authorfullhashraw}{a305fd86cc8e5367dcfb3f6811392df1}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Cyber security: State of the art, challenges and future directions}
+      \field{year}{2023}
+      \verb{doi}
+      \verb 10.1016/2023.10031
+      \endverb
+    \endentry
+    \entry{zehedi2023comparative}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=1d0e77de90731c529d569fecffd7df2d}{%
+           family={Azam},
+           familyi={A\bibinitperiod},
+           given={Zahedi},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=ec25d6e795535bbbd383eacef1149164}{%
+           family={Islam},
+           familyi={I\bibinitperiod},
+           given={Md.\bibnamedelimi Motaharul},
+           giveni={M\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=bbd6dbe719929afd3b15fb13529fc676}{%
+           family={Huda},
+           familyi={H\bibinitperiod},
+           given={Mohammad\bibnamedelima Nurul},
+           giveni={M\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+      }
+      \strng{namehash}{3c80dd1117b49091660c6a62a29910ee}
+      \strng{fullhash}{4f8bc0e27de8822023d018ce78bfa73c}
+      \strng{fullhashraw}{4f8bc0e27de8822023d018ce78bfa73c}
+      \strng{bibnamehash}{4f8bc0e27de8822023d018ce78bfa73c}
+      \strng{authorbibnamehash}{4f8bc0e27de8822023d018ce78bfa73c}
+      \strng{authornamehash}{3c80dd1117b49091660c6a62a29910ee}
+      \strng{authorfullhash}{4f8bc0e27de8822023d018ce78bfa73c}
+      \strng{authorfullhashraw}{4f8bc0e27de8822023d018ce78bfa73c}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Comparative Analysis of Intrusion Detection Systems and Machine Learning-Based Model Analysis Through Decision Tree}
+      \field{year}{2023}
+      \verb{doi}
+      \verb 10.1109/2023.3296444
+      \endverb
+    \endentry
+    \entry{Belavagi2016Performance}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=5567e2ca9a330f2f69fd88df2c2a7a7f}{%
+           family={Belavagi},
+           familyi={B\bibinitperiod},
+           given={Manjula\bibnamedelima C.},
+           giveni={M\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=476eec3fc67070fe7f3679f28455b569}{%
+           family={Muniyal},
+           familyi={M\bibinitperiod},
+           given={Balachandra},
+           giveni={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{d611c1c4b9d871cf7662a986107a2493}
+      \strng{fullhash}{d611c1c4b9d871cf7662a986107a2493}
+      \strng{fullhashraw}{d611c1c4b9d871cf7662a986107a2493}
+      \strng{bibnamehash}{d611c1c4b9d871cf7662a986107a2493}
+      \strng{authorbibnamehash}{d611c1c4b9d871cf7662a986107a2493}
+      \strng{authornamehash}{d611c1c4b9d871cf7662a986107a2493}
+      \strng{authorfullhash}{d611c1c4b9d871cf7662a986107a2493}
+      \strng{authorfullhashraw}{d611c1c4b9d871cf7662a986107a2493}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Procedia Computer Science}
+      \field{title}{Performance Evaluation of Supervised Machine Learning Algorithms for Intrusion Detection}
+      \field{volume}{89}
+      \field{year}{2016}
+      \field{pages}{117\bibrangedash 123}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1016/j.procs.2016.06.016
+      \endverb
+    \endentry
+    \entry{IBM2026Supervised}{site}{}{}
+      \name{author}{2}{}{%
+        {{hash=485c20e134772ecba476bcc856a9d58c}{%
+           family={Belcic},
+           familyi={B\bibinitperiod},
+           given={Ivan},
+           giveni={I\bibinitperiod}}}%
+        {{hash=3ad6590e5b4a21e93d302b7e0bf0d768}{%
+           family={Stryker},
+           familyi={S\bibinitperiod},
+           given={Cole},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{d8f63d278477adc06ebd5b01b2adc6b1}
+      \strng{fullhash}{d8f63d278477adc06ebd5b01b2adc6b1}
+      \strng{fullhashraw}{d8f63d278477adc06ebd5b01b2adc6b1}
+      \strng{bibnamehash}{d8f63d278477adc06ebd5b01b2adc6b1}
+      \strng{authorbibnamehash}{d8f63d278477adc06ebd5b01b2adc6b1}
+      \strng{authornamehash}{d8f63d278477adc06ebd5b01b2adc6b1}
+      \strng{authorfullhash}{d8f63d278477adc06ebd5b01b2adc6b1}
+      \strng{authorfullhashraw}{d8f63d278477adc06ebd5b01b2adc6b1}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{O que é aprendizado supervisionado?}
+      \field{year}{2026}
+      \verb{urlraw}
+      \verb https://www.ibm.com/br-pt/think/topics/supervised-learning
+      \endverb
+      \verb{url}
+      \verb https://www.ibm.com/br-pt/think/topics/supervised-learning
+      \endverb
+    \endentry
+    \entry{Depren2005Intelligent}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=1b1e2e2a891857c79764f7b4c585f78f}{%
+           family={Depren},
+           familyi={D\bibinitperiod},
+           given={Ozgur},
+           giveni={O\bibinitperiod}}}%
+        {{hash=fac5fcb1df4f6220b97730c655265074}{%
+           family={Topallar},
+           familyi={T\bibinitperiod},
+           given={Murat},
+           giveni={M\bibinitperiod}}}%
+        {{hash=53087d0aba193df1b349307c636f531b}{%
+           family={Anarim},
+           familyi={A\bibinitperiod},
+           given={Emin},
+           giveni={E\bibinitperiod}}}%
+        {{hash=2d7fa63649d020407045d88a4a2c7ff3}{%
+           family={Ciliz},
+           familyi={C\bibinitperiod},
+           given={M.\bibnamedelimi Kemal},
+           giveni={M\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+      }
+      \strng{namehash}{14951161243c5e2aac29ae0d9105e45c}
+      \strng{fullhash}{3b7565be052b83a19ef9561887320308}
+      \strng{fullhashraw}{3b7565be052b83a19ef9561887320308}
+      \strng{bibnamehash}{3b7565be052b83a19ef9561887320308}
+      \strng{authorbibnamehash}{3b7565be052b83a19ef9561887320308}
+      \strng{authornamehash}{14951161243c5e2aac29ae0d9105e45c}
+      \strng{authorfullhash}{3b7565be052b83a19ef9561887320308}
+      \strng{authorfullhashraw}{3b7565be052b83a19ef9561887320308}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Expert Systems with Applications}
+      \field{number}{4}
+      \field{title}{An intelligent intrusion detection system (IDS) for anomaly and misuse detection in computer networks}
+      \field{volume}{29}
+      \field{year}{2005}
+      \field{pages}{713\bibrangedash 722}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1016/j.eswa.2005.05.002
+      \endverb
+    \endentry
+    \entry{solane2015using}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=f3bdd100e1274757716ed17c05383420}{%
+           family={Duquea},
+           familyi={D\bibinitperiod},
+           given={Solane},
+           giveni={S\bibinitperiod}}}%
+        {{hash=de66733a8c58a27df45dd4a9996a2e99}{%
+           family={Omar},
+           familyi={O\bibinitperiod},
+           given={Dr.Mohd.\bibnamedelimi Nizam},
+           giveni={D\bibinitperiod\bibinitdelim N\bibinitperiod},
+           prefix={bin},
+           prefixi={b\bibinitperiod}}}%
+      }
+      \strng{namehash}{5c2c202037ce45378d38ccba034380e9}
+      \strng{fullhash}{5c2c202037ce45378d38ccba034380e9}
+      \strng{fullhashraw}{5c2c202037ce45378d38ccba034380e9}
+      \strng{bibnamehash}{5c2c202037ce45378d38ccba034380e9}
+      \strng{authorbibnamehash}{5c2c202037ce45378d38ccba034380e9}
+      \strng{authornamehash}{5c2c202037ce45378d38ccba034380e9}
+      \strng{authorfullhash}{5c2c202037ce45378d38ccba034380e9}
+      \strng{authorfullhashraw}{5c2c202037ce45378d38ccba034380e9}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Using Data Mining Algorithms for Developing a Model for Intrusion Detection System (IDS)}
+      \field{year}{2015}
+      \verb{doi}
+      \verb 10.1016/j.procs.2015.09.145
+      \endverb
+    \endentry
+    \entry{James2023Introduction}{book}{}{}
+      \name{author}{5}{}{%
+        {{hash=32f2e4975c6472b1db05b54dd5de19f1}{%
+           family={G.},
+           familyi={G\bibinitperiod},
+           given={James},
+           giveni={J\bibinitperiod}}}%
+        {{hash=758bd0d9596c9a56ee6616009f4613e4}{%
+           family={D.},
+           familyi={D\bibinitperiod},
+           given={Witten},
+           giveni={W\bibinitperiod}}}%
+        {{hash=b57c5245ba0a4565c366e9c810a8e3b9}{%
+           family={T.},
+           familyi={T\bibinitperiod},
+           given={Hastie},
+           giveni={H\bibinitperiod}}}%
+        {{hash=8408c32b5f1fec8ef19c757243f27aab}{%
+           family={R.},
+           familyi={R\bibinitperiod},
+           given={Tibshirani},
+           giveni={T\bibinitperiod}}}%
+        {{hash=b296ed6901d319a573563a8d9850ecfa}{%
+           family={J.},
+           familyi={J\bibinitperiod},
+           given={Taylor},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{48bae2916d5fa11f9ae33d8d709cbc8c}
+      \strng{fullhash}{0fa25a568f589d75a37afb2248c69afc}
+      \strng{fullhashraw}{0fa25a568f589d75a37afb2248c69afc}
+      \strng{bibnamehash}{0fa25a568f589d75a37afb2248c69afc}
+      \strng{authorbibnamehash}{0fa25a568f589d75a37afb2248c69afc}
+      \strng{authornamehash}{48bae2916d5fa11f9ae33d8d709cbc8c}
+      \strng{authorfullhash}{0fa25a568f589d75a37afb2248c69afc}
+      \strng{authorfullhashraw}{0fa25a568f589d75a37afb2248c69afc}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{An Introduction to Statistical Learning with Applications in Python}
+      \field{year}{2023}
+      \verb{doi}
+      \verb 10.1007/978-3-031-38747-0_2
+      \endverb
+    \endentry
+    \entry{Xianwei2019Adaptive}{article}{}{}
+      \name{author}{5}{}{%
+        {{hash=0eeef0e5b6f6892cc7f5cf8e943882f6}{%
+           family={Gao},
+           familyi={G\bibinitperiod},
+           given={Xianwei},
+           giveni={X\bibinitperiod}}}%
+        {{hash=61104742bb7ac858a375d3d07a30b0b3}{%
+           family={Shan},
+           familyi={S\bibinitperiod},
+           given={Chun},
+           giveni={C\bibinitperiod}}}%
+        {{hash=eaef930e88afa1b510ca4ad559e038e9}{%
+           family={Hu},
+           familyi={H\bibinitperiod},
+           given={Changzhen},
+           giveni={C\bibinitperiod}}}%
+        {{hash=8f13e214ad9918f439d234b13e65c10d}{%
+           family={Niu},
+           familyi={N\bibinitperiod},
+           given={Zequn},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=f9cf90b3bd6cc51f96d2dbd896ba363c}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Zhen},
+           giveni={Z\bibinitperiod}}}%
+      }
+      \strng{namehash}{bab9530c32b2daea2d994f820a652d2e}
+      \strng{fullhash}{bf1f071b43b49ea20803e807a6ca3322}
+      \strng{fullhashraw}{bf1f071b43b49ea20803e807a6ca3322}
+      \strng{bibnamehash}{bf1f071b43b49ea20803e807a6ca3322}
+      \strng{authorbibnamehash}{bf1f071b43b49ea20803e807a6ca3322}
+      \strng{authornamehash}{bab9530c32b2daea2d994f820a652d2e}
+      \strng{authorfullhash}{bf1f071b43b49ea20803e807a6ca3322}
+      \strng{authorfullhashraw}{bf1f071b43b49ea20803e807a6ca3322}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{An Adaptive Ensemble Machine Learning Model for Intrusion Detection}
+      \field{year}{2019}
+      \verb{doi}
+      \verb 10.1109/ACCESS.2019.2923640
+      \endverb
+    \endentry
+    \entry{diptiben2022cyber}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=9859dadb02a39c2963f03db9c5ab3a7a}{%
+           family={Ghelani},
+           familyi={G\bibinitperiod},
+           given={Diptiben},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{9859dadb02a39c2963f03db9c5ab3a7a}
+      \strng{fullhash}{9859dadb02a39c2963f03db9c5ab3a7a}
+      \strng{fullhashraw}{9859dadb02a39c2963f03db9c5ab3a7a}
+      \strng{bibnamehash}{9859dadb02a39c2963f03db9c5ab3a7a}
+      \strng{authorbibnamehash}{9859dadb02a39c2963f03db9c5ab3a7a}
+      \strng{authornamehash}{9859dadb02a39c2963f03db9c5ab3a7a}
+      \strng{authorfullhash}{9859dadb02a39c2963f03db9c5ab3a7a}
+      \strng{authorfullhashraw}{9859dadb02a39c2963f03db9c5ab3a7a}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Cyber Security, Cyber Threats, Implications and Future Perspectives: A Review}
+      \field{year}{2022}
+      \verb{doi}
+      \verb 10.11648/j.XXXX.2022XXXX.XX
+      \endverb
+    \endentry
+    \entry{felix2014analysis}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=3b0cdd917cf250a27fa15631e5fa9961}{%
+           family={Iglesias},
+           familyi={I\bibinitperiod},
+           given={Félix},
+           giveni={F\bibinitperiod}}}%
+        {{hash=2082545a725a488c4f6f4d943bdbade5}{%
+           family={Zseby},
+           familyi={Z\bibinitperiod},
+           given={Tanja},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{8171bb7693873caf6fe3cfb2638614fb}
+      \strng{fullhash}{8171bb7693873caf6fe3cfb2638614fb}
+      \strng{fullhashraw}{8171bb7693873caf6fe3cfb2638614fb}
+      \strng{bibnamehash}{8171bb7693873caf6fe3cfb2638614fb}
+      \strng{authorbibnamehash}{8171bb7693873caf6fe3cfb2638614fb}
+      \strng{authornamehash}{8171bb7693873caf6fe3cfb2638614fb}
+      \strng{authorfullhash}{8171bb7693873caf6fe3cfb2638614fb}
+      \strng{authorfullhashraw}{8171bb7693873caf6fe3cfb2638614fb}
+      \field{sortinit}{I}
+      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Analysis of network traffic features for anomaly detection}
+      \field{year}{2014}
+      \verb{doi}
+      \verb 10.1007/10994-014-5473-9
+      \endverb
+    \endentry
+    \entry{Jabez2015Intrusion}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=7d4eea5aa5722117f4e3eb6a841da60a}{%
+           family={Jabez},
+           familyi={J\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=0c75a67263c1d7761613df0fb814bacb}{%
+           family={Muthukumar},
+           familyi={M\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{88aa7a0b02862ab045951da603c65fb2}
+      \strng{fullhash}{88aa7a0b02862ab045951da603c65fb2}
+      \strng{fullhashraw}{88aa7a0b02862ab045951da603c65fb2}
+      \strng{bibnamehash}{88aa7a0b02862ab045951da603c65fb2}
+      \strng{authorbibnamehash}{88aa7a0b02862ab045951da603c65fb2}
+      \strng{authornamehash}{88aa7a0b02862ab045951da603c65fb2}
+      \strng{authorfullhash}{88aa7a0b02862ab045951da603c65fb2}
+      \strng{authorfullhashraw}{88aa7a0b02862ab045951da603c65fb2}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Procedia Computer Science}
+      \field{title}{Intrusion Detection System (IDS): Anomaly Detection Using Outlier Detection Approach}
+      \field{volume}{48}
+      \field{year}{2015}
+      \field{pages}{338\bibrangedash 343}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1016/j.procs.2015.04.191
+      \endverb
+    \endentry
+    \entry{Khraisat2019Survey}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=5012a40dab75eeae07cbbd6d80c178e1}{%
+           family={Khraisat},
+           familyi={K\bibinitperiod},
+           given={Ansam},
+           giveni={A\bibinitperiod}}}%
+        {{hash=6e3a027f3576d3bd051b3fc7b70d397a}{%
+           family={Gondal},
+           familyi={G\bibinitperiod},
+           given={Iqbal},
+           giveni={I\bibinitperiod}}}%
+        {{hash=cfe292959018600afae3f889c34a5f10}{%
+           family={Vamplew},
+           familyi={V\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod}}}%
+        {{hash=e8788e7cc91b16373fb4002321deffee}{%
+           family={Kamruzzaman},
+           familyi={K\bibinitperiod},
+           given={Joarder},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{92d3ab44af6488585069c3feb533caac}
+      \strng{fullhash}{850e47207157d916a61981ee87bae53d}
+      \strng{fullhashraw}{850e47207157d916a61981ee87bae53d}
+      \strng{bibnamehash}{850e47207157d916a61981ee87bae53d}
+      \strng{authorbibnamehash}{850e47207157d916a61981ee87bae53d}
+      \strng{authornamehash}{92d3ab44af6488585069c3feb533caac}
+      \strng{authorfullhash}{850e47207157d916a61981ee87bae53d}
+      \strng{authorfullhashraw}{850e47207157d916a61981ee87bae53d}
+      \field{extraname}{1}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Cybersecurity}
+      \field{number}{1}
+      \field{title}{Survey of intrusion detection systems: techniques, datasets and challenges}
+      \field{volume}{2}
+      \field{year}{2019}
+      \field{pages}{1\bibrangedash 22}
+      \range{pages}{22}
+      \verb{doi}
+      \verb 10.1186/s42400-019-0038-7
+      \endverb
+    \endentry
+    \entry{Khraisat2019Hybrid}{article}{}{}
+      \name{author}{5}{}{%
+        {{hash=5012a40dab75eeae07cbbd6d80c178e1}{%
+           family={Khraisat},
+           familyi={K\bibinitperiod},
+           given={Ansam},
+           giveni={A\bibinitperiod}}}%
+        {{hash=6e3a027f3576d3bd051b3fc7b70d397a}{%
+           family={Gondal},
+           familyi={G\bibinitperiod},
+           given={Iqbal},
+           giveni={I\bibinitperiod}}}%
+        {{hash=cfe292959018600afae3f889c34a5f10}{%
+           family={Vamplew},
+           familyi={V\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod}}}%
+        {{hash=e8788e7cc91b16373fb4002321deffee}{%
+           family={Kamruzzaman},
+           familyi={K\bibinitperiod},
+           given={Joarder},
+           giveni={J\bibinitperiod}}}%
+        {{hash=8d4a88dcd0898313ee6456631a68b6b1}{%
+           family={Alazab},
+           familyi={A\bibinitperiod},
+           given={Ammar},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{92d3ab44af6488585069c3feb533caac}
+      \strng{fullhash}{1efddc4634f350333208953e37b1ea14}
+      \strng{fullhashraw}{1efddc4634f350333208953e37b1ea14}
+      \strng{bibnamehash}{1efddc4634f350333208953e37b1ea14}
+      \strng{authorbibnamehash}{1efddc4634f350333208953e37b1ea14}
+      \strng{authornamehash}{92d3ab44af6488585069c3feb533caac}
+      \strng{authorfullhash}{1efddc4634f350333208953e37b1ea14}
+      \strng{authorfullhashraw}{1efddc4634f350333208953e37b1ea14}
+      \field{extraname}{2}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Electronics}
+      \field{number}{9}
+      \field{title}{Hybrid Intrusion Detection System Based on the Stacking Ensemble of C5 Decision Tree Classifier and One Class Support Vector Machine}
+      \field{volume}{8}
+      \field{year}{2019}
+      \field{pages}{1011}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.3390/electronics8091011
+      \endverb
+      \keyw{anomaly detection,hybrid approach,C5.0 Decision tree,machine learning}
+    \endentry
+    \entry{Liao2013Intrusion}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=f8405f2653a0c8d9f9d76701184c9815}{%
+           family={Liao},
+           familyi={L\bibinitperiod},
+           given={Hung-Jen},
+           giveni={H\bibinithyphendelim J\bibinitperiod}}}%
+        {{hash=b7e445b7f6bcee838f0d47dfc6b97cda}{%
+           family={Lin},
+           familyi={L\bibinitperiod},
+           given={Chun-Hung\bibnamedelima Richard},
+           giveni={C\bibinithyphendelim H\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=477555d172f3582fb5c19d400e0192ef}{%
+           family={Lin},
+           familyi={L\bibinitperiod},
+           given={Ying-Chih},
+           giveni={Y\bibinithyphendelim C\bibinitperiod}}}%
+        {{hash=6c84d67007d89d04952ef806d4fac852}{%
+           family={Tung},
+           familyi={T\bibinitperiod},
+           given={Kuang-Yuan},
+           giveni={K\bibinithyphendelim Y\bibinitperiod}}}%
+      }
+      \strng{namehash}{a978bec826fc85cb9ab7b8bf824d8a6d}
+      \strng{fullhash}{5479d89d20eef725cc72def2d32c8c8d}
+      \strng{fullhashraw}{5479d89d20eef725cc72def2d32c8c8d}
+      \strng{bibnamehash}{5479d89d20eef725cc72def2d32c8c8d}
+      \strng{authorbibnamehash}{5479d89d20eef725cc72def2d32c8c8d}
+      \strng{authornamehash}{a978bec826fc85cb9ab7b8bf824d8a6d}
+      \strng{authorfullhash}{5479d89d20eef725cc72def2d32c8c8d}
+      \strng{authorfullhashraw}{5479d89d20eef725cc72def2d32c8c8d}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Network and Computer Applications}
+      \field{number}{1}
+      \field{title}{Intrusion detection system: A comprehensive review}
+      \field{volume}{36}
+      \field{year}{2013}
+      \field{pages}{16\bibrangedash 24}
+      \range{pages}{9}
+      \verb{doi}
+      \verb 10.1016/j.jnca.2012.09.004
+      \endverb
+    \endentry
+    \entry{Othman2018Intrusion}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=f7403a0e217fcbf71d6faab19dcdc30d}{%
+           family={Othman},
+           familyi={O\bibinitperiod},
+           given={Suad\bibnamedelima Mohammed},
+           giveni={S\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=a583b71b58edb7c87bdf3d7d52c36565}{%
+           family={Ba-Alwi},
+           familyi={B\bibinithyphendelim A\bibinitperiod},
+           given={Fadl\bibnamedelima Mutaher},
+           giveni={F\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=e258164280cebd8fee14004cfd809565}{%
+           family={Nabeel},
+           familyi={N\bibinitperiod},
+           given={Taha},
+           giveni={T\bibinitperiod}}}%
+        {{hash=0ab25a44ffd634493eadf02a763cf256}{%
+           family={Al-Hashida},
+           familyi={A\bibinithyphendelim H\bibinitperiod},
+           given={Amal\bibnamedelima Y.},
+           giveni={A\bibinitperiod\bibinitdelim Y\bibinitperiod}}}%
+      }
+      \strng{namehash}{f83888da880993147bf34599df1fffa2}
+      \strng{fullhash}{a183b62cf483df0ae52d582ed58c976f}
+      \strng{fullhashraw}{a183b62cf483df0ae52d582ed58c976f}
+      \strng{bibnamehash}{a183b62cf483df0ae52d582ed58c976f}
+      \strng{authorbibnamehash}{a183b62cf483df0ae52d582ed58c976f}
+      \strng{authornamehash}{f83888da880993147bf34599df1fffa2}
+      \strng{authorfullhash}{a183b62cf483df0ae52d582ed58c976f}
+      \strng{authorfullhashraw}{a183b62cf483df0ae52d582ed58c976f}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Big Data}
+      \field{number}{1}
+      \field{title}{Intrusion detection model using machine learning algorithm on Big Data environment}
+      \field{volume}{5}
+      \field{year}{2018}
+      \field{pages}{34}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1186/s40537-018-0145-4
+      \endverb
+    \endentry
+    \entry{Rathore2016RealTime}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=fb116ef6ac75e4ec70dacbc7e40f2c22}{%
+           family={Rathore},
+           familyi={R\bibinitperiod},
+           given={M.\bibnamedelimi Mazhar},
+           giveni={M\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=6b7549ae9fa3b1c777f5ef0a93051bf2}{%
+           family={Ahmad},
+           familyi={A\bibinitperiod},
+           given={Awais},
+           giveni={A\bibinitperiod}}}%
+        {{hash=ceef3925d1f1c212e8b5c828bbabe53a}{%
+           family={Paul},
+           familyi={P\bibinitperiod},
+           given={Anand},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{19239fe8a0818a4b8f5c9ad9252233e5}
+      \strng{fullhash}{b49cb16503a1a703c1fe618ee6579db8}
+      \strng{fullhashraw}{b49cb16503a1a703c1fe618ee6579db8}
+      \strng{bibnamehash}{b49cb16503a1a703c1fe618ee6579db8}
+      \strng{authorbibnamehash}{b49cb16503a1a703c1fe618ee6579db8}
+      \strng{authornamehash}{19239fe8a0818a4b8f5c9ad9252233e5}
+      \strng{authorfullhash}{b49cb16503a1a703c1fe618ee6579db8}
+      \strng{authorfullhashraw}{b49cb16503a1a703c1fe618ee6579db8}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The Journal of Supercomputing}
+      \field{number}{9}
+      \field{title}{Real time intrusion detection system for ultra-high-speed big data environments}
+      \field{volume}{72}
+      \field{year}{2016}
+      \field{pages}{3489\bibrangedash 3510}
+      \range{pages}{22}
+      \verb{doi}
+      \verb 10.1007/s11227-015-1615-5
+      \endverb
+    \endentry
+    \entry{Saranya2020Performance}{article}{}{}
+      \name{author}{5}{}{%
+        {{hash=3821dfbd96604422d2383fbd61210b95}{%
+           family={Saranya},
+           familyi={S\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod}}}%
+        {{hash=75b12851782f2eabe56c7e5240d1cecb}{%
+           family={Sridevi},
+           familyi={S\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=e1f586526bd1714e20ca99cb3cfba67c}{%
+           family={Deisy},
+           familyi={D\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=4efc57820c7e6f1b1c261c7d146357dc}{%
+           family={Chung},
+           familyi={C\bibinitperiod},
+           given={Tran\bibnamedelima Duc},
+           giveni={T\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=5b3712c29e7fb46bb05c639745d2072d}{%
+           family={Khan},
+           familyi={K\bibinitperiod},
+           given={M.\bibnamedelimi K.\bibnamedelimi A.\bibnamedelimi Ahamed},
+           giveni={M\bibinitperiod\bibinitdelim K\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{086e2e8809e91e52ec3c41cb2d17770f}
+      \strng{fullhash}{7bd9f621f17762af3b95c24da9f91312}
+      \strng{fullhashraw}{7bd9f621f17762af3b95c24da9f91312}
+      \strng{bibnamehash}{7bd9f621f17762af3b95c24da9f91312}
+      \strng{authorbibnamehash}{7bd9f621f17762af3b95c24da9f91312}
+      \strng{authornamehash}{086e2e8809e91e52ec3c41cb2d17770f}
+      \strng{authorfullhash}{7bd9f621f17762af3b95c24da9f91312}
+      \strng{authorfullhashraw}{7bd9f621f17762af3b95c24da9f91312}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Procedia Computer Science}
+      \field{title}{Performance Analysis of Machine Learning Algorithms in Intrusion Detection System: A Review}
+      \field{volume}{171}
+      \field{year}{2020}
+      \field{pages}{1251\bibrangedash 1260}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1016/j.procs.2020.04.133
+      \endverb
+    \endentry
+    \entry{scikit2026learn}{site}{}{}
+      \name{author}{1}{}{%
+        {{hash=9d8eacc075d1f5c08aa0c3b96b2186f3}{%
+           family={Scikit-Learn},
+           familyi={S\bibinithyphendelim L\bibinitperiod}}}%
+      }
+      \strng{namehash}{9d8eacc075d1f5c08aa0c3b96b2186f3}
+      \strng{fullhash}{9d8eacc075d1f5c08aa0c3b96b2186f3}
+      \strng{fullhashraw}{9d8eacc075d1f5c08aa0c3b96b2186f3}
+      \strng{bibnamehash}{9d8eacc075d1f5c08aa0c3b96b2186f3}
+      \strng{authorbibnamehash}{9d8eacc075d1f5c08aa0c3b96b2186f3}
+      \strng{authornamehash}{9d8eacc075d1f5c08aa0c3b96b2186f3}
+      \strng{authorfullhash}{9d8eacc075d1f5c08aa0c3b96b2186f3}
+      \strng{authorfullhashraw}{9d8eacc075d1f5c08aa0c3b96b2186f3}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{scikit-learn: Machine Learning in Python}
+      \field{year}{2026}
+      \verb{urlraw}
+      \verb https://scikit-learn.org/stable/index.html
+      \endverb
+      \verb{url}
+      \verb https://scikit-learn.org/stable/index.html
+      \endverb
+    \endentry
+    \entry{Shah2018Performance}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=9f35c1f4c5dcf41e04bb1d2f1eead8e6}{%
+           family={Shah},
+           familyi={S\bibinitperiod},
+           given={Syed\bibnamedelimb Ali\bibnamedelima Raza},
+           giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=ffc53abc0807455b1dbd5506c4b3f7e2}{%
+           family={Issac},
+           familyi={I\bibinitperiod},
+           given={Biju},
+           giveni={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{853f129a05d55c60b9b3a3b37bc52814}
+      \strng{fullhash}{853f129a05d55c60b9b3a3b37bc52814}
+      \strng{fullhashraw}{853f129a05d55c60b9b3a3b37bc52814}
+      \strng{bibnamehash}{853f129a05d55c60b9b3a3b37bc52814}
+      \strng{authorbibnamehash}{853f129a05d55c60b9b3a3b37bc52814}
+      \strng{authornamehash}{853f129a05d55c60b9b3a3b37bc52814}
+      \strng{authorfullhash}{853f129a05d55c60b9b3a3b37bc52814}
+      \strng{authorfullhashraw}{853f129a05d55c60b9b3a3b37bc52814}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Future Generation Computer Systems}
+      \field{title}{Performance comparison of intrusion detection systems and application of machine learning to Snort system}
+      \field{volume}{80}
+      \field{year}{2018}
+      \field{pages}{157\bibrangedash 170}
+      \range{pages}{14}
+      \verb{doi}
+      \verb 10.1016/j.future.2017.10.016
+      \endverb
+    \endentry
+    \entry{Kazi2019network}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=e6586c8bb7d253f970171aa5ede47758}{%
+           family={Taher},
+           familyi={T\bibinitperiod},
+           given={Kazi\bibnamedelima Abu},
+           giveni={K\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=925a60111eb7ced9bab4b7e0fb69ed2a}{%
+           family={Jisan},
+           familyi={J\bibinitperiod},
+           given={Billal\bibnamedelimb Mohammed\bibnamedelima Yasin},
+           giveni={B\bibinitperiod\bibinitdelim M\bibinitperiod\bibinitdelim Y\bibinitperiod}}}%
+        {{hash=a9547b86268c5e29adedd500ff7eef45}{%
+           family={Md.},
+           familyi={M\bibinitperiod}}}%
+        {{hash=39c741f5eb6b4d25faca8af073c0edb6}{%
+           family={Rahman},
+           familyi={R\bibinitperiod},
+           given={Mahbubur},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{bf22d1555cfa8a74da5221da958252a5}
+      \strng{fullhash}{b13285b7c4fabb5a25512cc4042a88ff}
+      \strng{fullhashraw}{b13285b7c4fabb5a25512cc4042a88ff}
+      \strng{bibnamehash}{b13285b7c4fabb5a25512cc4042a88ff}
+      \strng{authorbibnamehash}{b13285b7c4fabb5a25512cc4042a88ff}
+      \strng{authornamehash}{bf22d1555cfa8a74da5221da958252a5}
+      \strng{authorfullhash}{b13285b7c4fabb5a25512cc4042a88ff}
+      \strng{authorfullhashraw}{b13285b7c4fabb5a25512cc4042a88ff}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Network Intrusion Detection using Supervised Machine Learning Technique with Feature Selection}
+      \field{year}{2019}
+      \verb{doi}
+      \verb 10.1109/2019.0644161
+      \endverb
+    \endentry
+    \entry{Thakkar2021Survey}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=c573ad1c4308d0c0dccd44d681a4475f}{%
+           family={Thakkar},
+           familyi={T\bibinitperiod},
+           given={Ankit},
+           giveni={A\bibinitperiod}}}%
+        {{hash=57a1e69a81512af3024c57b4095cd349}{%
+           family={Lohiya},
+           familyi={L\bibinitperiod},
+           given={Ritika},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{bb09eb436716cca80304d0db2905e165}
+      \strng{fullhash}{bb09eb436716cca80304d0db2905e165}
+      \strng{fullhashraw}{bb09eb436716cca80304d0db2905e165}
+      \strng{bibnamehash}{bb09eb436716cca80304d0db2905e165}
+      \strng{authorbibnamehash}{bb09eb436716cca80304d0db2905e165}
+      \strng{authornamehash}{bb09eb436716cca80304d0db2905e165}
+      \strng{authorfullhash}{bb09eb436716cca80304d0db2905e165}
+      \strng{authorfullhashraw}{bb09eb436716cca80304d0db2905e165}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Artificial Intelligence Review}
+      \field{title}{A survey on intrusion detection system: feature selection, model, performance measures, application perspective, challenges, and future research directions}
+      \field{volume}{54}
+      \field{year}{2021}
+      \field{pages}{4529\bibrangedash 4593}
+      \range{pages}{65}
+      \verb{doi}
+      \verb 10.1007/s10462-021-10037-9
+      \endverb
+    \endentry
+    \entry{patrick2022study}{article}{}{}
+      \name{author}{7}{}{%
+        {{hash=4f262e6278a5a63f51c07926d13e56c5}{%
+           family={Vanin},
+           familyi={V\bibinitperiod},
+           given={Patrick},
+           giveni={P\bibinitperiod}}}%
+        {{hash=55556b8026750ad8ad390371a4976dcc}{%
+           family={Newe},
+           familyi={N\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod}}}%
+        {{hash=4a5166a6e9c5b2f904e4a12bcfee83d2}{%
+           family={Dhirani},
+           familyi={D\bibinitperiod},
+           given={Lubna\bibnamedelima Luxmi},
+           giveni={L\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=5b6674565a5cc7bc7f21251805a114ab}{%
+           family={O’Connell},
+           familyi={O\bibinitperiod},
+           given={Eoin},
+           giveni={E\bibinitperiod}}}%
+        {{hash=982431ade7bb81e13b2e69b762504a83}{%
+           family={O’Shea},
+           familyi={O\bibinitperiod},
+           given={Donna},
+           giveni={D\bibinitperiod}}}%
+        {{hash=c63dc9fcb3cf6a9197458474e3ccf26b}{%
+           family={Lee},
+           familyi={L\bibinitperiod},
+           given={Brian},
+           giveni={B\bibinitperiod}}}%
+        {{hash=1a03957b8c4a010d21a9cefe8944bf79}{%
+           family={Rao},
+           familyi={R\bibinitperiod},
+           given={Muzaffar},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{e351d9aa6f9ad2bb7e4ee36610e0969a}
+      \strng{fullhash}{ea67775fe880f55d8c20ca483d9f22cc}
+      \strng{fullhashraw}{ea67775fe880f55d8c20ca483d9f22cc}
+      \strng{bibnamehash}{e351d9aa6f9ad2bb7e4ee36610e0969a}
+      \strng{authorbibnamehash}{e351d9aa6f9ad2bb7e4ee36610e0969a}
+      \strng{authornamehash}{e351d9aa6f9ad2bb7e4ee36610e0969a}
+      \strng{authorfullhash}{ea67775fe880f55d8c20ca483d9f22cc}
+      \strng{authorfullhashraw}{ea67775fe880f55d8c20ca483d9f22cc}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{A Study of Network Intrusion Detection Systems Using Artificial Intelligence/Machine Learning}
+      \field{year}{2022}
+      \verb{doi}
+      \verb 10.3390/app122211752
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

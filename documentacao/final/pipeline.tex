@@ -1,0 +1,17 @@
+\resizebox{\columnwidth}{!}{%
+\begin{tikzpicture}[
+	node distance=0.8cm and 1.2cm,
+	every node/.style={font=\scriptsize},
+	block/.style={rectangle, draw, text width=1.8cm, text centered, minimum height=0.9cm, inner sep=2pt},
+	decision/.style={diamond, draw, text width=2cm, text centered, inner sep=0pt, aspect=2},
+	arrow/.style={->, >=stealth}
+	]
+	\node (if) [block] {Isolation forest};
+	\node (dt) [block, below right=of if, label={[align=center]left:Classificação da base}, label={above:Estágio 1}] {Decision tree};
+
+	\node (svm) [block, right=of dt, label={[align=center]below:Refinamento do resultado}, label={Estágio 2}] {SVM};
+
+	\draw [arrow] (if) -- (dt);
+	\draw [arrow] (dt) -- (svm);
+\end{tikzpicture}%
+}

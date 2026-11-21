@@ -542,11 +542,19 @@ estudos mais relevantes identificados na literatura.
 
 \section{Metodologia}
 
-Este trabalho propõe uma abordagem voltada na avaliação do desempenho de algoritmos 
-de aprendizado de máquina não supervisionados aplicados à detecção de intrusões em redes 
-de computadores. A metodologia adotada foi estruturada em etapas sequenciais, 
-contemplando desde a seleção das bases de dados até a avaliação dos algoritmos 
-utilizados, conforme ilustrado na Figura \ref{fig:metodologia}.
+% Este trabalho propõe uma abordagem voltada na avaliação do desempenho de algoritmos 
+% de aprendizado de máquina não supervisionados aplicados à detecção de intrusões em redes 
+% de computadores. A metodologia adotada foi estruturada em etapas sequenciais, 
+% contemplando desde a seleção das bases de dados até a avaliação dos algoritmos 
+% utilizados, conforme ilustrado na Figura \ref{fig:metodologia}.
+
+A pesquisa possui caráter aplicado, com abordagem quantitativa, objetivo 
+experimental e busca comparar o desempenho de diferentes algoritmos de 
+classificação a partir da utilização de técnicas de redução e seleção de atributos. O sistema é desenvolvido em $python$ e implementado em $Docker$.
+O fluxo metodológico foi dividido em cinco etapas principais: seleção das bases de 
+dados, processamento dos dados, aplicação de técnicas de redução de dimensionalidade, 
+treinamento dos algoritmos e avaliação de desempenho exemplificado na Figura \ref{fig:metodologia}. Posteriormente, a implementação foi feita utilizando um pipeline, o qual constitui-se de 3 algorítimos: $Isolation Forest$ ($IF$), $Decision Tree$ e $SVM$, sendo que o $IF$ é utilizado apenas na etapa de treino, demonstrado na Figura \ref{fig:pipeline}.
+
 \begin{figure}[H]
 	\centering
 	\input{metodologia.tex}
@@ -554,12 +562,12 @@ utilizados, conforme ilustrado na Figura \ref{fig:metodologia}.
 	\label{fig:metodologia}
 \end{figure}
 
-A pesquisa possui caráter aplicado, com abordagem quantitativa e objetivo 
-experimental, buscando comparar o desempenho de diferentes algoritmos de 
-classificação a partir da utilização de técnicas de redução e seleção de atributos. 
-O fluxo metodológico foi dividido em cinco etapas principais: seleção das bases de 
-dados, processamento dos dados, aplicação de técnicas de redução de dimensionalidade, 
-treinamento dos algoritmos e avaliação de desempenho.
+\begin{figure}[H]
+	\centering
+	\input{pipeline.tex}
+	\caption{Pipeline de algorítimos}
+	\label{fig:pipeline}
+\end{figure}
 
 \subsection{Seleção das Bases de Dados}
 A base de dados utilizada neste trabalho foi a $NSL-KDD$, uma versão aprimorada da 
@@ -810,6 +818,11 @@ métricas de \textit{Accuracy}, \textit{Precision}, \textit{Recall} e \textit{F1
 redução de dimensionalidade no desempenho e no custo computacional dos algoritmos, 
 permitindo identificar a abordagem mais eficiente para classificação do tráfego 
 de rede e detecção de intrusões utilizando a base $NSL-KDD$. 
+
+\subsection{Pipeline de classificação}
+Inicialmente uma base é construida extraindo um arquivo .pcap do tráfego usual da rede que está sendo implementado o $IDS$, esta base então é reduzida às 18 $Features$ mencionadas, esta base então é inserida na $Decision Tree$ para ser classificada. Após a etapa de classificação a nova base é inserida no Estágio 1 ($Decision Tree$) para treinar o algorítimo que classificará todo o trafego em tempo real que será fornecido. \\
+Com o modelo definido, então é iniciado o $LifeCycle$ que recebe uma janela de 10 pacotes por vez e classifica a informação com o modelo do estágio 1, esta classificação é preliminar e propositalmente grosseira.\\
+O estágio 2 então é treinado com um $Golden\ set$ com uma base de ataques conhecidos, o objetivo deste estágio é refinar as informações que o estágio anterior classificou, sendo um algorítimo de $clustering$ ele é treinado com uma frequência menor que o estágio 1.
 
 \section{Resultados Preliminares}
 O algorítimo selecionado foi o $Decision Tree$, este conta com o menor tempo de teste e melhor acurácia, estes valores são a maior métrica ultilizada pois o objetivo do sistema é ser execudato em tempo real para garantir uma resposta rápida a incidentes.

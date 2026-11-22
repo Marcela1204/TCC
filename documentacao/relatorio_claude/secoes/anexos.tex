@@ -1,0 +1,64 @@
+\section{Anexos}
+
+\subsection{Revisão dos Trabalhos Relacionados}
+
+\begin{table*}[htbp]
+\centering
+\fontsize{10}{12}\selectfont
+\renewcommand{\arraystretch}{1.2}
+\begin{adjustbox}{width=\textwidth}
+\begin{tabular}{p{4cm} c p{3cm} c p{3cm} c c c p{4cm} c p{4cm}}
+\toprule
+Título & Citações & Autor & Ano & Tipo & HIDS/NIDS & Sig. & Técnica & Técnica Utilizada & Desempenho & Base \\
+\midrule
+\cite{patrick2022study} & 172 & Vanin et al. & 2022 & Revisão & Ambos & Ambos & Ambos & CNN, DNN, SVM, Ensembles & 99,24\% (Acurácia) & KDD99, NSL-KDD, UNSW-NB15, CICIDS2017 \\
+\cite{Thakkar2021Survey} & 459 & Thakkar \& Lohiya & 2022 & Pesquisa/Revisão & NIDS & Ambos & Ambos & ML, DL e SWEVO & 95,5\% (Acurácia) & KDD99, NSL-KDD, CICIDS2017 \\
+\cite{Abdulganiyu2023Systematic} & 330 & Abdulganiyu et al. & 2022 & SLR & NIDS & Ambos + Híbrido & Sup. & CNN, ANN, RF, SVM, DT & CNN+AE ($\sim$100\%) & KDD99, NSL-KDD, UNSW-NB15 \\
+\cite{Depren2005Intelligent} & 803 & Depren et al. & 2005 & Proposta & NIDS & Híbrido & Ambos & SOM (N. Sup.) e J.48 (Sup.) & 99,84\% (Uso Indevido) & KDD Cup 99 \\
+\cite{Xianwei2019Adaptive} & 696 & Gao et al. & 2019 & Proposta & NIDS & Anomalia & Supervisionada & Ensemble (DT, RF, KNN, DNN) & 85,2\% (Acurácia) & NSL-KDD \\
+\cite{felix2014analysis} & 293 & Iglesias \& Zseby & 2015 & Análise & NIDS & Anomalia & Supervisionada & DTC, kNN, NB, ANN, SVM & 78,68\% (Acurácia) & NSL-KDD \\
+\cite{zehedi2023comparative} & 319 & Azam et al. & 2023 & Revisão & NIDS & Híbrido & Supervisionada & DT (C4.5, ID3, CART) & 97,36\% (Acurácia) & NSL-KDD, ADFA, KDD99 \\
+\cite{diptiben2022cyber} & 253 & Ghelani et al. & 2022 & Visão Geral & NIDS/Ciberseg. & Geral & Plataforma IA & Geral ML/DL & Qualitativo & Bibliográfica \\
+\cite{wasyhun2023cyber} & 466 & Admass et al. & 2024 & Revisão & Geral & Geral & Ambos & ML/DL & Síntese de Estado da Arte & EHR (Tempo Real) \\
+\cite{Khraisat2019Hybrid} & 256 & Khraisat et al. & 2020 & Proposta & Ambos & Híbrido & Supervisionada & Stacking (C5.0 + One-Class SVM) & 97,04\% (ADFA) & NSL-KDD, ADFA \\
+\cite{Jabez2015Intrusion} & 365 & Jabez \& Muthukumar & 2015 & Proposta & NIDS & Anomalia & Não Sup. & NOF (Outlier Detection) & Tempo de CPU superior & KDD Cup 99 \\
+\cite{Othman2018Intrusion} & 305 & Othman et al. & 2018 & Proposta & NIDS & Anomalia & Supervisionada & SVMWithSGD (Spark) & 99,55\% (AUROC) & KDD Cup 99 \\
+\cite{Liao2013Intrusion} & 2463 & Liao et al. & 2013 & Revisão & Vários & AD, SD, SPA & Vários & Bayes, Game Theory, Data Mining & Alta Acurácia (em SVM/DM) & KDD Cup 99 \\
+\cite{Kazi2019network} & 327 & Taher et al. & 2019 & Estudo de Caso & NIDS & Anomalia & Supervisionada & SVM e ANN & 94,02\% (Acurácia) & NSL-KDD \\
+\cite{Saranya2020Performance} & 555 & Saranya et al. & 2020 & Revisão/Prop. & Ambos & Ambos + Híb. & Supervisionada & LDA, CART, RF & 99,81\% (Acurácia) & KDD-CUP \\
+\cite{Shah2018Performance} & 332 & Shah \& Issac & 2018 & Estudo Comp. & NIDS (Snort) & Híbrido & Supervisionada & SVM, DT, Fuzzy, Naive Bayes & SVM superior & Snort logs, DARPA, NSL-KDD \\
+\cite{Belavagi2016Performance} & 482 & Belavagi \& Muniyal & 2016 & Estudo de Caso & NIDS & Anomalia/Uso Ind. & Supervisionada & LR, SVM, GNB, RF & 99\% (Acurácia) & NSL-KDD \\
+\cite{Rathore2016RealTime} & 147 & Rathore et al. & 2017 & Proposta & NIDS & Anomalia & Supervisionada & REPTree, J48, SVM, NB & $>$ 99\% (Taxa Ver. Pos.) & DARPA, KDD99, NSL-KDD \\
+\cite{Khraisat2019Survey} & 256 & Khraisat et al. & 2020 & Proposta & Ambos & Híbrido & Supervisionada & Stacking (C5.0 + One-Class SVM) & 97,04\% (ADFA) & NSL-KDD, ADFA \\
+\cite{solane2015using} & 175 & Duque \& Omar & 2015 & Proposta & NIDS context & Anomalia & Não Sup. & K-means (Clustering) & 81,61\% (Eficiência) & NSL-KDD \\
+\cite{emad2022intrusion} & 175 & Abdallah et al. & 2022 & Pesquisa & NIDS focus & Anomalia/Uso Ind. & Supervisionada & RF, SVM, LR, GNB, J48, DNN & 99,9\% (Acurácia em RF) & KDD99, NSL-KDD, CICIDS2017 \\
+\cite{James2023Introduction} & 1879 & James et al. & 2023 & Estudo Didático & Não se aplica & Não se aplica & Ambos & LR, DT, SVM, RF, KNN, PCA, K-means e outros & Não se aplica & Bases didáticas \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\caption{Revisão dos trabalhos sobre IDS.}
+\label{tab:revisao}
+\end{table*}
+
+\subsection{Lista de Abreviaturas e Siglas}
+\begin{description}\small
+\item[C2] \en{Command and Control}: canal de comando e controle de um atacante.
+\item[CIC-IDS-2017] Base de tráfego rotulado do \en{Canadian Institute for Cybersecurity}.
+\item[DoS] \en{Denial of Service}: negação de serviço.
+\item[FPR] \en{False Positive Rate}: taxa de falso positivo.
+\item[HIDS] \en{Host-based Intrusion Detection System}.
+\item[IDS] \en{Intrusion Detection System}: sistema de detecção de intrusão.
+\item[IF] \en{Isolation Forest}.
+\item[IOC] \en{Indicator of Compromise}: indicador de comprometimento.
+\item[KNN] \en{K-Nearest Neighbors}.
+\item[ML] \en{Machine Learning}: aprendizado de máquina.
+\item[MVP] \en{Minimum Viable Product}: produto mínimo viável.
+\item[NIDS] \en{Network-based Intrusion Detection System}.
+\item[NSL-KDD] Base de conexões derivada da KDD Cup 1999.
+\item[PCA] \en{Principal Component Analysis}: análise de componentes principais.
+\item[Probe] Ataques de sondagem e mapeamento.
+\item[R2L] \en{Remote to Local}: acesso local obtido a partir de máquina remota.
+\item[SPAN] \en{Switched Port Analyzer}: porta espelho do \en{switch}.
+\item[SVM] \en{Support Vector Machine}: máquina de vetores de suporte.
+\item[U2R] \en{User to Root}: escalonamento de privilégio para administrador.
+\end{description}

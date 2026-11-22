@@ -1,0 +1,71 @@
+\section{Conclusão}
+
+Este trabalho percorreu o caminho entre um estudo de aprendizado de máquina em lote
+e um sistema de detecção de intrusão que opera sobre tráfego real. No MVP1, a
+análise da base NSL-KDD confirmou o que a literatura relata: modelos baseados em
+árvore atingem acurácia acima de 99,7\%, e 17 atributos bastam para isso, com a
+\en{Decision Tree} oferecendo o melhor equilíbrio entre acurácia e latência de
+predição. O mesmo estudo mostrou, porém, que essa acurácia não sobrevive a ataques
+ausentes do treino: no \cod{KDDTest+}, o \en{recall} caiu para 63,22\%, com o erro
+concentrado em falsos negativos silenciosos.
+
+Essa lacuna orientou o MVP2. O sistema resultante combina um detector não
+supervisionado (\en{Isolation Forest}), que não depende de ter visto o ataque, com
+um refinador supervisionado (SVM linear), que aprende com os vereditos do
+analista, e uma árvore \en{surrogate} que traduz cada alerta em uma regra legível.
+As medições mostraram que os dois estágios são de fato complementares: o
+\en{Isolation Forest} tem \en{recall} nulo contra força bruta real (FTP-Patator),
+por uma razão estrutural --- ataques volumosos e homogêneos não são raros ---, e o
+SVM recupera esses ataques quando os conhece.
+
+A principal contribuição do trabalho está no ciclo de vida do modelo. Retreinar um
+detector de anomalias sobre o tráfego recente o torna explorável por um atacante
+paciente, e as métricas mais óbvias para vigiar o retreino falham justamente nesse
+caso: a fidelidade da explicação não se move e a taxa de falso positivo até
+melhora enquanto o detector fica cego. A resposta adotada --- \en{pool} curado com
+quarentena, recência ponderada, despejo com procedência e um portão que mede
+\en{recall} por cenário com piso absoluto --- reprova candidatos envenenados a
+partir de 0,10\% do \en{pool} e limita o dano acumulado ao intervalo entre a
+produção e o piso. O sistema foi entregue conteinerizado, sem privilégio de
+\en{root}, com persistência em TimescaleDB e painéis em Grafana, e verificado de
+ponta a ponta.
+
+Como trabalhos futuros, destacam-se: (i) ampliar o \en{golden set} com capturas
+próprias de testes de intrusão para todos os cenários, reduzindo a variância do
+cenário canário; (ii) implementar atributos de horizonte longo, agregados por par
+origem/destino ao longo de dias, para detectar beacons de período longo; (iii)
+medir o Estágio 2 com vereditos reais e validação temporal; (iv) concluir a
+interface de veredito do analista e a edição de parâmetros pelo Grafana; e (v)
+operar um segundo canal de detecção por assinatura (Suricata ou Zeek) em paralelo,
+para comparação e correlação de alertas.
+
+\subsection{Cronograma}
+
+\begin{enumerate}
+	\item \textbf{Definição do tema:} estudos introdutórios sobre IDS e aplicação de ML na detecção de ameaças.
+	\item \textbf{Revisão bibliográfica:} levantamento de trabalhos sobre detecção de intrusões, pré-processamento e algoritmos de ML.
+	\item \textbf{MVP1:} estudo em lote sobre a NSL-KDD, comparação de algoritmos e redução de dimensionalidade.
+	\item \textbf{Apresentação parcial:} apresentação do MVP1 e da fundamentação teórica.
+	\item \textbf{MVP2:} pipeline em dois estágios, ciclo de vida, persistência, contêineres e painéis.
+	\item \textbf{Entrega final:} relatório completo e apresentação do sistema.
+\end{enumerate}
+
+\begin{strip}
+\centering
+\footnotesize
+\renewcommand{\arraystretch}{0.9}
+\setlength{\tabcolsep}{2pt}
+\begin{tabular}{|p{2.8cm}|*{12}{c|}}
+\hline
+\multirow{2}{*}{\textbf{Item}} & \multicolumn{12}{c|}{\textbf{2026}} \\ \cline{2-13}
+& Jan & Fev & Mar & Abr & Mai & Jun & Jul & Ago & Set & Out & Nov & Dez \\
+\hline
+Definição do tema       & X & X &   &   &   &   &   &   &   &   &   &   \\ \hline
+Revisão bibliográfica   &   & X & X & X &   &   &   &   &   &   &   &   \\ \hline
+Desenvolvimento MVP1    &   &   &   & X & X &   &   &   &   &   &   &   \\ \hline
+Apresentação parcial    &   &   &   &   &   & X &   &   &   &   &   &   \\ \hline
+Desenvolvimento MVP2    &   &   &   &   &   &   & X & X & X & X & X &   \\ \hline
+Entrega do TCC          &   &   &   &   &   &   &   &   &   &   &   & X \\ \hline
+\end{tabular}
+\captionof{table}{Cronograma do projeto.}
+\end{strip}

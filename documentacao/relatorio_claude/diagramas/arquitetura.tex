@@ -1,0 +1,69 @@
+% Arquitetura do MVP2 (largura total da página).
+% Três faixas: detecção (cima), ciclo de vida do Estágio 1 (meio),
+% refinamento supervisionado (baixo).
+\begin{tikzpicture}[
+  every node/.style={font=\scriptsize},
+  proc/.style={rectangle, draw, rounded corners=2pt, fill=azulFEI!8,
+               text width=2.5cm, align=center, minimum height=1.0cm, inner sep=2pt},
+  dado/.style={cylinder, shape border rotate=90, aspect=0.18, draw, fill=gray!10,
+               text width=2.4cm, align=center, minimum height=1.0cm, inner sep=1pt},
+  ator/.style={rectangle, draw, thick, text width=2.3cm, align=center,
+               minimum height=0.9cm, inner sep=2pt},
+  zona/.style={draw=gray, dashed, rounded corners=4pt, inner sep=7pt},
+  rot/.style={font=\scriptsize\sffamily\bfseries, text=gray},
+  arrow/.style={-{Stealth[length=4pt]}},
+  lbl/.style={font=\tiny, fill=white, inner sep=1pt}
+]
+  % ---------------- faixa 1: detecção em tempo real (y = 0)
+  \node (span)   [ator] at (0,0)    {Porta espelho (SPAN) ou \en{bridge}};
+  \node (det)    [proc] at (3.4,0)  {\cod{netanomaly\_live}\\extração de fluxos\\(janela de 10 s)};
+  \node (e1)     [proc] at (6.8,0)  {\textbf{Estágio 1}\\\en{Isolation Forest}\\+ árvore \en{surrogate}};
+  \node (sink)   [proc] at (10.2,0) {\cod{sink.py}\\percentil contra a grade do treino};
+  \node (alerts) [dado] at (13.6,0) {\cod{na.alerts}\\(\en{hypertable})};
+
+  % ---------------- faixa 2: ciclo de vida do Estágio 1 (y = -2.9)
+  \node (pool)   [dado] at (10.2,-2.9) {\en{Pool} de \en{parquets} + \cod{feature\_windows}};
+  \node (cand)   [proc] at (6.8,-2.9)  {\cod{lifecycle}\\\cod{candidate}\\(diário, automático)};
+  \node (gate)   [proc] at (3.4,-2.9)  {Portão por cenário\\(\cod{v\_gate\_verdict})};
+  \node (prom)   [ator] at (0,-2.9)    {Promoção manual\\(troca atômica)};
+  \node (gold)   [dado] at (3.4,-4.5)  {\en{Golden set}\\(cenários rotulados)};
+
+  % ---------------- faixa 3: refinamento supervisionado (y = -6.6)
+  \node (e2)     [proc] at (13.6,-6.6) {\textbf{Estágio 2}\\SVM linear\\(\cod{netclassify})};
+  \node (fila)   [dado] at (10.2,-6.6) {Predições e fila por margem};
+  \node (ana)    [ator] at (6.8,-6.6)  {Analista\\(painel Grafana)};
+  \node (ver)    [dado] at (3.4,-6.6)  {\cod{na.verdicts}};
+  \node (final)  [dado] at (0,-6.6)    {Classificação final consolidada};
+
+  % setas: detecção
+  \draw[arrow] (span) -- (det);
+  \draw[arrow] (det) -- (e1);
+  \draw[arrow] (e1) -- node[lbl, above=2pt]{escore} (sink);
+  \draw[arrow] (sink) -- node[lbl, above=2pt]{$p \geq 0{,}95$} (alerts);
+
+  % setas: ciclo de vida
+  \draw[arrow] (sink) -- node[lbl, right=2pt, align=left]{janelas de\\13 min} (pool);
+  \draw[arrow] (pool) -- node[lbl, below=3pt, align=center]{quarentena 7 d\\meia-vida 14 d} (cand);
+  \draw[arrow] (cand) -- (gate);
+  \draw[arrow] (gold) -- (gate);
+  \draw[arrow] (gate) -- node[lbl, above=2pt]{aprovado} (prom);
+  \draw[arrow] (prom.north) -- ++(0,0.75) -| node[lbl, pos=0.3, above]{novo \texttt{current\_flow.joblib}} (e1.south);
+
+  % setas: refinamento
+  \draw[arrow] (alerts) -- node[lbl, right=2pt]{alertas} (e2);
+  \draw[arrow] (e2) -- (fila);
+  \draw[arrow] (fila) -- node[lbl, above=2pt]{menor margem} (ana);
+  \draw[arrow] (ana) -- node[lbl, above=2pt]{veredito} (ver);
+  \draw[arrow] (ver.south) -- ++(0,-0.55) -| node[lbl, pos=0.25, below]{rótulos para retreino} (e2.south);
+  \draw[arrow] (ver) -- (final);
+  \draw[arrow] (fila.north) -- ++(0,0.55) -| node[lbl, pos=0.25, above]{predição (sem veredito)} (final.north);
+
+  \begin{scope}[on background layer]
+    \node[zona, fit=(span)(alerts)] (z1) {};
+    \node[zona, fit=(prom)(pool)(gold)] (z2) {};
+    \node[zona, fit=(final)(e2)] (z3) {};
+  \end{scope}
+  \node[rot, anchor=south east] at (z1.north east) {detecção em tempo real};
+  \node[rot, anchor=south east] at (z2.south east) {ciclo de vida do Estágio 1};
+  \node[rot, anchor=north west] at (z3.south west) {refinamento supervisionado};
+\end{tikzpicture}

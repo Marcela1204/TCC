@@ -1,0 +1,140 @@
+\section{Fundamentação Teórica}
+
+\subsection{Segurança da Informação e Ameaças em Rede}
+A segurança da informação tornou-se elemento central na sociedade contemporânea
+devido à crescente dependência de sistemas digitais. Com a consolidação da chamada
+“civilização cibernética” \cite{wasyhun2023cyber}, iniciada com a revolução
+digital no final do século XX \cite{Kazi2019network}, houve aumento significativo
+na produção e circulação de dados, ampliando a superfície de ataque. O foco da área
+é proteger dados contra ameaças internas e externas, assegurando a tríade CIA de
+confidencialidade (\en{confidentiality}), integridade (\en{integrity}) e
+disponibilidade (\en{availability}) \cite{diptiben2022cyber}. Ataques
+cibernéticos podem ocasionar perdas financeiras, danos à reputação e impactos
+críticos quando afetam infraestruturas essenciais \cite{wasyhun2023cyber}.
+
+As ameaças em redes são classificadas conforme objetivo e forma de atuação. Entre
+as principais estão a negação de serviço (DoS), que visa indisponibilizar
+recursos; a sondagem (\en{probing}), que coleta informações da rede; o
+escalonamento de privilégios (U2R) e o acesso remoto indevido (R2L)
+\cite{wasyhun2023cyber}. Somam-se a elas \en{malware}, \en{botnets} e engenharia
+social \cite{Thakkar2021Survey, solane2015using}. Um dos maiores desafios são os
+ataques \en{zero-day}, que exploram vulnerabilidades ainda desconhecidas e, por não
+possuírem assinatura, são difíceis de identificar por métodos tradicionais
+\cite{wasyhun2023cyber}.
+
+\subsection{Sistemas de Detecção de Intrusão}
+Os IDS podem ser classificados pela forma de implantação e pelo método de detecção.
+Quanto à implantação, os sistemas baseados em \en{host} (HIDS) monitoram atividades
+locais e os baseados em rede (NIDS) analisam o tráfego em pontos estratégicos da
+infraestrutura. Quanto ao método, os IDS operam por assinatura, identificando
+padrões conhecidos, ou por anomalia, detectando desvios em relação ao comportamento
+considerado normal; abordagens híbridas combinam as duas
+\cite{Khraisat2019Survey, zehedi2023comparative, Thakkar2021Survey, Khraisat2019Hybrid}.
+Sistemas por assinatura são incapazes de identificar ataques \en{zero-day},
+enquanto sistemas por anomalia tendem a gerar altas taxas de falso positivo ao
+interpretar comportamentos legítimos como ameaças \cite{Kazi2019network}.
+
+Sommer e Paxson \cite{Sommer2010Outside} argumentam que a detecção de intrusão
+difere de outros domínios em que o aprendizado de máquina tem sucesso: o custo de
+um erro é muito alto, o tráfego “normal” é extremamente variável, faltam bases de
+treino representativas e há uma lacuna semântica entre “anômalo” e “malicioso”.
+Por isso recomendam que o sistema explique suas decisões ao operador e que a
+avaliação vá além da acurácia em bases fechadas. Esses pontos orientaram
+diretamente as decisões do MVP2.
+
+\subsection{Aprendizado de Máquina em IDS}
+O ML permite a análise automatizada de grandes volumes de dados de rede e a
+identificação de padrões complexos sem intervenção humana constante
+\cite{zehedi2023comparative, Thakkar2021Survey}. As técnicas dividem-se em
+aprendizado supervisionado, não supervisionado e por reforço, e o processo envolve
+a divisão dos dados em conjuntos de treinamento e teste para avaliação
+\cite{zehedi2023comparative, emad2022intrusion}. Entre os desafios estão o custo
+computacional, o desbalanceamento das classes --- que prejudica a detecção de
+ataques raros --- e a dependência da qualidade dos dados \cite{zehedi2023comparative}.
+Etapas de pré-processamento, seleção de atributos e redução de dimensionalidade,
+como o PCA, são essenciais para o desempenho, e a avaliação usa métricas como
+acurácia, precisão, \en{recall} e \en{F1-score} \cite{zehedi2023comparative, Thakkar2021Survey}.
+
+\subsection{Trabalhos Relacionados}
+Liao \textit{et al.} \cite{Liao2013Intrusion} revisam técnicas de IDS baseadas em
+Bayes, teoria dos jogos e mineração de dados, e mostram que árvores de decisão e SVM
+apresentam altas taxas de acurácia, sem uma abordagem dominante. Saranya
+\textit{et al.} \cite{Saranya2020Performance} comparam algoritmos em cenários IoT e
+5G e obtêm 99,65\% de acurácia com \en{Random Forest}, contra 98\% do CART isolado.
+Khraisat \textit{et al.} \cite{Khraisat2019Hybrid} combinam C5.0 e
+\en{One-Class SVM} em um modelo híbrido, com 83,24\% de acurácia no NSL-KDD e
+97,04\% no ADFA, mostrando que a combinação entre detecção por assinatura e por
+anomalia supera as limitações individuais --- ideia próxima da cascata adotada no
+MVP2.
+
+A interpretabilidade das árvores de decisão é destacada por Azam \textit{et al.}
+\cite{zehedi2023comparative}, em que o CART alcançou 97,36\% de sucesso. Depren
+\textit{et al.} \cite{Depren2005Intelligent} combinam C4.5 com mapas
+auto-organizáveis (SOM) e atingem 99,84\% na detecção de uso indevido. Gao
+\textit{et al.} \cite{Xianwei2019Adaptive} propõem o \en{MultiTree}, um
+\en{ensemble} de árvores CART com votação majoritária que trata o desbalanceamento
+e alcança 85,2\% em cenários desafiadores. Rathore \textit{et al.}
+\cite{Rathore2016RealTime} usam C4.5 e REPTree em ambiente de \en{Big Data} com
+apenas 9 atributos e obtêm taxa de verdadeiros positivos acima de 99,9\%.
+Abdulganiyu \textit{et al.} \cite{Abdulganiyu2023Systematic} consolidam que
+algoritmos baseados em árvores variam entre 85,2\% e 99,9\% de acurácia, conforme a
+preparação dos dados.
+
+Quanto ao pré-processamento, Vanin \textit{et al.} \cite{patrick2022study}
+destacam o alto número de atributos do KDDCup99 (41) e do CICIDS2017 (80) e a
+necessidade de técnicas como o PCA. Thakkar e Lohiya \cite{Thakkar2021Survey}
+mostram que reduzir para 5 a 20 atributos relevantes melhora a eficiência dos
+algoritmos. Iglesias e Zseby \cite{felix2014analysis} reduzem de 41 para 16
+atributos sem perda de acurácia, e Othman \textit{et al.} \cite{Othman2018Intrusion}
+selecionam 17 atributos por qui-quadrado e obtêm AUROC de 99,55\%. Abdallah
+\textit{et al.} \cite{emad2022intrusion} reforçam que conjuntos de 10 a 19
+atributos são comuns em abordagens eficientes. A Tabela~\ref{tab:revisao}, nos
+Anexos, organiza os trabalhos estudados.
+
+\subsection{Isolation Forest}
+O \en{Isolation Forest} \cite{Liu2008Isolation} detecta anomalias isolando
+pontos em vez de modelar a densidade do normal. Cada árvore particiona os dados
+com cortes aleatórios até isolar cada amostra; pontos raros e distantes são
+isolados com poucos cortes. O escore de anomalia de uma amostra $x$ em um conjunto
+de $n$ amostras é
+
+\begin{equation}
+  s(x,n) = 2^{-\frac{E[h(x)]}{c(n)}},
+  \label{eq:if}
+\end{equation}
+
+\noindent em que $E[h(x)]$ é a profundidade média de isolamento de $x$ nas árvores
+e $c(n)$ é a profundidade média de uma busca malsucedida em árvore binária, usada
+como normalização. Escores próximos de 1 indicam anomalia. O parâmetro
+\en{contamination} define a fração de amostras de treino marcadas como anômalas e,
+portanto, o limiar de decisão. Uma consequência estrutural, explorada na Seção IV,
+é que um conjunto \emph{volumoso e homogêneo} de amostras de ataque deixa de ser
+raro e passa a ser difícil de isolar.
+
+\subsection{Máquina de Vetores de Suporte}
+A SVM \cite{Cortes1995Support} procura o hiperplano $f(x)=w^\top x + b$ de
+máxima margem entre duas classes. Na versão linear, o valor de $f(x)$ é uma
+distância com sinal ao hiperplano (a menos do fator $\lVert w\rVert$): o sinal
+dá a classe predita e o módulo dá a confiança. Essa propriedade é usada no
+Estágio 2 para ordenar a fila de revisão do analista. Por ser supervisionada, a
+SVM só reconhece formas de ataque que já viu rotuladas.
+
+\subsection{Explicabilidade por Modelo Substituto}
+Um modelo substituto (\en{surrogate}) é um modelo interpretável treinado para
+imitar as saídas de um modelo opaco \cite{Craven1996Extracting}. Treinando uma
+árvore de decisão rasa sobre os rótulos atribuídos pelo \en{Isolation Forest},
+obtêm-se regras legíveis, como \cod{n\_dports > 50 e duration <= 2,1}, que
+acompanham cada alerta. A fidelidade do substituto mede o quanto ele concorda com
+o modelo original --- e não o quanto o modelo original acerta.
+
+\subsection{Envenenamento de Modelos e Aprendizado Ativo}
+Ataques de envenenamento (\en{poisoning}) manipulam os dados de treino para
+degradar ou desviar um modelo \cite{Biggio2012Poisoning}. Em um IDS que se
+retreina sobre o tráfego observado, o atacante não precisa injetar dados
+artificialmente: basta que sua própria atividade, mantida em volume baixo e
+regular, entre no conjunto de treino e passe a ser aprendida como normal.
+
+O aprendizado ativo (\en{active learning}) \cite{Settles2009Active} reduz o custo
+de rotulagem escolhendo quais amostras submeter ao especialista. A estratégia por
+incerteza prioriza as amostras mais próximas da fronteira de decisão, nas quais um
+rótulo humano mais altera o modelo.

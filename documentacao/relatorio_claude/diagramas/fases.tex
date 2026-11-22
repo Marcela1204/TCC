@@ -1,0 +1,43 @@
+% Visão geral das duas fases do trabalho (coluna simples)
+\resizebox{\columnwidth}{!}{%
+\begin{tikzpicture}[
+  node distance=0.35cm and 0.45cm,
+  every node/.style={font=\scriptsize},
+  block/.style={rectangle, draw, rounded corners=1pt, text width=1.75cm,
+                align=center, minimum height=0.85cm, inner sep=2pt},
+  fase/.style={draw=azulFEI, dashed, rounded corners=3pt, inner sep=5pt},
+  rot/.style={font=\scriptsize\bfseries\sffamily, text=azulFEI},
+  arrow/.style={-{Stealth[length=4pt]}}
+]
+  % MVP1
+  \node (nsl)   [block] {Base NSL-KDD};
+  \node (pre)   [block, right=of nsl] {Pré-processa\-mento};
+  \node (red)   [block, right=of pre] {Correlação, PCA e importância};
+  \node (alg)   [block, right=of red] {5 algoritmos supervisio\-nados};
+  \node (av)    [block, right=of alg] {Validação + KDDTest+};
+
+  \foreach \a/\b in {nsl/pre, pre/red, red/alg, alg/av} \draw[arrow] (\a) -- (\b);
+
+  % MVP2
+  \node (pcap)  [block, below=1.25cm of nsl] {Tráfego espelhado (pcap)};
+  \node (feat)  [block, right=of pcap] {17 atributos por fluxo};
+  \node (e1)    [block, right=of feat] {Estágio 1: \en{Isolation Forest} + árvore};
+  \node (e2)    [block, right=of e1] {Estágio 2: SVM linear};
+  \node (an)    [block, right=of e2] {Analista: veredito};
+
+  \foreach \a/\b in {pcap/feat, feat/e1, e1/e2, e2/an} \draw[arrow] (\a) -- (\b);
+  \draw[arrow] (an.south) -- ++(0,-0.3) -| node[pos=0.25, below]{rótulos} (e2.south);
+
+  \coordinate (anbaixo) at ([yshift=-0.45cm]an.south);
+  \begin{scope}[on background layer]
+    \node[fase, fit=(nsl)(av)] (f1) {};
+    \node[fase, fit=(pcap)(an)(anbaixo)] (f2) {};
+  \end{scope}
+  \node[rot, anchor=south west] at (f1.north west) {MVP1 --- estudo em lote};
+  \node[rot, anchor=south west] at (f2.north west) {MVP2 --- operação em tempo real};
+
+  \path (f2.north) coordinate (f2topo);
+  \draw[arrow, gray, dashed] (av.south) -- (av.south |- f2topo)
+     node[midway, right, text width=2.1cm, align=left] {lacuna de generalização};
+\end{tikzpicture}%
+}

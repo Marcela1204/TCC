@@ -1,0 +1,228 @@
+% =============================================================================
+% Relatório final do TCC -- NIDS com aprendizado de máquina (MVP1 + MVP2)
+% Template: Anais dos TCCs do Centro Universitário FEI (mesmo de documentacao/final)
+%
+% Compilar:  latexmk -pdf main.tex      (pdflatex + biber)
+% =============================================================================
+\documentclass[a4paper,10pt, twocolumn]{article}
+\usepackage[a4paper,top=2cm,bottom=3cm,left=2cm,right=2cm,footskip=0.8cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{helvet}
+\usepackage{multicol}
+\usepackage{titlesec}
+\usepackage[style=ieee, sorting=nty, language=portuguese]{biblatex}
+\usepackage{indentfirst}
+\setlength{\parindent}{2em}
+\usepackage{ragged2e}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usepackage{cuted}
+\usetikzlibrary{matrix, positioning, arrows.meta, chains, shapes.geometric, calc, fit, backgrounds}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepackage{listings}
+\usepackage{adjustbox}
+\usepackage{tabularx}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=black, citecolor=black, urlcolor=blue}
+
+\definecolor{grayFEI}{HTML}{7F7F7F}
+\definecolor{azulFEI}{HTML}{0070C0}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\scriptsize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=none,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
+\lstset{style=mystyle}
+\renewcommand{\lstlistingname}{Listagem}
+
+%-------------------------- ESTILOS NÃO ALTERAR ------------------------------------------------%
+% Estilo para legendas de figura e tabela
+\captionsetup[figure]{
+  labelfont={color=azulFEI, bf, small, sf},
+  textfont={small, sf},
+  font=footnotesize,
+  labelsep=period,
+  name=Figura,
+  justification=raggedright,
+  singlelinecheck=false
+}
+
+\captionsetup[table]{
+  labelfont={color=azulFEI, bf, small, sf},
+  textfont={small, sf},
+  font=footnotesize,
+  labelsep=period,
+  name=Tabela,
+  justification=raggedright,
+  singlelinecheck=false
+}
+
+% Formatação section e subsection
+\titleformat{\subsection}
+  {\color{grayFEI}\normalfont\fontfamily{phv}\selectfont\itshape\fontsize{10}{12}\selectfont}
+  {\thesubsection.}{0.2em}{}
+\renewcommand{\thesubsection}{\Alph{subsection}}
+
+\titleformat{\section}
+  {\color{azulFEI}\normalfont\fontfamily{phv}\selectfont\bfseries\fontsize{11}{13}\selectfont}
+  {\thesection.}{0.2em}{}
+\renewcommand{\thesection}{\Roman{section}}
+\titlespacing*{\section}
+{0pt}{10pt}{0pt}
+
+%Formatação Título
+\newcommand{\inovatitle}[1]{%
+  \noindent{\fontsize{18}{20}{\helvet{\textbf{\textcolor{azulFEI}{#1}}}}}\vspace{25pt}
+}
+
+%Formatação Autores
+\newcommand{\autores}[1]{
+  \helvet{\fontsize{11}{20}\selectfont\textbf{\textit{#1}}}
+}
+\newcommand{\orientador}[1]{
+  \helvet{\fontsize{11}{20}\selectfont\textbf{\textit{#1}}}
+}
+\newcommand{\filiacao}[1]{
+  \helvet{\fontsize{10}{20}\selectfont{\textit{#1}}}
+}
+\newcommand{\email}[1]{
+  \helvet{\fontsize{10}{20}\selectfont{\textit{#1}}\newline}
+}
+\newcommand{\resumo}[1]{%
+\vspace{15pt}
+  \noindent
+  {\helvet{\fontsize{12}{20}\selectfont\textbf{\textcolor{azulFEI}{Resumo:}}}} %
+  \justifying #1 %
+  \newline
+}
+
+\newcommand{\keyword}[1]{
+  \noindent\helvet{\fontsize{12}{20}\selectfont\textbf{\textcolor{azulFEI}{Palavras-chaves:}}} #1  \vspace{25pt}
+}
+
+\renewcommand{\thetable}{\Roman{table}}
+
+%Formatação Cabeçalho e rodapé
+\setlength{\headsep}{1cm}
+\newcommand{\helvet}[1]{{\fontfamily{phv}\selectfont #1}}
+\pagestyle{fancy}
+\fancyhead{}
+\renewcommand{\headrulewidth}{0.3pt}
+\setlength\headheight{1.2cm}
+\lhead{\includegraphics[width=4.97cm, height=1cm]{logoinovatcc2.png}}
+\rhead{\helvet{2º semestre/2026}}
+
+\fancyfoot{}
+\lfoot{
+  \fontfamily{phv}\fontsize{8}{10}\selectfont
+  Anais dos Trabalhos de Conclusão de Curso do Centro Universitário FEI, São Bernardo do Campo – SP\\
+  \vspace{-4pt}\rule{\textwidth}{1pt}
+}
+\rfoot{\fontfamily{phv}\fontsize{8}{10}\selectfont \thepage}
+
+%-------------------------------- FIM ESTILOS ---------------------------------------------------%
+
+% Atalhos de redação
+\newcommand{\en}[1]{\textit{#1}}          % termo em inglês
+\newcommand{\cod}[1]{\texttt{\small #1}}   % identificador de código / tabela
+\graphicspath{{figuras/}}
+
+\addbibresource{referencias.bib}
+
+\begin{document}
+
+\setlength{\columnsep}{20pt}
+\twocolumn[
+\begin{@twocolumnfalse}
+
+\raggedright
+
+\inovatitle{Tecnologias de Machine Learning para Detecção de Intrusões em Redes de Computadores: do Estudo Exploratório a um Pipeline Operacional em Dois Estágios}
+
+\autores{$^1$Lucas Kerr do Amaral, $^2$Marcela Nalesso}
+
+\filiacao{$^1$ Ciência da Computação – FEI}
+\filiacao{$^2$ Ciência da Computação – FEI}
+
+\email{$^1$lamaral2002@gmail.com, $^2$marcelanalesso@gmail.com}
+
+\filiacao{Orientador: Prof. Dr. Leonardo Anjoletto Ferreira}
+\email{laferreira@fei.edu.br}
+
+\resumo{
+Este trabalho descreve o projeto, a implementação e a avaliação de um Sistema de
+Detecção de Intrusão em Redes (NIDS) baseado em Aprendizado de Máquina, conduzido
+em duas fases. Na primeira (MVP1), realizou-se um estudo exploratório em lote sobre
+a base NSL-KDD, com matriz de correlação de \en{Pearson}, PCA e seleção de atributos
+por importância: a \en{Decision Tree} atingiu 99,78\% de acurácia na partição de
+validação com apenas 17 atributos, mas o melhor modelo caiu para 77,92\% de acurácia
+e 63,22\% de \en{recall} no conjunto de teste oficial (KDDTest+), que contém ataques
+ausentes do treino. Essa lacuna de generalização motivou a segunda fase (MVP2): um
+pipeline operacional em tempo real, conteinerizado em \en{Docker}, com dois estágios em
+cascata --- um \en{Isolation Forest} não supervisionado, explicado por uma árvore de
+decisão \en{surrogate}, seguido de um SVM linear supervisionado alimentado pelos
+vereditos do analista. O ciclo de vida dos modelos foi desenhado contra o
+envenenamento: \en{pool} curado com quarentena de 7 dias, peso de recência com
+meia-vida de 14 dias, despejo de janelas comprometidas e um portão de promoção que
+avalia o \en{recall} por cenário de ataque e limita o falso positivo a 2\%. As medições
+mostram que o \en{Isolation Forest} tem \en{recall} nulo em força bruta (FTP-Patator,
+CIC-IDS-2017), ponto cego que o SVM recupera, e que o portão reprova candidatos
+envenenados a partir de 0,10\% do \en{pool} de treino.
+}
+
+\keyword{Sistemas de Detecção de Intrusões, Machine Learning, Isolation Forest, SVM, Envenenamento de Modelos, Cibersegurança.}
+
+\end{@twocolumnfalse}
+]
+
+\input{secoes/introducao}
+\input{secoes/fundamentacao}
+\input{secoes/metodologia}
+\input{secoes/resultados}
+\input{secoes/conclusao}
+
+\section{Referências}
+\printbibliography[heading=none]
+
+\section{Agradecimentos}
+Agradecemos, primeiramente, às nossas famílias, pelo apoio incondicional,
+incentivo constante e compreensão ao longo de toda a nossa trajetória
+acadêmica. Sem esse suporte, a realização deste trabalho não seria
+possível.
+
+Como inspiração para seguir em frente diante dos desafios, destacamos
+a frase de Walt Disney: “Todos os seus sonhos podem se tornar realidade
+se você tiver a coragem para persegui-los”.
+
+\input{secoes/anexos}
+
+\end{document}

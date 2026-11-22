@@ -1,0 +1,66 @@
+\section{Introdução}
+
+O avanço das redes de computadores e a crescente digitalização de serviços têm
+ampliado significativamente a exposição de sistemas a ameaças cibernéticas. Esse
+crescimento é acompanhado por um aumento expressivo no volume de dados trafegados,
+que passou de aproximadamente 16 GB por usuário ao mês em 2017 para cerca de 50 GB
+mensais em 2022 \cite{Thakkar2021Survey}. Esse cenário amplia a superfície de
+ataque e se reflete no aumento da quantidade e da sofisticação de ameaças, como
+negações de serviço, varreduras de rede e acessos não autorizados. Paralelamente, os
+impactos de falhas de segurança tornam-se cada vez mais críticos: mais de
+14 bilhões de registros de dados foram vazados desde 2013, além de prejuízos
+financeiros como os 29,8 bilhões de dólares perdidos em golpes
+telefônicos apenas no ano de 2020 \cite{zehedi2023comparative}.
+
+Os Sistemas de Detecção de Intrusão (IDS) monitoram atividades suspeitas e
+identificam possíveis ataques por meio da análise de tráfego e de comportamento.
+O conceito surgiu na década de 1980, baseado na análise de \en{logs} e de padrões
+conhecidos, e evoluiu na década de 1990 para técnicas de detecção por anomalia,
+capazes de identificar ataques desconhecidos \cite{patrick2022study}. Desde então,
+os IDS consolidaram-se como mecanismos essenciais para a proteção de ativos
+digitais \cite{emad2022intrusion}.
+
+Nesse sentido, o uso de técnicas de Aprendizado de Máquina (\en{Machine Learning},
+ML) tem se consolidado como alternativa promissora \cite{Khraisat2019Survey}.
+Esses métodos identificam padrões complexos nos dados sem depender exclusivamente
+de regras pré-definidas. A literatura, contudo, é dominada por avaliações em lote
+sobre bases rotuladas, nas quais acurácias acima de 99\% são comuns. Levar um
+modelo desses para uma rede real expõe problemas que a avaliação em lote não
+mede: não há rótulo no tráfego de produção, o tráfego legítimo muda com o tempo,
+o erro mais caro é o falso negativo silencioso, e o próprio processo de retreino
+pode ser explorado por um atacante paciente \cite{Sommer2010Outside, Biggio2012Poisoning}.
+
+Este trabalho tem como objetivo geral projetar, implementar e avaliar um Sistema de
+Detecção de Intrusão em Redes (NIDS) baseado em Aprendizado de Máquina, evoluindo
+de um estudo exploratório experimental em lote (MVP1) para uma arquitetura
+operacional conteinerizada em tempo real, apta a monitorar o tráfego contínuo e
+dotada de mecanismos de defesa contra o envenenamento de modelos (MVP2). Para
+alcançar o objetivo geral, definem-se os seguintes objetivos específicos:
+
+\begin{itemize}
+    \item \textbf{Estudo exploratório (MVP1):} comparar algoritmos supervisionados
+    sobre a base NSL-KDD e medir o efeito da redução de dimensionalidade (correlação,
+    PCA e seleção por importância) sobre desempenho e custo computacional.
+    \item \textbf{Classificação em dois estágios encadeados (MVP2):} um Estágio 1
+    não supervisionado (\en{Isolation Forest}) para filtrar anomalias em tempo real,
+    acompanhado de uma árvore de decisão \en{surrogate} que gera regras legíveis para
+    cada alerta, e um Estágio 2 supervisionado (SVM linear) que refina os alertas a
+    partir dos vereditos do analista, em regime de aprendizado ativo.
+    \item \textbf{Resiliência ao envenenamento:} sustentar o retreino em um
+    \en{pool} curado, com quarentena de 7 dias, peso de recência com meia-vida de
+    14 dias, despejo de janelas comprometidas e rastreabilidade de quais modelos
+    absorveram cada janela.
+    \item \textbf{Portão de promoção:} avaliar todo candidato contra um conjunto
+    rotulado de referência (\en{golden set}), exigindo a preservação do \en{recall}
+    por cenário de ataque e limitando a taxa de falso positivo no controle benigno
+    a 2\% antes de qualquer promoção para produção.
+    \item \textbf{Infraestrutura de monitoramento:} empacotar o sistema em
+    contêineres \en{Docker} sem privilégio de \en{root}, com captura passiva do
+    tráfego espelhado, persistência em PostgreSQL/TimescaleDB e painéis em Grafana.
+\end{itemize}
+
+Este trabalho está estruturado em cinco seções principais. Além desta Introdução,
+a Seção II apresenta a Fundamentação Teórica e os trabalhos relacionados. A Seção III
+detalha a Metodologia, contemplando o estudo em lote (MVP1) e a arquitetura
+operacional (MVP2). A Seção IV apresenta e discute os resultados das duas fases.
+Por fim, a Seção V sintetiza as conclusões e indica trabalhos futuros.

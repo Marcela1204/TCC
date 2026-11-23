@@ -23,7 +23,7 @@
 \usepackage{booktabs}
 \usepackage{tikz}
 \usepackage{cuted}
-\usetikzlibrary{matrix, positioning, arrows.meta, chains, shapes.geometric, calc}
+\usetikzlibrary{matrix, positioning, arrows.meta, chains, shapes.geometric, calc, fit, backgrounds}
 \usepackage{listings}
 \usepackage{adjustbox}
 \usepackage{hyperref}
@@ -553,20 +553,14 @@ experimental e busca comparar o desempenho de diferentes algoritmos de
 classificação a partir da utilização de técnicas de redução e seleção de atributos. O sistema é desenvolvido em $python$ e implementado em $Docker$.
 O fluxo metodológico foi dividido em cinco etapas principais: seleção das bases de 
 dados, processamento dos dados, aplicação de técnicas de redução de dimensionalidade, 
-treinamento dos algoritmos e avaliação de desempenho exemplificado na Figura \ref{fig:metodologia}. Posteriormente, a implementação foi feita utilizando um pipeline, o qual constitui-se de 3 algorítimos: $Isolation Forest$ ($IF$), $Decision Tree$ e $SVM$, sendo que o $IF$ é utilizado apenas na etapa de treino, demonstrado na Figura \ref{fig:pipeline}.
+treinamento dos algoritmos e avaliação de desempenho. seguido pela implementação do MVP2 em um pipeline de dois algorítimos que utilizam $Isolation Forest$ + $Decision Tree$ (estágio 1) e $SVM$ linear (estágio 2) \ref{fig:fases}\\
+Todo o código foi estruturado em $python$ utilizando as bibliotecas do \textit{scikit-learn} \cite{scikit2026learn}, $Pandas$ e $scapy$/$nfstream$ para a leitura de pacotes em disco, e conteinerizado em $Docker$ \cite{Merkel2014Docker}.
 
 \begin{figure}[H]
 	\centering
-	\input{metodologia.tex}
-	\caption{Metodologia do projeto}
-	\label{fig:metodologia}
-\end{figure}
-
-\begin{figure}[H]
-	\centering
-	\input{pipeline.tex}
-	\caption{Pipeline de algorítimos}
-	\label{fig:pipeline}
+	\input{fases.tex}
+	\caption{Fases de estudo/implementação do projeto}
+	\label{fig:fases}
 \end{figure}
 
 \subsection{Seleção das Bases de Dados}
@@ -824,6 +818,58 @@ Inicialmente uma base é construida extraindo um arquivo .pcap do tráfego usual
 \newline
 Com o modelo definido, então é iniciado o $LifeCycle$ que recebe uma janela de 10 pacotes por vez e classifica a informação com base no modelo do estágio 1, esta classificação é preliminar e propositalmente grosseira.\\
 O estágio 2 então é treinado com um $Golden\ set$ de uma base de ataques conhecidos (como o $NSL-KDD$) em conjunto com as informações classificadas pelo estágio anterior, o objetivo deste estágio é refinar as informações que o anterior classificou, sendo um algorítimo de $clustering$ ele é treinado com uma frequência menor que o estágio 1.
+
+O estágio 1 é não superviosionado pois não existe rótulo no tráfego de produção; ele fuciona como peneira com alto \textit{recall} e baixa precisão. O estágio 2 é supervisionado e opera apenas sobre os alertas do estágio 1, com dois objetivos: recuperar formas de ataque conhecidas que o estágio 1 não classifica, e separar ataque real de anomalia benigna. Os rótulos do estágio 2 vem do $Golden\ Set$ e dos vereditos do analista.\\
+Os componentes de \textit{software} deselvolvidos são:
+\begin{itemize}
+	\item \textbf{netanomaly.py}: extração de atributos, treino do estágio 1 e métricas e rotulagem das bases.
+	\item \textbf{netanomaly\_live.py}: análisador em tempo real, que aplica o modelo congelado a jalenas de 10s.
+	\item \textbf{sink.py}: persistência, que grava janelas no \textit{pool} de treino e alertas no banco.
+	\item \textbf{lifecycle.py}: ciclo de vida do estágio 1 (\textit{pool}, candidato, portão, promoção, despejo, adoção).
+	\item \textbf{netclassify.py}: estágio 2 (veredito, treino, avaliação, promoção predição e fila de revisão).
+	\item \textbf{migrations/}: esquema PostgreSQL/TimescaleDB, versionado por migração.
+\end{itemize}
+
+O detector é um $StandardScaler$ seguido de um $IsolationForest$ com 200
+árvores, ambos ajustados com pesos por amostra iguais ao peso de recência da
+janela de origem (Seção~III-H). O escore é invertido para que valores maiores
+signifiquem mais anomalia, e o limiar $\tau$ é o quantil \emph{ponderado} do
+escore de treino:
+
+\begin{equation}
+  s(x) = -\,\mathrm{score}(x), \qquad
+  \tau = Q_w\!\left(1 - c\right),
+  \label{eq:limiar}
+\end{equation}
+
+\noindent em que $c$ é o \textit{contamination} e $Q_w$ é o quantil calculado sobre a
+distribuição acumulada ponderada pelos pesos $w$. Usar o quantil simples com
+pesos no ajuste faria o limiar responder a amostras que o modelo praticamente
+ignorou. O limiar é congelado no artefato: o analisador ao vivo nunca o
+recalcula, pois isso faria a taxa de alerta depender da composição da janela
+corrente e não do treino.
+
+Junto ao limiar, o artefato guarda uma grade de 1.001 quantis do escore de treino.
+O percentil de cada fluxo é calculado contra essa grade, e não contra os demais
+fluxos da mesma janela. Percentil relativo à janela produziria alerta por
+construção: em uma janela sem ataque algum, o “1\% mais anômalo” é tráfego
+normal. Contra a grade do treino, uma janela tranquila não gera alerta, e o
+percentil fica disponível imediatamente, sem esperar a janela fechar.
+
+Para a explicabilidade, uma $DecisionTreeClassifier$ de profundidade 4 é
+treinada sobre os atributos \emph{não escalados}, tendo como alvo o rótulo
+atribuído pelo próprio \textit{Isolation Forest}. A regra do caminho percorrido por
+cada alerta (por exemplo, $n\_dports > 50\ e\ duration < 2,1$) é exibida ao
+analista em unidades reconhecíveis. A árvore explica, mas não decide.
+
+\begin{strip}
+\begin{figure}[H]
+  \centering
+  \resizebox{\textwidth}{!}{\input{arquitetura.tex}}
+  \caption{Arquitetura do MVP2: detecção em tempo real, refinamento supervisionado e ciclo de vida do modelo do Estágio 1.}
+  \label{fig:arquitetura}
+\end{figure}
+\end{strip}
 
 \section{Resultados Preliminares}
 O algorítimo selecionado foi o $Decision Tree$, este conta com o menor tempo de teste e melhor acurácia, estes valores são a maior métrica ultilizada pois o objetivo do sistema é ser execudato em tempo real para garantir uma resposta rápida a incidentes.

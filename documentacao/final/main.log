@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.11.17)  23 NOV 2026 10:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.11.17)  23 NOV 2026 11:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1622,322 +1622,327 @@ File: logoinovatcc2.png Graphic file (type png)
 Package pdftex.def Info: logoinovatcc2.png  used on input line 911.
 (pdftex.def)             Requested size: 141.42363pt x 28.45401pt.
  [9]
-<./PCA_2D.png, id=259, 465.23813pt x 361.35pt>
+<../../notebooks/figuras/A6_fronteiras_pca.png, id=257, 931.8012pt x 1004.0712pt>
+File: ../../notebooks/figuras/A6_fronteiras_pca.png Graphic file (type png)
+<use ../../notebooks/figuras/A6_fronteiras_pca.png>
+Package pdftex.def Info: ../../notebooks/figuras/A6_fronteiras_pca.png  used on input line 919.
+(pdftex.def)             Requested size: 231.84843pt x 249.82216pt.
+<./PCA_2D.png, id=260, 465.23813pt x 361.35pt>
 File: ./PCA_2D.png Graphic file (type png)
 <use ./PCA_2D.png>
-Package pdftex.def Info: ./PCA_2D.png  used on input line 921.
+Package pdftex.def Info: ./PCA_2D.png  used on input line 926.
 (pdftex.def)             Requested size: 247.24942pt x 199.16766pt.
 
-Overfull \hbox (15.40099pt too wide) in paragraph at lines 921--922
+Overfull \hbox (15.40099pt too wide) in paragraph at lines 926--927
 [][] 
  []
 
-<./Importancia_features.png, id=260, 456.20438pt x 592.46344pt>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+<./Importancia_features.png, id=261, 456.20438pt x 592.46344pt>
 File: ./Importancia_features.png Graphic file (type png)
 <use ./Importancia_features.png>
-Package pdftex.def Info: ./Importancia_features.png  used on input line 927.
+Package pdftex.def Info: ./Importancia_features.png  used on input line 932.
 (pdftex.def)             Requested size: 247.25163pt x 312.99162pt.
 
-Overfull \hbox (15.4032pt too wide) in paragraph at lines 927--928
+Overfull \hbox (15.4032pt too wide) in paragraph at lines 932--933
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 925--930
+Underfull \hbox (badness 10000) in paragraph at lines 930--935
 
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-<./decisiontree_features.png, id=262, 859.2903pt x 426.393pt>
+<./decisiontree_features.png, id=263, 859.2903pt x 426.393pt>
 File: ./decisiontree_features.png Graphic file (type png)
 <use ./decisiontree_features.png>
-Package pdftex.def Info: ./decisiontree_features.png  used on input line 933.
+Package pdftex.def Info: ./decisiontree_features.png  used on input line 938.
 (pdftex.def)             Requested size: 256.07144pt x 170.71683pt.
 
-Overfull \hbox (24.223pt too wide) in paragraph at lines 933--934
+Overfull \hbox (24.223pt too wide) in paragraph at lines 938--939
 [][] 
  []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
 File: logoinovatcc2.png Graphic file (type png)
 <use logoinovatcc2.png>
-Package pdftex.def Info: logoinovatcc2.png  used on input line 965.
+Package pdftex.def Info: logoinovatcc2.png  used on input line 941.
 (pdftex.def)             Requested size: 141.42363pt x 28.45401pt.
- [10
+[10
 pdfTeX warning (ext4): destination with the same identifier (name{Hfootnote.8}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.965 	\item \textbf
-                    {src\_bytes}: Número de bytes de dados enviados da orig...
+l.941 \end{figure}
+                  
 pdfTeX warning (ext4): destination with the same identifier (name{Hfootnote.8}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.965 	\item \textbf
-                    {src\_bytes}: Número de bytes de dados enviados da orig...
+l.941 \end{figure}
+                  
 pdfTeX warning (ext4): destination with the same identifier (name{Hfootnote.8}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.965 	\item \textbf
-                    {src\_bytes}: Número de bytes de dados enviados da orig...
+l.941 \end{figure}
+                  
 pdfTeX warning (ext4): destination with the same identifier (name{Hfootnote.8}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.965 	\item \textbf
-                    {src\_bytes}: Número de bytes de dados enviados da orig...
+l.941 \end{figure}
+                  
 pdfTeX warning (ext4): destination with the same identifier (name{Hfootnote.8}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.965 	\item \textbf
-                    {src\_bytes}: Número de bytes de dados enviados da orig... <./PCA_2D.png (PNG copy)> <./Importancia_features.png (PNG copy)> <./decisiontree_features.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 969--970
+l.941 \end{figure}
+                   <../../notebooks/figuras/A6_fronteiras_pca.png> <./PCA_2D.png (PNG copy)> <./Importancia_features.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 974--975
 []\OT1/cmr/bx/n/10 dst[]host[]srv[]rerror[]rate\OT1/cmr/m/n/10 : Per-centual
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 969--970
+Underfull \hbox (badness 10000) in paragraph at lines 974--975
 \OT1/cmr/m/n/10 de conex~oes re-cu-sadas vin-das de
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 974--975
+Underfull \hbox (badness 10000) in paragraph at lines 979--980
 []\OT1/cmr/bx/n/10 dst[]host[]same[]srv[]rate\OT1/cmr/m/n/10 : Per-centual de
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 976--977
+Underfull \hbox (badness 10000) in paragraph at lines 981--982
 []\OT1/cmr/bx/n/10 dst[]host[]rerror[]rate\OT1/cmr/m/n/10 : Por-cent-agem de
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 977--978
+Underfull \hbox (badness 10000) in paragraph at lines 982--983
 []\OT1/cmr/bx/n/10 dst[]host[]diff[]srv[]rate\OT1/cmr/m/n/10 : Por-cent-agem de
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 979--980
+Underfull \hbox (badness 10000) in paragraph at lines 984--985
 []\OT1/cmr/bx/n/10 dst[]host[]rerror[]rate\OT1/cmr/m/n/10 : Por-cent-agem de
  []
 
 
-Overfull \hbox (52.22517pt too wide) in paragraph at lines 992--1039
+Overfull \hbox (52.22517pt too wide) in paragraph at lines 997--1044
  [][] 
  []
 
-<matriz_corr.png, id=281, 791.3565pt x 628.0263pt>
-File: matriz_corr.png Graphic file (type png)
-<use matriz_corr.png>
-Package pdftex.def Info: matriz_corr.png  used on input line 1045.
-(pdftex.def)             Requested size: 227.61586pt x 227.62256pt.
 File: logoinovatcc2.png Graphic file (type png)
 <use logoinovatcc2.png>
-Package pdftex.def Info: logoinovatcc2.png  used on input line 1049.
+Package pdftex.def Info: logoinovatcc2.png  used on input line 1047.
 (pdftex.def)             Requested size: 141.42363pt x 28.45401pt.
-[11]
-Underfull \hbox (badness 1142) in paragraph at lines 1049--1050
+[11 <./decisiontree_features.png>]
+<matriz_corr.png, id=308, 791.3565pt x 628.0263pt>
+File: matriz_corr.png Graphic file (type png)
+<use matriz_corr.png>
+Package pdftex.def Info: matriz_corr.png  used on input line 1050.
+(pdftex.def)             Requested size: 227.61586pt x 227.62256pt.
+
+Underfull \hbox (badness 1142) in paragraph at lines 1054--1055
 \OT1/cmr/m/n/10 rela^^Xc~ao foi feita uma an^^Salise baseada em $\OML/cmm/m/it/10 PCA$\OT1/cmr/m/n/10 ,
  []
 
-<pca_classes.png, id=309, 408.3255pt x 328.8285pt>
+<pca_classes.png, id=311, 408.3255pt x 328.8285pt>
 File: pca_classes.png Graphic file (type png)
 <use pca_classes.png>
-Package pdftex.def Info: pca_classes.png  used on input line 1053.
+Package pdftex.def Info: pca_classes.png  used on input line 1058.
 (pdftex.def)             Requested size: 247.25887pt x 199.17517pt.
 
-Overfull \hbox (15.41043pt too wide) in paragraph at lines 1053--1054
+Overfull \hbox (15.41043pt too wide) in paragraph at lines 1058--1059
  [][] 
  []
 
-<pcaXvariancia.png, id=310, 611.4042pt x 340.3917pt>
+<pcaXvariancia.png, id=312, 611.4042pt x 340.3917pt>
 File: pcaXvariancia.png Graphic file (type png)
 <use pcaXvariancia.png>
-Package pdftex.def Info: pcaXvariancia.png  used on input line 1062.
+Package pdftex.def Info: pcaXvariancia.png  used on input line 1067.
 (pdftex.def)             Requested size: 241.85185pt x 156.48859pt.
 
-Overfull \hbox (10.00342pt too wide) in paragraph at lines 1062--1063
+Overfull \hbox (10.00342pt too wide) in paragraph at lines 1067--1068
  [][] 
  []
 
 
-Underfull \vbox (badness 2088) has occurred while \output is active []
-
-
-Underfull \hbox (badness 4120) in paragraph at lines 1068--1070
+Underfull \hbox (badness 4120) in paragraph at lines 1073--1075
 []\OT1/cmr/m/n/10 O pipeline im-ple-men-tado foi $\OML/cmm/m/it/10 DecisionTree$
  []
 
 File: logoinovatcc2.png Graphic file (type png)
 <use logoinovatcc2.png>
-Package pdftex.def Info: logoinovatcc2.png  used on input line 1076.
+Package pdftex.def Info: logoinovatcc2.png  used on input line 1077.
 (pdftex.def)             Requested size: 141.42363pt x 28.45401pt.
 [12 <./matriz_corr.png> <./pca_classes.png> <./pcaXvariancia.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1083--1084
+Underfull \hbox (badness 10000) in paragraph at lines 1088--1089
 []\OT1/cmr/bx/n/10 Levantamento de Re-fer^encias Bib-li-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1083--1084
+Underfull \hbox (badness 10000) in paragraph at lines 1088--1089
 \OT1/cmr/m/n/10 tra-bal-hos acad^emicos e ma-te-ri-ais t^^Secnicos
  []
 
 
-Underfull \hbox (badness 4341) in paragraph at lines 1083--1084
+Underfull \hbox (badness 4341) in paragraph at lines 1088--1089
 \OT1/cmr/m/n/10 rela-ciona-dos ^^Ra de-tec^^Xc~ao de in-trus~oes, pr^^Se-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1083--1084
+Underfull \hbox (badness 10000) in paragraph at lines 1088--1089
 \OT1/cmr/m/n/10 processamento de da-dos e al-go-rit-mos de
  []
 
 
-Underfull \hbox (badness 3568) in paragraph at lines 1084--1085
+Underfull \hbox (badness 3568) in paragraph at lines 1089--1090
 []\OT1/cmr/bx/n/10 Desenvolvimento do MVP1: \OT1/cmr/m/n/10 Aplica^^Xc~ao
  []
 
 
-Underfull \hbox (badness 1221) in paragraph at lines 1087--1088
+Underfull \hbox (badness 1221) in paragraph at lines 1092--1093
 []\OT1/cmr/bx/n/10 Entrega do Tra-balho de Con-clus~ao de
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1108--1108
+Underfull \hbox (badness 10000) in paragraph at lines 1113--1113
 []|\OT1/cmr/m/n/8 Revis~ao bib-li-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1111--1111
+Underfull \hbox (badness 10000) in paragraph at lines 1116--1116
 []|\OT1/cmr/m/n/8 Desenvolvimento
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1114--1114
+Underfull \hbox (badness 10000) in paragraph at lines 1119--1119
 []|\OT1/cmr/m/n/8 Apresenta^^Xc~ao do
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1117--1117
+Underfull \hbox (badness 10000) in paragraph at lines 1122--1122
 []|\OT1/cmr/m/n/8 Desenvolvimento
  []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1124.
+(caption)                particular \caption on input line 1129.
 See the caption package documentation for explanation.
 
 CUTED [- LAST -]
 Extra skip:0.0pt
-Left:310.45132pt/1.94444pt
-Right:309.94444pt/0.0pt
-Split: 311.19788pt
-Output:311.19788pt
+Left:479.99301pt/0.0pt
+Right:488.40276pt/0.0pt
+Split: 485.19788pt
+Output:485.19788pt
 Pageshrink: 0.0pt
 Pagestretch: 0.0pt
 @colht:702.78308pt
-CUTED [output]: 311.19788pt
-CUTED [leftcolumn badness]: 0
-CUTED [rightcolumn badness]: 0
-
-Underfull \hbox (badness 1215) in paragraph at lines 1129--1129
+CUTED [output]: 485.19788pt
+CUTED [leftcolumn badness]: 56
+CUTED [rightcolumn badness]: 1
+File: logoinovatcc2.png Graphic file (type png)
+<use logoinovatcc2.png>
+Package pdftex.def Info: logoinovatcc2.png  used on input line 1134.
+(pdftex.def)             Requested size: 141.42363pt x 28.45401pt.
+[13]
+Underfull \hbox (badness 1215) in paragraph at lines 1134--1134
 \OT1/cmr/m/n/10 Eval-u-a-tion of Su-per-vised Ma-chine Learn-ing
  []
 
 
 Package biblatex Warning: No driver for 'site'.
-(biblatex)                Using fallback driver on input line 1129.
+(biblatex)                Using fallback driver on input line 1134.
+
+
+Package biblatex Warning: No driver for 'site'.
+(biblatex)                Using fallback driver on input line 1134.
 
 File: logoinovatcc2.png Graphic file (type png)
 <use logoinovatcc2.png>
-Package pdftex.def Info: logoinovatcc2.png  used on input line 1129.
+Package pdftex.def Info: logoinovatcc2.png  used on input line 1134.
 (pdftex.def)             Requested size: 141.42363pt x 28.45401pt.
-[13]
-
-Package biblatex Warning: No driver for 'site'.
-(biblatex)                Using fallback driver on input line 1129.
-
-
-Underfull \hbox (badness 3364) in paragraph at lines 1132--1136
+[14]
+Underfull \hbox (badness 3364) in paragraph at lines 1137--1141
 \OT1/cmr/m/n/10 preens~ao ao longo de toda a nossa tra-jet^^Soria
  []
 
 
-Underfull \hbox (badness 1635) in paragraph at lines 1153--1153
+Underfull \hbox (badness 1635) in paragraph at lines 1158--1158
 []|\OT1/cmr/m/n/10 CNN, DNN, SVM, En-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1153--1154
+Underfull \hbox (badness 10000) in paragraph at lines 1158--1159
 []|\OT1/cmr/m/n/10 KDD99, NSL-KDD,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1153--1154
+Underfull \hbox (badness 10000) in paragraph at lines 1158--1159
 \OT1/cmr/m/n/10 UNSW-NB15, CI-
  []
 
 
-Underfull \hbox (badness 1231) in paragraph at lines 1155--1156
+Underfull \hbox (badness 1231) in paragraph at lines 1160--1161
 []|\OT1/cmr/m/n/10 KDD99, NSL-KDD, CI-
  []
 
 
-Underfull \hbox (badness 1331) in paragraph at lines 1157--1157
+Underfull \hbox (badness 1331) in paragraph at lines 1162--1162
 []|\OT1/cmr/m/n/10 CNN, ANN, RF, SVM,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1157--1158
+Underfull \hbox (badness 10000) in paragraph at lines 1162--1163
 []|\OT1/cmr/m/n/10 KDD99, NSL-KDD,
  []
 
 
-Underfull \hbox (badness 1859) in paragraph at lines 1163--1163
+Underfull \hbox (badness 1859) in paragraph at lines 1168--1168
 []|\OT1/cmr/m/n/10 DTC, kNN, NB, ANN,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1165--1166
+Underfull \hbox (badness 10000) in paragraph at lines 1170--1171
 []|\OT1/cmr/m/n/10 NSL-KDD, ADFA,
  []
 
 
-Underfull \hbox (badness 2103) in paragraph at lines 1171--1171
+Underfull \hbox (badness 2103) in paragraph at lines 1176--1176
 []|\OT1/cmr/m/n/10 Stacking (C5.0 + One-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1177--1177
+Underfull \hbox (badness 10000) in paragraph at lines 1182--1182
 []|\OT1/cmr/m/n/10 Bayes, Game The-ory,
  []
 
 
-Underfull \hbox (badness 2005) in paragraph at lines 1187--1188
+Underfull \hbox (badness 2005) in paragraph at lines 1192--1193
 []|\OT1/cmr/m/n/10 DARPA, KDD99, NSL-
  []
 
 
-Underfull \hbox (badness 2103) in paragraph at lines 1189--1189
+Underfull \hbox (badness 2103) in paragraph at lines 1194--1194
 []|\OT1/cmr/m/n/10 Stacking (C5.0 + One-
  []
 
 
-Underfull \hbox (badness 1231) in paragraph at lines 1193--1194
+Underfull \hbox (badness 1231) in paragraph at lines 1198--1199
 []|\OT1/cmr/m/n/10 KDD99, NSL-KDD, CI-
  []
 
 File: logoinovatcc2.png Graphic file (type png)
 <use logoinovatcc2.png>
-Package pdftex.def Info: logoinovatcc2.png  used on input line 1209.
+Package pdftex.def Info: logoinovatcc2.png  used on input line 1214.
 (pdftex.def)             Requested size: 141.42363pt x 28.45401pt.
-[14]
+[15
+
+]
 File: logoinovatcc2.png Graphic file (type png)
 <use logoinovatcc2.png>
-Package pdftex.def Info: logoinovatcc2.png  used on input line 1209.
+Package pdftex.def Info: logoinovatcc2.png  used on input line 1214.
 (pdftex.def)             Requested size: 141.42363pt x 28.45401pt.
- [15] (./main.aux)
+ [16] (./main.aux)
  ***********
 LaTeX2e <2026-11-01>
 L3 programming layer <2026-09-09>
@@ -1954,13 +1959,13 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 35074 strings out of 466968
- 674564 string characters out of 5377566
- 1646872 words of memory out of 5000000
- 63904 multiletter control sequences out of 15000+600000
+ 35084 strings out of 466968
+ 674967 string characters out of 5377566
+ 1636940 words of memory out of 5000000
+ 63912 multiletter control sequences out of 15000+600000
  655624 words of font info for 89 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 92i,16n,95p,1181b,1512s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 92i,16n,95p,1181b,1514s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 pdfTeX warning (dest): name{Hfootnote.7} has been referenced but does not exist, replaced by a fixed one
 
@@ -1977,10 +1982,10 @@ pdfTeX warning (dest): name{Hfootnote.4} has been referenced but does not exist,
 pdfTeX warning (dest): name{Hfootnote.3} has been referenced but does not exist, replaced by a fixed one
 
 </opt/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></opt/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></opt/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></opt/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></opt/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></opt/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></opt/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></opt/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></opt/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></opt/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></opt/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></opt/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></opt/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></opt/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></opt/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></opt/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></opt/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></opt/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></opt/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></opt/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></opt/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></opt/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></opt/texlive/2026/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></opt/texlive/2026/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></opt/texlive/2026/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></opt/texlive/2026/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on main.pdf (15 pages, 795369 bytes).
+Output written on main.pdf (16 pages, 1290930 bytes).
 PDF statistics:
- 544 PDF objects out of 1000 (max. 8388607)
- 448 compressed objects within 5 object streams
- 107 named destinations out of 1000 (max. 500000)
- 200 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 553 PDF objects out of 1000 (max. 8388607)
+ 454 compressed objects within 5 object streams
+ 109 named destinations out of 1000 (max. 500000)
+ 205 words of extra memory for PDF output out of 10000 (max. 10000000)
 

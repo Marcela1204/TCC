@@ -814,9 +814,9 @@ permitindo identificar a abordagem mais eficiente para classificação do tráfe
 de rede e detecção de intrusões utilizando a base $NSL-KDD$. 
 
 \subsection{Pipeline de classificação}
-Inicialmente uma base é construida extraindo um arquivo .pcap do tráfego usual da rede que está sendo implementado o $IDS$, esta base então é reduzida às 18 $Features$ mencionadas, a mesma é inserida na $Isolation Forest$ para ser classificada. Após a etapa de classificação a nova base é inserida no Estágio 1 ($Decision Tree$) para treinar o algorítimo que classificará todo o trafego em tempo real que será fornecido. \\
+Inicialmente uma base é construida extraindo um arquivo .pcap do tráfego usual da rede que está sendo implementado o $IDS$, esta base então é reduzida às 17 $Features$ mencionadas, a mesma é inserida na $Isolation Forest$ para ser classificada. Após a etapa de classificação a nova base é inserida no Estágio 1 ($Decision Tree$) para treinar o algorítimo que classificará todo o trafego em tempo real que será fornecido. \\
 \newline
-Com o modelo definido, então é iniciado o $LifeCycle$ que recebe uma janela de 10 pacotes por vez e classifica a informação com base no modelo do estágio 1, esta classificação é preliminar e propositalmente grosseira.\\
+Com o modelo definido, então é iniciado o $LifeCycle$ que recebe uma janela de 10 segundos de dados por vez e classifica a informação com base no modelo do estágio 1, esta classificação é preliminar e propositalmente grosseira.\\
 O estágio 2 então é treinado com um $Golden\ set$ de uma base de ataques conhecidos (como o $NSL-KDD$) em conjunto com as informações classificadas pelo estágio anterior, o objetivo deste estágio é refinar as informações que o anterior classificou, sendo um algorítimo de $clustering$ ele é treinado com uma frequência menor que o estágio 1.
 
 O estágio 1 é não superviosionado pois não existe rótulo no tráfego de produção; ele fuciona como peneira com alto \textit{recall} e baixa precisão. O estágio 2 é supervisionado e opera apenas sobre os alertas do estágio 1, com dois objetivos: recuperar formas de ataque conhecidas que o estágio 1 não classifica, e separar ataque real de anomalia benigna. Os rótulos do estágio 2 vem do $Golden\ Set$ e dos vereditos do analista.\\
@@ -832,8 +832,8 @@ Os componentes de \textit{software} deselvolvidos são:
 
 O detector é um $StandardScaler$ seguido de um $IsolationForest$ com 200
 árvores, ambos ajustados com pesos por amostra iguais ao peso de recência da
-janela de origem (Seção~III-H). O escore é invertido para que valores maiores
-signifiquem mais anomalia, e o limiar $\tau$ é o quantil \emph{ponderado} do
+janela de origem. O escore é invertido para que valores maiores
+signifiquem mais anomalia, e o limiar $\tau$ é o quantil ponderado do
 escore de treino:
 
 \begin{equation}
@@ -843,24 +843,24 @@ escore de treino:
 \end{equation}
 
 \noindent em que $c$ é o \textit{contamination} e $Q_w$ é o quantil calculado sobre a
-distribuição acumulada ponderada pelos pesos $w$. Usar o quantil simples com
-pesos no ajuste faria o limiar responder a amostras que o modelo praticamente
-ignorou. O limiar é congelado no artefato: o analisador ao vivo nunca o
+distribuição acumulada ponderada pelos pesos $w$. O limiar é congelado no artefato: o analisador ao vivo não
 recalcula, pois isso faria a taxa de alerta depender da composição da janela
 corrente e não do treino.
 
 Junto ao limiar, o artefato guarda uma grade de 1.001 quantis do escore de treino.
-O percentil de cada fluxo é calculado contra essa grade, e não contra os demais
-fluxos da mesma janela. Percentil relativo à janela produziria alerta por
-construção: em uma janela sem ataque algum, o “1\% mais anômalo” é tráfego
-normal. Contra a grade do treino, uma janela tranquila não gera alerta, e o
+O percentil de cada fluxo é calculado contra essa grade. Percentis relativo à janela produziria alerta por
+construção: em uma janela sem ataque, o “1\% mais anômalo” é tráfego
+normal. Contra a grade do treino, uma janela benigna não gera alerta, e o
 percentil fica disponível imediatamente, sem esperar a janela fechar.
 
 Para a explicabilidade, uma $DecisionTreeClassifier$ de profundidade 4 é
-treinada sobre os atributos \emph{não escalados}, tendo como alvo o rótulo
+treinada sobre os atributos não escalados, tendo como alvo o rótulo
 atribuído pelo próprio \textit{Isolation Forest}. A regra do caminho percorrido por
 cada alerta (por exemplo, $n\_dports > 50\ e\ duration < 2,1$) é exibida ao
-analista em unidades reconhecíveis. A árvore explica, mas não decide.
+analista em unidades reconhecíveis.
+\\
+\newline
+Diagram com fluxo completo do pipeline na imagem \ref{fig:arquitetura}
 
 \begin{strip}
 \begin{figure}[H]
@@ -871,7 +871,8 @@ analista em unidades reconhecíveis. A árvore explica, mas não decide.
 \end{figure}
 \end{strip}
 
-\section{Resultados Preliminares}
+\section{Resultados}
+\subsection{MVP1}
 O algorítimo selecionado foi o $Decision Tree$, este conta com o menor tempo de teste e melhor acurácia, estes valores são a maior métrica ultilizada pois o objetivo do sistema é ser execudato em tempo real para garantir uma resposta rápida a incidentes.
 \newline
 \\
@@ -885,10 +886,6 @@ redução de dimensionalidade no desempenho e no custo computacional dos algorit
 permitindo identificar a abordagem mais eficiente para classificação do tráfego 
 de rede e detecção de intrusões utilizando a base $NSL-KDD$. 
 \newline
-
-\section{Resultados}
-\subsection{MVP1}
-O algorítimo ultilizado para as análises foi o $Decision Tree$, este conta com o menor tempo de teste e melhor acurácia, estes valores são a maior métrica ultilizada pois o objetivo do sistema é ser executato em tempo real para garantir uma resposta rápida a incidentes.
 \newline
 % \subsection{}
 Ultilizando os testes do capítulo anterior, foi desenvolvida uma análise com os variados algorítimos mais ultilizados ($Random Forest$, $Decision Tree$, $KNN$, $SVM$, $Logistic Regression$).
@@ -1068,7 +1065,8 @@ Buscando uma margem de variância a cima de 95\% foi calculado o $PCA$ para vari
 \end{figure}
 
 \subsection{MVP2}
-Este será o mvp 2
+O pipeline implementado foi $Decision Tree$ (estágio 1) + $SVM$ (estágio 2) linear, esta estrutura conta com o menor tempo de classificação preliminar, e qualidade de classificação a partir do estágio 2. \\
+Considerando a execução em tempo real é necessária a combinação de classificação rústica, para possíveis ataques, para então refinar a análise.
 \section{Conclusão}
 Este trabalho apresentou uma análise exploratória e experimental de técnicas de \textit{Machine Learning} aplicadas a Sistemas de Detecção de Intrusões em Redes ($NIDS$), utilizando como referência o conjunto de dados $NSL-KDD$. Diante do desafio imposto pelo crescimento expressivo do tráfego de rede e pela sofisticação das ameaças cibernéticas contemporâneas, a pesquisa atingiu seus objetivos gerais ao mapear a eficácia de tratamentos computacionais e algorítmicos voltados à segurança da informação.
 

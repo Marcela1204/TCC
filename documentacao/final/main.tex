@@ -814,10 +814,10 @@ permitindo identificar a abordagem mais eficiente para classificação do tráfe
 de rede e detecção de intrusões utilizando a base $NSL-KDD$. 
 
 \subsection{Pipeline de classificação}
-Inicialmente uma base é construida extraindo um arquivo .pcap do tráfego usual da rede que está sendo implementado o $IDS$, esta base então é reduzida às 17 $Features$ mencionadas, a mesma é inserida na $Isolation Forest$ para ser classificada. Após a etapa de classificação a nova base é inserida no Estágio 1 ($Decision Tree$) para treinar o algorítimo que classificará todo o trafego em tempo real que será fornecido. \\
+Inicialmente uma base é construida extraindo um arquivo .pcap do tráfego usual da rede que está sendo implementado o $IDS$, esta base então é reduzida às 17 $Features$ mencionadas, a mesma é inserida na $Isolation Forest$ para ser classificada. Após a etapa de classificação a nova base é inserida no Estágio 1 ($Decision Tree$) para treinar o algorítimo que classificará todo o trafego em tempo real que será alimentado. \\
 \newline
 Com o modelo definido, então é iniciado o $LifeCycle$ que recebe uma janela de 10 segundos de dados por vez e classifica a informação com base no modelo do estágio 1, esta classificação é preliminar e propositalmente grosseira.\\
-O estágio 2 então é treinado com um $Golden\ set$ de uma base de ataques conhecidos (como o $NSL-KDD$) em conjunto com as informações classificadas pelo estágio anterior, o objetivo deste estágio é refinar as informações que o anterior classificou, sendo um algorítimo de $clustering$ ele é treinado com uma frequência menor que o estágio 1.
+O estágio 2 então é treinado com um $Golden\ set$ de uma base de ataques conhecidos (como a $CICIDS2017$ para bases não supervisionadas, ou $NSL-KDD$ para bases supervisionadas) em conjunto com as informações classificadas pelo estágio anterior, o objetivo deste estágio é refinar as informações que o anterior classificou, sendo um algorítimo de $clustering$ ele é treinado com uma frequência menor que o estágio 1 afim de evitar alto custo computacional.
 
 O estágio 1 é não superviosionado pois não existe rótulo no tráfego de produção; ele fuciona como peneira com alto \textit{recall} e baixa precisão. O estágio 2 é supervisionado e opera apenas sobre os alertas do estágio 1, com dois objetivos: recuperar formas de ataque conhecidas que o estágio 1 não classifica, e separar ataque real de anomalia benigna. Os rótulos do estágio 2 vem do $Golden\ Set$ e dos vereditos do analista.\\
 Os componentes de \textit{software} deselvolvidos são:
@@ -996,7 +996,7 @@ Para melhor vizualização dos dados os ataques foram separados nas seguintes ca
 \centering
 		\begin{tabular}{|c|c|c|}
 		    \hline
-		    \textbf{Categoria} & \textbf{Tipos de Ataque} & \textbf{Quantidade de Valores}\\
+		    \textbf{Categoria} & \textbf{Tipos de Ataque} & \textbf{Qtd de Valores}\\
 		    \hline
 		    normal & Normal & 67343 \\
 		    \hline
@@ -1071,7 +1071,7 @@ Buscando uma margem de variância a cima de 95\% foi calculado o $PCA$ para vari
 
 \subsection{MVP2}
 O pipeline implementado foi $Decision Tree$ (estágio 1) + $SVM$ (estágio 2) linear, esta estrutura conta com o menor tempo de classificação preliminar, e qualidade de classificação a partir do estágio 2. \\
-Considerando a execução em tempo real é necessária a combinação de classificação rústica, para possíveis ataques, para então refinar a análise.
+Considerando a execução em tempo real é necessária a combinação de classificação rústica (para velocidade de classificação)e refinamento da análise (para garantir a qualidade da classificação).
 \section{Conclusão}
 Este trabalho apresentou uma análise exploratória e experimental de técnicas de \textit{Machine Learning} aplicadas a Sistemas de Detecção de Intrusões em Redes ($NIDS$), utilizando como referência o conjunto de dados $NSL-KDD$. Diante do desafio imposto pelo crescimento expressivo do tráfego de rede e pela sofisticação das ameaças cibernéticas contemporâneas, a pesquisa atingiu seus objetivos gerais ao mapear a eficácia de tratamentos computacionais e algorítmicos voltados à segurança da informação.
 

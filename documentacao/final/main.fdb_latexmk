@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1795389190.54308 "main.bcf" "main.bbl" "main" 1795442723.41672 0
-  "main.bcf" 1795442723.25242 114445 d2896b343365fa950756b2f7185390c5 "pdflatex"
+["biber main"] 1795389190.54308 "main.bcf" "main.bbl" "main" 1795469779.17738 0
+  "main.bcf" 1795469779.04079 114445 d2896b343365fa950756b2f7185390c5 "pdflatex"
   "referencias.bib" 1795439857.40882 7890 a7c3f0fad479d5990321d374e7646118 ""
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1795442720.74394 "main.tex" "main.pdf" "main" 1795442723.41698 0
+["pdflatex"] 1795469776.65195 "main.tex" "main.pdf" "main" 1795469779.17764 0
   "../../notebooks/figuras/A6_fronteiras_pca.png" 1795442613.63405 669332 4b6f24c92d8fe55ee109c48d50e59bd2 ""
   "/opt/texlive/2026/texmf-dist/fonts/enc/dvips/base/8r.enc" 1794888907 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/opt/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1794888907 2900 1537cc8184ad1792082cd229ecc269f4 ""
@@ -249,11 +249,11 @@
   "decisiontree_features.png" 1787766008.5242 66258 c7bd006d7a521882a915e65d9d8ef846 ""
   "fases.tex" 1795439857.40389 2022 bd7bc4df6757830e4a133edee7ad6157 ""
   "logoinovatcc2.png" 1787766008.5242 8563 2bdf1bdf926197f2974618836c072c1d ""
-  "main.aux" 1795442723.24642 14523 a1234a8f83112690349543484eca5fd1 "pdflatex"
+  "main.aux" 1795469779.03379 14523 e94a854ad661f64d52930ef133d9dfdc "pdflatex"
   "main.bbl" 1795439862.13921 42466 8ef3b1c3e2a63ed63273c9f839b57d54 "biber main"
-  "main.out" 1795442723.24942 2869 ca470d6887b44223c8897815b63ea3c6 "pdflatex"
-  "main.run.xml" 1795442723.25393 2406 65f433d9d0e748bcfb8eb7e240bd3347 "pdflatex"
-  "main.tex" 1795442718.98044 76741 a318bf2164570a08084992fac73d7272 ""
+  "main.out" 1795469779.03779 2869 ca470d6887b44223c8897815b63ea3c6 "pdflatex"
+  "main.run.xml" 1795469779.04241 2406 65f433d9d0e748bcfb8eb7e240bd3347 "pdflatex"
+  "main.tex" 1795469775.05346 76903 785827990ea7303e855499dcc349f6cd ""
   "matriz_corr.png" 1787766008.5382 156449 45a58e1a2b1d3cded6c558b8419298b6 ""
   "pcaXvariancia.png" 1787766008.5382 35151 bcc0b7e7568402afd7b57957b9fa9bc1 ""
   "pca_classes.png" 1787766008.5382 71643 b0a798c9df96fb51945893d36f1d3d4b ""

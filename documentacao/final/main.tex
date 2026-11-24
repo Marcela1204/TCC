@@ -939,6 +939,52 @@ Handshake   & \texttt{h\_syn\_ratio}, \texttt{h\_ack\_ratio}, \texttt{h\_rst\_ra
 definem a latência do alerta. O \texttt{sink}, por sua vez, agrupa os fluxos em
 janelas de 840s (14min), que são a unidade de treino, quarentena e despejo.
 
+\subsubsection{Arquitetura de Aprendizado em Dois Estágios}
+A cascata combina um modelo não supervisionado e um supervisionado. O Estágio 1 não
+pode ser supervisionado porque não existe rótulo no tráfego de produção; ele
+funciona como peneira, com \textit{recall} alto e precisão baixa. O Estágio 2 opera
+apenas sobre os alertas do Estágio 1 e usa rótulos do \textit{golden set} e dos
+vereditos do analista, com dois objetivos: recuperar formas de ataque conhecidas
+que o Estágio 1 não enxerga e separar ataque real de anomalia benigna.
+
+\textbf{Estágio 1 --- detector não supervisionado.} O detector é um
+\texttt{StandardScaler} seguido de um \texttt{IsolationForest} com 200 árvores, ambos
+ajustados com pesos por amostra iguais ao peso de recência da janela de origem. O \textit{score} é invertido para que valores maiores signifiquem mais anomalia, e o limiar $\tau$ é o quantil ponderado do \textit{score}
+de treino:
+
+\begin{equation}
+  s(x) = -\,\mathrm{score}(x), \qquad
+  \tau = Q_w\!\left(1 - c\right),
+  \label{eq:limiar}
+\end{equation}
+
+\noindent em que $c$ é o \textit{contamination} (0,01 por padrão) e $Q_w$ é o quantil
+calculado sobre a distribuição acumulada ponderada pelos pesos $w$. O limiar é congelado no artefato: o analisador ao vivo não o recalcula, para que a taxa de alerta não dependa da composição da
+janela corrente.
+
+Junto ao limiar, o artefato guarda uma grade de 1.001 quantis do \textit{score} de treino,
+e o percentil de cada fluxo é calculado contra essa grade, o “1\% mais anômalo” é tráfego normal.
+Contra a grade do treino, uma janela tranquila não gera alerta, e o percentil fica
+disponível imediatamente.
+
+Para a explicabilidade, uma \texttt{DecisionTreeClassifier} de profundidade 4 é
+treinada sobre os atributos não escalados, tendo como alvo o rótulo atribuído
+pelo próprio \textit{Isolation Forest} (Figura \ref{fig:arvore}). A regra do caminho
+percorrido por cada alerta (por exemplo, \texttt{n\_bytes <= 143452 e bytes\_per\_sec > 3273625 e ack\_ratio <= 0,932})
+é exibida ao analista em unidades reconhecíveis (Figura \ref{fig:janela_analista}.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{../../notebooks/figuras/B2_arvore.png}
+  \caption{Árvore \textit{surrogate} do \textit{Isolation Forest} promovido (profundidade 4, atributos em escala original). Em laranja, folhas classificadas como normais; em azul, como alerta.}
+  \label{fig:arvore}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{analista.png}
+  \caption{}
+  \label{fig:janela_analista}
+\end{figure}
+
 \section{Resultados}
 \subsection{MVP1}
 O algorítimo selecionado foi o $Decision Tree$, este conta com o menor tempo de teste e melhor acurácia, estes valores são a maior métrica ultilizada pois o objetivo do sistema é ser execudato em tempo real para garantir uma resposta rápida a incidentes.

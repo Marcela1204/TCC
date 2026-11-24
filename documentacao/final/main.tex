@@ -886,6 +886,59 @@ fila por margem) e o resultado final consolidado. A arquitetura prevista para o
 \textit{front-end} é adaptável: parâmetros editados por um painel de formulários do
 próprio Grafana.
 
+\subsubsection{Mecanismos de captura e extração de fluxos de rede}
+
+\textbf{Captura.} Um contêiner só enxerga o tráfego que chega ao seu
+\textit{namespace} de rede. Por isso o \textit{macvlan} em modo \textit{bridge}. As opções válidas são o modo \textit{host}, em
+que o detector vê uma interface promíscua ligada à porta espelho (SPAN) da
+\textit{bridge}, e o \textit{macvlan passthru}, que entrega a placa inteira ao contêiner
+mantendo-o na rede interna do banco. O arranjo recomendado usa duas interfaces:
+uma de gerência, com IP, e uma de captura, sem IP e em modo promíscuo. No
+laboratório, a máquina virtual do sensor roda sobre Proxmox, com a interface em
+modo promíscuo e a \textit{bridge} virtual com \textit{ageing time} zero, o que faz a
+\textit{bridge} repassar todos os quadros a todas as portas, funcionando como um \textit{hub}.
+O perfil \texttt{replay} reprocessa um \texttt{pcap} gravado pelo mesmo caminho de
+código, o que permite testar o sistema sem captura.
+
+\textbf{Extração.} Os atributos do $NSL-KDD$ não podem ser reproduzidos a partir de
+um \textit{pcap} arbitrário: vários dependem de inspeção de conteúdo e de contadores
+internos do sensor original. O $MVP2$ define, portanto, seu próprio vetor,
+calculável diretamente dos cabeçalhos. Do $MVP1$ vieram a ordem de grandeza (17
+atributos) e a evidência de que volume, contagem e taxa de erro de conexão são os
+sinais mais discriminantes. Os pacotes são lidos em \textit{streaming}, com memória
+proporcional ao número de fluxos, e agregados em duas
+visões (Tabela \ref{tab:atributos}) por: fluxo, 5-tupla bidirecional, 
+\textit{host} e IP de origem, para capturar o leque de conexões (\textit{fan-out})
+típico de varreduras. A visão por fluxo foi a exercitada de ponta a ponta.
+
+\begin{table}[H]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabularx}{\columnwidth}{l X}
+\toprule
+\textbf{Grupo} & \textbf{Atributos} \\
+\midrule
+\multicolumn{2}{l}{\textbf{Visão por fluxo (17)}} \\
+Volume      & \texttt{n\_packets}, \texttt{n\_bytes}, \texttt{duration}, \texttt{bytes\_per\_sec}, \texttt{pkts\_per\_sec} \\
+Tamanho     & \texttt{mean\_len}, \texttt{std\_len}, \texttt{min\_len}, \texttt{max\_len} \\
+Tempo       & \texttt{mean\_iat}, \texttt{std\_iat} (intervalo entre pacotes) \\
+Flags TCP   & \texttt{syn\_ratio}, \texttt{ack\_ratio}, \texttt{fin\_ratio}, \texttt{rst\_ratio}, \texttt{psh\_ratio}, \texttt{syn\_no\_ack} \\
+\midrule
+\multicolumn{2}{l}{\textbf{Visão por host de origem (11)}} \\
+Leque       & \texttt{n\_dst}, \texttt{n\_dports}, \texttt{dports\_per\_dst}, \texttt{pkts\_per\_dst} \\
+Volume      & \texttt{h\_packets}, \texttt{h\_bytes}, \texttt{h\_pkts\_per\_sec} \\
+Handshake   & \texttt{h\_syn\_ratio}, \texttt{h\_ack\_ratio}, \texttt{h\_rst\_ratio}, \texttt{syn\_ack\_gap} \\
+\bottomrule
+\end{tabularx}
+\caption{Vetores de atributos do MVP2.}
+\label{tab:atributos}
+\end{table}
+
+\textbf{Duas cadências.} O analisador ao vivo trabalha em janelas de 10~s, que
+definem a latência do alerta. O \texttt{sink}, por sua vez, agrupa os fluxos em
+janelas de 840s (14min), que são a unidade de treino, quarentena e despejo.
+
 \section{Resultados}
 \subsection{MVP1}
 O algorítimo selecionado foi o $Decision Tree$, este conta com o menor tempo de teste e melhor acurácia, estes valores são a maior métrica ultilizada pois o objetivo do sistema é ser execudato em tempo real para garantir uma resposta rápida a incidentes.

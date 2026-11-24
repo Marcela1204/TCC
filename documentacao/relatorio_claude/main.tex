@@ -92,6 +92,12 @@
   {\thesubsection.}{0.2em}{}
 \renewcommand{\thesubsection}{\Alph{subsection}}
 
+\titleformat{\subsubsection}
+  {\color{grayFEI}\normalfont\fontfamily{phv}\selectfont\fontsize{9.5}{11.5}\selectfont}
+  {\thesubsubsection.}{0.3em}{}
+\renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
+\titlespacing*{\subsubsection}{0pt}{6pt}{2pt}
+
 \titleformat{\section}
   {\color{azulFEI}\normalfont\fontfamily{phv}\selectfont\bfseries\fontsize{11}{13}\selectfont}
   {\thesection.}{0.2em}{}

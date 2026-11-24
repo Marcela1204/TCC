@@ -3,11 +3,13 @@
 A pesquisa possui caráter aplicado, com abordagem quantitativa e objetivo
 experimental, e foi conduzida em duas fases (Figura~\ref{fig:fases}). O MVP1 é um
 estudo em lote sobre a base NSL-KDD, que compara algoritmos supervisionados e o
-efeito da redução de dimensionalidade. O MVP2 é um sistema operacional em tempo
-real, cujo desenho responde às limitações observadas no MVP1. Todo o código foi
-escrito em Python, com \en{scikit-learn} \cite{Pedregosa2011Scikit, scikit2026learn},
-\en{pandas} e \en{scapy}/\en{nfstream} para leitura de pacotes, e o MVP2 é
-empacotado em contêineres \en{Docker} \cite{Merkel2014Docker}.
+efeito da redução de dimensionalidade, em cinco etapas: seleção das bases de dados,
+processamento, redução de dimensionalidade, treinamento e avaliação de desempenho.
+O MVP2 é um sistema operacional em tempo real, cujo desenho responde às limitações
+observadas no MVP1. Todo o código foi escrito em Python, com \en{scikit-learn}
+\cite{Pedregosa2011Scikit, scikit2026learn}, \en{pandas} e \en{scapy}/\en{nfstream}
+para leitura de pacotes, e o MVP2 é empacotado em contêineres \en{Docker}
+\cite{Merkel2014Docker}.
 
 \begin{figure}[H]
   \centering
@@ -17,15 +19,25 @@ empacotado em contêineres \en{Docker} \cite{Merkel2014Docker}.
 \end{figure}
 
 % =============================================================================
-\subsection{MVP1: Base de Dados e Pré-processamento}
+\subsection{MVP1}
+\label{sec:mvp1}
+
+% -----------------------------------------------------------------------------
+\subsubsection{Seleção das Bases de Dados}
 
 A base utilizada foi a NSL-KDD \cite{Tavallaee2009Detailed}, versão aprimorada da
-KDD Cup 1999 que remove registros redundantes e inconsistentes. Os arquivos foram
-obtidos pela plataforma \en{Kaggle}\footnote{Disponível em:
+KDD Cup 1999 que remove registros redundantes e inconsistentes. A escolha se deve
+à sua ampla utilização na literatura de detecção de intrusões, o que permite
+comparar os resultados com os trabalhos relacionados. Os arquivos foram obtidos
+pela plataforma \en{Kaggle}\footnote{Disponível em:
 \url{https://www.kaggle.com/datasets/hassan06/nslkdd}} com a biblioteca
 \en{KaggleHub}. O treino usa o arquivo \cod{KDDTrain+} (125.973 registros) e o
 teste final usa o \cod{KDDTest+} (22.544 registros), distribuídos separadamente
-pelos autores da base.
+pelos autores da base. O \cod{KDDTest+} inclui tipos de ataque que não aparecem no
+treino, o que o torna o teste adequado para medir generalização.
+
+% -----------------------------------------------------------------------------
+\subsubsection{Processamento dos Dados}
 
 Como os arquivos não possuem cabeçalho, os nomes dos 41 atributos foram definidos
 manualmente. A coluna \cod{difficulty} foi removida por não descrever o tráfego, e
@@ -70,8 +82,8 @@ U2R    & buffer\_overflow, rootkit, loadmodule, perl & 52 \\
   \label{fig:distribuicao}
 \end{figure}
 
-% =============================================================================
-\subsection{MVP1: Redução de Dimensionalidade}
+% -----------------------------------------------------------------------------
+\subsubsection{Redução de Dimensionalidade}
 
 Três técnicas complementares foram aplicadas. Primeiro, a matriz de correlação de
 \en{Pearson} entre os atributos numéricos e o rótulo binário, para identificar
@@ -85,19 +97,14 @@ atributos foram ordenados por importância (redução de impureza de Gini) e a m
 árvore foi retreinada com os $k$ atributos mais importantes, para
 $k = 5, \dots, 38$, registrando a acurácia de cada configuração.
 
-% =============================================================================
-\subsection{MVP1: Treinamento e Avaliação}
+% -----------------------------------------------------------------------------
+\subsubsection{Treinamento dos Algoritmos}
 
 Cinco algoritmos foram comparados, todos com \cod{random\_state = 42}
 (Tabela~\ref{tab:algoritmos}). O \cod{KDDTrain+} foi dividido em 80\% para treino
-e 20\% para validação, de forma estratificada pelo rótulo. Foram medidas
-acurácia, precisão, \en{recall}, \en{F1-score} e os tempos de treino e de predição,
-estes últimos relevantes porque o objetivo final é a operação em tempo real.
-
-O melhor modelo da validação foi então retreinado sobre todo o \cod{KDDTrain+} e
-avaliado no \cod{KDDTest+}. Essa segunda avaliação é a mais importante do MVP1: o
-\cod{KDDTest+} contém tipos de ataque que não existem no treino, o que aproxima o
-teste da situação real de um IDS diante de ataques novos.
+e 20\% para validação, de forma estratificada pelo rótulo, e os modelos foram
+treinados tanto com o conjunto completo de atributos quanto com as versões
+reduzidas da etapa anterior.
 
 \begin{table}[H]
 \centering
@@ -126,25 +133,24 @@ SVM (linear) & Hiperplano de máxima margem. & Eficaz em alta dimensão, lento e
 \label{tab:algoritmos}
 \end{table}
 
+% -----------------------------------------------------------------------------
+\subsubsection{Avaliação de Desempenho}
+
+Na partição de validação foram medidas acurácia, precisão, \en{recall},
+\en{F1-score} e os tempos de treino e de predição, estes últimos relevantes porque
+o objetivo final é a operação em tempo real. O melhor modelo da validação foi então
+retreinado sobre todo o \cod{KDDTrain+} e avaliado no \cod{KDDTest+}. Essa segunda
+avaliação é a mais importante do MVP1: por conter ataques ausentes do treino, ela
+aproxima o teste da situação real de um IDS diante de ataques novos.
+
 % =============================================================================
-\subsection{MVP2: Arquitetura Geral}
+\subsection{MVP2}
+\label{sec:mvp2}
 
 O MVP2 é um NIDS que observa uma cópia passiva do tráfego e classifica cada fluxo
-em uma cascata de dois modelos (Figura~\ref{fig:arquitetura}). O Estágio 1 é não
-supervisionado porque não existe rótulo no tráfego de produção; ele funciona como
-peneira, com \en{recall} alto e precisão baixa. O Estágio 2 é supervisionado e
-opera apenas sobre os alertas do Estágio 1, com dois objetivos: recuperar formas
-de ataque conhecidas que o Estágio 1 não enxerga e separar ataque real de anomalia
-benigna. Os rótulos do Estágio 2 vêm do \en{golden set} e dos vereditos do analista.
+em uma cascata de dois modelos (Figura~\ref{fig:arquitetura}). Os componentes de
+\en{software} desenvolvidos são:
 
-\begin{figure*}[t]
-  \centering
-  \resizebox{\textwidth}{!}{\input{diagramas/arquitetura.tex}}
-  \caption{Arquitetura do MVP2: detecção em tempo real, refinamento supervisionado e ciclo de vida do modelo do Estágio 1.}
-  \label{fig:arquitetura}
-\end{figure*}
-
-Os componentes de \en{software} são:
 \begin{itemize}
   \item \cod{netanomaly.py}: extração de atributos, treino do Estágio 1, métricas e
   rotulagem do CIC-IDS-2017 pelo cronograma oficial;
@@ -159,19 +165,99 @@ Os componentes de \en{software} são:
   \item \cod{migrations/}: esquema PostgreSQL/TimescaleDB, versionado por migração.
 \end{itemize}
 
-% =============================================================================
-\subsection{MVP2: Extração de Atributos}
+\begin{figure*}[t]
+  \centering
+  \resizebox{\textwidth}{!}{\input{diagramas/arquitetura.tex}}
+  \caption{Arquitetura do MVP2: detecção em tempo real, ciclo de vida do modelo do Estágio 1 e refinamento supervisionado.}
+  \label{fig:arquitetura}
+\end{figure*}
 
-Os atributos do NSL-KDD não podem ser reproduzidos a partir de um \en{pcap}
-arbitrário: vários dependem de inspeção de conteúdo e de contadores internos do
-sensor original. Por isso o MVP2 define seu próprio vetor, calculável diretamente
-dos cabeçalhos dos pacotes. O MVP1 contribuiu com a ordem de grandeza (17
-atributos) e com a evidência de que volume, contagem e taxa de erro de conexão são
-os sinais mais discriminantes. Duas visões são suportadas
-(Tabela~\ref{tab:atributos}): por fluxo, agregando a 5-tupla bidirecional, e por
-\en{host}, agregando por IP de origem para capturar o leque de conexões
-(\en{fan-out}) típico de varreduras. A visão por fluxo foi a exercitada de ponta a
-ponta.
+% -----------------------------------------------------------------------------
+\subsubsection{Ambiente da Infraestrutura e Conteinerização}
+\label{sec:infra}
+
+Uma única imagem (\cod{python:3.13-slim}) serve aos papéis de detector, treinador
+e utilitários, garantindo a mesma versão de \en{scikit-learn} em todos --- requisito,
+pois o artefato \cod{.joblib} é serializado por versão. Nenhum contêiner roda como
+\en{root}: as capacidades \cod{cap\_net\_raw} e \cod{cap\_net\_admin} são
+atribuídas ao binário \cod{tcpdump} como \en{file capabilities}, de modo que um
+processo de UID 1000 abre o \en{socket} de captura e os arquivos gravados no
+volume pertencem ao usuário do hospedeiro. A Tabela~\ref{tab:servicos} resume os
+serviços do \en{Docker Compose}; os que capturam ou exibem dados só sobem quando
+o perfil correspondente é ativado.
+
+\begin{table}[H]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabularx}{\columnwidth}{l l X}
+\toprule
+\textbf{Serviço} & \textbf{Perfil} & \textbf{Função} \\
+\midrule
+banco            & ---              & TimescaleDB, porta só em \cod{127.0.0.1} \\
+treinador        & ---              & Migrações, candidato diário e predição do Estágio 2 \\
+detector         & sensor           & Captura em \cod{network\_mode: host} \\
+detector-isolado & sensor-isolado   & NIC dedicada via \en{macvlan passthru} \\
+replay           & replay           & Reprocessa um \en{pcap}, sem captura \\
+grafana          & painel           & Painéis dos Estágios 1, 2 e resultado final \\
+\bottomrule
+\end{tabularx}
+\caption{Serviços do \en{Docker Compose} e perfis de ativação.}
+\label{tab:servicos}
+\end{table}
+
+\textbf{Persistência.} O banco é PostgreSQL 17 com a extensão TimescaleDB,
+organizado no esquema \cod{na} (14 tabelas e 11 consultas, \en{views}). Quatro
+decisões estruturam o esquema: (i) os fluxos não vão para o banco --- ficam em
+arquivos \en{Parquet} em disco, e o banco guarda apenas um índice deles
+(\cod{feature\_windows}), com estado de quarentena e despejo; (ii) o corte do
+analista é aplicado na consulta, não na ingestão, com dois limiares distintos: o
+piso de gravação (percentil 0,95, fixo) e o corte de exibição (0,99, ajustável em
+uma \en{view}, com efeito retroativo sem reprocessamento); (iii) escore contínuo e
+percentil são guardados juntos, o primeiro para o Estágio 2 e o segundo para o
+analista; e (iv) não há chave estrangeira para a tabela de alertas, que é uma
+\en{hypertable} com retenção de 180 dias. Os parâmetros operacionais ficam em uma
+tabela editável com histórico de alterações por gatilho. As migrações são
+aplicadas uma única vez cada por um controlador próprio, cada uma em transação com
+seu registro; se uma falha, o treinador aborta de propósito, pois treinar contra um
+esquema incerto gravaria dados que ninguém sabe interpretar.
+
+\textbf{Visualização.} Os painéis do Grafana leem diretamente o banco e cobrem o
+Estágio 1 (alertas acima do corte, quase-acertos, janelas no \en{pool}, portão do
+último candidato), o Estágio 2 (dispersão do SVM em PCA 2D, desempenho por cenário,
+fila por margem) e o resultado final consolidado. A arquitetura prevista para o
+\en{front-end} é híbrida: parâmetros editados por um painel de formulários do
+próprio Grafana e a tela de veredito como aplicação própria na mesma origem, via
+\en{proxy} reverso, evitando desligar a sanitização de HTML do Grafana.
+
+% -----------------------------------------------------------------------------
+\subsubsection{Mecanismos de Captura e Extração de Fluxos de Rede}
+\label{sec:captura}
+
+\textbf{Captura.} Um contêiner só enxerga o tráfego que chega ao seu
+\en{namespace} de rede. Por isso o \en{macvlan} em modo \en{bridge}, opção mais
+intuitiva, não serve para IDS: o \en{kernel} entrega ao contêiner apenas o tráfego
+destinado ao seu próprio endereço MAC. As opções válidas são o modo \en{host}, em
+que o detector vê uma interface promíscua ligada à porta espelho (SPAN) do
+\en{switch}, e o \en{macvlan passthru}, que entrega a placa inteira ao contêiner
+mantendo-o na rede interna do banco. O arranjo recomendado usa duas interfaces:
+uma de gerência, com IP, e uma de captura, sem IP e em modo promíscuo. No
+laboratório, a máquina virtual do sensor roda sobre Proxmox, com a interface em
+modo promíscuo e a \en{bridge} virtual com \en{ageing time} zero, o que faz a
+\en{bridge} repassar todos os quadros a todas as portas, à maneira de um \en{hub}.
+O perfil \cod{replay} reprocessa um \en{pcap} gravado pelo mesmo caminho de
+código, o que permite testar o sistema sem captura.
+
+\textbf{Extração.} Os atributos do NSL-KDD não podem ser reproduzidos a partir de
+um \en{pcap} arbitrário: vários dependem de inspeção de conteúdo e de contadores
+internos do sensor original. O MVP2 define, portanto, seu próprio vetor,
+calculável diretamente dos cabeçalhos. Do MVP1 vieram a ordem de grandeza (17
+atributos) e a evidência de que volume, contagem e taxa de erro de conexão são os
+sinais mais discriminantes. Os pacotes são lidos em \en{streaming}, com memória
+proporcional ao número de fluxos e não ao tamanho da captura, e agregados em duas
+visões (Tabela~\ref{tab:atributos}): por fluxo, pela 5-tupla bidirecional, e por
+\en{host}, pelo IP de origem, para capturar o leque de conexões (\en{fan-out})
+típico de varreduras. A visão por fluxo foi a exercitada de ponta a ponta.
 
 \begin{table}[H]
 \centering
@@ -197,14 +283,32 @@ Handshake   & \cod{h\_syn\_ratio}, \cod{h\_ack\_ratio}, \cod{h\_rst\_ratio}, \co
 \label{tab:atributos}
 \end{table}
 
-% =============================================================================
-\subsection{MVP2: Estágio 1 --- Detector e Explicação}
+\textbf{Duas cadências.} O analisador ao vivo trabalha em janelas de 10~s, que
+definem a latência do alerta. O \cod{sink}, por sua vez, agrupa os fluxos em
+janelas de 780~s (13~min), que são a unidade de treino, quarentena e despejo
+(Seção~III-\ref{sec:governanca}). As duas cadências não podem coincidir: uma janela
+de 10~s tem fluxos de menos para ser unidade de treino e geraria 8.640 registros
+por dia no índice, enquanto 13 minutos seria uma latência de alerta inaceitável.
+O alinhamento das janelas de 13 minutos é o mesmo para captura ao vivo e para
+\en{pcap} histórico, de modo que ambos produzem janelas equivalentes.
 
-O detector é um \cod{StandardScaler} seguido de um \cod{IsolationForest} com 200
-árvores, ambos ajustados com pesos por amostra iguais ao peso de recência da
-janela de origem (Seção~III-H). O escore é invertido para que valores maiores
-signifiquem mais anomalia, e o limiar $\tau$ é o quantil \emph{ponderado} do
-escore de treino:
+% -----------------------------------------------------------------------------
+\subsubsection{Arquitetura de Aprendizado em Dois Estágios}
+\label{sec:estagios}
+
+A cascata combina um modelo não supervisionado e um supervisionado. O Estágio 1 não
+pode ser supervisionado porque não existe rótulo no tráfego de produção; ele
+funciona como peneira, com \en{recall} alto e precisão baixa. O Estágio 2 opera
+apenas sobre os alertas do Estágio 1 e usa rótulos do \en{golden set} e dos
+vereditos do analista, com dois objetivos: recuperar formas de ataque conhecidas
+que o Estágio 1 não enxerga e separar ataque real de anomalia benigna.
+
+\textbf{Estágio 1 --- detector não supervisionado.} O detector é um
+\cod{StandardScaler} seguido de um \cod{IsolationForest} com 200 árvores, ambos
+ajustados com pesos por amostra iguais ao peso de recência da janela de origem
+(Seção~III-\ref{sec:governanca}). O escore é invertido para que valores maiores
+signifiquem mais anomalia, e o limiar $\tau$ é o quantil \emph{ponderado} do escore
+de treino:
 
 \begin{equation}
   s(x) = -\,\mathrm{score}(x), \qquad
@@ -212,80 +316,85 @@ escore de treino:
   \label{eq:limiar}
 \end{equation}
 
-\noindent em que $c$ é o \en{contamination} e $Q_w$ é o quantil calculado sobre a
-distribuição acumulada ponderada pelos pesos $w$. Usar o quantil simples com
-pesos no ajuste faria o limiar responder a amostras que o modelo praticamente
-ignorou. O limiar é \emph{congelado} no artefato: o analisador ao vivo nunca o
-recalcula, pois isso faria a taxa de alerta depender da composição da janela
-corrente e não do treino.
+\noindent em que $c$ é o \en{contamination} (0,01 por padrão) e $Q_w$ é o quantil
+calculado sobre a distribuição acumulada ponderada pelos pesos $w$. Usar o quantil
+simples com pesos no ajuste faria o limiar responder a amostras que o modelo
+praticamente ignorou. O limiar é \emph{congelado} no artefato: o analisador ao vivo
+nunca o recalcula, pois isso faria a taxa de alerta depender da composição da
+janela corrente e não do treino.
 
-Junto ao limiar, o artefato guarda uma grade de 1.001 quantis do escore de treino.
-O percentil de cada fluxo é calculado contra essa grade, e não contra os demais
+Junto ao limiar, o artefato guarda uma grade de 1.001 quantis do escore de treino,
+e o percentil de cada fluxo é calculado contra essa grade, e não contra os demais
 fluxos da mesma janela. Percentil relativo à janela produziria alerta por
-construção: em uma janela sem ataque algum, o “1\% mais anômalo” é tráfego
-normal. Contra a grade do treino, uma janela tranquila não gera alerta, e o
-percentil fica disponível imediatamente, sem esperar a janela fechar.
+construção: em uma janela sem ataque algum, o “1\% mais anômalo” é tráfego normal.
+Contra a grade do treino, uma janela tranquila não gera alerta, e o percentil fica
+disponível imediatamente, sem esperar a janela fechar.
 
 Para a explicabilidade, uma \cod{DecisionTreeClassifier} de profundidade 4 é
-treinada sobre os atributos \emph{não escalados}, tendo como alvo o rótulo
-atribuído pelo próprio \en{Isolation Forest}. A regra do caminho percorrido por
-cada alerta (por exemplo, \cod{n\_dports > 50 e duration <= 2,1}) é exibida ao
-analista em unidades reconhecíveis. A árvore explica, mas não decide.
+treinada sobre os atributos \emph{não escalados}, tendo como alvo o rótulo atribuído
+pelo próprio \en{Isolation Forest} (Figura~\ref{fig:arvore}). A regra do caminho
+percorrido por cada alerta (por exemplo, \cod{n\_bytes <= 143452 e bytes\_per\_sec > 3273625 e ack\_ratio <= 0,932})
+é exibida ao analista em unidades reconhecíveis. A árvore explica, mas não decide.
 
-% =============================================================================
-\subsection{MVP2: Estágio 2 --- Refinador Supervisionado}
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=\textwidth]{B2_arvore.png}
+  \caption{Árvore \en{surrogate} do \en{Isolation Forest} promovido (profundidade 4, atributos em escala original). Em laranja, folhas classificadas como normais; em azul, como alerta.}
+  \label{fig:arvore}
+\end{figure*}
 
-O Estágio 2 usa \cod{StandardScaler} e \cod{LinearSVC} com $C=1$ e
-\cod{class\_weight="balanced"}, porque ataque é a classe minoritária. Os
-atributos de entrada são os 17 do fluxo; o escore do Estágio 1 está
-disponível em cada alerta para versões futuras. O SVM linear foi escolhido, em vez
-de uma clusterização pura, porque sua \cod{decision\_function} fornece a
-distância com sinal ao hiperplano, usada para priorizar a revisão. A clusterização
-fica reservada como apoio à rotulagem em lote.
+\textbf{Estágio 2 --- refinador supervisionado.} O Estágio 2 usa
+\cod{StandardScaler} e \cod{LinearSVC} com $C=1$ e \cod{class\_weight="balanced"},
+porque ataque é a classe minoritária. Os atributos de entrada são os 17 do fluxo.
+O SVM linear foi escolhido, em vez de uma clusterização pura, porque sua
+\cod{decision\_function} fornece a distância com sinal ao hiperplano, usada para
+priorizar a revisão; a clusterização fica reservada como apoio à rotulagem em lote.
 
-\textbf{Partida a frio.} Uma instalação nova não tem nenhum veredito. O primeiro
-hiperplano é treinado sobre o \en{golden set} (capturas rotuladas como ataque ou
-benigno) e entra em produção com a decisão registrada como \emph{adotado}, pois não
-passou por portão. Os vereditos do analista são somados ao treino à medida que
-chegam e valem como rótulo da rede real.
+Uma instalação nova não tem nenhum veredito. O primeiro hiperplano é treinado sobre
+o \en{golden set} (capturas rotuladas como ataque ou benigno) e entra em produção
+com a decisão registrada como \emph{adotado}, pois não passou por portão. Os
+vereditos do analista são somados ao treino à medida que chegam e valem como rótulo
+da rede real.
 
-\textbf{Operação.} O comando \cod{predict} aplica o SVM promovido a cada alerta e
-grava a classe predita, o valor de decisão e a margem. A fila de revisão é
-ordenada por margem crescente: os casos mais próximos da fronteira aparecem
-primeiro, que é onde o veredito mais move o hiperplano (aprendizado ativo por
-incerteza \cite{Settles2009Active}). Para o painel, uma projeção PCA em duas
-dimensões é ajustada no treino e congelada no artefato, de modo que pontos de
-janelas diferentes sejam comparáveis.
+O treinador aplica o SVM promovido aos alertas novos a cada 30~s, gravando a classe
+predita, o valor de decisão e a margem. A fila de revisão é ordenada por margem
+crescente: os casos mais próximos da fronteira aparecem primeiro, que é onde o
+veredito mais move o hiperplano (aprendizado ativo por incerteza
+\cite{Settles2009Active}). Para o painel, uma projeção PCA em duas dimensões é
+ajustada no treino e congelada no artefato (Figura~\ref{fig:pca_pipeline}), de modo
+que pontos de janelas diferentes sejam comparáveis.
 
-\textbf{Anotar, não suprimir.} O Estágio 2 reordena e anota a fila, mas não
-descarta alerta automaticamente. Supressão automática criaria falso negativo
-silencioso justamente quando o modelo, recém-treinado com poucos vereditos, ainda
-erra mais. A classificação final consolidada segue a precedência
-\emph{veredito $>$ Estágio 2 $>$ apenas Estágio 1 (pendente)}.
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=\textwidth]{B4_pca_pipeline.png}
+  \caption{Projeção PCA 2D congelada no artefato do Estágio 2, usada no painel: golden set do CIC-IDS-2017 por classe (esquerda), margem média do SVM no plano PCA (centro) e variância explicada dos 17 atributos de fluxo (direita).}
+  \label{fig:pca_pipeline}
+\end{figure*}
 
-\textbf{Vereditos.} Cada veredito guarda uma cópia do vetor de atributos, porque a
-retenção de alertas é de 180 dias e o rótulo precisa sobreviver ao alerta que o
-originou. Revisões não sobrescrevem: criam uma nova linha que aponta para a
-anterior, preservando divergências entre analistas como informação.
+O Estágio 2 reordena e anota a fila, mas não descarta alerta automaticamente.
+Supressão automática criaria falso negativo silencioso justamente quando o modelo,
+recém-treinado com poucos vereditos, ainda erra mais. A classificação final
+consolidada segue a precedência \emph{veredito $>$ Estágio 2 $>$ apenas Estágio 1
+(pendente)}. Cada veredito guarda uma cópia do vetor de atributos, porque o rótulo
+precisa sobreviver à retenção de 180 dias dos alertas, e revisões não sobrescrevem:
+criam uma nova linha que aponta para a anterior, preservando divergências entre
+analistas como informação.
 
-% =============================================================================
-\subsection{MVP2: Ciclo de Vida e Defesa contra Envenenamento}
+% -----------------------------------------------------------------------------
+\subsubsection{Governança de Dados, Resiliência a Envenenamento e Esteira de Validação}
+\label{sec:governanca}
 
-A decisão central do ciclo de vida é que o detector \textbf{nunca é retreinado na
-janela de tráfego mais recente}. O \en{Isolation Forest} aprende como normal a
-massa dos dados que recebe; se a janela contém ataque, o ataque passa a ser normal
-e deixa de ser marcado. Isso é explorável de forma gradual: um canal de comando e
-controle (C2) com batida de 6~h é absorvido um pouco mais a cada retreino, sem que
-o atacante precise evadir nada \cite{Biggio2012Poisoning}. O que o dado recente
-compra de fato é redução de falso positivo (servidor novo, mudança de horário de
-\en{backup}). Por isso o treino ocorre sobre um \en{pool} curado
-(Figura~\ref{fig:ciclo}):
+\textbf{Ciclo de vida e \en{pool} de treino.} A decisão central é que o detector
+\textbf{nunca é retreinado na janela de tráfego mais recente}. O
+\en{Isolation Forest} aprende como normal a massa dos dados que recebe; se a janela
+contém ataque, o ataque passa a ser normal e deixa de ser marcado. Isso é
+explorável de forma gradual: um canal de comando e controle (C2) com batida de 6~h
+é absorvido um pouco mais a cada retreino, sem que o atacante precise evadir nada
+\cite{Biggio2012Poisoning}. O que o dado recente compra de fato é redução de falso
+positivo (servidor novo, mudança de horário de \en{backup}). Por isso o treino
+ocorre sobre um \en{pool} curado (Figura~\ref{fig:ciclo}):
 
 \begin{itemize}
-  \item \textbf{Janela de \en{pool}:} o \cod{sink} agrupa os fluxos em janelas de
-  780 s (13 min), alinhadas da mesma forma para captura ao vivo e para
-  \en{pcap} histórico. É uma cadência distinta da janela de análise de 10 s, que
-  só determina a latência do alerta.
   \item \textbf{Quarentena:} a janela só entra no \en{pool} depois de 7 dias sem
   indicador de comprometimento (IOC) retroativo.
   \item \textbf{Recência:} cada janela recebe peso
@@ -310,26 +419,17 @@ compra de fato é redução de falso positivo (servidor novo, mudança de horár
   \label{fig:ciclo}
 \end{figure}
 
-O ciclo é regido por três relógios separados: a árvore \en{surrogate} é
-atualizada a cada janela; um candidato é treinado e medido diariamente, de forma
-automática; e a promoção para produção é semanal ou sob demanda e
-\textbf{sempre manual}. Um portão que se auto-aprova não é portão: com poucos
-cenários no \en{golden set}, ele daria aparência de verificação ao que não foi
-verificado. Ao promover, o modelo anterior e as árvores que o descreviam são
-aposentados e o artefato é trocado por \cod{rename()} atômico de um \en{symlink},
-que o detector recarrega sem reinício. O analista também pode pedir retreino
-manual, mas o pedido registra junto o número de quase-acertos que o justifica ---
-alertas confirmados como ataque que ficaram abaixo do corte, medidos pela consulta
-\cod{v\_stage1\_near\_misses}.
-
-% =============================================================================
-\subsection{MVP2: Golden Set e Portão de Promoção}
-
-O \en{golden set} é um conjunto de capturas rotuladas, organizado por cenário
-(Tabela~\ref{tab:cenarios}). As capturas podem ser registradas manualmente, a
-partir de testes de intrusão feitos pelo próprio operador, ou derivadas do
-cronograma oficial de ataques do CIC-IDS-2017 \cite{Sharafaldin2018Toward}.
-Todo candidato é avaliado por captura, por cenário e no agregado.
+\textbf{\en{Benchmark} do \en{golden set}.} O \en{golden set} é um conjunto de
+capturas rotuladas, organizado por cenário (Tabela~\ref{tab:cenarios}), contra o
+qual todo candidato é avaliado por captura, por cenário e no agregado. As capturas
+podem ser registradas manualmente, a partir de testes de intrusão feitos pelo
+próprio operador, ou derivadas do cronograma oficial de ataques do CIC-IDS-2017
+\cite{Sharafaldin2018Toward}, com tratamento de NAT. Cada cenário tem um piso
+absoluto de \en{recall} por estágio. Os pisos são definidos por estágio porque o
+\en{Isolation Forest} é estruturalmente cego a ataques volumosos e homogêneos
+(Seção~IV-\ref{sec:pontocego}): exigir \cod{brute\_force} dele tornaria o portão do Estágio 1
+impossível de passar. Assim, o Estágio 1 é cobrado de varredura e falso positivo, e
+os ataques densos são cobrados do Estágio 2.
 
 \begin{table}[H]
 \centering
@@ -352,130 +452,56 @@ benigno      & Controle limpo: mede falso positivo & FPR & FPR \\
 \label{tab:cenarios}
 \end{table}
 
-Um candidato é reprovado se \emph{qualquer} cenário isolado: (i) cair mais de
-0,10 de \en{recall} em relação ao modelo em produção; (ii) ficar abaixo do piso
-absoluto do cenário; ou (iii) exceder 2\% de falso positivo no controle benigno. O
-terceiro critério impede que um candidato degenerado, que alerta em tudo, passe
-com \en{recall} 1,00 em todos os cenários. A avaliação é por cenário, e não
-agregada, porque o envenenamento lento aparece como a queda de \emph{um} cenário
-específico, que a média esconde.
+Duas fontes de dados alimentam as avaliações, com papéis distintos. As capturas
+reais do CIC-IDS-2017 medem detecção. Um gerador sintético
+(\cod{scripts/gerar\_sintetico.py}) produz \en{pools} e capturas de varredura,
+beacon e tráfego normal com distribuições controladas; os números obtidos com ele
+medem o \emph{mecanismo} (portão, quarentena, despejo), nunca a capacidade real de
+detecção. Os experimentos de envenenamento usam 5 sementes, com o gerador
+re-semeado antes de cada \en{pool}, porque seu estado compartilhado faria a
+composição do \en{pool} depender da ordem das chamadas.
 
-Os pisos são definidos por estágio. O \en{Isolation Forest} é estruturalmente
-cego a ataques volumosos e homogêneos (Seção~IV-D); exigir \cod{brute\_force} dele
-tornaria o portão do Estágio 1 impossível de passar. Assim, o Estágio 1 é cobrado
-de varredura e falso positivo, e os ataques densos são cobrados do Estágio 2.
-
-\textbf{Adoção.} Uma instalação nova enfrenta um impasse circular: o detector
-precisa de modelo promovido, a promoção precisa de candidato, o candidato precisa
-de \en{pool}, e o \en{pool} é alimentado pelo detector. O comando \cod{adopt} rompe o
-círculo com um modelo treinado fora do ciclo: valida o contrato de atributos, gera
-a grade de percentis a partir da captura de treino, semeia o \en{pool} com essa
-captura (registrando a procedência) e registra o modelo como \emph{adotado}. O
-detector, por sua vez, não treina sozinho: em uma instância vazia ele aguarda,
-explicando o que falta, pois treinar no tráfego que estiver passando é exatamente
-o caminho do envenenamento.
-
-% =============================================================================
-\subsection{MVP2: Persistência}
-
-O banco é PostgreSQL 17 com a extensão TimescaleDB, organizado no esquema
-\cod{na} (14 tabelas e 11 consultas, \en{views}, após as migrações). Quatro
-decisões estruturam o esquema:
+\textbf{Automação da avaliação de candidatos.} O ciclo é regido por três relógios
+separados. A árvore \en{surrogate} acompanha cada modelo. Uma vez por dia, o
+serviço \cod{treinador} processa a fila de pedidos de retreino do analista e treina
+um candidato sobre o \en{pool} vigente, avalia-o contra o \en{golden set} e grava o
+resultado --- de forma automática, mas sem promover. A promoção para produção é
+semanal ou sob demanda e \textbf{sempre manual}. O portão, implementado como
+consulta (\cod{v\_gate\_verdict}), reprova o candidato se \emph{qualquer} cenário
+isolado:
 
 \begin{enumerate}
-  \item \textbf{Fluxos não vão para o banco.} Uma captura de 10~GB gera milhões de
-  fluxos; o treino quer formato colunar comprimido. Os fluxos ficam em arquivos
-  \en{Parquet} em disco, e o banco guarda um índice deles (\cod{feature\_windows}),
-  com estado de quarentena e despejo. Só o que vira alerta entra como linha.
-  \item \textbf{O corte do analista é aplicado na consulta.} Há dois limiares: o
-  piso de gravação (percentil 0,95, fixo) e o corte de exibição (0,99, ajustável).
-  Como o corte é aplicado em uma \en{view}, alterá-lo tem efeito retroativo sem
-  reprocessar nada.
-  \item \textbf{Escore e percentil são guardados juntos.} O percentil permite ao
-  analista raciocinar em porcentagem; o escore contínuo alimenta o Estágio 2.
-  \item \textbf{Sem chave estrangeira para alertas.} A tabela de alertas é uma
-  \en{hypertable} com retenção de 180 dias; vereditos e predições referenciam o
-  alerta com integridade garantida pela aplicação.
+  \item cair mais de 0,10 de \en{recall} em relação ao modelo em produção;
+  \item ficar abaixo do piso absoluto do cenário para aquele estágio; ou
+  \item exceder 2\% de falso positivo no controle benigno.
 \end{enumerate}
 
-Os parâmetros operacionais (limiares, quarentena, meia-vida, tolerâncias do
-portão) ficam em uma tabela editável com histórico de alterações por gatilho. As
-migrações são aplicadas uma única vez cada por um controlador próprio, cada uma em
-transação junto com seu registro; se uma falha, o contêiner aborta de propósito.
+O terceiro critério impede que um candidato degenerado, que alerta em tudo, passe
+com \en{recall} 1,00 em todos os cenários. A avaliação é por cenário, e não
+agregada, porque o envenenamento lento aparece como a queda de \emph{um} cenário
+específico, que a média esconde. A promoção é manual porque um portão que se
+auto-aprova vale apenas o que vale a cobertura do \en{golden set}: com poucos
+cenários, daria aparência de verificação ao que não foi verificado. O
+\cod{scripts/promover.sh} encadeia listagem, leitura do portão e promoção, pedindo
+confirmação; forçar a promoção de um candidato reprovado exige uma justificativa
+registrada. Ao promover, o modelo anterior e as árvores que o descreviam são
+aposentados e o artefato é trocado por \cod{rename()} atômico de um \en{symlink},
+que o detector recarrega sem reinício. O Estágio 2 segue o mesmo ciclo
+(candidato, avaliação em partição retida de 30\%, promoção).
 
-% =============================================================================
-\subsection{MVP2: Implantação em Contêineres}
+O analista pode pedir retreino manual, mas o pedido registra junto o número de
+quase-acertos que o justifica --- alertas confirmados como ataque que ficaram
+abaixo do corte, medidos pela consulta \cod{v\_stage1\_near\_misses}.
 
-Uma única imagem (\cod{python:3.13-slim}) serve aos papéis de detector, treinador
-e utilitários, garantindo a mesma versão de \en{scikit-learn} em todos --- requisito,
-pois o artefato \cod{.joblib} é serializado por versão. Nenhum contêiner roda como
-\en{root}: as capacidades \cod{cap\_net\_raw} e \cod{cap\_net\_admin} são
-atribuídas ao binário \cod{tcpdump} como \en{file capabilities}, de modo que um
-processo de UID 1000 abre o \en{socket} de captura. A Tabela~\ref{tab:servicos}
-resume os serviços do \en{Docker Compose}.
-
-\begin{table}[H]
-\centering
-\footnotesize
-\setlength{\tabcolsep}{3pt}
-\begin{tabularx}{\columnwidth}{l l X}
-\toprule
-\textbf{Serviço} & \textbf{Perfil} & \textbf{Função} \\
-\midrule
-banco            & ---              & TimescaleDB, porta só em \cod{127.0.0.1} \\
-treinador        & ---              & Migrações e relógio diário de candidatos \\
-detector         & sensor           & Captura em \cod{network\_mode: host} \\
-detector-isolado & sensor-isolado   & NIC dedicada via \en{macvlan passthru} \\
-replay           & replay           & Reprocessa um \en{pcap}, sem captura \\
-grafana          & painel           & Painéis dos Estágios 1, 2 e resultado final \\
-\bottomrule
-\end{tabularx}
-\caption{Serviços do \en{Docker Compose} e perfis de ativação.}
-\label{tab:servicos}
-\end{table}
-
-Um contêiner só enxerga o tráfego que chega ao seu \en{namespace} de rede. Por
-isso o \en{macvlan} em modo \en{bridge}, opção mais intuitiva, não serve para IDS:
-o \en{kernel} entrega ao contêiner apenas o tráfego destinado ao seu próprio
-endereço MAC. As opções válidas são o modo \en{host}, que vê uma interface
-promíscua ligada à porta espelho (SPAN) do \en{switch}, e o \en{macvlan
-passthru}, que entrega a placa inteira ao contêiner. O arranjo recomendado usa
-duas interfaces: uma de gerência, com IP, e uma de captura, sem IP e em modo
-promíscuo. No laboratório, a máquina virtual do sensor roda sobre Proxmox, com a
-interface em modo promíscuo e a \en{bridge} virtual com \en{ageing time} zero, o
-que faz a \en{bridge} repassar todos os quadros a todas as portas, à maneira de
-um \en{hub}.
-
-Os painéis do Grafana leem diretamente o banco e cobrem: o Estágio 1 (alertas
-acima do corte, quase-acertos, janelas no \en{pool}, portão do último candidato);
-o Estágio 2 (dispersão do SVM em PCA 2D, desempenho por cenário, fila por margem);
-e o resultado final consolidado, com a classificação ao longo do tempo e o acerto
-contra o rótulo real quando disponível. A arquitetura prevista para o
-\en{front-end} é híbrida: parâmetros editados por um painel de formulários do
-próprio Grafana, e a tela de veredito como aplicação própria na mesma origem,
-via \en{proxy} reverso, evitando desligar a sanitização de HTML do Grafana.
-
-% =============================================================================
-\subsection{MVP2: Protocolo de Avaliação}
-
-Duas fontes de dados foram usadas, com papéis distintos:
-
-\begin{itemize}
-  \item \textbf{CIC-IDS-2017} \cite{Sharafaldin2018Toward}: capturas reais
-  (\en{pcap}) rotuladas pelo cronograma oficial dos ataques, com tratamento de
-  NAT. O ataque FTP-Patator, da terça-feira, foi usado como \en{golden set} real de
-  \cod{brute\_force}.
-  \item \textbf{Gerador sintético} (\cod{scripts/gerar\_sintetico.py}): produz
-  \en{pools} e capturas de varredura, beacon e tráfego normal com distribuições
-  controladas. Os números obtidos com ele medem o \emph{mecanismo} (portão,
-  quarentena, despejo), nunca a capacidade real de detecção.
-\end{itemize}
-
-As métricas principais são o \en{recall} por cenário e a taxa de falso positivo
-(FPR) no controle benigno; ROC-AUC e precisão média (AP) complementam a análise do
-Estágio 1. Os experimentos de envenenamento usam 5 sementes aleatórias, com o
-gerador re-semeado antes de cada \en{pool}, porque seu estado compartilhado faria a
-composição do \en{pool} depender da ordem das chamadas. Por fim, uma demonstração de
-ponta a ponta (\cod{scripts/demo\_ataque.sh}) sobe um atacante e uma vítima em
-contêineres, executa uma varredura \cod{nmap} e verifica se o pipeline grava
-alertas usando o mesmo modelo, banco e código da produção.
+\textbf{Partida a frio.} Uma instalação nova enfrenta um impasse circular: o
+detector precisa de modelo promovido, a promoção precisa de candidato, o candidato
+precisa de \en{pool}, e o \en{pool} é alimentado pelo detector. O comando
+\cod{adopt} rompe o círculo com um modelo treinado fora do ciclo: valida o contrato
+de atributos, gera a grade de percentis a partir da captura de treino, semeia o
+\en{pool} com essa captura (registrando a procedência) e registra o modelo como
+\emph{adotado}. O detector, por sua vez, não treina sozinho: em uma instância vazia
+ele aguarda, explicando o que falta, pois treinar no tráfego que estiver passando é
+exatamente o caminho do envenenamento. Por fim, uma demonstração de ponta a ponta
+(\cod{scripts/demo\_ataque.sh}) sobe um atacante e uma vítima em contêineres,
+executa uma varredura \cod{nmap} e verifica se o pipeline grava alertas usando o
+mesmo modelo, banco e código da produção.

@@ -1,7 +1,10 @@
 \section{Resultados e Discussão}
 
 % =============================================================================
-\subsection{MVP1: Análise Exploratória}
+\subsection{MVP1}
+\label{sec:res_mvp1}
+
+\subsubsection{Análise Exploratória}
 
 A matriz de correlação (Figura~\ref{fig:matriz_corr}) mostra blocos de atributos
 fortemente correlacionados entre si, em especial as taxas de erro de conexão e as
@@ -41,7 +44,7 @@ conexão.
 \end{figure}
 
 % =============================================================================
-\subsection{MVP1: Comparação de Algoritmos}
+\subsubsection{Comparação de Algoritmos}
 
 A Tabela~\ref{tab:mvp1} resume a comparação na partição de validação. Os modelos
 baseados em árvore dominam as métricas de classificação, mas o custo
@@ -105,7 +108,7 @@ relata conjuntos de 9 a 20 atributos sem perda de desempenho
 \end{figure}
 
 % =============================================================================
-\subsection{MVP1: Generalização para Ataques Novos}
+\subsubsection{Generalização para Ataques Novos}
 
 Retreinado sobre todo o \cod{KDDTrain+} e aplicado ao \cod{KDDTest+}, o melhor
 modelo da validação (\en{Random Forest}) caiu para \textbf{77,92\% de acurácia} e
@@ -132,34 +135,129 @@ um classificador supervisionado alimentado continuamente por rótulos da própri
 rede; e (iii) avaliação por cenário de ataque, e não por acurácia agregada.
 
 % =============================================================================
-\subsection{MVP2: Ponto Cego do Isolation Forest}
+\subsection{MVP2}
+\label{sec:res_mvp2}
 
-O Estágio 1 foi avaliado com o \en{golden set} real de FTP-Patator do CIC-IDS-2017:
-3.958 fluxos de ataque contra 93.883 fluxos de fundo da mesma rede e horário,
-com modelo treinado sobre 26.507 fluxos benignos da mesma captura. O resultado foi
-\textbf{\en{recall} 0,00} contra o piso de 0,85 do cenário. O ROC-AUC de 0,781 e a
-precisão média de 0,0887 (contra 0,0405 de base) indicam alguma separação, mas
-para \emph{qualquer} nível de \en{recall} o custo é de 22\% de falso positivo: o
-limiar que captura 50\% do ataque (0,4689) é praticamente o mesmo que captura 99\%
-(0,4679), porque todos os fluxos de ataque recebem quase o mesmo escore.
+Os modelos promovidos de cada estágio foram reavaliados fora do sistema, sobre o
+\en{golden set} do CIC-IDS-2017 registrado no banco: 14.615 fluxos, dos quais 875
+de ataque e 13.740 benignos do mesmo período, rotulados pelo cronograma oficial.
+O \en{pool} do sensor, sem rótulo, foi usado para a distribuição do escore e para a
+fidelidade da árvore \en{surrogate}.
 
-O problema não está nos atributos. Contra a mediana benigna, o ataque tem duração
-147 vezes maior, \cod{std\_iat} 68 vezes, \cod{mean\_iat} 13 vezes e
-\cod{n\_packets} 7 vezes. A causa é estrutural: 3.958 fluxos quase idênticos formam
-um aglomerado denso, e o \en{Isolation Forest} isola pontos \emph{raros}
-(Equação~\ref{eq:if}). Quanto mais o atacante repete, mais normal ele fica. A
-ordenação resultante é \emph{benigno atípico $>$ ataque $>$ benigno típico}, e
-nenhum limiar separa as classes --- ajustar o \en{contamination} não resolve. É a
-mesma família do beacon de 6~h: ataques cuja assinatura está na repetição ao longo
-do tempo, e não no fluxo individual.
+% -----------------------------------------------------------------------------
+\subsubsection{Ponto Cego do Isolation Forest}
+\label{sec:pontocego}
 
-% =============================================================================
-\subsection{MVP2: Estágio 2 Recupera os Ataques Densos}
+O \en{Isolation Forest} promovido ($c = 0{,}01$, limiar 0,598) teve
+\textbf{\en{recall} 0,000} no \en{golden set}: nenhum dos 875 fluxos de ataque foi
+marcado, com falso positivo de 0,95\% (131 de 13.740 benignos) --- dentro do teto
+do portão e coerente com o \en{contamination} (Figura~\ref{fig:b1_if}). O ROC-AUC de
+0,718 e a precisão média de 0,107 (contra 0,060 de base) mostram que o escore
+ordena o ataque acima de parte do tráfego benigno, mas não acima do limiar: os
+fluxos de ataque se concentram em um pico estreito, próximo do percentil 64 da
+escala do \en{pool}, muito abaixo do percentil 99 que dispara o alerta.
 
-Para validar a premissa do Estágio 2, um SVM linear foi treinado nos mesmos 17
-atributos e avaliado em conjuntos de teste separados, cenário a cenário
-(Tabela~\ref{tab:e2}). O classificador supervisionado recupera integralmente os
-ataques densos que o \en{Isolation Forest} não vê, inclusive a força bruta.
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=\textwidth]{B1_isolation_forest.png}
+  \caption{Estágio 1 no \en{golden set} do CIC-IDS-2017: matrizes de confusão, curvas ROC e precisão$\times$\en{recall}, distribuição do escore e percentil dos fluxos de ataque na escala do \en{pool}.}
+  \label{fig:b1_if}
+\end{figure*}
+
+O resultado não é de um modelo específico. Todos os 21 candidatos e modelos
+adotados produzidos pelo ciclo de vida, aplicados ao mesmo \en{golden set}, tiveram
+\en{recall} nulo ou praticamente nulo (no máximo 0,0034), com ROC-AUC entre 0,72 e
+0,78 (Figura~\ref{fig:b1_cand}). O falso positivo, ao contrário, variou de 0,6\% a
+15,3\%: os candidatos treinados em outubro, sobre um \en{pool} com tráfego mais
+heterogêneo, teriam sido reprovados pelo teto de 2\% --- exatamente o papel do
+portão.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\columnwidth]{B1_candidatos_if.png}
+  \caption{\en{Recall}, falso positivo e ROC-AUC de todos os candidatos do Estágio 1 no mesmo \en{golden set}.}
+  \label{fig:b1_cand}
+\end{figure}
+
+O problema não está nos atributos. Em uma medição anterior, com o FTP-Patator
+completo (3.958 fluxos de ataque contra 93.883 de fundo), o ataque tinha duração
+147 vezes maior que a mediana benigna, \cod{std\_iat} 68 vezes, \cod{mean\_iat} 13
+vezes e \cod{n\_packets} 7 vezes; mesmo assim o \en{recall} foi 0,00, e qualquer
+limiar que capturasse o ataque custaria 22\% de falso positivo, pois o limiar que
+pega 50\% do ataque (0,4689) é praticamente o mesmo que pega 99\% (0,4679). A causa
+é estrutural: milhares de fluxos quase idênticos formam um aglomerado denso, e o
+\en{Isolation Forest} isola pontos \emph{raros} (Equação~\ref{eq:if}). Quanto mais o
+atacante repete, mais normal ele fica. A ordenação resultante é \emph{benigno
+atípico $>$ ataque $>$ benigno típico}, e nenhum limiar separa as classes ---
+ajustar o \en{contamination} não resolve. É a mesma família do beacon de 6~h:
+ataques cuja assinatura está na repetição ao longo do tempo, e não no fluxo
+individual.
+
+% -----------------------------------------------------------------------------
+\subsubsection{Fidelidade da Árvore Surrogate}
+
+Aplicada a 60.000 fluxos do \en{pool}, a árvore de profundidade 4 concordou com o
+\en{Isolation Forest} em 99,73\% dos casos (Figura~\ref{fig:b2_fid}). Como os
+alertas são raros, a métrica relevante é a concordância sobre eles: a árvore
+reproduz 75,2\% dos alertas do detector (466 de 620), com apenas 9 falsos alertas.
+Os atributos que dominam as regras são \cod{n\_bytes}, \cod{bytes\_per\_sec},
+\cod{syn\_no\_ack} e \cod{duration}, ou seja, o detector promovido marca sobretudo
+fluxos de volume ou taxa atípicos e conexões sem resposta. Aplicada ao
+\en{golden set}, a árvore também teve \en{recall} 0,000: ela explica fielmente um
+detector que não vê o ataque.
+
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=\textwidth]{B2_arvore_fidelidade.png}
+  \caption{Concordância entre a árvore \en{surrogate} e o \en{Isolation Forest} no \en{pool} do sensor e importância dos atributos na árvore.}
+  \label{fig:b2_fid}
+\end{figure*}
+
+% -----------------------------------------------------------------------------
+\subsubsection{Estágio 2 Recupera os Ataques Densos}
+
+O Estágio 2 foi avaliado com o mesmo protocolo do \cod{netclassify.py train}:
+partição estratificada de 70\% do \en{golden set} para treino e 30\% para teste
+(4.385 fluxos, 263 de ataque). A Tabela~\ref{tab:e2_real} compara os dois estágios
+na mesma partição, e a Figura~\ref{fig:b3_svm} detalha o SVM.
+
+\begin{table}[H]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{l c c c c c c}
+\toprule
+\textbf{Modelo} & \textbf{Prec} & \textbf{Rec} & \textbf{F1} & \textbf{FPR} & \textbf{AUC} & \textbf{AP} \\
+\midrule
+\en{Isolation Forest} (E1) & 0,000 & 0,000 & 0,000 & 0,0097 & 0,715 & 0,107 \\
+LinearSVC (E2)            & 0,910 & 1,000 & 0,953 & 0,0063 & 1,000 & 0,989 \\
+\bottomrule
+\end{tabular}
+\caption{Estágios 1 e 2 na partição de teste de 30\% do \en{golden set} do CIC-IDS-2017.}
+\label{tab:e2_real}
+\end{table}
+
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=\textwidth]{B3_linearsvc.png}
+  \caption{Estágio 2 (LinearSVC) na partição de teste: matrizes de confusão, ROC e precisão$\times$\en{recall} comparadas ao Estágio 1, distribuição da margem e pesos do hiperplano.}
+  \label{fig:b3_svm}
+\end{figure*}
+
+O SVM linear detectou os 263 fluxos de ataque do teste, com 26 falsos positivos
+(0,63\%), treinando em 24~ms e classificando a partição em menos de 1~ms. Os pesos
+do hiperplano mostram por que a separação é fácil para um modelo supervisionado:
+\cod{duration} e \cod{std\_iat} empurram para o lado de ataque, enquanto
+\cod{mean\_len}, \cod{std\_len} e \cod{mean\_iat} empurram para o benigno --- o
+perfil de conexões longas, com pacotes pequenos e regulares, típico de força bruta.
+São os mesmos atributos em que o ataque já se destacava na análise do Estágio 1; a
+diferença é que o SVM aprende a fronteira a partir do rótulo, em vez de procurar o
+raro. O modelo promovido, treinado sobre o \en{golden set} inteiro, teve
+\en{recall} 0,990 e falso positivo de 0,53\% em medição \emph{in-sample}, que serve
+apenas de referência.
+
+Um experimento anterior, com conjuntos de teste separados por cenário, apontou o
+mesmo padrão em outros tipos de ataque (Tabela~\ref{tab:e2}).
 
 \begin{table}[H]
 \centering
@@ -180,15 +278,17 @@ FPR (benigno)    & 0,001 & 0,000 \\
 \end{table}
 
 Esses valores devem ser lidos com cautela. São resultados \emph{em distribuição}:
-o SVM foi testado sobre formas de ataque que viu rotuladas no treino. Como mostrou
-o MVP1, um classificador supervisionado não generaliza para ataques novos --- que
-continuam sendo responsabilidade do Estágio 1. Em produção, o rótulo vem do
-analista, é ruidoso e é enviesado pelo que o Estágio 1 decidiu mostrar. A Tabela
-não mede detecção geral; mede que os dois estágios são \emph{complementares}: o não
-supervisionado pega o raro e o novo, o supervisionado pega o conhecido e o denso.
+o SVM foi testado sobre formas de ataque que viu rotuladas no treino, e a partição
+aleatória do \en{golden set} coloca fluxos quase idênticos do mesmo ataque no
+treino e no teste. Como mostrou o MVP1, um classificador supervisionado não
+generaliza para ataques novos --- que continuam sendo responsabilidade do Estágio
+1. Em produção, o rótulo vem do analista, é ruidoso e é enviesado pelo que o
+Estágio 1 decidiu mostrar. Os números não medem detecção geral; medem que os dois
+estágios são \emph{complementares}: o não supervisionado pega o raro e o novo, o
+supervisionado pega o conhecido e o denso.
 
-% =============================================================================
-\subsection{MVP2: Contamination e Teto de Falso Positivo}
+% -----------------------------------------------------------------------------
+\subsubsection{Contamination e Teto de Falso Positivo}
 
 Em um \en{pool} majoritariamente limpo, a taxa de falso positivo do
 \en{Isolation Forest} tende ao valor de \en{contamination}, que é literalmente a
@@ -207,7 +307,7 @@ para 0,04 e o de \cod{beacon\_6h} para 0,06, enquanto \cod{recon} permanece em
 a qualquer limiar. Uma métrica agregada teria escondido essa diferença.
 
 % =============================================================================
-\subsection{MVP2: Explicação Não Mede Detecção}
+\subsubsection{Explicação Não Mede Detecção}
 
 Uma hipótese natural seria usar a fidelidade da árvore \en{surrogate} como
 gatilho de retreino. A Tabela~\ref{tab:surrogate} mostra por que isso não
@@ -239,7 +339,7 @@ A validação do retreino precisa medir detecção por cenário --- que é o que
 portão faz.
 
 % =============================================================================
-\subsection{MVP2: Orçamento do Atacante contra o Portão}
+\subsubsection{Orçamento do Atacante contra o Portão}
 
 Para medir a sensibilidade do portão, tráfego de beacon com período de 6~h foi
 injetado em doses crescentes em um \en{pool} sintético de 120.000 fluxos, com 5
@@ -325,11 +425,11 @@ também o ruidoso: o desvio do \cod{beacon\_6h} é 0,004, contra 0,029 do
 restaura os valores originais de \en{recall}.
 
 % =============================================================================
-\subsection{MVP2: Verificação de Ponta a Ponta}
+\subsubsection{Verificação de Ponta a Ponta}
 
 Sem adoção, uma instância limpa rodou 90~s com o treinador completando duas voltas
 do relógio, e nada avançou (zero janelas, modelos e alertas) --- o impasse circular
-descrito na Seção~III-I. Com a adoção de um modelo treinado sobre 23.829 fluxos, o
+descrito na Seção~III-\ref{sec:governanca}. Com a adoção de um modelo treinado sobre 23.829 fluxos, o
 detector assumiu em segundos, sem reinício de contêiner, e gravou 2.791 alertas
 com percentil entre 0,9639 e 1,0000. Isso só é possível porque a grade de percentis
 foi gerada na adoção; como verificação de consistência, o percentil 99 da grade
@@ -348,7 +448,7 @@ o mesmo modelo promovido, o mesmo banco e o mesmo código do sensor de produçã
   mecanismo do portão, não a detecção em rede real. Só \en{golden set} real mede
   detecção.
   \item \textbf{Cobertura do \en{golden set}.} Dos sete cenários, apenas
-  \cod{brute\_force} tem captura real (FTP-Patator). Enquanto os demais não
+  \cod{brute\_force} tem capturas reais (CIC-IDS-2017). Enquanto os demais não
   tiverem capturas próprias, o portão protege apenas o que está coberto.
   \item \textbf{Estágio 2 em distribuição.} Os \en{recalls} de 1,00 foram obtidos
   sobre formas de ataque vistas no treino e com rótulo limpo. O desempenho com

@@ -563,7 +563,8 @@ Todo o código foi estruturado em $python$ utilizando as bibliotecas do \textit{
 	\label{fig:fases}
 \end{figure}
 
-\subsection{Seleção das Bases de Dados}
+\subsection{MVP1}
+\subsubsection{Seleção das Bases de Dados}
 A base de dados utilizada neste trabalho foi a $NSL-KDD$, uma versão aprimorada da 
 base KDD Cup 1999, desenvolvida com o objetivo de reduzir redundâncias e 
 inconsistências presentes no conjunto original. A escolha dessa base ocorreu devido 
@@ -582,7 +583,7 @@ teste, treinamento dos algoritmos e validação dos modelos. Essas ferramentas f
 fundamentais para o processamento dos dados e análise dos resultados obtidos ao 
 longo da pesquisa.
 
-\subsection{Processamento dos Dados}
+\subsubsection{Processamento dos Dados}
 Após o carregamento da base de dados $NSL-KDD$, foi realizada uma etapa de 
 pré-processamento com o objetivo de preparar os dados para aplicação dos 
 algoritmos de aprendizado de máquina. Inicialmente, foram definidos manualmente 
@@ -629,7 +630,7 @@ Esse agrupamento teve como objetivo simplificar o processo de classificação,
 reduzir a complexidade do problema e melhorar a interpretação dos resultados 
 obtidos pelos algoritmos de aprendizado de máquina.
 
-\subsection{Redução de Dimensionalidade}
+\subsubsection{Redução de Dimensionalidade}
 Após a etapa de pré-processamento dos dados, foi realizada uma análise exploratória 
 com o objetivo de compreender a estrutura da base $NSL-KDD$, identificar padrões 
 nos dados e verificar o comportamento das classes presentes no conjunto 
@@ -674,7 +675,7 @@ contribuiu para redução de redundâncias, simplificação do conjunto de dados
 melhoria do desempenho computacional dos algoritmos utilizados posteriormente 
 no treinamento e avaliação dos modelos.
 
-\subsection{Treinamento dos Algoritmos}
+\subsubsection{Treinamento dos Algoritmos}
 Nessa seção, foi realizada a etapa de treinamento dos algoritmos de aprendizado 
 de máquina supervisionado. Essa fase teve como principal objetivo construir 
 modelos capazes de identificar padrões presentes nos registros da base $NSL-KDD$ 
@@ -778,7 +779,7 @@ detectar ataques, mas também sua viabilidade computacional para utilização em
 sistemas de detecção de intrusão, nos quais rapidez e eficiência são fatores 
 relevantes para o monitoramento do tráfego de rede.
 
-\subsection{Avaliação de Desempenho}
+\subsubsection{Avaliação de Desempenho}
 Após a etapa de treinamento dos algoritmos de aprendizado de máquina, foi 
 realizada a avaliação dos modelos com o objetivo de medir a eficiência dos 
 classificadores na detecção de intrusões presentes na base $NSL-KDD$. Durante os 
@@ -813,17 +814,18 @@ redução de dimensionalidade no desempenho e no custo computacional dos algorit
 permitindo identificar a abordagem mais eficiente para classificação do tráfego 
 de rede e detecção de intrusões utilizando a base $NSL-KDD$. 
 
-\subsection{Pipeline de classificação}
-Inicialmente uma base é construida extraindo um arquivo .pcap do tráfego usual da rede que está sendo implementado o $IDS$, esta base então é reduzida às 17 $Features$ mencionadas, a mesma é inserida na $Isolation Forest$ para ser classificada. Após a etapa de classificação a nova base é inserida no Estágio 1 ($Decision Tree$) para treinar o algorítimo que classificará todo o trafego em tempo real que será alimentado. \\
+\subsection{MPV2}
+\subsubsection{Pipeline de classificação}
+Inicialmente, uma base é construida extraindo um arquivo .pcap do tráfego usual da rede que está sendo implementado o $IDS$. Esta base então é reduzida às 17 $Features$ mencionadas, a mesma é inserida na $Isolation Forest$ para ser classificada. Após a etapa de classificação a nova base é inserida no Estágio 1 ($Decision Tree$) para treinar o algoritimo que classificará todo o tráfego em tempo real que será alimentado. \\
 \newline
-Com o modelo definido, então é iniciado o $LifeCycle$ que recebe uma janela de 10 segundos de dados por vez e classifica a informação com base no modelo do estágio 1, esta classificação é preliminar e propositalmente grosseira.\\
-O estágio 2 então é treinado com um $Golden\ set$ de uma base de ataques conhecidos (como a $CICIDS2017$ para bases não supervisionadas, ou $NSL-KDD$ para bases supervisionadas) em conjunto com as informações classificadas pelo estágio anterior, o objetivo deste estágio é refinar as informações que o anterior classificou, sendo um algorítimo de $clustering$ ele é treinado com uma frequência menor que o estágio 1 afim de evitar alto custo computacional.
+Com o modelo definido, então é iniciado o $LifeCycle$ que recebe uma janela de 10 segundos de dados por vez e classifica a informação com base no modelo do estágio 1. Esta classificação é preliminar e propositalmente grosseira.\\
+O estágio 2 então é treinado com um $Golden\ set$ de uma base de ataques conhecidos (como a $CICIDS2017$ para bases não supervisionadas, ou $NSL-KDD$ para bases supervisionadas) em conjunto com as informações classificadas pelo estágio anterior. O objetivo deste é refinar as informações que o anterior classificou. Sendo um algorítimo de $clustering$ ele é treinado com uma frequência menor que o estágio 1 afim de evitar alto custo computacional.
 
-O estágio 1 é não superviosionado pois não existe rótulo no tráfego de produção; ele fuciona como peneira com alto \textit{recall} e baixa precisão. O estágio 2 é supervisionado e opera apenas sobre os alertas do estágio 1, com dois objetivos: recuperar formas de ataque conhecidas que o estágio 1 não classifica, e separar ataque real de anomalia benigna. Os rótulos do estágio 2 vem do $Golden\ Set$ e dos vereditos do analista.\\
+O estágio 1 é não supervisionado pois não existe rótulo no tráfego de produção; ele funciona como peneira com alto \textit{recall} e baixa precisão. O estágio 2 é supervisionado e opera apenas sobre os alertas do estágio 1, com dois objetivos: recuperar formas de ataque conhecidas que o estágio 1 não classifica, e separar ataque real de anomalia benigna. Os rótulos do estágio 2 vem do $Golden\ Set$ e dos vereditos do analista.\\
 Os componentes de \textit{software} deselvolvidos são:
 \begin{itemize}
 	\item \textbf{netanomaly.py}: extração de atributos, treino do estágio 1 e métricas e rotulagem das bases.
-	\item \textbf{netanomaly\_live.py}: análisador em tempo real, que aplica o modelo congelado a jalenas de 10s.
+	\item \textbf{netanomaly\_live.py}: analisador em tempo real, que aplica o modelo congelado a jalenas de 10s.
 	\item \textbf{sink.py}: persistência, que grava janelas no \textit{pool} de treino e alertas no banco.
 	\item \textbf{lifecycle.py}: ciclo de vida do estágio 1 (\textit{pool}, candidato, portão, promoção, despejo, adoção).
 	\item \textbf{netclassify.py}: estágio 2 (veredito, treino, avaliação, promoção predição e fila de revisão).
@@ -832,7 +834,7 @@ Os componentes de \textit{software} deselvolvidos são:
 
 O detector é um $StandardScaler$ seguido de um $IsolationForest$ com 200
 árvores, ambos ajustados com pesos por amostra iguais ao peso de recência da
-janela de origem. O escore é invertido para que valores maiores
+janela de origem. O \textit{score} é invertido para que valores maiores
 signifiquem mais anomalia, e o limiar $\tau$ é o quantil ponderado do
 escore de treino:
 
@@ -860,7 +862,7 @@ cada alerta (por exemplo, $n\_dports > 50\ e\ duration < 2,1$) é exibida ao
 analista em unidades reconhecíveis.
 \\
 \newline
-Diagram com fluxo completo do pipeline na imagem \ref{fig:arquitetura}
+Diagrama com fluxo completo do pipeline na imagem \ref{fig:arquitetura}
 
 \begin{strip}
 \begin{figure}[H]
@@ -1072,6 +1074,21 @@ Buscando uma margem de variância a cima de 95\% foi calculado o $PCA$ para vari
 \subsection{MVP2}
 O pipeline implementado foi $Decision Tree$ (estágio 1) + $SVM$ (estágio 2) linear, esta estrutura conta com o menor tempo de classificação preliminar, e qualidade de classificação a partir do estágio 2. \\
 Considerando a execução em tempo real é necessária a combinação de classificação rústica (para velocidade de classificação)e refinamento da análise (para garantir a qualidade da classificação).
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{../../notebooks/figuras/svm360_alinhado_192_168_60_33/frame_032_az080.0.png}
+\caption{Hiperplano do SVM produtivo 3D}
+\label{fig:SVM_hiperplano3D}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{../../notebooks/figuras/B5_svm_hiperplano_2d_192_168_60_33.png}
+\caption{Hiperplano do SVM produtivo}
+\label{fig:SVM_hiperplano}
+\end{figure}
+Como demonstrado nas figuras \ref{fig:SVM_hiperplano3D} \ref{fig:SVM_hiperplano} a taxa de falsos negativos é substancialmente baixa, além de que para a aplicação de um $IDS$, é importante priorizar falsos positivos a cima de falsos negativos, tendo em vista a criticicidade da tarefa.
+
+
 \section{Conclusão}
 Este trabalho apresentou uma análise exploratória e experimental de técnicas de \textit{Machine Learning} aplicadas a Sistemas de Detecção de Intrusões em Redes ($NIDS$), utilizando como referência o conjunto de dados $NSL-KDD$. Diante do desafio imposto pelo crescimento expressivo do tráfego de rede e pela sofisticação das ameaças cibernéticas contemporâneas, a pesquisa atingiu seus objetivos gerais ao mapear a eficácia de tratamentos computacionais e algorítmicos voltados à segurança da informação.
 

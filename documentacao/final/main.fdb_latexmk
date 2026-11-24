@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1795389190.54308 "main.bcf" "main.bbl" "main" 1795543032.9284 0
-  "main.bcf" 1795543032.789 114445 d2896b343365fa950756b2f7185390c5 "pdflatex"
+["biber main"] 1795389190.54308 "main.bcf" "main.bbl" "main" 1795547374.00769 0
+  "main.bcf" 1795547373.8448 114445 d2896b343365fa950756b2f7185390c5 "pdflatex"
   "referencias.bib" 1795439857.40882 7890 a7c3f0fad479d5990321d374e7646118 ""
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1795543029.88072 "main.tex" "main.pdf" "main" 1795543032.92876 0
+["pdflatex"] 1795547370.89732 "main.tex" "main.pdf" "main" 1795547374.00794 0
   "../../notebooks/figuras/A6_fronteiras_pca.png" 1795476464.43894 669332 4b6f24c92d8fe55ee109c48d50e59bd2 ""
   "../../notebooks/figuras/B5_svm_hiperplano_2d_192_168_60_33.png" 1795476063.40198 712445 c850b9239422b69b04f2bb674f2b2370 ""
   "../../notebooks/figuras/svm360_alinhado_192_168_60_33/frame_032_az080.0.png" 1795476063.61198 171938 520139d4a489a03f10d623ae2344b4d8 ""
@@ -251,11 +251,11 @@
   "decisiontree_features.png" 1787766008.5242 66258 c7bd006d7a521882a915e65d9d8ef846 ""
   "fases.tex" 1795439857.40389 2022 bd7bc4df6757830e4a133edee7ad6157 ""
   "logoinovatcc2.png" 1787766008.5242 8563 2bdf1bdf926197f2974618836c072c1d ""
-  "main.aux" 1795543032.781 15287 e96a419e4fc5c201122bcfe696efc6eb "pdflatex"
+  "main.aux" 1795547373.8388 15556 4701fbccc5f6fbd5c5e1848c2bc66d93 "pdflatex"
   "main.bbl" 1795439862.13921 42466 8ef3b1c3e2a63ed63273c9f839b57d54 "biber main"
-  "main.out" 1795543032.786 3085 5efbe9495176d90945a99967e0d485e5 "pdflatex"
-  "main.run.xml" 1795543032.7909 2406 65f433d9d0e748bcfb8eb7e240bd3347 "pdflatex"
-  "main.tex" 1795543026.08606 77680 7bdde46eef0a1c2a59dc47947cb48823 ""
+  "main.out" 1795547373.8418 3186 13f379267a76b92e302f47994f391a92 "pdflatex"
+  "main.run.xml" 1795547373.84646 2406 65f433d9d0e748bcfb8eb7e240bd3347 "pdflatex"
+  "main.tex" 1795547370.40081 77813 93695bed7e196011fd28185b012bcfdd ""
   "matriz_corr.png" 1787766008.5382 156449 45a58e1a2b1d3cded6c558b8419298b6 ""
   "pcaXvariancia.png" 1787766008.5382 35151 bcc0b7e7568402afd7b57957b9fa9bc1 ""
   "pca_classes.png" 1787766008.5382 71643 b0a798c9df96fb51945893d36f1d3d4b ""

@@ -30,7 +30,7 @@
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{multirow}
-\usepackage{tabularx}  
+\usepackage{tabularx}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -687,8 +687,8 @@ variável alvo (\textit{target}). Os atributos da base foram utilizados como ent
 algoritmos, enquanto as categorias correspondentes aos tipos de tráfego e 
 ataques foram utilizadas como saída esperada dos modelos. Após essa definição, 
 os dados passaram pela etapa de separação entre conjuntos de treinamento e teste 
-utilizando a função \textit{train\_test\_split} da biblioteca \textit{Scikit-learn}, sendo o arquivo 
-\textit{KDDTrain.txt} para treino e o \textit{KDDTest.txt} para teste, divididos na proporção 
+utilizando a função \texttt{train\_test\_split} da biblioteca \texttt{Scikit-learn}, sendo o arquivo 
+\texttt{KDDTrain.txt} para treino e o \texttt{KDDTest.txt} para teste, divididos na proporção 
 clássica de 70\% e 30\%.  Essa divisão permitiu utilizar parte dos registros 
 para treinamento dos algoritmos e outra parte para validação do desempenho dos 
 modelos em dados não utilizados durante o aprendizado. Essa abordagem foi 
@@ -815,14 +815,9 @@ permitindo identificar a abordagem mais eficiente para classificação do tráfe
 de rede e detecção de intrusões utilizando a base $NSL-KDD$. 
 
 \subsection{MPV2}
-\subsubsection{Pipeline de classificação}
-Inicialmente, uma base é construida extraindo um arquivo .pcap do tráfego usual da rede que está sendo implementado o $IDS$. Esta base então é reduzida às 17 $Features$ mencionadas, a mesma é inserida na $Isolation Forest$ para ser classificada. Após a etapa de classificação a nova base é inserida no Estágio 1 ($Decision Tree$) para treinar o algoritimo que classificará todo o tráfego em tempo real que será alimentado. \\
-\newline
-Com o modelo definido, então é iniciado o $LifeCycle$ que recebe uma janela de 10 segundos de dados por vez e classifica a informação com base no modelo do estágio 1. Esta classificação é preliminar e propositalmente grosseira.\\
-O estágio 2 então é treinado com um $Golden\ set$ de uma base de ataques conhecidos (como a $CICIDS2017$ para bases não supervisionadas, ou $NSL-KDD$ para bases supervisionadas) em conjunto com as informações classificadas pelo estágio anterior. O objetivo deste é refinar as informações que o anterior classificou. Sendo um algorítimo de $clustering$ ele é treinado com uma frequência menor que o estágio 1 afim de evitar alto custo computacional.
-
-O estágio 1 é não supervisionado pois não existe rótulo no tráfego de produção; ele funciona como peneira com alto \textit{recall} e baixa precisão. O estágio 2 é supervisionado e opera apenas sobre os alertas do estágio 1, com dois objetivos: recuperar formas de ataque conhecidas que o estágio 1 não classifica, e separar ataque real de anomalia benigna. Os rótulos do estágio 2 vem do $Golden\ Set$ e dos vereditos do analista.\\
-Os componentes de \textit{software} deselvolvidos são:
+O MVP2 é um NIDS que observa uma cópia passiva do tráfego e classifica cada fluxo
+em uma cascata de dois modelos (Figura \ref{fig:arquitetura}). Os componentes de
+\textit{software} desenvolvidos são:
 \begin{itemize}
 	\item \textbf{netanomaly.py}: extração de atributos, treino do estágio 1 e métricas e rotulagem das bases.
 	\item \textbf{netanomaly\_live.py}: analisador em tempo real, que aplica o modelo congelado a jalenas de 10s.
@@ -832,46 +827,64 @@ Os componentes de \textit{software} deselvolvidos são:
 	\item \textbf{migrations/}: esquema PostgreSQL/TimescaleDB, versionado por migração.
 \end{itemize}
 
-O detector é um $StandardScaler$ seguido de um $IsolationForest$ com 200
-árvores, ambos ajustados com pesos por amostra iguais ao peso de recência da
-janela de origem. O \textit{score} é invertido para que valores maiores
-signifiquem mais anomalia, e o limiar $\tau$ é o quantil ponderado do
-escore de treino:
-
-\begin{equation}
-  s(x) = -\,\mathrm{score}(x), \qquad
-  \tau = Q_w\!\left(1 - c\right),
-  \label{eq:limiar}
-\end{equation}
-
-\noindent em que $c$ é o \textit{contamination} e $Q_w$ é o quantil calculado sobre a
-distribuição acumulada ponderada pelos pesos $w$. O limiar é congelado no artefato: o analisador ao vivo não
-recalcula, pois isso faria a taxa de alerta depender da composição da janela
-corrente e não do treino.
-
-Junto ao limiar, o artefato guarda uma grade de 1.001 quantis do escore de treino.
-O percentil de cada fluxo é calculado contra essa grade. Percentis relativo à janela produziria alerta por
-construção: em uma janela sem ataque, o “1\% mais anômalo” é tráfego
-normal. Contra a grade do treino, uma janela benigna não gera alerta, e o
-percentil fica disponível imediatamente, sem esperar a janela fechar.
-
-Para a explicabilidade, uma $DecisionTreeClassifier$ de profundidade 4 é
-treinada sobre os atributos não escalados, tendo como alvo o rótulo
-atribuído pelo próprio \textit{Isolation Forest}. A regra do caminho percorrido por
-cada alerta (por exemplo, $n\_dports > 50\ e\ duration < 2,1$) é exibida ao
-analista em unidades reconhecíveis.
-\\
-\newline
-Diagrama com fluxo completo do pipeline na imagem \ref{fig:arquitetura}
-
 \begin{strip}
 \begin{figure}[H]
   \centering
   \resizebox{\textwidth}{!}{\input{arquitetura.tex}}
-  \caption{Arquitetura do MVP2: detecção em tempo real, refinamento supervisionado e ciclo de vida do modelo do Estágio 1.}
+  \caption{Arquitetura do MVP2: detecção em tempo real, ciclo de vida do modelo do Estágio 1. refinamento supervisionado do estágio 2.}
   \label{fig:arquitetura}
 \end{figure}
 \end{strip}
+
+\subsubsection{Ambiente da infraestrutura e conteinerização}
+
+Uma única imagem (\texttt{python:3.13-slim}) serve aos papéis de detector e treinador, garantindo a mesma versão de \textit{scikit-learn} em todos, necessário, pois o artefato \texttt{.joblib} é serializado por versão.
+Os containers rodam em \textit{userspace} as capacidades \texttt{cap\_net\_raw} e \texttt{cap\_net\_admin} são
+atribuídas ao binário \texttt{tcpdump} como \textit{file capabilities}, de modo que um
+processo de UID 1000 abre o \textit{socket} de captura e os arquivos gravados no
+volume pertencem ao usuário do hospedeiro. A Tabela \ref{tab:servicos} resume os
+serviços do \textit{Docker Compose}; os que capturam ou exibem dados só sobem quando
+o perfil correspondente é ativado.
+
+\begin{table}[H]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabularx}{\columnwidth}{l l X}
+\toprule
+\textbf{Serviço} & \textbf{Perfil} & \textbf{Função} \\
+\midrule
+banco            & ---              & TimescaleDB, porta só em \texttt{127.0.0.1} \\
+treinador        & ---              & Migrações, candidato diário e predição do Estágio 2 \\
+detector         & sensor           & Captura em \texttt{network\_mode: host} \\
+detector-isolado & sensor-isolado   & NIC dedicada via \textit{macvlan passthru} \\
+replay           & replay           & Reprocessa um \textit{pcap}, sem captura \\
+grafana          & painel           & Painéis dos Estágios 1, 2 e resultado final (consolidado dos estágios anteriores) \\
+\bottomrule
+\end{tabularx}
+\caption{Serviços do \textit{Docker Compose} e perfis de ativação.}
+\label{tab:servicos}
+\end{table}
+
+\textbf{Persistência.} O banco é PostgreSQL 17 com a extensão TimescaleDB,
+organizado no esquema \texttt{na} (14 tabelas e 11 consultas). Quatro
+decisões estruturam o esquema:\\ (i) os fluxos ficam em arquivos \textit{Parquet} em disco, e o banco guarda apenas o índice (\texttt{feature\_windows}), com estado de quarentena e despejo;\\ (ii) o corte do
+analista é aplicado na consulta, com dois limiares distintos: o
+piso de gravação (percentil 0,95, fixo) e o corte de exibição (0,99, ajustável em
+uma \textit{view}, com efeito retroativo sem reprocessamento);\\ (iii) \textit{score} contínuo e
+percentil são guardados juntos, o primeiro para o Estágio 2 e o segundo para revisão do 
+analista;\\ (iv) não há chave estrangeira para a tabela de alertas, pois trata-se de uma
+\textit{hypertable} com retenção de 180 dias. Os parâmetros operacionais ficam em uma
+tabela editável com histórico de alterações por gatilho. Cada migração é
+aplicadas uma única vez por um controlador próprio; se houver falha, o treinador aborta, pois treinar contra um
+esquema incerto corromperia a análise.
+
+\textbf{Visualização.} Os painéis do Grafana leem diretamente o banco e cobrem o
+Estágio 1 (alertas acima do corte, quase-acertos, janelas no \textit{pool}, portão do
+último candidato), o Estágio 2 (dispersão do SVM em PCA 2D, desempenho por cenário,
+fila por margem) e o resultado final consolidado. A arquitetura prevista para o
+\textit{front-end} é adaptável: parâmetros editados por um painel de formulários do
+próprio Grafana.
 
 \section{Resultados}
 \subsection{MVP1}

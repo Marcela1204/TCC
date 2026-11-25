@@ -986,220 +986,471 @@ percorrido por cada alerta (por exemplo, \texttt{n\_bytes <= 143452 e bytes\_per
 \end{figure}
 
 \section{Resultados}
+Os resultados estão organizados nas duas fases do trabalho. No MVP1, os
+classificadores são comparados na base NSL-KDD, e os números servem para escolher o
+algoritmo e os atributos. No MVP2, a cascata de dois estágios é avaliada de duas
+formas: com métricas medidas \textit{offline} sobre o \textit{golden set} rotulado
+(CIC-IDS-2017) e com a operação do sistema em tráfego real no laboratório, onde não
+existe rótulo e o resultado é apresentado por estudo de caso. Todas as métricas e
+figuras desta seção são geradas pelo \textit{notebook}
+\texttt{notebooks/graficos\_modelos.ipynb}, com \texttt{random\_state = 42}.
+
 \subsection{MVP1}
-O algorítimo selecionado foi o $Decision Tree$, este conta com o menor tempo de teste e melhor acurácia, estes valores são a maior métrica ultilizada pois o objetivo do sistema é ser execudato em tempo real para garantir uma resposta rápida a incidentes.
-\newline
-\\
-% \subsection{}
-Ultilizando os testes do capítulo anterior, foi desenvolvida uma análise com os variados algorítimos mais ultilizados ($Random Forest$ [$RF$], $Decision Tree$ [$DT$], $KNN$, $SVM$, $Logistic Regression$ [$LR$]).
-Ultilizando um random state de 42 para os algorítimos citados, obtiveram-se os seguintes valores:
-robustez e estabilidade nas previsões, devido à combinação de múltiplas 
-árvores de decisão. A seleção do modelo final considerou o equilíbrio entre as 
-métricas de Accuracy, Precision, Recall e F1-Score, além do impacto das técnicas de 
-redução de dimensionalidade no desempenho e no custo computacional dos algoritmos, 
-permitindo identificar a abordagem mais eficiente para classificação do tráfego 
-de rede e detecção de intrusões utilizando a base $NSL-KDD$. 
-\newline
-\newline
-% \subsection{}
-Ultilizando os testes do capítulo anterior, foi desenvolvida uma análise com os variados algorítimos mais ultilizados ($Random Forest$, $Decision Tree$, $KNN$, $SVM$, $Logistic Regression$).
-%FIXME: adicionar o documento de referência sobre os algoritimos ultilizados
-Ultilizando um random state de 42 para os algorítimos citados, obtiveram-se os seguintes valores:
-\begin{table}[H]
-	\centering
-	\small
-	\setlength{\tabcolsep}{1pt}
-	\begin{tabular}{|l|c|c|c|c c c|}
-		\hline
-		Modelo & Acc\footnotemark & Prec\footnotemark & Rec\footnotemark & F1\footnotemark & T Train(s)\footnotemark & T Teste(s)\footnotemark \\
-		\hline
-		RF & 0.9987 & 0.9992 & 0.9979 & 0.9985 & 6.3216 & 0.1268 \\
-		DT & 0.9977 & 0.9975 & 0.9975 & 0.9975 & 0.8541 & 0.0035 \\
-		KNN & 0.9935 & 0.9921 & 0.9940 & 0.9931 & 0.0052 & 16.5641 \\
-		LR & 0.9454 & 0.9504 & 0.9313 & 0.9408 & 3.0691 & 0.0037 \\
-		SVM & 0.9544 & 0.9594 & 0.9418 & 0.9506 & 217.7609 & 9.0564 \\
-		\hline
-	\end{tabular}
-	\caption{Estátisticas de treino dos modelos}
-	\label{tab:Tempos_treino}
-\end{table}
-\addtocounter{footnote}{-5}\footnotetext{Acurácia}%
-\stepcounter{footnote}\footnotetext{Precisão}%
-\stepcounter{footnote}\footnotetext{Recall}%
-\stepcounter{footnote}\footnotetext{F1-score}%
-\stepcounter{footnote}\footnotetext{Tempo de treino}%
-\stepcounter{footnote}\footnotetext{Tempo de teste}%
-\begin{figure}[H]
-	\includegraphics[width=\linewidth]{../../notebooks/figuras/A6_fronteiras_pca.png}
-	\caption{Fronteiras definidas por algorítimo}
-	\label{fig:fronteiras}
-\end{figure}
-Com os valores da tabela \ref{tab:Tempos_treino} o algorítimo selecionado foi o $Decision Tree$, dado seu baixo tempo de teste e alta acurácia.\\
-Afim de simplificar a análise dos dados, foi plotado o gráfico \ref{fig:pca_ataqueXnormal} que demonstra a distribuição de dados classificados como ataque e tráfego comum/normal
-\begin{figure}[H]
-	\includegraphics[width=8.69cm,height=7cm]{./PCA_2D.png}
-	\caption{PCA classificando tráfego como ataque e normal}
-	\label{fig:pca_ataqueXnormal}
-\end{figure}
-Estudando as features com o auxilio dos resutados do $PCA$ chegou-se a Conclusão que com 18 features é possível alcançar uma acurácia com valores a cima de 95\%:\\
-\begin{figure}[H]
-	\includegraphics[width=8.69cm,height=11cm]{./Importancia_features.png}
-	\caption{Representação da importância de cada feature para a acurácia}
-	\label{fig:Importancia_features}
-\end{figure}
-Afim de refinar os dados representado no $PCA$ pela imagem \ref{fig:Importancia_features} uma análise similar foi feita utilizado o algorítimo $Decision Tree$:
-\begin{figure}[H]
-	\includegraphics[width=9cm,height=6cm]{./decisiontree_features.png}
-	\caption{Features variadas para o decision tree}
-	\label{fig:DecisionTree_features}
-\end{figure}
-Indicando que o número ótimo de features é 18, onde a acurácia é maior. \\
-Sendo elas:
-\begin{table}[H]
-	\centering
-	\begin{tabular}{|l l|}
-		\hline
-		1. & src\_bytes \\
-		2. & dst\_host\_srv\_count \\
-		3. & count \\
-		4. & dst\_bytes \\
-		5. & dst\_host\_srv\_rerror\_rate \\
-		6. & hot \\
-		7. & dst\_host\_same\_src\_port\_rate \\
-		8. & logged\_in \\
-		9. & srv\_count \\
-		10. & dst\_host\_same\_srv\_rate \\
-		11. & duration \\
-		12. & dst\_host\_count \\
-		13. & dst\_host\_rerror\_rate \\
-		14. & dst\_host\_diff\_srv\_rate \\
-		15. & dst\_host\_count \\
-		16. & dst\_host\_rerror\_rate \\
-		17. & wrong\_fragment \\
-		18. & dst\_host\_diff\_srv\_rate \\
-\hline
-\end{tabular}
-\end{table}
-\begin{enumerate}
-	\item \textbf{src\_bytes}: Número de bytes de dados enviados da origem para o destino.
-	\item \textbf{dst\_host\_srv\_count}: Quantidade de conexões destinadas para o mesmo host (dentre as ultimas 100).
-	\item \textbf{count}: Número de conexões para o mesmo host de destino nos ultimos 2 segundos.
-	\item \textbf{dst\_bytes}: Número de bytes de dados enviados do destino para a origem.
-	\item \textbf{dst\_host\_srv\_rerror\_rate}: Percentual de conexões recusadas vindas de \textbf{dst\_host\_srv\_count}.
-	\item \textbf{hot}: Número de indicadores que identificam o acesso a diretórios do sistema ou escrita e execução de programas.
-	\item \textbf{dst\_host\_same\_src\_port\_rate}: Percentual de conexões que utiliza a mesma porta de origem da conexão atual.
-	\item \textbf{logged\_in}: Indicador binário que informa se houve autenticação bem sucedida.
-	\item \textbf{srv\_count}: Número de conexões para a mesma porta da conexão atual, nos ultimos 2 segundos.
-	\item \textbf{dst\_host\_same\_srv\_rate}: Percentual de conexões ao mesmo host de destino que usam a mesma porta.
-	\item \textbf{duration}: Tempo de duração da conexão em segundos.
-	\item \textbf{dst\_host\_rerror\_rate}: Porcentagem de conexões que foram recusadas.
-	\item \textbf{dst\_host\_diff\_srv\_rate}: Porcentagem de conexões que foram para portas diferentes do destino.
-	\item \textbf{dst\_host\_count}: Número de conexões direcinadas para o mesmo ip de destino.
-	\item \textbf{dst\_host\_rerror\_rate}: Porcentagem de conexões que receberam erro do tipo $SYN$.
-	\item \textbf{wrong\_fragment}: Número de fragmentos corrompidos na conexão.
-	\item \textbf{dst\_host\_srv\_diff\_host\_rate}: Porcentagem de conexões para  amesma porta que vieram de varidas origens.
-	\item \textbf{diff\_srv\_rate}: Porcentagem de conexões que foram para portas diferentes.
-\end{enumerate}
-
-
 
 \subsubsection{Análise de Dados e Pré-processamento}
-Para a análise de dados foi considerado a base de dados NSL-KDD com os seguintes ataques listados na tabela \ref{tab:ataquesXcategoria}. alguns dos valores citados não são ataques reais, porém no contexto desta análise componentes como: $loadmodule$, $perl$ e $nmap$ foram categorizados como ataques.\\
-Para melhor vizualização dos dados os ataques foram separados nas seguintes categorias: $normal$, $DoS$, $probe$, $r2l$, $u2r$.
-	\begin{table}[H]
+A base NSL-KDD contém os ataques listados na Tabela \ref{tab:ataquesXcategoria}.
+Alguns dos rótulos não descrevem ataques propriamente ditos, mas ferramentas ou ações
+(\textit{loadmodule}, \textit{perl}, \textit{nmap}); no contexto desta análise, foram
+tratados como ataque. Para facilitar a leitura, os ataques foram agrupados nas
+categorias \textit{normal}, \textit{DoS}, \textit{probe}, \textit{r2l} e \textit{u2r}.
+
+\begin{table}[H]
 \centering
-		\begin{tabular}{|c|c|c|}
-		    \hline
-		    \textbf{Categoria} & \textbf{Tipos de Ataque} & \textbf{Qtd de Valores}\\
-		    \hline
-		    normal & Normal & 67343 \\
-		    \hline
-		    DoS &
-		    \begin{tabular}[c]{@{}c@{}}
-			Neptune \\
-		         smurf \\
-		         teardrop \\
-		         pod \\
-			 land 
-			\end{tabular}
-			& 44971\\
-		    \hline
-		    probe &
-		    \begin{tabular}[c]{@{}c@{}}
-		    nmap \\
-		    ipsweep \\
-		    satan
-		    \end{tabular}
-			  & 8725 \\
-		    \hline
-		    r2l &
-		    \begin{tabular}[c]{@{}c@{}}
-			warezclient \\
-		        warezmaster \\
-		        guess\_passwd \\
-		        imap \\
-		        ftp\_write \\
-		        multihop \\
-		        phf \\
-		        spy
-		    \end{tabular}
-			& 995 \\
-		    \hline
-		    u2r &
-		    \begin{tabular}[c]{@{}c@{}}
-		       buffer\_overflow \\
-		       rootkit \\
-		       loadmodule \\
-		       perl
-		    \end{tabular}
-			& 52 \\
-		    \hline
-		\end{tabular}
-	\caption{Definição de tipos de ataque por grupos}
+\footnotesize
+\begin{tabular}{|c|c|c|}
+	\hline
+	\textbf{Categoria} & \textbf{Tipos de Ataque} & \textbf{Qtd. de registros}\\
+	\hline
+	normal & normal & 67.343 \\
+	\hline
+	DoS &
+	\begin{tabular}[c]{@{}c@{}} neptune, smurf, teardrop, \\ pod, land \end{tabular}
+	& 44.971 \\
+	\hline
+	probe &
+	\begin{tabular}[c]{@{}c@{}} nmap, ipsweep, satan \end{tabular}
+	& 8.725 \\
+	\hline
+	r2l &
+	\begin{tabular}[c]{@{}c@{}} warezclient, warezmaster, \\ guess\_passwd, imap, ftp\_write, \\ multihop, phf, spy \end{tabular}
+	& 995 \\
+	\hline
+	u2r &
+	\begin{tabular}[c]{@{}c@{}} buffer\_overflow, rootkit, \\ loadmodule, perl \end{tabular}
+	& 52 \\
+	\hline
+\end{tabular}
+\caption{Tipos de ataque agrupados por categoria (\texttt{KDDTrain+}).}
 \label{tab:ataquesXcategoria}
-	\end{table}
-	Com o objetivo de análisar os dados e diminuir o espaço dimensional, foi utilizado a matriz de correlação (figura \ref{fig:matriz_corr}) que representa que a contagem de pacotes e ocorrência de erros são os componentes com maior correlação entre si.
+\end{table}
+
+A matriz de correlação (Figura \ref{fig:matriz_corr}) mostra que os atributos de
+contagem de conexões e de taxa de erro são os mais correlacionados entre si, o que
+indica redundância e motiva a redução de dimensionalidade.
+
 \begin{figure}[H]
 \centering
 \includegraphics[width=8cm,height=8cm]{matriz_corr.png}
-\caption{Matriz de correlação da base NSL\_KDD}
+\caption{Matriz de correlação da base NSL-KDD.}
 \label{fig:matriz_corr}
 \end{figure}
-Para validar as informações da matriz de correlação foi feita uma análise baseada em $PCA$, plotando um gráfico na figura \ref{fig:pca_componentes} com os dois primeiros componentes e separando os valores pelos grupos anteriormente mencionados na tabela \ref{tab:ataquesXcategoria}.
+
+Para validar essa leitura, a Figura \ref{fig:pca_componentes} projeta os registros
+nas duas primeiras componentes do PCA, separados pelas categorias da Tabela
+\ref{tab:ataquesXcategoria}, e a Figura \ref{fig:pca_ataqueXnormal} mostra a mesma
+projeção apenas com as classes normal e ataque. A separação já é visível em duas
+dimensões para \textit{DoS} e \textit{probe}; \textit{r2l} e \textit{u2r} ficam
+sobrepostas ao tráfego normal, o que antecipa a dificuldade dos classificadores nessas
+categorias.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=8.69cm,height=7cm]{pca_classes.png}
-	\caption{vizualização de dois componentes do $PCA$ separado por classes}
+	\caption{Duas primeiras componentes do PCA, separadas por categoria.}
 	\label{fig:pca_componentes}
 \end{figure}
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=8.69cm,height=7cm]{./PCA_2D.png}
+	\caption{Duas primeiras componentes do PCA: ataque e tráfego normal.}
+	\label{fig:pca_ataqueXnormal}
+\end{figure}
+
+\subsubsection{Comparação dos classificadores}
+Os cinco classificadores ($Random Forest$ [RF], $Decision Tree$ [DT], KNN com
+$k=5$, $Logistic Regression$ [LR] e SVM linear) foram treinados com os 41 atributos
+padronizados e avaliados em dois conjuntos: a partição retida de 30\% do
+\texttt{KDDTrain+} (Tabela \ref{tab:Tempos_treino}) e o \texttt{KDDTest+}, o conjunto
+de teste oficial (Tabela \ref{tab:kddtest}).
+
+\begin{table}[H]
+	\centering
+	\footnotesize
+	\setlength{\tabcolsep}{2pt}
+	\begin{tabular}{|l|c|c|c|c|c|c|}
+		\hline
+		\textbf{Modelo} & \textbf{Acc} & \textbf{Prec} & \textbf{Rec} & \textbf{F1} & \textbf{T. treino (s)} & \textbf{T. teste (s)} \\
+		\hline
+		RF  & 0,9990 & 0,9995 & 0,9984 & 0,9989 & 1,729   & 0,0369 \\
+		DT  & 0,9981 & 0,9981 & 0,9977 & 0,9979 & 0,601   & \textbf{0,0038} \\
+		KNN & 0,9958 & 0,9955 & 0,9956 & 0,9955 & 0,005   & 2,567 \\
+		LR  & 0,9537 & 0,9597 & 0,9399 & 0,9497 & 2,696   & 0,0085 \\
+		SVM & 0,9596 & 0,9662 & 0,9462 & 0,9561 & 154,420 & 7,663 \\
+		\hline
+	\end{tabular}
+	\caption{Métricas na partição retida (30\% do \texttt{KDDTrain+}, 37.792 registros). Acc = acurácia, Prec = precisão, Rec = \textit{recall}.}
+	\label{tab:Tempos_treino}
+\end{table}
+
+Na partição retida, todos os modelos baseados em árvore e o KNN ficam acima de
+99,5\% de acurácia. Esse resultado é otimista porque treino e teste vêm do mesmo
+arquivo: os mesmos tipos de ataque aparecem nos dois lados. O \texttt{KDDTest+} traz
+17 tipos de ataque ausentes do treino e, por isso, mede a generalização. Nele, todos
+os modelos perdem entre 16 e 23 pontos de acurácia, e a diferença entre eles aparece.
+
+\begin{table}[H]
+	\centering
+	\footnotesize
+	\setlength{\tabcolsep}{3pt}
+	\begin{tabular}{|l|c|c|c|c|c|c|}
+		\hline
+		\textbf{Modelo} & \textbf{Acc} & \textbf{Prec} & \textbf{Rec} & \textbf{F1} & \textbf{FPR} & \textbf{MCC} \\
+		\hline
+		RF  & 0,7650 & 0,9668 & 0,6081 & 0,7466 & 0,0276 & 0,5996 \\
+		DT  & \textbf{0,8348} & 0,9706 & \textbf{0,7320} & \textbf{0,8346} & 0,0293 & \textbf{0,7030} \\
+		KNN & 0,7686 & 0,9704 & 0,6122 & 0,7508 & 0,0247 & 0,6064 \\
+		LR  & 0,7519 & 0,9250 & 0,6140 & 0,7380 & 0,0658 & 0,5598 \\
+		SVM & 0,7568 & 0,9647 & 0,5945 & 0,7356 & 0,0287 & 0,5871 \\
+		\hline
+	\end{tabular}
+	\caption{Métricas no \texttt{KDDTest+} (22.544 registros, com ataques inéditos). FPR = taxa de falso positivo; MCC = coeficiente de correlação de Matthews.}
+	\label{tab:kddtest}
+\end{table}
+
+A $Decision Tree$ é o modelo com melhor generalização: 0,8348 de acurácia e 0,732 de
+\textit{recall} no \texttt{KDDTest+}, 12 pontos acima do segundo colocado em
+\textit{recall}, com o menor tempo de teste entre os cinco (3,8~ms para 37.792
+registros). A Figura \ref{fig:recall_categoria} mostra de onde vem a vantagem: nas
+categorias minoritárias, a DT detecta 39\% dos ataques \textit{r2l} contra no máximo
+12\% dos demais modelos, e 40\% dos \textit{u2r}. Em todos os modelos, \textit{r2l} e
+\textit{u2r} continuam sendo as categorias mais difíceis, como já antecipava a
+sobreposição observada no PCA.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{../../notebooks/figuras/A7_recall_por_categoria.png}
+	\caption{Taxa de acerto por categoria no \texttt{KDDTest+} (normal = especificidade; demais categorias = \textit{recall}).}
+	\label{fig:recall_categoria}
+\end{figure}
+
+A Figura \ref{fig:fronteiras} ilustra como cada família de modelo recorta o espaço.
+Para que a fronteira possa ser desenhada, cada modelo foi retreinado apenas com PC1 e
+PC2; a figura é ilustrativa e não corresponde aos modelos avaliados nas tabelas. A
+árvore produz recortes ortogonais aos eixos, enquanto LR e SVM linear ficam limitados
+a uma única reta.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{../../notebooks/figuras/A6_fronteiras_pca.png}
+	\caption{Fronteiras de decisão de cada algoritmo no plano PC1 $\times$ PC2.}
+	\label{fig:fronteiras}
+\end{figure}
+
+Como o objetivo do sistema é operar em tempo real, o critério de escolha combinou
+generalização e custo de inferência. A $Decision Tree$ ficou em primeiro lugar nos
+dois critérios e foi o algoritmo selecionado.
+
 \subsubsection{Redução de Dimensionalidade e Seleção de Atributos}
-Buscando uma margem de variância a cima de 95\% foi calculado o $PCA$ para variados números de componentes, para descobrir a melhor variância, com o menor número de componentes. Definido 23 de todos os 43 componentes como a melhor média amostral
+Para preservar mais de 95\% da variância, o PCA precisa de 23 das 41 componentes
+(Figura \ref{fig:pca_variancia}). A redução, porém, não favoreceu os classificadores:
+no \texttt{KDDTest+}, o F1 da $Decision Tree$ caiu de 0,8346 com os 41 atributos para
+0,7714 com as componentes do PCA, e o do $Random Forest$ caiu de 0,7466 para 0,7387.
+Só a regressão logística teve ganho marginal (de 0,7380 para 0,7435). A projeção
+mistura atributos com escalas e significados diferentes, e a árvore perde os cortes
+diretos que fazia sobre atributos individuais.
+
 \begin{figure}[H]
 \centering
-\includegraphics[width=8.5cm,height=5.5cm]{pcaXvariancia.png}	
-\caption{Variância explicada para PCA}
+\includegraphics[width=8.5cm,height=5.5cm]{pcaXvariancia.png}
+\caption{Variância explicada acumulada do PCA.}
 \label{fig:pca_variancia}
 \end{figure}
 
+A seleção de atributos funcionou melhor que a projeção. As Figuras
+\ref{fig:Importancia_features} e \ref{fig:DecisionTree_features} mostram a importância
+de cada atributo e a acurácia da $Decision Tree$ treinada com os $k$ atributos mais
+importantes: a curva se estabiliza acima de 95\% e atinge o máximo com 18 atributos.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=8.69cm,height=11cm]{./Importancia_features.png}
+	\caption{Importância de cada atributo.}
+	\label{fig:Importancia_features}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=9cm,height=6cm]{./decisiontree_features.png}
+	\caption{Acurácia da $Decision Tree$ em função do número de atributos.}
+	\label{fig:DecisionTree_features}
+\end{figure}
+
+Os 18 atributos selecionados são:
+\begin{enumerate}
+	\item \textbf{src\_bytes}: número de bytes enviados da origem para o destino.
+	\item \textbf{dst\_host\_srv\_count}: quantidade de conexões para o mesmo serviço do destino (entre as últimas 100).
+	\item \textbf{count}: número de conexões para o mesmo \textit{host} de destino nos últimos 2 segundos.
+	\item \textbf{dst\_bytes}: número de bytes enviados do destino para a origem.
+	\item \textbf{dst\_host\_srv\_rerror\_rate}: percentual de conexões recusadas entre as contadas em \textbf{dst\_host\_srv\_count}.
+	\item \textbf{hot}: número de indicadores de acesso a diretórios do sistema ou de criação e execução de programas.
+	\item \textbf{dst\_host\_same\_src\_port\_rate}: percentual de conexões que usam a mesma porta de origem da conexão atual.
+	\item \textbf{logged\_in}: indicador binário de autenticação bem-sucedida.
+	\item \textbf{srv\_count}: número de conexões para a mesma porta da conexão atual nos últimos 2 segundos.
+	\item \textbf{dst\_host\_same\_srv\_rate}: percentual de conexões ao mesmo \textit{host} de destino que usam a mesma porta.
+	\item \textbf{duration}: duração da conexão em segundos.
+	\item \textbf{dst\_host\_rerror\_rate}: percentual de conexões recusadas.
+	\item \textbf{dst\_host\_diff\_srv\_rate}: percentual de conexões para portas diferentes do mesmo destino.
+	\item \textbf{dst\_host\_count}: número de conexões direcionadas ao mesmo IP de destino.
+	\item \textbf{dst\_host\_serror\_rate}: percentual de conexões com erro do tipo $SYN$.
+	\item \textbf{wrong\_fragment}: número de fragmentos corrompidos na conexão.
+	\item \textbf{dst\_host\_srv\_diff\_host\_rate}: percentual de conexões para a mesma porta vindas de origens diferentes.
+	\item \textbf{diff\_srv\_rate}: percentual de conexões para portas diferentes.
+\end{enumerate}
+
+Do MVP1, duas conclusões passaram ao MVP2: a ordem de grandeza do vetor de atributos
+(17 atributos por fluxo) e a evidência de que volume, contagem e taxa de erro de
+conexão são os sinais mais discriminantes.
+
 \subsection{MVP2}
-O pipeline implementado foi $Decision Tree$ (estágio 1) + $SVM$ (estágio 2) linear, esta estrutura conta com o menor tempo de classificação preliminar, e qualidade de classificação a partir do estágio 2. \\
-Considerando a execução em tempo real é necessária a combinação de classificação rústica (para velocidade de classificação)e refinamento da análise (para garantir a qualidade da classificação).
+O MVP2 foi avaliado em duas frentes. A primeira é a avaliação \textit{offline} sobre
+o \textit{golden set}: 14.615 fluxos do CIC-IDS-2017 rotulados pelo cronograma oficial
+da base (875 de ataque e 13.740 de controle benigno do mesmo período). A segunda é a
+operação do sistema em tempo real no laboratório, sobre o tráfego da rede
+\texttt{192.168.60.0/24}.
+
+\subsubsection{Estágio 1 --- \textit{Isolation Forest}}
+O \textit{Isolation Forest} promovido ($c = 0{,}01$) marcou 0,87\% do \textit{pool}
+de treino como alerta, coerente com o \textit{contamination} configurado. No
+\textit{golden set}, porém, o \textit{recall} foi \textbf{zero}: nenhum dos 875 fluxos
+de ataque ultrapassou o limiar, e 131 fluxos benignos foram marcados (FPR de 0,95\%),
+como mostra a Figura \ref{fig:if_golden}. O ROC-AUC de 0,718 indica que o escore
+ordena os ataques acima da maior parte do tráfego benigno, mas não acima do benigno
+atípico, que é justamente o que o limiar seleciona.
+
+\begin{strip}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{../../notebooks/figuras/B1_isolation_forest.png}
+	\caption{Estágio 1 no \textit{golden set}: matriz de confusão, curvas ROC e PR, distribuição do escore e posição dos ataques na escala de percentil do \textit{pool}.}
+	\label{fig:if_golden}
+\end{figure}
+\end{strip}
+
+A causa é estrutural, e não de ajuste. O painel inferior direito da Figura
+\ref{fig:if_golden} mostra que os ataques do \textit{golden set} se acumulam em um
+pico estreito por volta do percentil 64 do \textit{pool}: são milhares de fluxos
+quase idênticos, que formam um aglomerado denso. O \textit{Isolation Forest} isola
+pontos \textbf{raros}, de modo que um ataque volumoso e homogêneo parece normal ao
+detector, e parece mais normal quanto mais se repete. O histórico de candidatos
+confirma isso: todos os 20 candidatos treinados com $c = 0{,}01$ ao longo do
+projeto tiveram \textit{recall} de 0,000, e subir o \textit{contamination} para
+0,03 elevou o \textit{recall} para apenas 0,003, com FPR entre 3,7\% e 5,5\%. Nenhum
+valor de limiar separa as classes, o que justifica a existência de um segundo
+estágio supervisionado.
+
+A árvore \textit{surrogate} (Figura \ref{fig:arvore}) reproduz as decisões do
+\textit{Isolation Forest} com 99,73\% de concordância no \textit{pool} (partição de
+30\%, 60.000 fluxos). Ela recupera 75,2\% dos alertas do IF e gera apenas 9 alertas
+que o IF não geraria (Figura \ref{fig:fidelidade}). As regras exibidas ao analista
+explicam, portanto, a maior parte das decisões do detector, sobretudo por meio de
+\texttt{n\_bytes}, \texttt{bytes\_per\_sec} e \texttt{syn\_no\_ack}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{../../notebooks/figuras/B2_arvore_fidelidade.png}
+	\caption{Fidelidade da árvore \textit{surrogate} ao \textit{Isolation Forest} e importância dos atributos.}
+	\label{fig:fidelidade}
+\end{figure}
+
+\subsubsection{Estágio 2 --- SVM linear}
+O estágio 2 (\texttt{StandardScaler} + \texttt{LinearSVC} com
+\texttt{class\_weight="balanced"}) foi avaliado em uma partição estratificada de
+30\% do \textit{golden set}, com o modelo treinado nos 70\% restantes. Os resultados
+estão na Tabela \ref{tab:estagios} e na Figura \ref{fig:svm_golden}.
+
+\begin{table}[H]
+	\centering
+	\footnotesize
+	\setlength{\tabcolsep}{2.5pt}
+	\begin{tabular}{|l|c|c|c|c|c|c|}
+		\hline
+		\textbf{Modelo} & \textbf{Prec} & \textbf{Rec} & \textbf{F1} & \textbf{FPR} & \textbf{AUC} & \textbf{MCC} \\
+		\hline
+		IF (estágio 1)        & 0,000 & 0,000 & 0,000 & 0,0097 & 0,7147 & $-$0,024 \\
+		LinearSVC (estágio 2) & 0,910 & \textbf{1,000} & 0,953 & 0,0063 & 0,9996 & 0,951 \\
+		\hline
+		\multicolumn{7}{|l|}{\textit{Matriz do estágio 2: VP = 263, FP = 26, FN = 0, VN = 4.096}} \\
+		\hline
+	\end{tabular}
+	\caption{Estágios 1 e 2 na mesma partição de teste (30\% do \textit{golden set}, 4.385 fluxos).}
+	\label{tab:estagios}
+\end{table}
+
+Com os mesmos 17 atributos e os mesmos fluxos, o classificador supervisionado detecta
+todos os 263 ataques da partição de teste, com 26 falsos positivos (0,63\%). O ROC-AUC
+passa de 0,71 para 0,9996, e a precisão média (AP), de 0,107 para 0,989. A diferença
+não está nos atributos, e sim no método: com o rótulo, o SVM aprende a fronteira do
+aglomerado denso que o \textit{Isolation Forest} trata como normal. O custo é baixo:
+o treino levou 24~ms, e a predição dos 4.385 fluxos, menos de 1~ms.
+
+\begin{strip}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{../../notebooks/figuras/B3_linearsvc.png}
+	\caption{Estágio 2 na partição de teste: matriz de confusão, ROC e PR comparadas às do estágio 1, distribuição da margem e pesos do hiperplano.}
+	\label{fig:svm_golden}
+\end{figure}
+\end{strip}
+
+Os pesos do hiperplano (painel inferior direito da Figura \ref{fig:svm_golden}) têm
+leitura direta. Tamanho médio e desvio do tamanho dos pacotes (\texttt{mean\_len},
+\texttt{std\_len}) e intervalo médio entre pacotes (\texttt{mean\_iat}) empurram o
+fluxo para o lado benigno, enquanto duração (\texttt{duration}) e irregularidade
+temporal (\texttt{std\_iat}) o empurram para o lado de ataque. O resultado descreve
+uma sessão longa de pacotes pequenos e repetitivos, que é o perfil de um ataque
+automatizado.
+
+\textbf{Modelo em produção.} O SVM promovido no sensor (\texttt{192.168.60.33}) é
+treinado sobre o \textit{golden set} somado aos vereditos do analista. Sobre os
+14.100 fluxos rotulados disponíveis, ele classifica de forma errada 515 (3,7\%). As
+métricas são \textit{in-sample}, pois esses dados entraram no treino, e servem apenas
+como diagnóstico. As Figuras \ref{fig:SVM_hiperplano} e \ref{fig:SVM_hiperplano3D}
+desenham o hiperplano em uma base alinhada a ele: o eixo horizontal é a distância com
+sinal de cada fluxo ao hiperplano, e os demais eixos são componentes principais do
+resíduo ortogonal. Os erros (marcados com X) concentram-se do lado de ataque, junto
+ao hiperplano, e são fluxos benignos parecidos com o aglomerado de ataque, ou seja,
+falsos positivos. Em um IDS, esse é o tipo de erro preferível ao falso negativo, e é o
+que a fila de revisão ordenada por margem entrega primeiro ao analista.
+
+\begin{strip}
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{../../notebooks/figuras/B5_svm_hiperplano_2d_192_168_60_33.png}
+\caption{Hiperplano do SVM em produção: base alinhada (visão geral em escala logarítmica e \textit{zoom} linear) e interseção com o PCA 2D do painel.}
+\label{fig:SVM_hiperplano}
+\end{figure}
+\end{strip}
+
 \begin{figure}[H]
 \centering
 \includegraphics[width=\linewidth]{../../notebooks/figuras/svm360_alinhado_192_168_60_33/frame_032_az080.0.png}
-\caption{Hiperplano do SVM produtivo 3D}
+\caption{Hiperplano do SVM em produção, em 3D (base alinhada).}
 \label{fig:SVM_hiperplano3D}
 \end{figure}
-\begin{figure}[H]
-\centering
-\includegraphics[width=\linewidth]{../../notebooks/figuras/B5_svm_hiperplano_2d_192_168_60_33.png}
-\caption{Hiperplano do SVM produtivo}
-\label{fig:SVM_hiperplano}
-\end{figure}
-Como demonstrado nas figuras \ref{fig:SVM_hiperplano3D} \ref{fig:SVM_hiperplano} a taxa de falsos negativos é substancialmente baixa, além de que para a aplicação de um $IDS$, é importante priorizar falsos positivos a cima de falsos negativos, tendo em vista a criticicidade da tarefa.
 
+A projeção no PCA 2D usada no painel do Grafana (Figura \ref{fig:SVM_hiperplano},
+painel direito) é aproximada: o lado do hiperplano em que o ponto aparece no desenho
+coincide com o lado real em 80\% dos fluxos. Por isso, a decisão exibida ao analista
+vem sempre da margem calculada nas 17 dimensões, e não da posição do ponto no
+gráfico.
+
+\textbf{Limite da cascata.} As métricas da Tabela \ref{tab:estagios} avaliam cada
+estágio isoladamente. Em operação, o estágio 2 classifica apenas os fluxos gravados
+como alerta pelo estágio 1, isto é, os que estão acima do piso de gravação (percentil
+95). Os ataques do \textit{golden set}, concentrados em torno do percentil 64, não
+chegariam ao estágio 2, e a cascata não os detectaria. O \textit{recall} de 1,000 do
+SVM indica que o classificador separa essa forma de ataque quando a recebe; não
+indica que o sistema completo a detecte. Fechar essa lacuna exige atributos que
+enxerguem a repetição, como a visão por \textit{host} da Tabela
+\ref{tab:atributos}, e não ajuste de limiar.
+
+\subsubsection{Aplicação em tráfego real}
+No tráfego de produção não existe rótulo: o painel \textit{Acerto vs. rótulo real}
+indica \textit{sem rótulo} nos dois casos a seguir. A avaliação é feita, então, por
+eventos cuja natureza é conhecida por construção: um evento benigno e incomum, e um
+ataque executado de forma deliberada no laboratório. Os dois casos aparecem no painel
+\textit{Resultado final}, que consolida, para cada alerta, a decisão do estágio 1, a
+do estágio 2 e o veredito do analista, nessa ordem de precedência.
+
+\textbf{Caso 1 --- anomalia benigna: reinício do modem.} Entre 00h00 e 12h50 de
+18/09/2026, o estágio 1 gerou 373 alertas, todos classificados pelo estágio 2: 341
+como benignos e 32 como ataque (Figura \ref{fig:anomalia_benigna}). O pico às 10h31,
+com 46 alertas em uma única janela, coincide com o reinício do modem.
+
+No laboratório, o modem e o roteador são equipamentos separados. O modem tem uma
+rede exclusiva, e o roteador interliga essa rede à rede local
+(\texttt{192.168.60.0/24}), onde está o sensor. Por isso, o reinício do modem
+derrubou apenas o acesso à internet: a rede interna continuou funcionando
+normalmente, sem perda de endereço nem de conectividade entre os \textit{hosts}
+locais. O sensor, que observa a rede local, viu apenas o efeito da queda do link
+externo: conexões com destinos na internet interrompidas, tentativas de reconexão
+sem resposta durante a indisponibilidade e a retomada das sessões quando o modem
+voltou. Esse padrão é atípico para a rede, e por isso o alerta do estágio 1 está
+correto do ponto de vista estatístico. O estágio 2, porém, classificou os 46 fluxos
+do pico como benignos, porque a forma desses fluxos não se parece com a dos ataques
+que ele aprendeu.
+
+O caso confirma a divisão de papéis prevista na arquitetura. Um detector não
+supervisionado não sabe distinguir uma falha de infraestrutura de um ataque: os dois
+são desvios em relação ao tráfego habitual. A falha de um enlace externo, que não
+compromete a rede interna e não exige resposta de segurança, chegaria ao analista
+como incidente se o sistema tivesse um único estágio. Com a cascata, ela é
+registrada, mas não é classificada como ataque.
+
+\begin{strip}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{anomalia_benigna.jpg}
+	\caption{Painel \textit{Resultado final} em 18/09/2026: pico de 46 alertas às 10h31, causado pelo reinício do modem e classificado inteiramente como benigno pelo estágio 2.}
+	\label{fig:anomalia_benigna}
+\end{figure}
+\end{strip}
+
+O caso ilustra a função do segundo estágio. No período, o estágio 2 retirou 341 dos
+373 alertas (91,4\%) do caminho do analista, que passou a revisar 32 alertas em vez
+de 373. Os 32 classificados como ataque não têm veredito registrado e, por isso, não
+podem ser contados como acertos ou erros. Eles vão para a fila de revisão, ordenados
+pela margem do SVM.
+
+\textbf{Caso 2 --- anomalia maligna: varredura de portas.} Em 25/11/2026, às 12h50,
+foi executada a partir da rede do laboratório uma varredura \texttt{nmap} das 1.000
+portas mais comuns de um \textit{host}. Entre 12h43 e 13h55, o estágio 1 gerou cerca
+de 1.090 alertas, todos classificados pelo estágio 2: cerca de 1.000 como ataque e 85
+como benignos (Figura \ref{fig:anomalia_maligna}). Na janela da varredura, o painel
+registra cerca de 1.000 alertas de ataque e 1 benigno, o que corresponde a
+aproximadamente um fluxo por porta sondada. Os 85 benignos do restante do período
+são tráfego de fundo da rede, como UDP \textit{multicast} (\texttt{224.0.0.0/4}),
+que a tabela do painel mostra com margem entre 6 e 16 do lado benigno.
+
+\begin{strip}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{anomalia_maligna.jpg}
+	\caption{Painel \textit{Resultado final} em 25/11/2026: varredura \texttt{nmap} de 1.000 portas às 12h50, com cerca de 1.000 alertas classificados como ataque pelo estágio 2.}
+	\label{fig:anomalia_maligna}
+\end{figure}
+\end{strip}
+
+A varredura é o contraponto do resultado do \textit{golden set}. Cada sonda gera um
+fluxo curto, tipicamente de um ou dois pacotes com \texttt{SYN} sem resposta ou
+respondido com \texttt{RST}, de um tipo raro no tráfego normal. Ao contrário do ataque volumoso e
+homogêneo do \textit{golden set}, esses fluxos são isoláveis, e o estágio 1 os marca
+como alerta. O estágio 2 confirma a classificação. O alerta aparece na mesma janela
+da varredura, já que o analisador ao vivo trabalha em janelas de 10~s.
+
+Os dois casos mostram a cascata funcionando como projetada: o estágio 1 trata como
+anomalia tudo o que é raro, seja malicioso ou não, e o estágio 2 separa o reinício
+do modem da varredura. A Tabela \ref{tab:casos} resume os dois cenários.
+
+\begin{table}[H]
+	\centering
+	\footnotesize
+	\setlength{\tabcolsep}{3pt}
+	\begin{tabularx}{\columnwidth}{l X X}
+		\toprule
+		 & \textbf{Reinício do modem} & \textbf{Varredura \texttt{nmap}} \\
+		\midrule
+		Natureza          & Benigna, incomum          & Maliciosa, deliberada \\
+		Alertas (estágio 1)& 373 (46 no pico)         & $\approx$1.090 ($\approx$1.000 no pico) \\
+		Ataque (estágio 2) & 32 (0 no pico)           & $\approx$1.000 \\
+		Benigno (estágio 2)& 341 (46 no pico)         & 85 (1 no pico) \\
+		Resultado         & Suprimido antes do analista & Encaminhado como ataque \\
+		\bottomrule
+	\end{tabularx}
+	\caption{Comparação dos dois estudos de caso em tráfego real.}
+	\label{tab:casos}
+\end{table}
 
 \section{Conclusão}
 Este trabalho apresentou uma análise exploratória e experimental de técnicas de \textit{Machine Learning} aplicadas a Sistemas de Detecção de Intrusões em Redes ($NIDS$), utilizando como referência o conjunto de dados $NSL-KDD$. Diante do desafio imposto pelo crescimento expressivo do tráfego de rede e pela sofisticação das ameaças cibernéticas contemporâneas, a pesquisa atingiu seus objetivos gerais ao mapear a eficácia de tratamentos computacionais e algorítmicos voltados à segurança da informação.

@@ -144,35 +144,57 @@
 \newlabel{fig:janela_analista}{{4}{11}{\relax }{figure.caption.7}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {IV}Resultados}{11}{section.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {A}MVP1}{11}{subsection.4.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {IV}{\ignorespaces Estátisticas de treino dos modelos}}{11}{table.caption.8}\protected@file@percent }
-\newlabel{tab:Tempos_treino}{{IV}{11}{Estátisticas de treino dos modelos}{table.caption.8}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Fronteiras definidas por algorítimo}}{11}{figure.caption.9}\protected@file@percent }
-\newlabel{fig:fronteiras}{{5}{11}{Fronteiras definidas por algorítimo}{figure.caption.9}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces PCA classificando tráfego como ataque e normal}}{11}{figure.caption.10}\protected@file@percent }
-\newlabel{fig:pca_ataqueXnormal}{{6}{11}{PCA classificando tráfego como ataque e normal}{figure.caption.10}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Representação da importância de cada feature para a acurácia}}{12}{figure.caption.11}\protected@file@percent }
-\newlabel{fig:Importancia_features}{{7}{12}{Representação da importância de cada feature para a acurácia}{figure.caption.11}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Features variadas para o decision tree}}{12}{figure.caption.12}\protected@file@percent }
-\newlabel{fig:DecisionTree_features}{{8}{12}{Features variadas para o decision tree}{figure.caption.12}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {A.1}Análise de Dados e Pré-processamento}{13}{subsubsection.4.1.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {V}{\ignorespaces Definição de tipos de ataque por grupos}}{13}{table.caption.14}\protected@file@percent }
-\newlabel{tab:ataquesXcategoria}{{V}{13}{Definição de tipos de ataque por grupos}{table.caption.14}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Matriz de correlação da base NSL\_KDD}}{13}{figure.caption.15}\protected@file@percent }
-\newlabel{fig:matriz_corr}{{9}{13}{Matriz de correlação da base NSL\_KDD}{figure.caption.15}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces vizualização de dois componentes do $PCA$ separado por classes}}{13}{figure.caption.16}\protected@file@percent }
-\newlabel{fig:pca_componentes}{{10}{13}{vizualização de dois componentes do $PCA$ separado por classes}{figure.caption.16}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {A.2}Redução de Dimensionalidade e Seleção de Atributos}{13}{subsubsection.4.1.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Variância explicada para PCA}}{14}{figure.caption.17}\protected@file@percent }
-\newlabel{fig:pca_variancia}{{11}{14}{Variância explicada para PCA}{figure.caption.17}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {A.1}Análise de Dados e Pré-processamento}{11}{subsubsection.4.1.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {IV}{\ignorespaces Tipos de ataque agrupados por categoria (\texttt  {KDDTrain+}).}}{11}{table.caption.8}\protected@file@percent }
+\newlabel{tab:ataquesXcategoria}{{IV}{11}{Tipos de ataque agrupados por categoria (\texttt {KDDTrain+})}{table.caption.8}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Matriz de correlação da base NSL-KDD.}}{11}{figure.caption.9}\protected@file@percent }
+\newlabel{fig:matriz_corr}{{5}{11}{Matriz de correlação da base NSL-KDD}{figure.caption.9}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Duas primeiras componentes do PCA, separadas por categoria.}}{11}{figure.caption.10}\protected@file@percent }
+\newlabel{fig:pca_componentes}{{6}{11}{Duas primeiras componentes do PCA, separadas por categoria}{figure.caption.10}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Duas primeiras componentes do PCA: ataque e tráfego normal.}}{12}{figure.caption.11}\protected@file@percent }
+\newlabel{fig:pca_ataqueXnormal}{{7}{12}{Duas primeiras componentes do PCA: ataque e tráfego normal}{figure.caption.11}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {A.2}Comparação dos classificadores}{12}{subsubsection.4.1.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {V}{\ignorespaces Métricas na partição retida (30\% do \texttt  {KDDTrain+}, 37.792 registros). Acc = acurácia, Prec = precisão, Rec = \textit  {recall}.}}{12}{table.caption.12}\protected@file@percent }
+\newlabel{tab:Tempos_treino}{{V}{12}{Métricas na partição retida (30\% do \texttt {KDDTrain+}, 37.792 registros). Acc = acurácia, Prec = precisão, Rec = \textit {recall}}{table.caption.12}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {VI}{\ignorespaces Métricas no \texttt  {KDDTest+} (22.544 registros, com ataques inéditos). FPR = taxa de falso positivo; MCC = coeficiente de correlação de Matthews.}}{12}{table.caption.13}\protected@file@percent }
+\newlabel{tab:kddtest}{{VI}{12}{Métricas no \texttt {KDDTest+} (22.544 registros, com ataques inéditos). FPR = taxa de falso positivo; MCC = coeficiente de correlação de Matthews}{table.caption.13}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Taxa de acerto por categoria no \texttt  {KDDTest+} (normal = especificidade; demais categorias = \textit  {recall}).}}{12}{figure.caption.14}\protected@file@percent }
+\newlabel{fig:recall_categoria}{{8}{12}{Taxa de acerto por categoria no \texttt {KDDTest+} (normal = especificidade; demais categorias = \textit {recall})}{figure.caption.14}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Fronteiras de decisão de cada algoritmo no plano PC1 $\times $ PC2.}}{12}{figure.caption.15}\protected@file@percent }
+\newlabel{fig:fronteiras}{{9}{12}{Fronteiras de decisão de cada algoritmo no plano PC1 $\times $ PC2}{figure.caption.15}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {A.3}Redução de Dimensionalidade e Seleção de Atributos}{13}{subsubsection.4.1.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Variância explicada acumulada do PCA.}}{13}{figure.caption.16}\protected@file@percent }
+\newlabel{fig:pca_variancia}{{10}{13}{Variância explicada acumulada do PCA}{figure.caption.16}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Importância de cada atributo.}}{13}{figure.caption.17}\protected@file@percent }
+\newlabel{fig:Importancia_features}{{11}{13}{Importância de cada atributo}{figure.caption.17}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Acurácia da $Decision Tree$ em função do número de atributos.}}{13}{figure.caption.18}\protected@file@percent }
+\newlabel{fig:DecisionTree_features}{{12}{13}{Acurácia da $Decision Tree$ em função do número de atributos}{figure.caption.18}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {B}MVP2}{14}{subsection.4.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Hiperplano do SVM produtivo 3D}}{14}{figure.caption.18}\protected@file@percent }
-\newlabel{fig:SVM_hiperplano3D}{{12}{14}{Hiperplano do SVM produtivo 3D}{figure.caption.18}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Hiperplano do SVM produtivo}}{14}{figure.caption.19}\protected@file@percent }
-\newlabel{fig:SVM_hiperplano}{{13}{14}{Hiperplano do SVM produtivo}{figure.caption.19}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {V}Conclusão}{14}{section.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {A}Cronograma}{14}{subsection.5.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {VI}{\ignorespaces Cronograma do projeto}}{15}{table.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {VI}Referências}{15}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {B.1}Estágio 1 --- \textit  {Isolation Forest}}{14}{subsubsection.4.2.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Estágio 1 no \textit  {golden set}: matriz de confusão, curvas ROC e PR, distribuição do escore e posição dos ataques na escala de percentil do \textit  {pool}.}}{15}{figure.caption.19}\protected@file@percent }
+\newlabel{fig:if_golden}{{13}{15}{Estágio 1 no \textit {golden set}: matriz de confusão, curvas ROC e PR, distribuição do escore e posição dos ataques na escala de percentil do \textit {pool}}{figure.caption.19}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Fidelidade da árvore \textit  {surrogate} ao \textit  {Isolation Forest} e importância dos atributos.}}{15}{figure.caption.20}\protected@file@percent }
+\newlabel{fig:fidelidade}{{14}{15}{Fidelidade da árvore \textit {surrogate} ao \textit {Isolation Forest} e importância dos atributos}{figure.caption.20}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {B.2}Estágio 2 --- SVM linear}{15}{subsubsection.4.2.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {VII}{\ignorespaces Estágios 1 e 2 na mesma partição de teste (30\% do \textit  {golden set}, 4.385 fluxos).}}{15}{table.caption.21}\protected@file@percent }
+\newlabel{tab:estagios}{{VII}{15}{Estágios 1 e 2 na mesma partição de teste (30\% do \textit {golden set}, 4.385 fluxos)}{table.caption.21}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces Estágio 2 na partição de teste: matriz de confusão, ROC e PR comparadas às do estágio 1, distribuição da margem e pesos do hiperplano.}}{16}{figure.caption.22}\protected@file@percent }
+\newlabel{fig:svm_golden}{{15}{16}{Estágio 2 na partição de teste: matriz de confusão, ROC e PR comparadas às do estágio 1, distribuição da margem e pesos do hiperplano}{figure.caption.22}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces Hiperplano do SVM em produção: base alinhada (visão geral em escala logarítmica e \textit  {zoom} linear) e interseção com o PCA 2D do painel.}}{16}{figure.caption.23}\protected@file@percent }
+\newlabel{fig:SVM_hiperplano}{{16}{16}{Hiperplano do SVM em produção: base alinhada (visão geral em escala logarítmica e \textit {zoom} linear) e interseção com o PCA 2D do painel}{figure.caption.23}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces Hiperplano do SVM em produção, em 3D (base alinhada).}}{17}{figure.caption.24}\protected@file@percent }
+\newlabel{fig:SVM_hiperplano3D}{{17}{17}{Hiperplano do SVM em produção, em 3D (base alinhada)}{figure.caption.24}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {B.3}Aplicação em tráfego real}{17}{subsubsection.4.2.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces Painel \textit  {Resultado final} em 18/09/2026: pico de 46 alertas às 10h31, causado pelo reinício do modem e classificado inteiramente como benigno pelo estágio 2.}}{18}{figure.caption.25}\protected@file@percent }
+\newlabel{fig:anomalia_benigna}{{18}{18}{Painel \textit {Resultado final} em 18/09/2026: pico de 46 alertas às 10h31, causado pelo reinício do modem e classificado inteiramente como benigno pelo estágio 2}{figure.caption.25}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {19}{\ignorespaces Painel \textit  {Resultado final} em 25/11/2026: varredura \texttt  {nmap} de 1.000 portas às 12h50, com cerca de 1.000 alertas classificados como ataque pelo estágio 2.}}{19}{figure.caption.26}\protected@file@percent }
+\newlabel{fig:anomalia_maligna}{{19}{19}{Painel \textit {Resultado final} em 25/11/2026: varredura \texttt {nmap} de 1.000 portas às 12h50, com cerca de 1.000 alertas classificados como ataque pelo estágio 2}{figure.caption.26}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {VIII}{\ignorespaces Comparação dos dois estudos de caso em tráfego real.}}{19}{table.caption.27}\protected@file@percent }
+\newlabel{tab:casos}{{VIII}{19}{Comparação dos dois estudos de caso em tráfego real}{table.caption.27}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {V}Conclusão}{19}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {A}Cronograma}{20}{subsection.5.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {IX}{\ignorespaces Cronograma do projeto}}{20}{table.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {VI}Referências}{20}{section.6}\protected@file@percent }
 \abx@aux@cite{0}{patrick2022study}
 \abx@aux@segm{0}{0}{patrick2022study}
 \abx@aux@cite{0}{Thakkar2021Survey}
@@ -221,9 +243,9 @@
 \abx@aux@segm{0}{0}{IBM2026Supervised}
 \abx@aux@cite{0}{scikit2026learn}
 \abx@aux@segm{0}{0}{scikit2026learn}
-\@writefile{toc}{\contentsline {section}{\numberline {VII}Agradecimentos}{16}{section.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {VIII}Anexos}{16}{section.8}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {VII}{\ignorespaces Revisão dos trabalhos sobre IDS}}{17}{table.caption.20}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {VII}Agradecimentos}{21}{section.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {VIII}Anexos}{21}{section.8}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {X}{\ignorespaces Revisão dos trabalhos sobre IDS}}{22}{table.caption.28}\protected@file@percent }
 \abx@aux@read@bbl@mdfivesum{8EF3B1C3E2A63ED63273C9F839B57D54}
 \abx@aux@defaultrefcontext{0}{emad2022intrusion}{nty/global//global/global/global}
 \abx@aux@defaultrefcontext{0}{Abdulganiyu2023Systematic}{nty/global//global/global/global}
@@ -250,4 +272,4 @@
 \abx@aux@defaultrefcontext{0}{Kazi2019network}{nty/global//global/global/global}
 \abx@aux@defaultrefcontext{0}{Thakkar2021Survey}{nty/global//global/global/global}
 \abx@aux@defaultrefcontext{0}{patrick2022study}{nty/global//global/global/global}
-\gdef \@abspage@last{17}
+\gdef \@abspage@last{22}

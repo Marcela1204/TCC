@@ -195,49 +195,36 @@
 A detecção por assinatura não reconhece ataques ainda não catalogados, e o volume
 crescente de tráfego amplia a superfície de ataque \cite{Thakkar2021Survey}. O
 Aprendizado de Máquina detecta desvios sem regras predefinidas
-\cite{Khraisat2019Survey}, mas na prática o tráfego real não tem rótulo e o número de
-falsos positivos é alto. O objetivo deste trabalho é projetar, implementar e avaliar um
-NIDS que trate os dois problemas, partindo de um estudo experimental em lote (MVP1)
-até um sistema que opera em tempo real (MVP2).
+\cite{Khraisat2019Survey}, mas o tráfego real não tem rótulo e gera muitos falsos
+positivos. Este trabalho projeta, implementa e avalia um NIDS que trata os dois
+problemas, de um estudo em lote (MVP1) a um sistema em tempo real (MVP2).
 
 \section{Metodologia}
-\textbf{MVP1.} Na base NSL-KDD, os 41 atributos foram codificados
-(\textit{LabelEncoder}) e padronizados, e o alvo foi tratado como binário (normal
-$\times$ ataque). Foram treinados \textit{Random Forest} (RF), \textit{Decision Tree}
+\textbf{MVP1.} Na NSL-KDD, com os 41 atributos padronizados e alvo binário, foram
+treinados \textit{Random Forest} (RF), \textit{Decision Tree}
 (DT), KNN ($k=5$), Regressão Logística (LR) e SVM linear, com o
 \textit{scikit-learn} \cite{scikit2026learn}. A avaliação usou 30\% do
 \texttt{KDDTrain+} e o \texttt{KDDTest+}, que tem 17 tipos de ataque ausentes do
-treino, além do efeito do PCA e da seleção de atributos.
+treino.
 
-\textbf{MVP2.} O sensor captura uma cópia passiva do tráfego da rede local (máquina
-virtual em Proxmox, com \textit{bridge} em \textit{ageing time} zero e interface em
-modo promíscuo) e roda em \textit{Docker} \cite{Merkel2014Docker}, com persistência
-em PostgreSQL/TimescaleDB e painéis no Grafana. Os pacotes são agregados em fluxos
-bidirecionais e descritos por 17 atributos calculados apenas a partir dos cabeçalhos
-(volume, tamanho, intervalo entre pacotes e \textit{flags} TCP). A classificação
-ocorre em cascata:
-\begin{itemize}
-	\item \textbf{Estágio 1:} \textit{Isolation Forest} (200 árvores,
-	\textit{contamination} de 0,01) com limiar congelado no modelo, aplicado a janelas de
-	10~s. Uma árvore \textit{surrogate} de profundidade 4 traduz cada alerta em uma regra
-	legível para o analista.
-	\item \textbf{Estágio 2:} SVM linear (\texttt{LinearSVC}, classes balanceadas)
-	treinado com o \textit{golden set} e com os vereditos do analista. Ele classifica
-	cada alerta do estágio 1 como ataque ou benigno.
-\end{itemize}
-Os modelos do estágio 1 só entram em produção depois de passar por um portão de
-validação contra o \textit{golden set}: 14.615 fluxos do CIC-IDS-2017 rotulados pelo
-cronograma oficial da base, dos quais 875 são de ataque.
+\textbf{MVP2.} O sensor captura passivamente a rede local (Proxmox com
+\textit{bridge} em \textit{ageing time} zero), roda em \textit{Docker}
+\cite{Merkel2014Docker} e grava em PostgreSQL/TimescaleDB, com painéis no Grafana.
+Cada fluxo é descrito por 17 atributos de cabeçalho (volume, tamanho, intervalo
+entre pacotes e \textit{flags} TCP). No \textbf{estágio 1}, um \textit{Isolation
+Forest} ($c = 0{,}01$) analisa janelas de 10~s, e uma árvore \textit{surrogate}
+traduz cada alerta em regra legível. No \textbf{estágio 2}, um SVM linear treinado
+com o \textit{golden set} e os vereditos do analista classifica cada alerta como
+ataque ou benigno. Antes de entrar em produção, cada novo modelo passa por um portão
+de validação contra o \textit{golden set}, que reúne cenários sintéticos (varredura
+e \textit{beacon} de C2) e 14.615 fluxos rotulados do CIC-IDS-2017.
 
 \section{Resultados}
-\textbf{MVP1.} A Tabela \ref{tab:mvp1} resume as métricas. Na partição retida, a
-acurácia de todos os modelos fica acima de 95\%. No \texttt{KDDTest+}, todos perdem
-entre 16 e 23 pontos, o que mostra o quanto a avaliação com ataques conhecidos é
-otimista. A DT generaliza melhor: tem \textit{recall} 12 pontos acima do segundo
-colocado e detecta 39\% dos ataques \textit{r2l}, contra no máximo 12\% dos demais,
-com tempo de teste de 3,8~ms. O PCA com 95\% da variância (23 componentes)
-\textbf{piorou} a DT (F1 de 0,835 para 0,771), enquanto a seleção dos 18 atributos
-mais importantes manteve a acurácia acima de 95\%.
+\textbf{MVP1.} No \texttt{KDDTest+}, todos os modelos perdem de 16 a 23 pontos de
+acurácia em relação à partição retida (Tabela \ref{tab:mvp1}). A DT generaliza
+melhor, com \textit{recall} 12 pontos acima do segundo colocado e o menor tempo de
+teste. O PCA (23 componentes) piorou a DT (F1 de 0,835 para 0,771), enquanto a
+seleção de 18 atributos manteve a acurácia acima de 95\%.
 
 \begin{table}[H]
 	\centering
@@ -260,20 +247,27 @@ mais importantes manteve a acurácia acima de 95\%.
 	\label{tab:mvp1}
 \end{table}
 
-\textbf{MVP2 --- validação dos estágios.} Cada estágio foi avaliado no tipo de
-ataque para o qual foi projetado (Tabela \ref{tab:mvp2}). O estágio 1 detectou
-\textbf{100\%} das varreduras e de 89\% a 98\% dos \textit{beacons} de C2 do
-\textit{golden set} sintético, com 0,6\% de falso positivo. São ataques que geram
-fluxos raros na rede, que é o que o \textit{Isolation Forest} isola. A árvore
-\textit{surrogate} reproduz 99,7\% das decisões do estágio 1, então as regras
-exibidas ao analista explicam de fato o detector.
+\textbf{MVP2 --- validação dos estágios.} O estágio 1 detectou
+\textbf{100\%} das varreduras e de 89\% a 98\% dos \textit{beacons} de C2, com
+0,6\% de falso positivo (Tabela \ref{tab:mvp2}): são ataques que geram fluxos raros,
+que é o que o \textit{Isolation Forest} isola. A árvore \textit{surrogate} reproduz
+99,7\% das suas decisões.
 
-O ataque volumoso do CIC-IDS-2017 tem o comportamento oposto: são milhares de fluxos
-quase idênticos que formam um aglomerado denso, e um detector de raridade não os
-marca. Esse ataque é o caso que motiva o estágio 2. Com os \textbf{mesmos 17
-atributos}, o SVM o detectou com \textit{recall} de \textbf{1,0}, precisão de 0,91,
-F1 de 0,95 e 0,6\% de falso positivo. Os dois estágios cobrem, portanto, famílias de
-ataque complementares.
+O ataque volumoso do CIC-IDS-2017 é o oposto: milhares de fluxos quase idênticos
+formam um aglomerado denso, que um detector de raridade não marca. É o caso que
+motiva o estágio 2. Com os \textbf{mesmos 17 atributos}, o SVM o detectou com
+\textit{recall} de \textbf{1,0}, F1 de 0,95 e 0,6\% de falso positivo.
+
+No SVM em produção (Figura \ref{fig:svm3d}), a maior parte dos 515 erros (3,7\% de
+14.100 fluxos, medidos no próprio treino) são fluxos benignos junto ao hiperplano,
+ou seja, falsos positivos, o erro preferível em um IDS.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\linewidth]{svm_hiperplano_3d.png}
+	\caption{SVM em produção, em base alinhada ao hiperplano (plano cinza).}
+	\label{fig:svm3d}
+\end{figure}
 
 \begin{table}[H]
 	\centering
@@ -301,40 +295,37 @@ sementes). O portão reprovou todo candidato com 0,10\% ou mais de contaminaçã
 (120 fluxos em 120 mil): o atacante não consegue ensinar o detector a ignorá-lo sem
 que o retreino seja barrado.
 
-\textbf{MVP2 --- tráfego real.} Em produção não há rótulo, então o sistema foi
-avaliado em dois eventos cuja natureza é conhecida.
+\textbf{MVP2 --- tráfego real.} Sem rótulo em produção, o sistema foi avaliado em
+dois eventos de natureza conhecida.
 
 \textit{Anomalia benigna.} O modem do laboratório fica em uma rede própria, ligada à
 rede local por um roteador. Ao ser reiniciado, ele derrubou apenas o acesso à
 internet, e a rede interna continuou funcionando. O estágio 1 marcou a queda como
-anômala: o pico das 10h31 teve 46 alertas, e o dia inteiro, 373. O estágio 2
-classificou como benignos todos os 46 alertas do pico e 341 dos 373 do dia (91,4\%),
-retirando-os do caminho do analista (Figura \ref{fig:benigna}).
+anômala (46 alertas às 10h31), e o estágio 2 classificou como benignos todos os 46 e
+341 dos 373 alertas do dia (91,4\%), retirando-os do caminho do analista (Figura
+\ref{fig:benigna}).
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\linewidth]{anomalia_benigna_recorte.jpg}
-	\caption{Reinício do modem: 46 alertas do estágio 1, todos classificados como benignos.}
+	\caption{Reinício do modem: alertas classificados como benignos.}
 	\label{fig:benigna}
 \end{figure}
 
-\textit{Anomalia maligna.} Uma varredura \texttt{nmap} de 1.000 portas, executada no
-laboratório às 12h50, gerou cerca de 1.000 alertas na mesma janela, e o estágio 2
-classificou como ataque cerca de 1.000 deles (Figura \ref{fig:maligna}). Ao contrário
-do ataque volumoso do \textit{golden set}, cada sonda gera um fluxo curto e raro, que
-o estágio 1 isola. Os 85 alertas benignos do período eram tráfego de fundo, como
-\textit{multicast} UDP.
+\textit{Anomalia maligna.} Uma varredura \texttt{nmap} de 1.000 portas, às 12h50, gerou
+cerca de 1.000 alertas na mesma janela, e o estágio 2 classificou como ataque todos
+menos um (Figura \ref{fig:maligna}). Cada sonda gera um fluxo curto e raro, que o estágio 1
+isola.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\linewidth]{anomalia_maligna_recorte.jpg}
-	\caption{Varredura \texttt{nmap}: cerca de 1.000 alertas classificados como ataque pelo estágio 2.}
+	\caption{Varredura \texttt{nmap}: alertas classificados como ataque.}
 	\label{fig:maligna}
 \end{figure}
 
 \section{Conclusão}
-A \textit{Decision Tree} foi o melhor classificador em lote, e a seleção de atributos
-teve resultado melhor que a projeção por PCA. No sistema em tempo real, os dois
+A \textit{Decision Tree} foi o melhor classificador em lote. No sistema em tempo real, os dois
 estágios se complementam: o \textit{Isolation Forest} sinaliza o que é raro, seja
 ataque ou falha de infraestrutura, e o SVM separa um caso do outro. Isso reduziu em
 91\% os alertas encaminhados ao analista em um dia de operação e manteve a varredura

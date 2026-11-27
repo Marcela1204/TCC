@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1795389190.54308 "main.bcf" "main.bbl" "main" 1795806673.27843 0
-  "main.bcf" 1795806673.12804 114445 d2896b343365fa950756b2f7185390c5 "pdflatex"
+["biber main"] 1795389190.54308 "main.bcf" "main.bbl" "main" 1795808971.7445 0
+  "main.bcf" 1795808971.5781 114445 d2896b343365fa950756b2f7185390c5 "pdflatex"
   "referencias.bib" 1795439857.40882 7890 a7c3f0fad479d5990321d374e7646118 ""
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1795806669.0012 "main.tex" "main.pdf" "main" 1795806673.2787 0
+["pdflatex"] 1795808967.42765 "main.tex" "main.pdf" "main" 1795808971.74476 0
   "../../notebooks/figuras/A6_fronteiras_pca.png" 1795476464.43894 669332 4b6f24c92d8fe55ee109c48d50e59bd2 ""
   "../../notebooks/figuras/A7_recall_por_categoria.png" 1795476467.57736 53907 7939cfdfd5ecd74911509506c2a8693b ""
   "../../notebooks/figuras/B1_isolation_forest.png" 1795476063.39398 201360 0e08beaea550e6cf277eca5a21e5d8dd ""
@@ -267,11 +267,11 @@
   "decisiontree_features.png" 1787766008.5242 66258 c7bd006d7a521882a915e65d9d8ef846 ""
   "fases.tex" 1795439857.40389 2022 bd7bc4df6757830e4a133edee7ad6157 ""
   "logoinovatcc2.png" 1787766008.5242 8563 2bdf1bdf926197f2974618836c072c1d ""
-  "main.aux" 1795806673.12104 23430 17772b41593e7612ef731fa769feb635 "pdflatex"
+  "main.aux" 1795808971.5721 23430 17772b41593e7612ef731fa769feb635 "pdflatex"
   "main.bbl" 1795439862.13921 42466 8ef3b1c3e2a63ed63273c9f839b57d54 "biber main"
-  "main.out" 1795806673.12504 5160 bdb5f2db75446ff9e604287cd49ce655 "pdflatex"
-  "main.run.xml" 1795806673.12916 2406 65f433d9d0e748bcfb8eb7e240bd3347 "pdflatex"
-  "main.tex" 1795806663.82019 104656 02dcc466b0c0a7e2651d7885c6a034bb ""
+  "main.out" 1795808971.5751 5160 bdb5f2db75446ff9e604287cd49ce655 "pdflatex"
+  "main.run.xml" 1795808971.57968 2406 65f433d9d0e748bcfb8eb7e240bd3347 "pdflatex"
+  "main.tex" 1795808967.41212 104554 8a976005cf6deafa5974ce6f3a31b511 ""
   "matriz_corr.png" 1787766008.5382 156449 45a58e1a2b1d3cded6c558b8419298b6 ""
   "pca2d-dashboard.jpg" 1795789614.69196 154515 daea848d41b497fd81c5c5f34033bfcf ""
   "pcaXvariancia.png" 1787766008.5382 35151 bcc0b7e7568402afd7b57957b9fa9bc1 ""

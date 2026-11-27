@@ -1366,7 +1366,7 @@ atípico, que é justamente o que o limiar seleciona.
 \end{figure}
 \end{strip}
 
-A causa é estrutural, e não de ajuste. O painel inferior direito da Figura
+A causa é estrutural. O painel inferior direito da Figura
 \ref{fig:if_golden} mostra que os ataques do \textit{golden set} se acumulam em um
 pico estreito por volta do percentil 64 do \textit{pool}: são milhares de fluxos
 quase idênticos, que formam um aglomerado denso. O \textit{Isolation Forest} isola
@@ -1374,16 +1374,15 @@ pontos \textbf{raros}, de modo que um ataque volumoso e homogêneo parece normal
 detector, e parece mais normal quanto mais se repete. O histórico de candidatos
 confirma isso: todos os 20 candidatos treinados com $c = 0{,}01$ ao longo do
 projeto tiveram \textit{recall} de 0,000, e subir o \textit{contamination} para
-0,03 elevou o \textit{recall} para apenas 0,003, com FPR entre 3,7\% e 5,5\%. Nenhum
-valor de limiar separa as classes, o que justifica a existência de um segundo
+0,03 elevou o \textit{recall} para apenas 0,003, com FPR entre 3,7\% e 5,5\%. O que justifica a existência de um segundo
 estágio supervisionado.
 
 A árvore \textit{surrogate} (Figura \ref{fig:arvore}) reproduz as decisões do
 \textit{Isolation Forest} com 99,73\% de concordância no \textit{pool} (partição de
-30\%, 60.000 fluxos). Ela recupera 75,2\% dos alertas do IF e gera apenas 9 alertas
-que o IF não geraria (Figura \ref{fig:fidelidade}). As regras exibidas ao analista
+30\%, 60.000 fluxos). Ela recupera 75,2\% dos alertas do $IF$ e gera apenas 9 alertas
+que o $IF$ não geraria (Figura \ref{fig:fidelidade}). As regras exibidas ao analista
 explicam, portanto, a maior parte das decisões do detector, sobretudo por meio de
-\texttt{n\_bytes}, \texttt{bytes\_per\_sec} e \texttt{syn\_no\_ack}.
+\texttt{n\_bytes}, \texttt{bytes\_per\_sec} e \texttt{syn\_no\_ack} (Figura \ref{fig:janela_analista})
 
 \begin{figure}[H]
 	\centering
@@ -1419,7 +1418,7 @@ estão na Tabela \ref{tab:estagios} e na Figura \ref{fig:svm_golden}.
 Com os mesmos 17 atributos e os mesmos fluxos, o classificador supervisionado detecta
 todos os 263 ataques da partição de teste, com 26 falsos positivos (0,63\%). O ROC-AUC
 passa de 0,71 para 0,9996, e a precisão média (AP), de 0,107 para 0,989. A diferença
-não está nos atributos, e sim no método: com o rótulo, o SVM aprende a fronteira do
+não está nos atributos, e sim no método: com o rótulo, o $SVM$ aprende a fronteira do
 aglomerado denso que o \textit{Isolation Forest} trata como normal. O custo é baixo:
 o treino levou 24~ms, e a predição dos 4.385 fluxos, menos de 1~ms.
 
@@ -1431,6 +1430,7 @@ o treino levou 24~ms, e a predição dos 4.385 fluxos, menos de 1~ms.
 	\label{fig:svm_golden}
 \end{figure}
 \end{strip}
+%FIXME: a cor do gráfico mencionado inferior direito está errada
 
 Os pesos do hiperplano (painel inferior direito da Figura \ref{fig:svm_golden}) têm
 leitura direta. Tamanho médio e desvio do tamanho dos pacotes (\texttt{mean\_len},
@@ -1449,8 +1449,7 @@ desenham o hiperplano em uma base alinhada a ele: o eixo horizontal é a distân
 sinal de cada fluxo ao hiperplano, e os demais eixos são componentes principais do
 resíduo ortogonal. Os erros (marcados com X) concentram-se do lado de ataque, junto
 ao hiperplano, e são fluxos benignos parecidos com o aglomerado de ataque, ou seja,
-falsos positivos. Em um IDS, esse é o tipo de erro preferível ao falso negativo, e é o
-que a fila de revisão ordenada por margem entrega primeiro ao analista.
+falsos positivos. Em um IDS, esse é o tipo de erro preferível ao falso negativo.
 
 \begin{strip}
 \begin{figure}[H]
@@ -1479,10 +1478,9 @@ estágio isoladamente. Em operação, o estágio 2 classifica apenas os fluxos g
 como alerta pelo estágio 1, isto é, os que estão acima do piso de gravação (percentil
 95). Os ataques do \textit{golden set}, concentrados em torno do percentil 64, não
 chegariam ao estágio 2, e a cascata não os detectaria. O \textit{recall} de 1,000 do
-SVM indica que o classificador separa essa forma de ataque quando a recebe; não
-indica que o sistema completo a detecte. Fechar essa lacuna exige atributos que
+$SVM$ indica que o classificador separa essa forma de ataque quando a recebe. Fechar essa lacuna exige atributos que
 enxerguem a repetição, como a visão por \textit{host} da Tabela
-\ref{tab:atributos}, e não ajuste de limiar.
+\ref{tab:atributos}.
 
 \subsubsection{Aplicação em tráfego real}
 No tráfego de produção não existe rótulo: o painel \textit{Acerto vs. rótulo real}

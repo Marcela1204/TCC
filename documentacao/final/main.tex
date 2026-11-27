@@ -985,6 +985,34 @@ percorrido por cada alerta (por exemplo, \texttt{n\_bytes <= 143452 e bytes\_per
   \label{fig:janela_analista}
 \end{figure}
 
+
+\textbf{Estágio 2 --- refinador supervisionado.} O Estágio 2 usa
+\texttt{StandardScaler} e \texttt{LinearSVC} com $C=1$ e \texttt{class\_weight="balanced"}.
+Os atributos de entrada são os 17 do fluxo.
+O $SVM$ linear foi escolhido, em vez de uma clusterização pura, pois sua
+\texttt{decision\_function} fornece a distância com sinal ao hiperplano, usada para
+priorizar a revisão; a clusterização fica reservada como apoio à rotulagem em lote.
+
+Uma instalação nova não tem nenhum veredito. O primeiro hiperplano é treinado sobre
+o \textit{golden set} (capturas rotuladas como ataque ou benigno) e entra em produção
+com a decisão registrada como \emph{adotado}. Os
+vereditos do analista são somados ao treino à medida que chegam e valem como rótulo
+da rede real.
+
+O treinador aplica o SVM promovido aos alertas novos a cada 30~s, gravando a classe
+predita, o valor de decisão e a margem. A fila de revisão é ordenada por margem
+crescente: os casos mais próximos da fronteira aparecem primeiro, que é onde o
+veredito mais move o hiperplano. Para o painel, uma projeção PCA em duas dimensões é
+ajustada no treino e congelada no artefato (Figura \ref{fig:pca_pipeline}), de modo
+que pontos de janelas diferentes sejam comparáveis.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{pca2d-dashboard.jpg}
+  \caption{Projeção PCA 2D congelada no artefato do Estágio 2, usada no painel: golden set do CIC-IDS-2017 por classe.}
+  \label{fig:pca_pipeline}
+\end{figure}
+
 \section{Resultados}
 Os resultados estão organizados nas duas fases do trabalho. No MVP1, os
 classificadores são comparados na base NSL-KDD, e os números servem para escolher o

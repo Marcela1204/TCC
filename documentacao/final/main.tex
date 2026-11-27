@@ -1048,6 +1048,72 @@ ocorre sobre um \textit{pool} curado (Figura \ref{fig:ciclo}):
   \label{fig:ciclo}
 \end{figure}
 
+\textbf{\textit{Benchmark} do \textit{golden set}.} O \textit{golden set} é um conjunto de
+capturas rotuladas, organizado por cenário (Tabela \ref{tab:cenarios}), contra o
+qual todo candidato é avaliado por captura, por cenário e no agregado. As capturas
+podem ser registradas manualmente, a partir de testes de intrusão feitos pelo
+próprio operador, ou derivadas do cronograma oficial de ataques do CIC-IDS-2017
+. Cada cenário tem um piso absoluto de \textit{recall} por estágio. Os pisos são definidos por estágio porque o
+\textit{Isolation Forest} é estruturalmente cego a ataques volumosos e homogêneos. 
+O Estágio 1 é cobrado de varredura e falso positivo, e
+os ataques densos são cobrados do Estágio 2.
+
+
+\begin{table}[H]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabularx}{\columnwidth}{l X c c}
+\toprule
+\textbf{Cenário} & \textbf{Descrição} & \textbf{E1} & \textbf{E2} \\
+\midrule
+recon        & Varredura de portas e \textit{hosts} (nmap) & 0,90$^*$ & 0,90 \\
+brute\_force & Força bruta em SSH, FTP, HTTP & --- & 0,85 \\
+exfil        & Exfiltração por canal incomum & --- & 0,80 \\
+beacon\_1h   & C2 com batida horária & --- & 0,75 \\
+beacon\_6h   & C2 com batida de 6~h & --- & 0,60 \\
+lateral      & Movimento lateral (SMB, RDP) & --- & 0,80 \\
+benigno      & Controle limpo: mede falso positivo & FPR & FPR \\
+\bottomrule
+\end{tabularx}
+\caption{Cenários do \textit{golden set} e piso de \textit{recall} exigido por estágio. $^*$não obrigatório até haver captura real.}
+\label{tab:cenarios}
+\end{table}
+
+Duas fontes de dados alimentam as avaliações. As capturas
+reais do CIC-IDS-2017 medem detecção. Um gerador sintético
+(\texttt{scripts/gerar\_sintetico.py}) produz \textit{pools} e capturas de varredura,
+beacon e tráfego normal com distribuições controladas; os números obtidos com ele
+medem o mecanismo (portão, quarentena, despejo). Os experimentos de envenenamento usam 5 sementes, com o gerador
+re-semeado antes de cada \textit{pool}, porque seu estado compartilhado faria a
+composição do \textit{pool} depender da ordem das chamadas.
+%NOTE: não tenho certeza se devemos manter o paragrafo de envenenamento a cima
+
+\textbf{Automação da avaliação de candidatos.} O ciclo é regido por três relógios
+separados. A árvore \textit{surrogate} acompanha cada modelo. Uma vez por dia, o
+serviço \texttt{treinador} processa a fila de pedidos de retreino do analista e treina
+um candidato sobre o \textit{pool} vigente, avalia-o contra o \textit{golden set} e grava o
+resultado. A promoção para produção é
+semanal ou sob demanda e \textbf{sempre manual}. O portão, implementado como
+consulta (\texttt{v\_gate\_verdict}), reprova o candidato se qualquer cenário
+isolado:
+
+\begin{enumerate}
+  \item cair mais de 0,10 de \textit{recall} em relação ao modelo em produção;
+  \item ficar abaixo do piso absoluto do cenário para aquele estágio; ou
+  \item exceder 2\% de falso positivo no controle benigno.
+\end{enumerate}
+
+O terceiro critério impede que um candidato, que alerta em tudo, passe
+com \textit{recall} 1,00 em todos os cenários. A avaliação é por cenário, e não
+agregada, porque o envenenamento lento aparece como a queda de um cenário
+específico, que a média esconde. A promoção é manual porque um portão que se
+auto-aprova vale apenas o que vale a cobertura do \textit{golden set}: com poucos
+cenários, daria aparência de verificação ao que não foi verificado. Ao promover, o modelo anterior e as árvores que o descreviam são
+aposentados e o artefato é trocado por \texttt{rename()} atômico de um \textit{symlink},
+que o detector recarrega sem reinício. O Estágio 2 segue o mesmo ciclo
+(candidato, avaliação em partição retida de 30\%, promoção).
+
 \section{Resultados}
 Os resultados estão organizados nas duas fases do trabalho. No MVP1, os
 classificadores são comparados na base NSL-KDD, e os números servem para escolher o

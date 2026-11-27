@@ -1013,6 +1013,41 @@ que pontos de janelas diferentes sejam comparáveis.
   \label{fig:pca_pipeline}
 \end{figure}
 
+\subsubsection{Governança de Dados, Resiliência a Envenenamento e Esteira de Validação}
+
+\textbf{Ciclo de vida e \textit{pool} de treino.} A decisão central é que o detector
+\textbf{não é retreinado na janela de tráfego mais recente}. O
+\textit{Isolation Forest} aprende como normal a massa dos dados que recebe; se a janela
+contém ataque, ele passa a ser normal e deixa de ser marcado. Isso é
+explorável de forma gradual: um canal de comando e controle (C2) com batida de 6~h
+é absorvido um pouco mais a cada retreino, sem que o atacante precise evadir nada
+. O que o dado recente compra de fato é redução de falso
+positivo (servidor novo, mudança de horário de \textit{backup}). Por isso o treino
+ocorre sobre um \textit{pool} curado (Figura \ref{fig:ciclo}):
+
+\begin{itemize}
+  \item \textbf{Quarentena:} a janela só entra no \textit{pool} depois de 7 dias sem
+  indicador de comprometimento ($IOC$) retroativo.
+  \item \textbf{Recência:} cada janela recebe peso
+  $w = 0{,}5^{\,(t_{\max}-t)/h}$, com meia-vida $h = 14$ dias, normalizado pela
+  janela mais nova do \textit{pool}. Janelas com $w < 0{,}05$ são descartadas. A
+  amostragem (limitada a 2 milhões de linhas) é proporcional ao tamanho da janela e
+  serve só para limitar memória; a recência entra pelo \texttt{sample\_weight},
+  para não ser duplicada.
+  \item \textbf{Despejo e procedência:} cada modelo registra quais janelas o
+  treinaram. Descoberto um comprometimento, as janelas do período são despejadas,
+  a consulta \texttt{v\_models\_contaminados} lista os modelos que as absorveram e um
+  novo candidato é treinado sem elas.
+  \item \textbf{Homogeneidade:} janelas com contratos de atributos diferentes não
+  são misturadas, pois geraria um modelo cujo vetor de entrada não existe.
+\end{itemize}
+\begin{figure}[H]
+  \centering
+  \input{ciclo_vida.tex}
+  \caption{Estados de uma janela de tráfego no \textit{pool} de treino.}
+  \label{fig:ciclo}
+\end{figure}
+
 \section{Resultados}
 Os resultados estão organizados nas duas fases do trabalho. No MVP1, os
 classificadores são comparados na base NSL-KDD, e os números servem para escolher o

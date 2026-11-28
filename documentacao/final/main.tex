@@ -485,7 +485,6 @@ ameaças modernas, tais como \textit{DoS-Hulk}, \textit{Botnets}, \textit{Brute 
 falham em refletir os comportamentos do tráfego web atual, o CIC-IDS2017 fornece perfis realistas obtidos de uma topologia de rede 
 completa e interações com múltiplos sistemas operacionais e tráfego criptografado\cite{Abdulganiyu2023Systematic} \cite{Thakkar2021Survey}. 
 
-
 A fim de organizar e comparar os principais trabalhos\footnote{Arquivo disponível em: \url{https://1drv.ms/x/c/46f377637be54264/IQB7NxizkmLAS7_X22no62qJAZll5FV9_5Dt7G3kALLXvTY?e=ypAxe1}} relacionados à detecção 
 de intrusões e machine learning, foi elaborada a Tabela I encontrada na seção de Anexos contendo os 
 estudos mais relevantes identificados na literatura. 
@@ -1655,7 +1654,7 @@ Título & Citações & Autor & Ano & Tipo & HIDS/NIDS & Sig. & Técnica & Técni
 
 \cite{Belavagi2016Performance} & 482 & Belavagi \& Muniyal & 2016 & Estudo de Caso & NIDS & Anomalia/Uso Ind. & Supervisionada & LR, SVM, GNB, RF & 99\% (Acurácia) & NSL-KDD \\
 
-\cite{Rathore2016RealTime} & 147 & Rathore et al. & 2017 & Proposta & NIDS & Anomalia & Supervisionada & REPTree, J48, SVM, NB & > 99\% (Taxa Ver. Pos.) & DARPA, KDD99, NSL-KDD \\
+\cite{Rathore2016RealTime} & 147 & Rathore et al. & 2017 & Proposta & NIDS & Anomalia & Supervisionada & REPTree, J48, SVM, NB & 99\% (Taxa Ver. Pos.) & DARPA, KDD99, NSL-KDD \\
 
 \cite{Khraisat2019Survey} & 256 & Khraisat et al. & 2020 & Proposta & Ambos & Híbrido & Supervisionada & Stacking (C5.0 + One-Class SVM) & 97,04\% (ADFA) & NSL-KDD, ADFA \\
 
@@ -1667,7 +1666,17 @@ Título & Citações & Autor & Ano & Tipo & HIDS/NIDS & Sig. & Técnica & Técni
 
 \cite{IBM2026Supervised} & Não se aplica & Belcic et al. & 2026 & Estudo Didático & Não se aplica & Não se aplica & Ambos & LR, DT, SVM, RF, KNN e outros & Não se aplica & Bases didáticas \\
 
-\cite{scikit2026learn} & Não se aplica & Belcic et al. & 2026 & Estudo Didático & Não se aplica & Não se aplica & Ambos & LR, DT, SVM, RF, KNN e outros & Não se aplica & Bases didáticas \\
+\cite{scikit2026learn} & Não se aplica & Scikit-Learn & 2026 & Estudo Didático & Não se aplica & Não se aplica & Ambos & LR, DT, SVM, RF, KNN e outros & Não se aplica & Bases didáticas \\
+
+\cite{Merkel2014Docker} & 7419 & Merkel \& Dirk & 2014 & Visão geral / Estudo técnico & Não se aplica & Não se aplica & Não se aplica & Não se aplica & Não se aplica & Não se aplica \\
+
+\cite{Tony2008Isolation} & 13632 & F. T. Liu \& K. M. Ting \& Z.-H. Zhou, & 2008 & Proposta / Pesquisa experimental & Não se aplica & Anomalia & Não Supervisionada & Isolation Forest & Alta AUC e tempo de execução linear $O(n)$, superando LOF, ORCA e Random Forest em eficiência e escalabilidade & 12 bases públicas (UCI e dados sintéticos), incluindo KDDCup99 (http, smtp, forestcover, shuttle, breastw, etc.) \\
+
+\cite{Corinna1995Support} & 90227 & Cortes \& Vapnik & 1995 & Proposta / Pesquisa teórica e experimental & Não se aplica & Não se aplica & Supervisionada & SVM e Kernel Trick & Taxas de erro altamente competitivas frente a redes neurais e classificadores da época, com forte generalização & USPS e NIST (reconhecimento óptico de dígitos manuscritos) \\
+
+\cite{Battista2012Poisoning} & 2893 & Biggio \& Nelson \& Laskov & 2012 & Pesquisa experimental / Análise de segurança & Não se aplica & Não se aplica & Supervisionada & SVM & Demonstração de degradação severa da acurácia de teste da SVM com injeção de uma pequena fração de pontos maliciosos & Dados sintéticos 2D e subconjunto da base MNIST (classificação de dígitos) \\
+
+\cite{Settles2009Active} & 10434 & B. Settles & 2009 & Revisão da literatura (Survey) & Não se aplica & Não se aplica & Semi-Supervisionada & Active Learning & Redução significativa no número de instâncias rotuladas necessárias para atingir acurácia equivalente ao aprendizado passivo & Não se aplica \\
 
 
 \bottomrule

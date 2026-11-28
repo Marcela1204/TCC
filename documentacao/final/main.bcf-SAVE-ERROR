@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bcf:controlfile version="3.11" bltxversion="3.22" xmlns:bcf="https://sourceforge.net/projects/biblatex">
+<bcf:controlfile version="3.11" bltxversion="3.21" xmlns:bcf="https://sourceforge.net/projects/biblatex">
   <!-- BIBER OPTIONS -->
   <bcf:options component="biber" type="global">
     <bcf:option type="singlevalued">
@@ -2409,89 +2409,18 @@
     <bcf:citekey order="33" intorder="1">zehedi2023comparative</bcf:citekey>
     <bcf:citekey order="34" intorder="1">Thakkar2021Survey</bcf:citekey>
     <bcf:citekey order="35" intorder="1">Liao2013Intrusion</bcf:citekey>
-    <bcf:citekey order="36" intorder="1">Saranya2020Performance</bcf:citekey>
-    <bcf:citekey order="37" intorder="1">Khraisat2019Hybrid</bcf:citekey>
-    <bcf:citekey order="38" intorder="1">zehedi2023comparative</bcf:citekey>
-    <bcf:citekey order="39" intorder="1">Depren2005Intelligent</bcf:citekey>
-    <bcf:citekey order="40" intorder="1">Xianwei2019Adaptive</bcf:citekey>
-    <bcf:citekey order="41" intorder="1">Rathore2016RealTime</bcf:citekey>
-    <bcf:citekey order="42" intorder="1">Abdulganiyu2023Systematic</bcf:citekey>
-    <bcf:citekey order="43" intorder="1">patrick2022study</bcf:citekey>
-    <bcf:citekey order="44" intorder="1">Thakkar2021Survey</bcf:citekey>
-    <bcf:citekey order="45" intorder="1">felix2014analysis</bcf:citekey>
-    <bcf:citekey order="46" intorder="1">Othman2018Intrusion</bcf:citekey>
-    <bcf:citekey order="47" intorder="1">Rathore2016RealTime</bcf:citekey>
+    <bcf:citekey order="36" intorder="1">Liao2013Intrusion</bcf:citekey>
+    <bcf:citekey order="37" intorder="1">Saranya2020Performance</bcf:citekey>
+    <bcf:citekey order="38" intorder="1">Khraisat2019Hybrid</bcf:citekey>
+    <bcf:citekey order="39" intorder="1">zehedi2023comparative</bcf:citekey>
+    <bcf:citekey order="40" intorder="1">Depren2005Intelligent</bcf:citekey>
+    <bcf:citekey order="41" intorder="1">Xianwei2019Adaptive</bcf:citekey>
+    <bcf:citekey order="42" intorder="1">Rathore2016RealTime</bcf:citekey>
+    <bcf:citekey order="43" intorder="1">Abdulganiyu2023Systematic</bcf:citekey>
+    <bcf:citekey order="44" intorder="1">patrick2022study</bcf:citekey>
+    <bcf:citekey order="45" intorder="1">Thakkar2021Survey</bcf:citekey>
+    <bcf:citekey order="46" intorder="1">felix2014analysis</bcf:citekey>
+    <bcf:citekey order="47" intorder="1">Othman2018Intrusion</bcf:citekey>
     <bcf:citekey order="48" intorder="1">emad2022intrusion</bcf:citekey>
-    <bcf:citekey order="49" intorder="1">scikit2026learn</bcf:citekey>
-    <bcf:citekey order="50" intorder="1">Merkel2014Docker</bcf:citekey>
-    <bcf:citekey order="51" intorder="1">scikit2026learn</bcf:citekey>
-    <bcf:citekey order="52" intorder="1">Belavagi2016Performance</bcf:citekey>
-    <bcf:citekey order="53" intorder="1">Jabez2015Intrusion</bcf:citekey>
-    <bcf:citekey order="64" intorder="1">IBM2026Supervised</bcf:citekey>
-    <bcf:citekey order="65" intorder="1">IBM2026Supervised</bcf:citekey>
-    <bcf:citekey order="66" intorder="1">patrick2022study</bcf:citekey>
-    <bcf:citekey order="67" intorder="1">Thakkar2021Survey</bcf:citekey>
-    <bcf:citekey order="68" intorder="1">Abdulganiyu2023Systematic</bcf:citekey>
-    <bcf:citekey order="69" intorder="1">Depren2005Intelligent</bcf:citekey>
-    <bcf:citekey order="70" intorder="1">Xianwei2019Adaptive</bcf:citekey>
-    <bcf:citekey order="71" intorder="1">felix2014analysis</bcf:citekey>
-    <bcf:citekey order="72" intorder="1">zehedi2023comparative</bcf:citekey>
-    <bcf:citekey order="73" intorder="1">diptiben2022cyber</bcf:citekey>
-    <bcf:citekey order="74" intorder="1">wasyhun2023cyber</bcf:citekey>
-    <bcf:citekey order="75" intorder="1">Khraisat2019Hybrid</bcf:citekey>
-    <bcf:citekey order="76" intorder="1">Jabez2015Intrusion</bcf:citekey>
-    <bcf:citekey order="77" intorder="1">Othman2018Intrusion</bcf:citekey>
-    <bcf:citekey order="78" intorder="1">Liao2013Intrusion</bcf:citekey>
-    <bcf:citekey order="79" intorder="1">Kazi2019network</bcf:citekey>
-    <bcf:citekey order="80" intorder="1">Saranya2020Performance</bcf:citekey>
-    <bcf:citekey order="81" intorder="1">Shah2018Performance</bcf:citekey>
-    <bcf:citekey order="82" intorder="1">Belavagi2016Performance</bcf:citekey>
-    <bcf:citekey order="83" intorder="1">Rathore2016RealTime</bcf:citekey>
-    <bcf:citekey order="84" intorder="1">Khraisat2019Survey</bcf:citekey>
-    <bcf:citekey order="85" intorder="1">solane2015using</bcf:citekey>
-    <bcf:citekey order="86" intorder="1">emad2022intrusion</bcf:citekey>
-    <bcf:citekey order="87" intorder="1">James2023Introduction</bcf:citekey>
-    <bcf:citekey order="88" intorder="1">IBM2026Supervised</bcf:citekey>
-    <bcf:citekey order="89" intorder="1">scikit2026learn</bcf:citekey>
-  </bcf:section>
-  <!-- SORTING TEMPLATES -->
-  <bcf:sortingtemplate name="nty">
-    <bcf:sort order="1">
-      <bcf:sortitem order="1">presort</bcf:sortitem>
-    </bcf:sort>
-    <bcf:sort order="2" final="1">
-      <bcf:sortitem order="1">sortkey</bcf:sortitem>
-    </bcf:sort>
-    <bcf:sort order="3">
-      <bcf:sortitem order="1">sortname</bcf:sortitem>
-      <bcf:sortitem order="2">author</bcf:sortitem>
-      <bcf:sortitem order="3">editor</bcf:sortitem>
-      <bcf:sortitem order="4">translator</bcf:sortitem>
-      <bcf:sortitem order="5">sorttitle</bcf:sortitem>
-      <bcf:sortitem order="6">title</bcf:sortitem>
-    </bcf:sort>
-    <bcf:sort order="4">
-      <bcf:sortitem order="1">sorttitle</bcf:sortitem>
-      <bcf:sortitem order="2">title</bcf:sortitem>
-    </bcf:sort>
-    <bcf:sort order="5">
-      <bcf:sortitem order="1">sortyear</bcf:sortitem>
-      <bcf:sortitem order="2">year</bcf:sortitem>
-    </bcf:sort>
-    <bcf:sort order="6">
-      <bcf:sortitem order="1">volume</bcf:sortitem>
-      <bcf:sortitem literal="1" order="2">0</bcf:sortitem>
-    </bcf:sort>
-  </bcf:sortingtemplate>
-  <!-- DATALISTS -->
-  <bcf:datalist section="0"
-                name="nty/global//global/global/global"
-                type="entry"
-                sortingtemplatename="nty"
-                sortingnamekeytemplatename="global"
-                labelprefix=""
-                uniquenametemplatename="global"
-                labelalphanametemplatename="global"
-                namehashtemplatename="global">
-  </bcf:datalist>
-</bcf:controlfile>
+    <bcf:citekey order="49" intorder="1">Tony2008Isolation</bcf:citekey>
+    <bcf:citekey order="50" intorder="1">Corinna1995Support</bcf:citekey>

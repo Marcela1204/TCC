@@ -646,6 +646,42 @@
       \verb 10.1016/j.jnca.2012.09.004
       \endverb
     \endentry
+    \entry{Tony2008Isolation}{book}{}{}
+      \name{author}{3}{}{%
+        {{hash=231b376c1eeea575643f44deb86338c4}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Fei\bibnamedelima Tony},
+           giveni={F\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+        {{hash=9bc17f24d02724c02d418a27dfea50bb}{%
+           family={Ting},
+           familyi={T\bibinitperiod},
+           given={Kai\bibnamedelima Ming},
+           giveni={K\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=6b1a37e820a730061851a81dcca2d154}{%
+           family={Zhou},
+           familyi={Z\bibinitperiod},
+           given={Zhi-Hua},
+           giveni={Z\bibinithyphendelim H\bibinitperiod}}}%
+      }
+      \strng{namehash}{facf64454d5633117a12faa599e65058}
+      \strng{fullhash}{b38d2601a5a1a63e9c41ca76b68a2df4}
+      \strng{fullhashraw}{b38d2601a5a1a63e9c41ca76b68a2df4}
+      \strng{bibnamehash}{b38d2601a5a1a63e9c41ca76b68a2df4}
+      \strng{authorbibnamehash}{b38d2601a5a1a63e9c41ca76b68a2df4}
+      \strng{authornamehash}{facf64454d5633117a12faa599e65058}
+      \strng{authorfullhash}{b38d2601a5a1a63e9c41ca76b68a2df4}
+      \strng{authorfullhashraw}{b38d2601a5a1a63e9c41ca76b68a2df4}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Isolation Forest}
+      \field{year}{2008}
+      \verb{doi}
+      \verb 10.1109/ICDM.2008.17
+      \endverb
+    \endentry
     \entry{Merkel2014Docker}{article}{}{}
       \name{author}{1}{}{%
         {{hash=10d7200e2bfcc5a34efbee3b80c90f13}{%

@@ -439,15 +439,30 @@ Iglesias e Zseby \cite{felix2014analysis} reduzem de 41 para 16 atributos sem pe
 selecionam 17 atributos por quiquadrado e obtêm AUROC de 99,55\%. Abdallah et al. \cite{emad2022intrusion} reforçam que 
 conjuntos de 10 a 19 atributos são comuns em abordagens eficientes. 
 
-\subsubsection{Isolation Forest}
+\subsection{Isolation Forest}
+O Isolation Forest \cite{Tony2008Isolation} detecta anomalias isolando pontos em vez de modelar a densidade do normal. 
+Cada árvore particiona os dados com cortes aleatórios até isolar cada amostra; pontos raros e distantes 
+são isolados com poucos cortes. O \textit{score} de anomalia de uma amostra x em um conjunto de n amostras é 
+\begin{equation}
+s(x, n) = 2^{-\frac{E[h(x)]}{c(n)}},
+\end{equation}
+em que E[h(x)] é a profundidade média de isolamento de x nas árvores e c(n) é a profundidade média 
+de uma busca malsucedida em árvore binária, usada como normalização. Escores próximos de 1 indicam 
+anomalia. O parâmetro contamination define a fração de amostras de treino marcadas como anômalas e, 
+portanto, o limiar de decisão. Uma consequência estrutural explorada na Seção IV, é que um conjunto 
+volumoso e homogêneo de amostras de ataque deixa de ser raro e passa a ser difícil de isolar.
 
-\subsubsection{Máquinas de Vetores de Suporte}
+\subsection{Máquinas de Vetores de Suporte}
+A SVM \cite{Corinna1995Support} procura o hiperplano $f(x) = w^\top x + b$ de máxima margem entre duas classes. Na versão 
+linear, o valor de f(x) é uma distância com sinal ao hiperplano (a menos do fator $\|w\|$): o sinal dá 
+a classe predita e o módulo dá a confiança. Essa propriedade é usada no Estágio 2 para ordenar a 
+fila de revisão do analista. Por ser supervisionada, a SVM só reconhece formas de ataque que já viu 
+rotuladas.
 
-\subsubsection{Explicabilidade do Modelo Substituto}
+\subsection{Envenamento de Modelos e Aprendizado Ativo}
 
-\subsubsection{Envenamento de Modelos e Aprendizado Ativo}
 
-\subsubsection{NSL-KDD e CIC-IDS2017}
+\subsection{NSL-KDD e CIC-IDS2017}
 
 A fim de organizar e comparar os principais trabalhos\footnote{Arquivo disponível em: \url{https://1drv.ms/x/c/46f377637be54264/IQB7NxizkmLAS7_X22no62qJAZll5FV9_5Dt7G3kALLXvTY?e=ypAxe1}} relacionados à detecção 
 de intrusões e machine learning, foi elaborada a Tabela I encontrada na seção de Anexos contendo os 

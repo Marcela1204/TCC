@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.6.7)  28 NOV 2026 16:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.6.7)  28 NOV 2026 16:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2363,18 +2363,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 1553--1554
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1553--1554
-\OT1/cmr/m/n/10 tra-bal-hos acad^emicos e ma-te-ri-ais t^^Secnicos
- []
-
-
-Underfull \hbox (badness 4341) in paragraph at lines 1553--1554
-\OT1/cmr/m/n/10 rela-ciona-dos ^^Ra de-tec^^Xc~ao de in-trus~oes, pr^^Se-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1553--1554
-\OT1/cmr/m/n/10 processamento de da-dos e al-go-rit-mos de
+Underfull \hbox (badness 4181) in paragraph at lines 1553--1554
+\OT1/cmr/m/n/10 de-tec^^Xc~ao de in-trus~oes, pr^^Se-processamento e
  []
 
 
@@ -2414,14 +2404,14 @@ See the caption package documentation for explanation.
 
 CUTED [- LAST -]
 Extra skip:0.0pt
-Left:286.45132pt/1.94444pt
-Right:297.94444pt/0.0pt
-Split: 293.19788pt
-Output:293.19788pt
+Left:262.45132pt/1.94444pt
+Right:273.94444pt/0.0pt
+Split: 269.19788pt
+Output:269.19788pt
 Pageshrink: 0.0pt
 Pagestretch: 0.0pt
 @colht:702.78308pt
-CUTED [output]: 293.19788pt
+CUTED [output]: 269.19788pt
 CUTED [leftcolumn badness]: 9
 CUTED [rightcolumn badness]: 8
 
@@ -2636,7 +2626,7 @@ l/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/Marcela/AppData
 /Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvbo8a.pfb><C:/Users/Marcela/A
 ppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/Marc
 ela/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on main.pdf (23 pages, 3843645 bytes).
+Output written on main.pdf (23 pages, 3843622 bytes).
 PDF statistics:
  758 PDF objects out of 1000 (max. 8388607)
  151 named destinations out of 1000 (max. 500000)

@@ -267,6 +267,8 @@ desempenhos em lote e contínuo. Por fim, o Capítulo 5 sintetiza as Conclusões
 indica diretrizes para trabalhos futuros.
 
 \section{Fundamentação Teórica}
+
+\subsection{Segurança da Informação e Ameaças em Redes de Computadores}
 A segurança da informação tornou-se um elemento central na sociedade 
 contemporânea devido à crescente dependência de sistemas digitais. Com a 
 consolidação da chamada “civilização cibernética” \cite{wasyhun2023cyber}, iniciada a partir da 
@@ -317,6 +319,7 @@ anos reforça a necessidade de abordagens mais avançadas de detecção. Dessa
 forma, a evolução das ameaças exige a adoção de soluções mais inteligentes e 
 adaptativas. 
 
+\subsection{Sistemas de Detecção de Intrusão}
 Nesse contexto, os Sistemas de Detecção de Intrusão ($IDS$) desempenham um papel 
 central na proteção de redes, sendo responsáveis por monitorar atividades e 
 identificar comportamentos suspeitos. Esses sistemas permitem a detecção 
@@ -354,6 +357,7 @@ essenciais, os $IDS$ tradicionais ainda não são totalmente suficientes para
 lidar com a complexidade das ameaças modernas \cite{emad2022intrusion} \cite{patrick2022study}. Dessa forma, torna-se 
 necessário aprimorar continuamente esses sistemas. 
 
+\subsection{Aprendizado de Máquina em IDS}
 O uso de \textit{Machine Learning} ($ML$) tem se consolidado como uma abordagem fundamental 
 para aprimorar os Sistemas de Detecção de Intrusão ($IDS$), permitindo a 
 análise automatizada de grandes volumes de dados de rede. Diferentemente dos 
@@ -410,124 +414,7 @@ de acurácia na detecção de ataques. Esses resultados indicam que não existe
 uma abordagem única dominante, mas sim um conjunto de técnicas complementares 
 que podem ser utilizadas conforme o contexto da aplicação.	
 
-A aplicação de algoritmos supervisionados em ambientes modernos é analisada 
-por \cite{Saranya2020Performance}, que investigam o desempenho de diferentes 
-modelos em cenários como $IoT$ e $5G$. O estudo compara algoritmos como $CART$ e 
-\textit{Random Forest}, destacando que o uso de múltiplas árvores (\textit{ensemble}) resulta em 
-melhor desempenho. Os resultados mostram que o \textit{Random Forest} atingiu 99,65\% 
-de acurácia, superando o $CART$ isolado (98\%). Esse achado reforça a 
-importância de abordagens híbridas e ensembles para melhorar a robustez dos 
-modelos.
 
-A integração de diferentes algoritmos também é explorada por 
-\cite{Khraisat2019Hybrid}, que propõem um modelo híbrido combinando C5.0 e 
-\textit{$One-Class SVM$}. O estudo utiliza todos os atributos do $NSL-KDD$ para treinamento 
-e demonstra que a combinação entre detecção de assinatura e anomalia melhora a 
-capacidade do sistema. Os resultados mostram acurácia de 83,24\% no $NSL-KDD$ e 
-97,04\% no dataset $ADFA$. Esses resultados evidenciam que a combinação de 
-algoritmos pode superar limitações individuais de cada abordagem.
-
-A eficiência e interpretabilidade das árvores de decisão são destacadas no 
-estudo de \cite{zehedi2023comparative}, que propõe esse algoritmo como modelo central 
-para detecção de intrusão. O trabalho explora variações como $ID3$, $C4.5$ e $CART$, 
-enfatizando sua estrutura baseada em nós de decisão e ramos. Os resultados 
-mostram que o modelo $CART$ alcançou 97,36\% de sucesso em aplicações preditivas. 
-Esse desempenho, aliado à facilidade de interpretação, torna as árvores de 
-decisão altamente relevantes para sistemas que exigem transparência nas 
-decisões.
-
-A robustez das árvores de decisão em arquiteturas híbridas é demonstrada por 
-\cite{Depren2005Intelligent}, que combinam o algoritmo $C4.5$ com mapas auto-organizáveis 
-($SOM$). O uso de técnicas de poda (\textit{pruning}) é destacado como estratégia para 
-evitar o $overfitting$. Os resultados mostram que o sistema alcançou 99,84\% de 
-precisão na detecção de ataques de uso indevido. Esse resultado evidencia que 
-árvores de decisão, quando bem ajustadas e combinadas com outras técnicas, 
-podem atingir níveis extremamente elevados de desempenho.
-
-A utilização de árvores em modelos \textit{ensemble} é aprofundada por \cite{Xianwei2019Adaptive}, que propõem o algoritmo $MultiTree$ baseado em múltiplas 
-árvores $CART$ e votação majoritária. O estudo também aborda o problema de 
-desbalanceamento de dados, comum em $IDS$. Os resultados mostram que o modelo 
-atingiu 85,2\% de acurácia em cenários desafiadores, superando abordagens 
-isoladas. Esse achado reforça que múltiplas árvores aumentam a capacidade de 
-generalização dos modelos.
-
-A aplicabilidade das árvores de decisão em cenários de alta performance é 
-evidenciada por \cite{Rathore2016RealTime}, que utilizam algoritmos como $C4.5$ e 
-$REPTree$ em ambientes de \textit{Big Data}. Os resultados mostram taxas de verdadeiros 
-positivos superiores a 99,9\%, indicando alta eficiência na detecção de 
-intrusões em tempo real. Esse resultado demonstra que árvores de decisão são 
-adequadas para sistemas que exigem rapidez e precisão simultaneamente.
-
-Por fim, \cite{Abdulganiyu2023Systematic} consolidam, em sua revisão sistemática, 
-que algoritmos baseados em árvores apresentam acurácia variando entre 85,2\% 
-e 99,9\%, dependendo do contexto e da preparação dos dados. Esses resultados 
-reforçam que as árvores de decisão são uma das abordagens mais consistentes e 
-versáteis dentro da área de detecção de intrusão, especialmente quando 
-combinadas com técnicas de pré-processamento e seleção de atributos.
-
-A relevância do pré-processamento e da redução de dimensionalidade em sistemas 
-de detecção de intrusão é evidenciada no estudo de \cite{patrick2022study}, que 
-revisa o estado da arte de $IDS$ baseados em inteligência artificial e 
-aprendizado de máquina. O trabalho analisa conjuntos de dados amplamente 
-utilizados, como KDDCup99 e CICIDS2017, destacando o elevado número de 
-atributos (41 e 80, respectivamente) e a necessidade de técnicas como $PCA$ 
-para reduzir essa dimensionalidade. Os resultados mostram que modelos que 
-utilizam essas estratégias, especialmente combinados com deep learning e 
-métodos de \textit{ensemble}, atingem acurácias entre 94,4\% e 99,24\%. Esses achados 
-indicam que o pré-processamento não é apenas uma etapa auxiliar, mas um fator 
-determinante para viabilizar o uso de modelos mais complexos em ambientes de 
-$IDS$.
-
-A importância da engenharia de atributos é aprofundada no estudo de 
-\cite{Thakkar2021Survey}, que investiga técnicas de seleção de atributos e 
-seu impacto no desempenho dos modelos. O trabalho analisa diferentes 
-abordagens, como filtros, \textit{wrappers} e métodos embutidos, demonstrando que a 
-redução de conjuntos de dados para 5 a 20 atributos relevantes pode melhorar 
-significativamente a eficiência dos algoritmos. Os resultados indicam que, 
-utilizando técnicas como ganho de informação e qui-quadrado, modelos baseados 
-em árvores de decisão podem alcançar até 95,5\% de precisão. Esse resultado 
-reforça que a escolha adequada de atributos reduz a complexidade do problema e 
-aumenta a capacidade discriminativa dos modelos.
-
-A eficiência da redução de atributos em cenários de alta demanda computacional 
-é destacada por \cite{felix2014analysis}, que propõem uma abordagem 
-multiestágio para seleção de características em detecção de anomalias. O 
-estudo reduz progressivamente o conjunto de atributos de 41 para 30 e 
-posteriormente para 16, utilizando técnicas de filtro e regressão \textit{$stepwise$}. Os 
-resultados mostram que a acurácia do modelo aumentou de 75,53\% para 78,68\% 
-após a primeira redução, mantendo-se praticamente estável mesmo com menos 
-atributos. Esses achados evidenciam que é possível reduzir significativamente 
-a dimensionalidade sem perda de desempenho, o que é especialmente relevante 
-para sistemas em tempo real.
-
-A relação entre seleção de atributos e desempenho em ambientes de Big Data é 
-abordada por \cite{Othman2018Intrusion}, que investigam modelos de detecção de 
-intrusão utilizando \textit{$Apache Spark$}. O estudo aplica o teste qui-quadrado para 
-selecionar 17 atributos mais relevantes a partir das 41 características do 
-KDD99. Os resultados mostram um $AUROC$ de 99,55\%, evidenciando alto poder 
-discriminativo mesmo com um conjunto reduzido de atributos. Esse resultado 
-demonstra que a redução de dimensionalidade é essencial não apenas para 
-eficiência computacional, mas também para manter ou até melhorar a qualidade 
-das previsões em ambientes distribuídos.
-
-A importância da seleção de atributos também é reforçada por 
-\cite{Rathore2016RealTime}, que investigam sistemas de detecção de intrusão em 
-ambientes de \textit{Big Data} de alta velocidade. O estudo identifica que apenas 9 
-atributos são suficientes para alcançar desempenho superior em classificação, 
-utilizando algoritmos como $C4.5$ e $REPTree$. Os resultados mostram taxas de 
-verdadeiros positivos superiores a 99,9\%, indicando que a redução agressiva 
-de atributos pode ser altamente eficaz quando bem direcionada. Esse achado é 
-particularmente relevante para aplicações em tempo real, onde a latência e o 
-custo computacional são fatores críticos.
-
-Além disso, \cite{emad2022intrusion} reforçam, em sua revisão sobre técnicas 
-supervisionadas para IDS, que a seleção de atributos é um dos fatores mais 
-críticos para o desempenho dos modelos. O estudo analisa múltiplos datasets e 
-demonstra que a redução para conjuntos de 10 a 19 atributos é comum em 
-abordagens eficientes. Os resultados indicam que modelos como \textit{$Random Forest$} 
-podem atingir até 99,9\% de acurácia quando combinados com estratégias 
-adequadas de pré-processamento. Esses achados consolidam a ideia de que a 
-qualidade dos dados é tão importante quanto a escolha do algoritmo.
 
 A fim de organizar e comparar os principais trabalhos\footnote{Arquivo disponível em: \url{https://1drv.ms/x/c/46f377637be54264/IQB7NxizkmLAS7_X22no62qJAZll5FV9_5Dt7G3kALLXvTY?e=ypAxe1}} relacionados à detecção 
 de intrusões e machine learning, foi elaborada a Tabela I encontrada na seção de Anexos contendo os 

@@ -414,11 +414,46 @@ de acurácia na detecção de ataques. Esses resultados indicam que não existe
 uma abordagem única dominante, mas sim um conjunto de técnicas complementares 
 que podem ser utilizadas conforme o contexto da aplicação.	
 
+\subsection{Trabalhos Relacionados}
+Liao et al.\cite{Liao2013Intrusion} revisam técnicas de IDS baseadas em Bayes, teoria dos jogos 
+e mineração de dados, e mostram que árvores de decisão e SVM apresentam altas 
+taxas de acurácia, sem uma abordagem dominante. Saranya et al. \cite{Saranya2020Performance} comparam 
+algoritmos em cenários IoT e 5G e obtêm 99,65\% de acurácia com Random Forest, 
+contra 98\% do CART isolado. Khraisat et al. \cite{Khraisat2019Hybrid} combinam C5.0 e One-Class SVM 
+em um modelo híbrido, com 83,24\% de acurácia no NSL-KDD e 97,04\% no ADFA, mostrando 
+que a combinação entre detecção por assinatura e por anomalia supera as limitações 
+individuais — ideia próxima da cascata adotada no MVP2.
 
+A interpretabilidade das árvores de decisão é destacada por Azam et al. \cite{zehedi2023comparative}, em que o CART alcançou 
+97,36\% de sucesso. Depren et al. \cite{Depren2005Intelligent} combinam C4.5 com mapas auto-organizáveis (SOM) e atingem 
+99,84\% na detecção de uso indevido. Gao et al. \cite{Xianwei2019Adaptive} propõem o MultiTree, um ensemble de árvores CART 
+com votação majoritária que trata o desbalanceamento e alcança 85,2\% em cenários desafiadores. 
+Rathore et al. \cite{Rathore2016RealTime} usam C4.5 e REPTree em ambiente de Big Data com apenas 9 atributos e obtêm taxa de 
+verdadeiros positivos acima de 99,9\%. Abdulganiyu et al. \cite{Abdulganiyu2023Systematic} consolidam que algoritmos baseados em 
+árvores variam entre 85,2\% e 99,9\% de acurácia, conforme a preparação dos dados.
+
+Quanto ao pré-processamento, Vanin et al. \cite{patrick2022study} destacam o alto número de atributos 
+do KDDCup99 (41) e do CICIDS2017 (80) e a necessidade de técnicas como o PCA. Thakkar e Lohiya \cite{Thakkar2021Survey} 
+mostram que reduzir para 5 a 20 atributos relevantes melhora a eficiência dos algoritmos. 
+Iglesias e Zseby \cite{felix2014analysis} reduzem de 41 para 16 atributos sem perda de acurácia, e Othman et al. \cite{Othman2018Intrusion} 
+selecionam 17 atributos por quiquadrado e obtêm AUROC de 99,55\%. Abdallah et al. \cite{emad2022intrusion} reforçam que 
+conjuntos de 10 a 19 atributos são comuns em abordagens eficientes. 
+
+\subsubsection{Isolation Forest}
+
+\subsubsection{Máquinas de Vetores de Suporte}
+
+\subsubsection{Explicabilidade do Modelo Substituto}
+
+\subsubsection{Envenamento de Modelos e Aprendizado Ativo}
+
+\subsubsection{NSL-KDD e CIC-IDS2017}
 
 A fim de organizar e comparar os principais trabalhos\footnote{Arquivo disponível em: \url{https://1drv.ms/x/c/46f377637be54264/IQB7NxizkmLAS7_X22no62qJAZll5FV9_5Dt7G3kALLXvTY?e=ypAxe1}} relacionados à detecção 
 de intrusões e machine learning, foi elaborada a Tabela I encontrada na seção de Anexos contendo os 
 estudos mais relevantes identificados na literatura. 
+%VERIFICAR O NÚMERO DA TABELA PRA ANEXAR NESSA PARTE DEPOIS
+
 %A tabela apresenta 
 %critérios como tipo de abordagem, técnicas utilizadas e bases de dados 
 %empregadas, permitindo uma análise comparativa entre as propostas.

@@ -460,7 +460,13 @@ fila de revisão do analista. Por ser supervisionada, a SVM só reconhece formas
 rotuladas.
 
 \subsection{Envenamento de Modelos e Aprendizado Ativo}
-
+Ataques de envenenamento (\textit{poisoning}) manipulam os dados de treino para degradar ou desviar um modelo \cite{Battista2012Poisoning}. 
+Em um IDS que se retreina sobre o tráfego observado, o atacante não precisa injetar dados artificialmente: 
+basta que sua própria atividade, mantida em volume baixo e regular, entre no conjunto de treino e passe a 
+ser aprendida como normal. 
+O aprendizado ativo (\textit{active learning}) \cite{Settles2009Active} reduz o custo de rotulagem escolhendo 
+quais amostras submeter ao especialista. A estratégia por incerteza prioriza as amostras mais próximas da 
+fronteira de decisão, nas quais um rótulo humano mais altera o modelo. 
 
 \subsection{NSL-KDD e CIC-IDS2017}
 

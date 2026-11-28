@@ -469,6 +469,22 @@ quais amostras submeter ao especialista. A estratégia por incerteza prioriza as
 fronteira de decisão, nas quais um rótulo humano mais altera o modelo. 
 
 \subsection{NSL-KDD e CIC-IDS2017}
+A adoção do conjunto de dados NSL-KDD é fundamental para garantir a padronização dos testes e a comparabilidade científica 
+do modelo de detecção de intrusões, evitando os vieses estatísticos inerentes às bases legadas. Conforme detalhado no 
+artigo de revisão de Thakkar e Lohiya \cite{Thakkar2021Survey}, o NSL-KDD foi desenvolvido a partir do clássico KDD Cup '99 especificamente para 
+solucionar falhas estruturais graves, eliminando aproximadamente 78\% das instâncias duplicadas presentes no conjunto de 
+treinamento e 75\% no conjunto de testes. A remoção desse elevado volume de dados redundantes previne que os algoritmos 
+de Machine Learning fiquem tendenciosos em relação a padrões de tráfego normal frequentes, permitindo um aprendizado mais 
+justo sobre categorias de ataques raros e danosos, como \textit{User-to-Root} (U2R) e \textit{Remote-to-Local} (R2L)\cite{Thakkar2021Survey}.
+
+Por outro lado, a utilização da base de dados CIC-IDS2017 justifica-se pela imperiosa necessidade de validar o modelo proposto 
+perante um ambiente de tráfego de rede contemporâneo e altamente diversificado. De acordo com o estudo sistemático de 
+Abdulganiyu et al. \cite{Abdulganiyu2023Systematic} e o levantamento de Thakkar e Lohiya \cite{Thakkar2021Survey}, o dataset CIC-IDS2017, criado pelo \textit{Canadian Institute 
+for Cybersecurity}, disponibiliza 80 características extraídas de fluxos de rede \textit{pcap} e contempla uma vasta gama de 
+ameaças modernas, tais como \textit{DoS-Hulk}, \textit{Botnets}, \textit{Brute Force} (SSH/FTP), \textit{PortScan} e \textit{Heartbleed} \cite{Abdulganiyu2023Systematic} \cite{Thakkar2021Survey}. Enquanto datasets legados 
+falham em refletir os comportamentos do tráfego web atual, o CIC-IDS2017 fornece perfis realistas obtidos de uma topologia de rede 
+completa e interações com múltiplos sistemas operacionais e tráfego criptografado\cite{Abdulganiyu2023Systematic} \cite{Thakkar2021Survey}. 
+
 
 A fim de organizar e comparar os principais trabalhos\footnote{Arquivo disponível em: \url{https://1drv.ms/x/c/46f377637be54264/IQB7NxizkmLAS7_X22no62qJAZll5FV9_5Dt7G3kALLXvTY?e=ypAxe1}} relacionados à detecção 
 de intrusões e machine learning, foi elaborada a Tabela I encontrada na seção de Anexos contendo os 
